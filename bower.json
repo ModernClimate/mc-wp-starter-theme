@@ -1,6 +1,6 @@
 {
   "name": "ad-wp-starter-theme",
-  "description": "Starter bootstrap theme",
+  "description": "Starter wordpress theme",
   "main": "style.css",
   "authors": [
     "Ackmann & Dickenson"

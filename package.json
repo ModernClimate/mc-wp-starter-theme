@@ -1,7 +1,7 @@
 {
   "name": "ad-wp-starter-theme",
   "version": "1.0.0",
-  "description": "Starter bootstrap theme",
+  "description": "Starter wordpress theme",
   "main": "style.css",
   "author": "Ackmann & Dickenson",
   "license": "MIT",
