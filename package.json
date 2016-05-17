@@ -1,0 +1,23 @@
+{
+  "name": "ad-wp-starter-theme",
+  "version": "1.0.0",
+  "description": "Starter bootstrap theme",
+  "main": "style.css",
+  "author": "Ackmann & Dickenson",
+  "license": "MIT",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sequence": "^0.4.5",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "main-bower-files": "^2.13.0"
+  }
+}
