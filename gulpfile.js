@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 var plugins = require('gulp-load-plugins')();
 var bowerFiles = require('main-bower-files');
 
+// Compile all theme assets
 gulp.task('build', plugins.sequence(
   'build:bower',
   'build:scripts',
@@ -10,12 +11,14 @@ gulp.task('build', plugins.sequence(
   'build:styles'
 ));
 
+// Concatenate all bower javascript file
 gulp.task('build:bower', function () {
   return gulp.src( bowerFiles({filter:/\.js$/i}) )
     .pipe( plugins.concat('bower.js') )
     .pipe( gulp.dest('assets/dist') );
 });
 
+// Minify all local javascript files
 gulp.task('build:scripts', function () {
   return gulp.src(['assets/js/*.js'])
     .pipe( plugins.concat('global.js') )
@@ -23,6 +26,7 @@ gulp.task('build:scripts', function () {
     .pipe( gulp.dest('assets/dist') );
 });
 
+// Copy bower package fonts into version control
 gulp.task('build:fonts', function () {
   var fonts = [
     'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'
@@ -31,9 +35,32 @@ gulp.task('build:fonts', function () {
     .pipe(gulp.dest('assets/fonts'));
 });
 
+// Compile min CSS
 gulp.task('build:styles', function () {
   return gulp.src(['assets/scss/style.scss'])
     .pipe( plugins.sass({'outputStyle':'compressed', 'precision': 8}).on('error', plugins.sass.logError) )
+    .pipe( gulp.dest('assets/dist') );
+});
+
+// Compile all theme assets uncompressed for debugging
+gulp.task('build:dev', plugins.sequence(
+  'build:bower',
+  'build:scripts:dev',
+  'build:fonts',
+  'build:styles:dev'
+));
+
+// Concatenate uncompressed javascript files
+gulp.task('build:scripts:dev', function () {
+  return gulp.src(['assets/js/*.js'])
+    .pipe( plugins.concat('global.js') )
+    .pipe( gulp.dest('assets/dist') );
+});
+
+// Compile uncompressed CSS
+gulp.task('build:styles:dev', function () {
+  return gulp.src(['assets/scss/style.scss'])
+    .pipe( plugins.sass({'precision': 8}).on('error', plugins.sass.logError) )
     .pipe( gulp.dest('assets/dist') );
 });
 

@@ -1,5 +1,5 @@
 # A&D Starter Theme
-Starter WordPress theme. Features SCSS based Bootstrap, SCSS compilers and minifiers, JS minifiers and class based funnctions.php
+Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass), SCSS compiler, JS linting and minifying and class based functions.php
 
 ## Requirements
 1. [Node.js](https://github.com/ackmann-dickenson/ad-wp-starter-theme/wiki/Install-Node.js)
@@ -10,8 +10,10 @@ Starter WordPress theme. Features SCSS based Bootstrap, SCSS compilers and minif
 3. `$ bower install` :  Install bower packages
 
 ## Commands
-`$ gulp build` : Compiles css and js in assets/dist directory. Also copies fonts to assets/fonts directory.
+`$ gulp build` : Compiles minified assets
 
-`$ gulp watch` : Watches assets/scss and assets/js directories for changes to recompile.
+`$ gulp build:dev` : Compiles uncompressed assets
+
+`$ gulp watch` : Watches assets/scss and assets/js
 
 `$ gulp lint` : Runs linters on files in assets/js
