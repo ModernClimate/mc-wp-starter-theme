@@ -4,9 +4,6 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 add_action( 'wp_enqueue_scripts', 'enqueue_styles' );
 
 function enqueue_scripts() {
-
-  wp_dequeue_script( 'jquery-migrate' ); 
-
   wp_register_script(
     'bower',
     AD_THEME_PATH_URL . 'assets/dist/bower.js',
