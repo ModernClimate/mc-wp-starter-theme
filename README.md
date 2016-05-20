@@ -9,7 +9,7 @@ Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/b
 2. `$ npm install` : Install local packages
 3. `$ bower install` :  Install bower packages
 
-## Commands
+## Gulp Commands
 `$ gulp build` : Compiles minified assets
 
 `$ gulp build:dev` : Compiles uncompressed assets
@@ -17,3 +17,12 @@ Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/b
 `$ gulp watch` : Watches assets/scss and assets/js
 
 `$ gulp lint` : Runs linters on files in assets/js
+
+## Environmental Checks
+The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
+
+## ACF Notes
+
+For local development load `acf-export.json` and edit with ACF Field Groups admin page. In production environment the ACF fields should load from `/inc/acf-fields.php`. See [Environment Constants](#environmental-constants) for details on environment checks.
+
+**Please keep `acf-export.json` and `/inc/acf-fields.php` up to date with changes.**
