@@ -38,3 +38,6 @@ class AD_Theme {
   }
 
 }
+
+if ( defined('WP_ENV') )
+  require_once 'krumo/class.krumo.php';
