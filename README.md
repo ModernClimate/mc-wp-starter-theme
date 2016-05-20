@@ -23,6 +23,6 @@ The `wp-config.php` should define `WP_ENV` as `dev` for local development. Produ
 
 ## ACF Notes
 
-For local development load `acf-export.json` and edit with ACF Field Groups admin page. In production environment the ACF fields should load from `/inc/acf-fields.php`. See [Environment Constants](#environmental-constants) for details on environment checks.
+For local development load `acf-export.json` and edit with ACF Field Groups admin page. In production environment the ACF fields should load from `/inc/acf-fields.php`. See [Environment Constants](https://github.com/ackmann-dickenson/ad-wp-starter-theme#environmental-checks) for details on environment checks.
 
 **Please keep `acf-export.json` and `/inc/acf-fields.php` up to date with changes.**
