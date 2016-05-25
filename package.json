@@ -4,6 +4,10 @@
   "description": "Starter wordpress theme",
   "main": "style.css",
   "author": "Ackmann & Dickenson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ackmann-dickenson/ad-wp-starter-theme.git"
+  },
   "license": "MIT",
   "dependencies": {
     "bower": "^1.7.9",
