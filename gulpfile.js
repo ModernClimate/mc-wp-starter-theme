@@ -1,7 +1,10 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var plugins = require('gulp-load-plugins')();
 var bowerFiles = require('main-bower-files');
+
+function swallowError() {
+  this.emit('end');
+}
 
 // Compile all theme assets
 gulp.task('build', plugins.sequence(
@@ -22,7 +25,7 @@ gulp.task('build:bower', function () {
 gulp.task('build:scripts', function () {
   return gulp.src(['assets/js/*.js'])
     .pipe( plugins.concat('global.js') )
-    .pipe( plugins.uglify().on('error', gutil.log) )
+    .pipe( plugins.uglify().on('error', swallowError) )
     .pipe( gulp.dest('assets/dist') );
 });
 
