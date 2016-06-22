@@ -13,16 +13,18 @@
       }
 
       // Flexible Content Rows
-      if( have_rows('content_rows') ) {
-        while ( have_rows('content_rows') ) {
-          the_row();
-          switch( get_row_layout() ) {
-            case 'columns_row':
-              include( AD_THEME_DIR . 'inc/flex-content/columns.php' );
-              break;
-            case 'slideshow':
-              include( AD_THEME_DIR . 'inc/flex-content/slideshow.php' );
-              break;
+      if ( function_exists('have_rows') ) {
+        if( have_rows('content_rows') ) {
+          while ( have_rows('content_rows') ) {
+            the_row();
+            switch( get_row_layout() ) {
+              case 'columns_row':
+                include( AD_THEME_DIR . 'inc/flex-content/columns.php' );
+                break;
+              case 'slideshow':
+                include( AD_THEME_DIR . 'inc/flex-content/slideshow.php' );
+                break;
+            }
           }
         }
       }
