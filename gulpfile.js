@@ -3,6 +3,7 @@ var plugins = require('gulp-load-plugins')();
 var bowerFiles = require('main-bower-files');
 
 function swallowError() {
+  console.log( 'UGLIFY ERROR' );
   this.emit('end');
 }
 
@@ -69,6 +70,11 @@ gulp.task('build:styles:dev', function () {
 
 // Watch Assets
 gulp.task('watch', function () {
+  gulp.watch(['assets/scss/**/*.scss'], ['build:styles:dev']);
+  gulp.watch(['assets/js/*.js'], ['build:scripts:dev', 'lint']);
+});
+
+gulp.task('watch:dev', function () {
   gulp.watch(['assets/scss/**/*.scss'], ['build:styles']);
   gulp.watch(['assets/js/*.js'], ['build:scripts', 'lint']);
 });
