@@ -70,13 +70,13 @@ gulp.task('build:styles:dev', function () {
 
 // Watch Assets
 gulp.task('watch', function () {
-  gulp.watch(['assets/scss/**/*.scss'], ['build:styles:dev']);
-  gulp.watch(['assets/js/*.js'], ['build:scripts:dev', 'lint']);
+  gulp.watch(['assets/scss/**/*.scss'], ['build:styles']);
+  gulp.watch(['assets/js/*.js'], ['build:scripts', 'lint']);
 });
 
 gulp.task('watch:dev', function () {
-  gulp.watch(['assets/scss/**/*.scss'], ['build:styles']);
-  gulp.watch(['assets/js/*.js'], ['build:scripts', 'lint']);
+  gulp.watch(['assets/scss/**/*.scss'], ['build:styles:dev']);
+  gulp.watch(['assets/js/*.js'], ['build:scripts:dev', 'lint']);
 });
 
 // Linting
