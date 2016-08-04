@@ -8,12 +8,12 @@ function swallowError() {
 }
 
 // Compile all theme assets
-gulp.task('build', plugins.sequence(
+gulp.task('build', [
   'build:bower',
   'build:scripts',
   'build:fonts',
   'build:styles'
-));
+]);
 
 // Concatenate all bower javascript file
 gulp.task('build:bower', function () {
@@ -47,12 +47,12 @@ gulp.task('build:styles', function () {
 });
 
 // Compile all theme assets uncompressed for debugging
-gulp.task('build:dev', plugins.sequence(
+gulp.task('build:dev', [
   'build:bower',
   'build:scripts:dev',
   'build:fonts',
   'build:styles:dev'
-));
+]);
 
 // Concatenate uncompressed javascript files
 gulp.task('build:scripts:dev', function () {
