@@ -19,6 +19,7 @@ class AD_Theme {
     // Theme includes
     include_once 'inc/enqueue.php';
     include_once 'inc/acf-fields.php';
+    include_once 'inc/shortcodes.php';
 
     // Register primary menu
     register_nav_menus(['primary' => 'Primary Menu']);
