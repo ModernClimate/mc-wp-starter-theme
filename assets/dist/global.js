@@ -1,1 +1,1 @@
-!function(o){console.log("hello world")}(jQuery);
+jQuery(function(t){t('[data-toggle="tooltip"]').tooltip()});

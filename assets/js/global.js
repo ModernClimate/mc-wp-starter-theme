@@ -1,5 +1,5 @@
-(function($) {
+jQuery(function($) {
 
-  console.log('hello world');
+  $('[data-toggle="tooltip"]').tooltip();
 
-})(jQuery);
+});
