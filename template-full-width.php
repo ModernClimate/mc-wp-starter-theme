@@ -1,7 +1,10 @@
-<?php get_header(); ?>
+<?php
+  /* Template Name: Full Width */
+  get_header();
+?>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-xs-12">
     <?php
       // "The Loop"
       if( have_posts() ) {
@@ -17,7 +20,6 @@
     ?>
   </div>
 
-  <?php get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>
