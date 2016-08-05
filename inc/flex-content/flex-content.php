@@ -15,6 +15,9 @@ if ( function_exists('have_rows') ) {
         case 'row_tabs':
           include( AD_THEME_DIR . 'inc/flex-content/tabs.php' );
           break;
+        case 'row_accordion':
+          include( AD_THEME_DIR . 'inc/flex-content/accordion.php' );
+          break;
       }
       echo "</div>";
     }

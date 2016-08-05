@@ -16,7 +16,7 @@
                     "class": "",
                     "id": ""
                 },
-                "button_label": "Add Row",
+                "button_label": "Add Content Row",
                 "min": "",
                 "max": "",
                 "layouts": [
@@ -111,8 +111,8 @@
                                 "name": "slides",
                                 "type": "repeater",
                                 "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
+                                "required": "",
+                                "conditional_logic": "",
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -121,8 +121,8 @@
                                 "collapsed": "",
                                 "min": 1,
                                 "max": "",
-                                "layout": "block",
-                                "button_label": "Add Row",
+                                "layout": "",
+                                "button_label": "Add Slide",
                                 "sub_fields": [
                                     {
                                         "key": "field_573e1dda47c6e",
@@ -233,6 +233,92 @@
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "57a4aca0e07a5",
+                        "name": "row_accordion",
+                        "label": "Accordion Row",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_57a4b1e50234d",
+                                "label": "Open First",
+                                "name": "open_first",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "Open first panel on page load",
+                                "default_value": 1
+                            },
+                            {
+                                "key": "field_57a4acbde07a6",
+                                "label": "Accordion",
+                                "name": "accordion",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 2,
+                                "max": "",
+                                "layout": "block",
+                                "button_label": "Add Accordion Panel",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_57a4accbe07a7",
+                                        "label": "Accordion Title",
+                                        "name": "accordion_title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "readonly": 0,
+                                        "disabled": 0
+                                    },
+                                    {
+                                        "key": "field_57a4acd8e07a8",
+                                        "label": "Accordion Content",
+                                        "name": "accordion_content",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 1,
                                         "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
