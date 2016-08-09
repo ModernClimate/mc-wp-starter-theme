@@ -32,4 +32,12 @@
   </div>
 </nav>
 
-<div class="container">
+<?php
+  if( function_exists('get_field') ) {
+    $site_layout = get_field('site_layout' ,'options');
+  }
+  else {
+    $site_layout = 'container';
+  }
+?>
+<div class="<?php echo $site_layout; ?>">

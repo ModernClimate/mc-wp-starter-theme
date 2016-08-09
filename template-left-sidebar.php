@@ -1,10 +1,10 @@
 <?php
-  /* Template Name: Full Width */
+  /* Template Name: Left Sidebar */
   get_header();
 ?>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-md-8 col-md-push-4">
     <?php
       // "The Loop"
       if( have_posts() ) {
@@ -20,6 +20,9 @@
     ?>
   </div>
 
+  <div class="col-md-4 col-md-pull-8 sidebar">
+    <?php get_sidebar(); ?>
+  </div>
 </div>
 
 <?php get_footer(); ?>

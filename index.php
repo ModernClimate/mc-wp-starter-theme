@@ -23,7 +23,9 @@
     <?php endif; ?>
   </div>
 
-  <?php get_sidebar(); ?>
+  <div class="col-md-4 sidebar">
+    <?php get_sidebar(); ?>
+  </div>
 </div>
 
 <?php get_footer(); ?>

@@ -356,5 +356,54 @@
         "hide_on_screen": "",
         "active": 1,
         "description": ""
+    },
+    {
+        "key": "group_57a9f4dce4efe",
+        "title": "Site Options",
+        "fields": [
+            {
+                "key": "field_57a9f4f464bb2",
+                "label": "Site Layout",
+                "name": "site_layout",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "container": "Centered Container",
+                    "container-fluid": "Full Screen (Fluid)"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
     }
 ]

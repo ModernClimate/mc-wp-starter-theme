@@ -37,6 +37,11 @@ class AD_Theme {
     // Theme supports
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'automatic-feed-links' );
+
+    // ACF options page
+    if( function_exists('acf_add_options_page') ) {
+      acf_add_options_page();
+    }
   }
 
 }

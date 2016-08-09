@@ -1,7 +1,10 @@
-<?php get_header(); ?>
+<?php
+  /* Template Name: Right Sidebar */
+  get_header();
+?>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-md-8">
     <?php
       // "The Loop"
       if( have_posts() ) {
@@ -15,6 +18,10 @@
       // Flexible Content Rows
       include( AD_THEME_DIR . 'inc/flex-content/flex-content.php' );
     ?>
+  </div>
+
+  <div class="col-md-4 sidebar">
+    <?php get_sidebar(); ?>
   </div>
 
 </div>
