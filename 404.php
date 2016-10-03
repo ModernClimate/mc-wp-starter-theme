@@ -1,23 +1,36 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found).
+ *
+ * @package AD Starter
+ */
 
-<div class="row">
-  <div class="col-md-8">
-    <h1>Page Not Found</h1>
-    <p>
-      <strong>Did you type the URL?</strong><br />
-      You may have typed the address (URL) incorrectly. Check it to make sure you've got the exact right spelling, capitalization, etc.
-    </p>
-    <p>
-      <strong>Did you follow a link from somewhere else at this site?</strong><br />
-      If you reached this page from another part of this site.
-    </p>
-    <p>
-      <strong>Did you follow a link from another site?</strong><br />
-      Links from other sites can sometimes be outdated or misspelled.
-    </p>
-  </div>
+get_header(); ?>
 
-  <?php get_sidebar(); ?>
-</div>
+	<div class="container">
+		<div class="row">
+
+			<div <?php hybrid_attr( 'primary' ); ?>>
+
+				<header class="entry__header">
+					<h1 class="hdg hdg--1">
+						<?php _e( 'Page Not Found', 'ad-starter' ); ?>
+					</h1>
+				</header><!-- /.entry__header -->
+
+				<div class="entry__content">
+					<?php
+					_e( '<p>It looks like the page you&rsquo;re looking for doesn&rsquo;t exist. Perhaps a quick look through these pages will help you find what you&rsquo;re looking for:</p>', 'ad-starter' );
+
+					hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template.
+					?>
+				</div><!-- /.entry__content -->
+
+			</div><!-- /#primary -->
+
+			<?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
 
 <?php get_footer(); ?>

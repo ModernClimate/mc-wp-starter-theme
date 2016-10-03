@@ -1,22 +1,41 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package AD Starter
+ */
 
-<div class="row">
-  <div class="col-xs-12">
-    <?php
-      // "The Loop"
-      if( have_posts() ) {
-        while( have_posts() ) {
-          the_post();
-          echo "<h1>" . get_the_title() . "</h1>";
-          the_content();
-        }
-      }
+get_header(); ?>
 
-      // Flexible Content Rows
-      include( AD_THEME_DIR . 'inc/flex-content/flex-content.php' );
-    ?>
-  </div>
+<div class="container">
+	<div class="row">
 
-</div>
+		<div <?php hybrid_attr( 'primary', hybrid_get_theme_layout() ); ?>>
+
+			<?php hybrid_get_menu( 'breadcrumb' ); // Loads the menu/breadcrumb.php template. ?>
+
+			<?php
+			while ( have_posts() ) {
+				the_post();
+
+				// Loads the content/singular/page.php template.
+				hybrid_get_content_template();
+		
+				// Flexible Content Rows
+				get_template_part( 'components/flexible', 'modules' );
+			}
+			?>
+
+		</div><!-- /#primary -->
+
+		<?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+
+	</div><!-- /.row -->
+</div><!-- /.container -->
 
 <?php get_footer(); ?>

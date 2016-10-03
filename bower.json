@@ -1,25 +1,14 @@
 {
-  "name": "ad-wp-starter-theme",
-  "description": "Starter wordpress theme",
-  "main": "style.css",
-  "authors": [
-    "Ackmann & Dickenson"
-  ],
-  "license": "MIT",
-  "moduleType": [],
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
-  "dependencies": {
-    "bootstrap-sass": "^3.3.6"
-  },
-  "overrides": {
-    "bootstrap-sass": {
-      "main": "assets/javascripts/bootstrap.min.js",
-      "dependencies": null
-    }
-  }
+	"name": "ad-wp-starter-theme",
+	"description": "Starter wordpress theme",
+	"main": "style.css",
+	"authors": [
+		"Ackmann & Dickenson"
+	],
+	"license": "MIT",
+	"moduleType": [],
+	"private": true,
+	"dependencies": {
+		"bootstrap-sass": "^3.3.6"
+	}
 }

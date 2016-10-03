@@ -1,24 +1,47 @@
-<?php if( have_comments() ): ?>
-  <h3>Comments</h3>
-  <ul>
-    <?php wp_list_comments(); ?>
-  </ul>
-  <?php if( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ): ?>
-    <nav>
-      <ul class="pager">
-        <li class="previous"><?php previous_comments_link( '&larr; Older Comments'); ?></li>
-        <li class="next"><?php next_comments_link( 'Newer Comments &rarr;'); ?></li>
-      </ul>
-    </nav>
-  <?php endif; ?>
+<?php
+/**
+ * The template for displaying comments.
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ *
+ * @package AD Starter
+ */
 
-  <?php if( !comments_open() ): ?>
-    <p>Comments are closed.</p>
-  <?php endif; ?>
+if ( post_password_required() ) {
+	return;
+}
+?>
 
-<?php endif; ?>
+<div id="comments" class="comments-area">
 
-<?php // Start Comment Form
-  if( comments_open() ) {
-    comment_form();
-  }
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title"><?php comments_number(); ?></h2>
+
+		<?php the_comments_navigation(); ?>
+
+		<ol class="comment-list">
+			<?php
+			wp_list_comments( [
+				'style'        => 'ol',
+				'short_ping'   => true,
+				'callback'     => 'hybrid_comments_callback',
+				'end-callback' => 'hybrid_comments_end_callback'
+			] );
+			?>
+		</ol><!-- .comment-list -->
+
+		<?php the_comments_navigation(); ?>
+
+	<?php endif; // Check for have_comments(). ?>
+
+	<?php
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		?>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'ad-starter' ); ?></p>
+	<?php endif; ?>
+
+	<?php comment_form(); // Loads the comment form. ?>
+
+</div><!-- .comments-area -->
