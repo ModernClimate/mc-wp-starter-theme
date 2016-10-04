@@ -26,7 +26,8 @@
 		"gulp-uglify": "^1.5.3",
 		"jshint": "^2.9.2",
 		"jshint-stylish": "^2.2.0",
-		"run-sequence": "^1.1.5"
+		"run-sequence": "^1.1.5",
+		"main-bower-files": "^2.13.0"
 	},
 	"scripts": {
 		"postinstall": "composer install && bower install && gulp build",

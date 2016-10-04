@@ -2,6 +2,7 @@
 var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
+var bowerFiles = require('main-bower-files');
 
 function swallowError() {
 	console.log('UGLIFY ERROR');
@@ -19,38 +20,30 @@ var PATHS = {
 		'assets/scss/*.scss',
 		'assets/scss/**/*.scss'
 	],
-	jsBootstrap: [
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js',
-		// 'bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
-		'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-	],
 	jsTheme: [
 		'assets/js/theme/*.js',
 		'assets/js/theme.js'
-	],
-	jsVendors: [
-		'assets/js/vendor/*.js'
 	]
 };
 
-// Concatenate bootstraps javascript files
-gulp.task('build:scripts:bootstrap', function () {
-	return gulp.src(PATHS.jsBootstrap)
-		.pipe($.concat('bootstrap.js'))
+// Concatenate all bower javascript file
+gulp.task('build:scripts:vendor', function () {
+	return gulp.src(bowerFiles({filter: /\.js$/i}))
+		.pipe($.concat('vendor.js'))
 		.pipe($.rename({
 			suffix: '.min'
 		}))
-		.pipe($.uglify())
+		.pipe($.uglify().on('error', swallowError))
+		.pipe(gulp.dest('build/js'));
+});
+
+// Concatenate all bower javascript file
+gulp.task('dev:scripts:vendor', function () {
+	return gulp.src(bowerFiles({filter: /\.js$/i}))
+		.pipe($.concat('vendor.js'))
+		.pipe($.rename({
+			suffix: '.min'
+		}))
 		.pipe(gulp.dest('build/js'));
 });
 
@@ -61,18 +54,7 @@ gulp.task('build:scripts:theme', function () {
 		.pipe($.rename({
 			suffix: '.min'
 		}))
-		.pipe($.uglify())
-		.pipe(gulp.dest('build/js'));
-});
-
-//  Concatenate & Minify JS Vendor scripts
-gulp.task('build:scripts:vendor', function () {
-	return gulp.src(PATHS.jsVendors)
-		.pipe($.concat('vendor.js'))
-		.pipe($.rename({
-			suffix: '.min'
-		}))
-		.pipe($.uglify())
+		.pipe($.uglify().on('error', swallowError))
 		.pipe(gulp.dest('build/js'));
 });
 
@@ -80,6 +62,9 @@ gulp.task('build:scripts:vendor', function () {
 gulp.task('dev:scripts:theme', function () {
 	return gulp.src(PATHS.jsTheme)
 		.pipe($.concat('theme.js'))
+		.pipe($.rename({
+			suffix: '.min'
+		}))
 		.pipe(gulp.dest('build/js'));
 });
 
@@ -118,7 +103,8 @@ gulp.task('dev:styles', function () {
 			})
 			.on('error', $.sass.logError))
 		.pipe($.rename({
-			basename: "theme"
+			basename: "theme",
+			suffix: '.min'
 		}))
 		.pipe(gulp.dest('build/css'))
 });
@@ -136,7 +122,6 @@ gulp.task('lint', function () {
 gulp.task('watch', function () {
 	// Watch .js files
 	gulp.watch(PATHS.jsTheme, ['build:scripts:theme', 'lint']);
-	gulp.watch(PATHS.jsVendors, ['build:scripts:vendor']);
 	// Watch .scss files
 	gulp.watch(PATHS.sass, ['build:styles']);
 });
@@ -145,19 +130,27 @@ gulp.task('watch', function () {
 gulp.task('watch:dev', function () {
 	// Watch .js files
 	gulp.watch(PATHS.jsTheme, ['dev:scripts:theme', 'lint']);
-	gulp.watch(PATHS.jsVendors, ['build:scripts:vendor']);
 	// Watch .scss files
 	gulp.watch(PATHS.sass, ['dev:styles']);
 });
 
-// Build the theme assets
+// Build and minify the theme assets
 gulp.task('build', function (done) {
 	sequence([
-		'build:scripts:bootstrap',
-		'build:scripts:theme',
 		'build:scripts:vendor',
+		'build:scripts:theme',
 		'build:fonts',
 		'build:styles'
+	], done);
+});
+
+// Build the theme assets un-minified
+gulp.task('dev', function (done) {
+	sequence([
+		'dev:scripts:vendor',
+		'dev:scripts:theme',
+		'build:fonts',
+		'dev:styles'
 	], done);
 });
 
