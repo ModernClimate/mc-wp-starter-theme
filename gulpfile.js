@@ -76,6 +76,13 @@ gulp.task('build:scripts:vendor', function () {
 		.pipe(gulp.dest('build/js'));
 });
 
+// Concatenate & Minify all theme javascript files
+gulp.task('dev:scripts:theme', function () {
+	return gulp.src(PATHS.jsTheme)
+		.pipe($.concat('theme.js'))
+		.pipe(gulp.dest('build/js'));
+});
+
 // Copy bower package fonts into version control
 gulp.task('build:fonts', function () {
 	return gulp.src(PATHS.fonts)
@@ -89,8 +96,6 @@ gulp.task('build:styles', function () {
 		.pipe($.sass({
 				includePaths: PATHS.sass,
 				outputStyle: 'compressed',
-				indentType: 'tab',
-				indentWidth: 1
 			})
 			.on('error', $.sass.logError))
 		.pipe($.rename({
@@ -103,11 +108,11 @@ gulp.task('build:styles', function () {
 });
 
 // Compile uncompressed CSS
-gulp.task('build:styles:dev', function () {
-	return gulp.src('assets/scss/app.scss')
-		.pipe($.sourcemaps.init())
+gulp.task('dev:styles', function () {
+	return gulp.src('assets/scss/main.scss')
 		.pipe($.sass({
 				includePaths: PATHS.sass,
+				outputStyle: 'expanded',
 				indentType: 'tab',
 				indentWidth: 1
 			})
@@ -139,10 +144,10 @@ gulp.task('watch', function () {
 // DEV Watch tasks
 gulp.task('watch:dev', function () {
 	// Watch .js files
-	gulp.watch(PATHS.jsTheme, ['build:scripts:theme', 'lint']);
+	gulp.watch(PATHS.jsTheme, ['dev:scripts:theme', 'lint']);
 	gulp.watch(PATHS.jsVendors, ['build:scripts:vendor']);
 	// Watch .scss files
-	gulp.watch(PATHS.sass, ['build:styles']);
+	gulp.watch(PATHS.sass, ['dev:styles']);
 });
 
 // Build the theme assets

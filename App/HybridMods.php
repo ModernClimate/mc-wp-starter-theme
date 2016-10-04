@@ -17,6 +17,7 @@ class HybridMods implements WordPressHooks {
 	 */
 	public function addHooks() {
 		add_filter( 'hybrid_attr_primary', [ $this, 'attrPrimaryContent' ], 10, 2 );
+		add_filter( 'hybrid_attr_sidebar', [ $this, 'attrSidebarContent' ], 10, 2 );
 		add_filter( 'hybrid_content_template_hierarchy', [ $this, 'contentTemplateHierarchy' ] );
 	}
 
@@ -32,12 +33,38 @@ class HybridMods implements WordPressHooks {
 		$attr['id']    = 'primary';
 		$attr['class'] = 'content-area';
 
-		switch( $context ) {
+		switch ( $context ) {
 			case 'full' :
 				$attr['class'] .= ' col-sm-12';
 				break;
+			case 'sidebar-left' :
+				$attr['class'] .= ' col-sm-8 col-sm-push-4';
+				break;
 			default:
 				$attr['class'] .= ' col-sm-8';
+		}
+
+		return $attr;
+	}
+
+	/**
+	 * Sets the sidebar container ID/class.
+	 *
+	 * @param $attr
+	 * @param  string $context
+	 *
+	 * @return array
+	 */
+	public function attrSidebarContent( array $attr, $context = '' ) {
+		$attr['id']    = 'sidebar';
+		$attr['class'] = $context;
+
+		switch ( $context ) {
+			case 'sidebar-left' :
+				$attr['class'] .= ' col-sm-4 col-sm-pull-8';
+				break;
+			default:
+				$attr['class'] .= ' col-sm-4';
 		}
 
 		return $attr;

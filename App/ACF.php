@@ -29,7 +29,7 @@ class ACF implements WordPressHooks {
 	public function addOptionsPage() {
 		if ( function_exists( 'acf_add_options_page' ) ) {
 			acf_add_options_page( [
-				'page_title' => __( 'General Options', 'ad-starter' ),
+				'page_title' => __( 'Site Options', 'ad-starter' ),
 				'menu_title' => __( 'Options', 'ad-starter' ),
 				'menu_slug'  => 'theme-general-options',
 				'capability' => 'edit_posts',

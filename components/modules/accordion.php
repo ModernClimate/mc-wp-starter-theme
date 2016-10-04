@@ -8,7 +8,7 @@ $open_first = get_sub_field( 'open_first' );
 ?>
 
 <div class="panel-group" id="<?php echo $rowId; ?>" role="tablist">
-	<?php foreach ( $panels as $index => $panel ): ?>
+	<?php foreach ( $panels as $index => $panel ) : ?>
 		<div class="panel panel-default">
 			<div class="panel-heading" role="tab">
 				<h4 class="panel-title">

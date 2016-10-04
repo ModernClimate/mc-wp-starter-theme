@@ -20,9 +20,9 @@ get_header(); ?>
 
 				<div class="entry__content">
 					<?php
-					_e( '<p>It looks like the page you&rsquo;re looking for doesn&rsquo;t exist. Perhaps a quick look through these pages will help you find what you&rsquo;re looking for:</p>', 'ad-starter' );
+					_e( '<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>', 'ad-starter' );
 
-					hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template.
+					get_search_form();
 					?>
 				</div><!-- /.entry__content -->
 

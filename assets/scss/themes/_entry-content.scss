@@ -2,5 +2,128 @@
 ----------------------------------------------- */
 
 .entry__content {
+	p,
+	address,
+	pre,
+	hr,
+	ul,
+	ol,
+	dl,
+	dd,
+	table {
+		margin-bottom: 15px;
+	}
+	strong,
+	dt,
+	b {
+		font-weight: bold;
+	}
+	em {
+		font-style: italic;
+	}
+	table,
+	th,
+	td {
+		border: 1px solid #eaeaea;
+	}
+	table {
+		width: 100%;
+		margin: 0 0 1.6em;
+		table-layout: fixed; /* Prevents HTML tables from becoming too wide */
+		border-spacing: 0;
+		border-collapse: separate;
+		border-width: 1px 0 0 1px;
+	}
+	caption,
+	th,
+	td {
+		text-align: left;
+	}
+	th {
+		font-weight: bold;
+		border-width: 0 1px 1px 0;
+	}
+	td {
+		border-width: 0 1px 1px 0;
+	}
+	th,
+	td {
+		padding: .4em;
+	}
+	ol,
+	ul {
+		margin-left: 35px;
+	}
+	ol {
+		li {
+			list-style-type: decimal;
+			margin-bottom: 5px;
+			ol {
+				margin-bottom: 0;
+			}
+		}
+	}
+	ul {
+		li {
+			list-style-type: disc;
+			margin-bottom: 5px;
 
+			ul {
+				margin-bottom: 0;
+			}
+		}
+	}
+	blockquote {
+		font-size: 16px;
+		line-height: 1.6;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	.alignleft {
+		width: 100%;
+		height: auto;
+		margin: 0 0 15px 0;
+	}
+	.alignright {
+		float: right;
+		margin: 0 0 15px 15px;
+	}
+	.aligncenter {
+		margin: 0 auto;
+		display: block;
+	}
+	.wp-caption {
+		max-width: 100% !important;
+	}
+	.wp-caption-text {
+		font-size: 12px;
+	}
+	address {
+		p {
+			margin-bottom: 0;
+		}
+	}
+	pre {
+		font-family: monospace;
+		display: block;
+		margin: 15px 0;
+		padding: 15px;
+		white-space: pre;
+		background: #eee;
+	}
+	sub,
+	sup {
+		font-size: 11px;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+	sup {
+		top: -.5em;
+	}
+	sub {
+		bottom: -.25em;
+	}
 }
