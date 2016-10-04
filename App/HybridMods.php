@@ -16,9 +16,26 @@ class HybridMods implements WordPressHooks {
 	 * Add class hooks.
 	 */
 	public function addHooks() {
+		add_filter( 'hybrid_attr_layout', [ $this, 'attrSiteLayout' ], 10, 1 );
 		add_filter( 'hybrid_attr_primary', [ $this, 'attrPrimaryContent' ], 10, 2 );
 		add_filter( 'hybrid_attr_sidebar', [ $this, 'attrSidebarContent' ], 10, 2 );
 		add_filter( 'hybrid_content_template_hierarchy', [ $this, 'contentTemplateHierarchy' ] );
+	}
+
+	/**
+	 * Check main site options for global layout setting
+	 *
+	 * @param array $attr
+	 *
+	 * @return array
+	 */
+	public function attrSiteLayout( array $attr ) {
+		if( function_exists('get_field') ) {
+			$site_layout = get_field('site_layout' ,'options');
+		}
+		$attr['class'] = $site_layout ?: 'container';
+
+		return $attr;
 	}
 
 	/**

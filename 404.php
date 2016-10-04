@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<div class="container">
+	<div <?php hybrid_attr( 'layout' ); ?>>
 		<div class="row">
 
 			<div <?php hybrid_attr( 'primary' ); ?>>

@@ -7,7 +7,7 @@
 ?>
 
 <footer <?php hybrid_attr( 'footer' ); ?>>
-	<div class="container">
+	<div <?php hybrid_attr( 'layout' ); ?>>
 		<div class="footer__copyright">
 			<?php printf(
 			// Translators: 1 is current year, 2 is site name/link.

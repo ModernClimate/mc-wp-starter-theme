@@ -8,7 +8,7 @@
 
 <header <?php hybrid_attr( 'header' ); ?>>
 	<nav class="navbar navbar-default">
-		<div class="container">
+		<div <?php hybrid_attr( 'layout' ); ?>>
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu">
 					<span class="sr-only">Toggle navigation</span>
