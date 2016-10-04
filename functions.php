@@ -14,20 +14,17 @@ use AD\App\Shortcodes;
 
 /**
  * Define Theme Version
- * Defines custom Hybrid Core directory.
+ * Define Theme directories
+ * Defines custom Hybrid Core directories.
  */
 define( 'THEME_VERSION', '1.0' );
-define( 'HYBRID_DIR', __DIR__ . '/vendor/justintadlock/hybrid-core/' );
-define( 'HYBRID_URI', get_template_directory_uri() . '/vendor/justintadlock/hybrid-core/' );
+define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
+define( 'HYBRID_DIR', AD_THEME_DIR . 'vendor/justintadlock/hybrid-core/' );
+define( 'HYBRID_URI', AD_THEME_PATH_URL . 'vendor/justintadlock/hybrid-core/' );
 
 // Require Autoloader
 require_once 'vendor/autoload.php';
-
-// Loads the Hybrid Core framework.
-require_once HYBRID_DIR . 'hybrid.php';
-
-// loads Krumo
-require_once 'vendor/oodle/krumo/class.krumo.php';
 
 /**
  * Theme Setup
@@ -35,6 +32,7 @@ require_once 'vendor/oodle/krumo/class.krumo.php';
 add_action( 'after_setup_theme', function () {
 
 	new Hybrid();
+	new Krumo();
 	( new Init() )
 		->add( new Setup() )
 		->add( new Scripts() )
@@ -44,7 +42,7 @@ add_action( 'after_setup_theme', function () {
 		->initialize();
 
 	// Translation setup
-	load_theme_textdomain( 'adstarter', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
 
 	// Theme layouts.
 	add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );

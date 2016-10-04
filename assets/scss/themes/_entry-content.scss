@@ -33,6 +33,7 @@
 		border-spacing: 0;
 		border-collapse: separate;
 		border-width: 1px 0 0 1px;
+		border-color: $table-border-color;
 	}
 	caption,
 	th,
@@ -74,7 +75,7 @@
 		}
 	}
 	blockquote {
-		font-size: 16px;
+		font-size: $font-size-large
 		line-height: 1.6;
 	}
 	img {
@@ -98,7 +99,7 @@
 		max-width: 100% !important;
 	}
 	.wp-caption-text {
-		font-size: 12px;
+		font-size: $font-size-small
 	}
 	address {
 		p {
@@ -115,7 +116,7 @@
 	}
 	sub,
 	sup {
-		font-size: 11px;
+		font-size: $font-size-small;
 		line-height: 0;
 		position: relative;
 		vertical-align: baseline;
