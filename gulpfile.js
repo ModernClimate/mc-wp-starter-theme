@@ -80,14 +80,13 @@ gulp.task('build:styles', function () {
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
 				includePaths: PATHS.sass,
-				outputStyle: 'compressed',
+				outputStyle: 'compressed'
 			})
 			.on('error', $.sass.logError))
 		.pipe($.rename({
 			basename: "theme",
 			suffix: '.min'
 		}))
-		.pipe($.cleanCss())
 		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('build/css'))
 });
