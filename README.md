@@ -6,8 +6,8 @@ Requires a minimum of WordPress 4.5.
 A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is the recommended way to use this theme.
 
 ## What tools do I need to use the theme?
-# [Node.js](https://github.com/ackmann-dickenson/ad-wp-starter-theme/wiki/Install-Node.js)
-# [Composer](https://getcomposer.org/doc/00-intro.md#globally)
+1. [Node.js](https://github.com/ackmann-dickenson/ad-wp-starter-theme/wiki/Install-Node.js)
+2. [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 
 ## Instructions
 1. `$ npm install -g bower gulp` : Install global packages _(needed to run bower and gulp in the command line)_
