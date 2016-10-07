@@ -3,17 +3,17 @@
 *.log
 
 # Vendor (e.g. Composer)
-vendor
+# vendor
 
 # Ignore build directory
 # build
-/languages/*.pot
+# /languages/*.pot
 
 # Node Package Manager
 node_modules
 
 # Bower Components
-bower_components
+# bower_components
 
 # Mac
 *.DS_Store

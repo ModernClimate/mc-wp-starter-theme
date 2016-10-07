@@ -2,7 +2,6 @@
 var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
-var bowerFiles = require('main-bower-files');
 
 function swallowError() {
 	console.log('UGLIFY ERROR');
@@ -20,15 +19,20 @@ var PATHS = {
 		'assets/scss/*.scss',
 		'assets/scss/**/*.scss'
 	],
+	jsVendor: [
+		'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+		'bower_components/fluidvids/dist/fluidvids.js',
+		'bower_components/parsleyjs/dist/parsley.js'
+	],
 	jsTheme: [
 		'assets/js/theme/*.js',
 		'assets/js/theme.js'
 	]
 };
 
-// Concatenate all bower javascript file
+// Concatenate & Minify all bower dependency javascript files
 gulp.task('build:scripts:vendor', function () {
-	return gulp.src(bowerFiles({filter: /\.js$/i}))
+	return gulp.src(PATHS.jsVendor)
 		.pipe($.concat('vendor.js'))
 		.pipe($.rename({
 			suffix: '.min'
@@ -37,9 +41,9 @@ gulp.task('build:scripts:vendor', function () {
 		.pipe(gulp.dest('build/js'));
 });
 
-// Concatenate all bower javascript file
+// Concatenate & Minify all theme javascript files
 gulp.task('dev:scripts:vendor', function () {
-	return gulp.src(bowerFiles({filter: /\.js$/i}))
+	return gulp.src(PATHS.jsVendor)
 		.pipe($.concat('vendor.js'))
 		.pipe($.rename({
 			suffix: '.min'
