@@ -2,6 +2,7 @@
 var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
+var del = require('del');
 
 function swallowError() {
 	console.log('UGLIFY ERROR');
@@ -155,6 +156,13 @@ gulp.task('dev', function (done) {
 		'build:fonts',
 		'dev:styles'
 	], done);
+});
+
+// Remove jquery bower dependency
+gulp.task('clean', function () {
+	return del([
+		'bower_components/jquery'
+	]);
 });
 
 // Default task, run the build
