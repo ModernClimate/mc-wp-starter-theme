@@ -1,0 +1,14 @@
+{
+  "name": "fluidvids",
+  "homepage": "https://github.com/toddmotto/fluidvids",
+  "version": "2.4.1",
+  "_release": "2.4.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.4.1",
+    "commit": "f4e0534fbbd8f2b9fa98631f05484cdb547fa7a5"
+  },
+  "_source": "https://github.com/toddmotto/fluidvids.git",
+  "_target": "^2.4.1",
+  "_originalSource": "fluidvids"
+}
