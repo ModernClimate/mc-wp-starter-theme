@@ -2,7 +2,7 @@
 /**
  * Functions and definitions
  *
- * @package AD Starterr
+ * @package AD Starter
  */
 
 use AD\App\Core\Init;
