@@ -17,7 +17,7 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 ## Gulp Commands
 `$ gulp build` : Compiles minified assets
 
-`$ gulp dev : Compiles uncompressed assets
+`$ gulp dev` : Compiles uncompressed assets
 
 `$ gulp watch` : Watches assets/scss and assets/js and compiles build assets
 
@@ -33,6 +33,12 @@ The `wp-config.php` should define `WP_ENV` as `dev` for local development. Produ
 For local development load `acf-export.json` and edit with ACF Field Groups admin page. In production environment the ACF fields should load from `/inc/acf/fields.php`. See [Environment Constants](https://github.com/ackmann-dickenson/ad-wp-starter-theme#environmental-checks) for details on environment checks.
 
 **Please keep `acf-export.json` and `/inc/acf/fields.php` up to date with changes.**
+
+## Resources
+1. [PSR-4 Autoloader](http://www.php-fig.org/psr/psr-4/)
+2. [BEM Introduction](http://getbem.com/introduction/)
+3. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
+4. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
 ## Copyright and License
 The following resources are included or used in part within the theme package.
