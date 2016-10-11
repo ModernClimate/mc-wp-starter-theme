@@ -31,38 +31,38 @@ require_once 'vendor/autoload.php';
  */
 add_action( 'after_setup_theme', function () {
 
-	new Hybrid();
-	new Krumo();
-	( new Init() )
-		->add( new Setup() )
-		->add( new Scripts() )
-		->add( new ACF() )
-		->add( new HybridMods() )
-		->add( new Shortcodes() )
-		->initialize();
+    new Hybrid();
+    new Krumo();
+    ( new Init() )
+        ->add( new Setup() )
+        ->add( new Scripts() )
+        ->add( new ACF() )
+        ->add( new HybridMods() )
+        ->add( new Shortcodes() )
+        ->initialize();
 
-	// Translation setup
-	load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
+    // Translation setup
+    load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
 
-	// Theme layouts.
-	add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
+    // Theme layouts.
+    add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
 
-	// Enable custom template hierarchy.
-	add_theme_support( 'hybrid-core-template-hierarchy' );
+    // Enable custom template hierarchy.
+    add_theme_support( 'hybrid-core-template-hierarchy' );
 
-	// Add automatic feed links in header
-	add_theme_support( 'automatic-feed-links' );
+    // Add automatic feed links in header
+    add_theme_support( 'automatic-feed-links' );
 
-	// Add Post Thumbnail Image sizes and support
-	add_theme_support( 'post-thumbnails' );
+    // Add Post Thumbnail Image sizes and support
+    add_theme_support( 'post-thumbnails' );
 
-	// Switch default core markup to output valid HTML5.
-	add_theme_support( 'html5', [
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption'
-	] );
+    // Switch default core markup to output valid HTML5.
+    add_theme_support( 'html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption'
+    ] );
 
 } );

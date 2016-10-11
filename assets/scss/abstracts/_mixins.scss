@@ -2,116 +2,116 @@
 ----------------------------------------------- */
 
 @mixin mobile {
-	@media (min-width: #{$screen-xs}) {
-		@content;
-	}
+    @media (min-width: #{$screen-xs}) {
+        @content;
+    }
 }
 
 @mixin tablet {
-	@media (min-width: #{$screen-sm}) {
-		@content;
-	}
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
 }
 
 @mixin desktop {
-	@media (min-width: #{$screen-md}) {
-		@content;
-	}
+    @media (min-width: #{$screen-md}) {
+        @content;
+    }
 }
 
 @mixin desktop-lg {
-	@media (min-width: #{$screen-lg}) {
-		@content;
-	}
+    @media (min-width: #{$screen-lg}) {
+        @content;
+    }
 }
 
 /* Helpers
 ----------------------------------------------- */
 
 @mixin border-radius($radius) {
-	border-radius: $radius;
-	-moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
 }
 
 @mixin box-shadow($shadow) {
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	-ms-box-shadow: $shadow;
-	box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    box-shadow: $shadow;
 }
 
 @mixin transition($transition) {
-	-webkit-transition: $transition;
-	transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
 }
 
 @mixin transition-delay($transition-delay) {
-	-webkit-transition-delay: $transition-delay;
-	transition-delay: $transition-delay;
+    -webkit-transition-delay: $transition-delay;
+    transition-delay: $transition-delay;
 }
 
 @mixin transition-duration($transition-duration) {
-	-webkit-transition-duration: $transition-duration;
-	transition-duration: $transition-duration;
+    -webkit-transition-duration: $transition-duration;
+    transition-duration: $transition-duration;
 }
 
 @mixin transition-transform($transition) {
-	-webkit-transition: -webkit-transform $transition;
-	-moz-transition: -moz-transform $transition;
-	-o-transition: -o-transform $transition;
-	transition: transform $transition;
+    -webkit-transition: -webkit-transform $transition;
+    -moz-transition: -moz-transform $transition;
+    -o-transition: -o-transform $transition;
+    transition: transform $transition;
 }
 
 @mixin rotate($degrees) {
-	-webkit-transform: rotate($degrees);
-	-ms-transform: rotate($degrees); // IE9+
-	transform: rotate($degrees);
+    -webkit-transform: rotate($degrees);
+    -ms-transform: rotate($degrees); // IE9+
+    transform: rotate($degrees);
 }
 
 @mixin scale($ratio) {
-	-webkit-transform: scale($ratio);
-	-ms-transform: scale($ratio); // IE9+
-	transform: scale($ratio);
+    -webkit-transform: scale($ratio);
+    -ms-transform: scale($ratio); // IE9+
+    transform: scale($ratio);
 }
 
 @mixin translate($x, $y) {
-	-webkit-transform: translate($x, $y);
-	-ms-transform: translate($x, $y); // IE9+
-	transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y); // IE9+
+    transform: translate($x, $y);
 }
 
 @mixin translateY($y) {
-	-webkit-transform: translateY($y);
-	-ms-transform: translateY($y); // IE9+
-	transform: translateY($y);
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y); // IE9+
+    transform: translateY($y);
 }
 
 @mixin translateX($x) {
-	-webkit-transform: translateX($x);
-	-ms-transform: translateX($x); // IE9+
-	transform: translateX($x);
+    -webkit-transform: translateX($x);
+    -ms-transform: translateX($x); // IE9+
+    transform: translateX($x);
 }
 
 @mixin skew($x, $y) {
-	-webkit-transform: skew($x, $y);
-	-ms-transform: skewX($x) skewY($y);
-	transform: skew($x, $y);
+    -webkit-transform: skew($x, $y);
+    -ms-transform: skewX($x) skewY($y);
+    transform: skew($x, $y);
 }
 
 @mixin translate3d($x, $y, $z) {
-	-webkit-transform: translate3d($x, $y, $z);
-	transform: translate3d($x, $y, $z);
+    -webkit-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
 }
 
 @mixin backface-visibility($visibility) {
-	-webkit-backface-visibility: $visibility;
-	-moz-backface-visibility: $visibility;
-	backface-visibility: $visibility;
+    -webkit-backface-visibility: $visibility;
+    -moz-backface-visibility: $visibility;
+    backface-visibility: $visibility;
 }
 
 @mixin box-sizing($boxmodel) {
-	-webkit-box-sizing: $boxmodel;
-	-moz-box-sizing: $boxmodel;
-	box-sizing: $boxmodel;
+    -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
 }

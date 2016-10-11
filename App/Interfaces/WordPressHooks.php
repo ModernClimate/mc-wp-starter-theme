@@ -8,5 +8,5 @@ namespace AD\App\Interfaces;
  * @package AD\App\Interfaces
  */
 interface WordPressHooks {
-	public function addHooks();
+    public function addHooks();
 }

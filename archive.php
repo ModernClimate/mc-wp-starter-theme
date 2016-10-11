@@ -11,29 +11,29 @@ get_header();
 ?>
 
 <div <?php hybrid_attr( 'layout' ); ?>>
-	<div class="row">
+    <div class="row">
 
-		<div <?php hybrid_attr( 'primary' ); ?>>
+        <div <?php hybrid_attr( 'primary' ); ?>>
 
-			<?php
-			if ( have_posts() ) {
-				while ( have_posts() ) {
-					the_post();
+            <?php
+            if ( have_posts() ) {
+                while ( have_posts() ) {
+                    the_post();
 
-					// Loads the content/archive/content.php template.
-					hybrid_get_content_template();
-				}
-			} else {
-				// Loads the content/content-none.php template.
-				get_template_part( 'content/content', 'none' );
-			}
-			?>
+                    // Loads the content/archive/content.php template.
+                    hybrid_get_content_template();
+                }
+            } else {
+                // Loads the content/content-none.php template.
+                get_template_part( 'content/content', 'none' );
+            }
+            ?>
 
-		</div><!-- #primary -->
+        </div><!-- #primary -->
 
-		<?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+        <?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
 
-	</div><!-- .row -->
+    </div><!-- .row -->
 </div><!-- .container -->
 
 <?php get_footer(); ?>

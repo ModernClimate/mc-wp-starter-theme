@@ -1,23 +1,23 @@
 {
-	"name": "adstarter",
-	"description": "A WordPress starter theme.",
-	"config": {
-		"vendor-dir": "vendor",
-		"bin-dir": "bin"
-	},
-	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		}
-	],
-	"require": {
-		"justintadlock/hybrid-core": "^3.0",
-		"oodle/krumo": "^0.5.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"AD\\": ""
-		}
-	}
+  "name": "adstarter",
+  "description": "A WordPress starter theme.",
+  "config": {
+    "vendor-dir": "vendor",
+    "bin-dir": "bin"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "justintadlock/hybrid-core": "^3.0",
+    "oodle/krumo": "^0.5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AD\\": ""
+    }
+  }
 }

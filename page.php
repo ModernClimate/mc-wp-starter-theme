@@ -13,29 +13,29 @@
 get_header(); ?>
 
 <div <?php hybrid_attr( 'layout' ); ?>>
-	<div class="row">
+    <div class="row">
 
-		<div <?php hybrid_attr( 'primary', hybrid_get_theme_layout() ); ?>>
+        <div <?php hybrid_attr( 'primary', hybrid_get_theme_layout() ); ?>>
 
-			<?php hybrid_get_menu( 'breadcrumb' ); // Loads the menu/breadcrumb.php template. ?>
+            <?php hybrid_get_menu( 'breadcrumb' ); // Loads the menu/breadcrumb.php template. ?>
 
-			<?php
-			while ( have_posts() ) {
-				the_post();
+            <?php
+            while ( have_posts() ) {
+                the_post();
 
-				// Loads the content/singular/page.php template.
-				hybrid_get_content_template();
-		
-				// Flexible Content Rows
-				get_template_part( 'components/flexible', 'modules' );
-			}
-			?>
+                // Loads the content/singular/page.php template.
+                hybrid_get_content_template();
 
-		</div><!-- /#primary -->
+                // Flexible Content Rows
+                get_template_part( 'components/flexible', 'modules' );
+            }
+            ?>
 
-		<?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+        </div><!-- /#primary -->
 
-	</div><!-- /.row -->
+        <?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+
+    </div><!-- /.row -->
 </div><!-- /.container -->
 
 <?php get_footer(); ?>

@@ -9,11 +9,11 @@ $col_class   = "col-$column_size-" . ( 12 / count( $columns ) );
 ?>
 
 <?php if ( ! empty( $columns ) ) : ?>
-	<div class="row row-flex-content <?php echo $rowName; ?>">
-		<?php foreach ( $columns as $column ): ?>
-			<div class="<?php echo $col_class ?>">
-				<?php echo $column["column_content"]; ?>
-			</div>
-		<?php endforeach; ?>
-	</div>
+    <div class="row row-flex-content <?php echo $rowName; ?>">
+        <?php foreach ( $columns as $column ): ?>
+            <div class="<?php echo $col_class ?>">
+                <?php echo $column["column_content"]; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
 <?php endif; ?>

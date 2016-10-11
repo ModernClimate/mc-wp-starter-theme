@@ -13,45 +13,45 @@ use AD\App\Interfaces\WordPressHooks;
  */
 class Init implements \IteratorAggregate {
 
-	/**
-	 * A container for objects that implement WordPressHooks interface
-	 *
-	 * @var array
-	 */
-	public $plugin_components = [ ];
+    /**
+     * A container for objects that implement WordPressHooks interface
+     *
+     * @var array
+     */
+    public $plugin_components = [ ];
 
-	/**
-	 * Adds an object to $container property
-	 *
-	 * @param WordPressHooks $object
-	 *
-	 * @return $this
-	 */
-	public function add( WordPressHooks $object ) {
-		$this->plugin_components[] = $object;
+    /**
+     * Adds an object to $container property
+     *
+     * @param WordPressHooks $object
+     *
+     * @return $this
+     */
+    public function add( WordPressHooks $object ) {
+        $this->plugin_components[] = $object;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * All the methods that need to be performed upon plugin initialization should
-	 * be done here.
-	 */
-	public function initialize() {
+    /**
+     * All the methods that need to be performed upon plugin initialization should
+     * be done here.
+     */
+    public function initialize() {
 
-		foreach ( $this as $container_object ) {
-			if ( $container_object instanceof WordPressHooks ) {
-				$container_object->addHooks();
-			}
-		}
-	}
+        foreach ( $this as $container_object ) {
+            if ( $container_object instanceof WordPressHooks ) {
+                $container_object->addHooks();
+            }
+        }
+    }
 
-	/**
-	 * Provides an iterator over the $container property
-	 *
-	 * @return \ArrayIterator
-	 */
-	public function getIterator() {
-		return new \ArrayIterator( $this->plugin_components );
-	}
+    /**
+     * Provides an iterator over the $container property
+     *
+     * @return \ArrayIterator
+     */
+    public function getIterator() {
+        return new \ArrayIterator( $this->plugin_components );
+    }
 }

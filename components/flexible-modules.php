@@ -6,13 +6,13 @@
  */
 
 if ( ! function_exists( 'have_rows' ) && ! have_rows( 'content_rows' ) ) {
-	return false;
+    return false;
 }
 
 while ( have_rows( 'content_rows' ) ) {
-	the_row();
-	$rowName = get_row_layout();
-	$rowId   = $rowName . '-' . get_row_index();
+    the_row();
+    $rowName = get_row_layout();
+    $rowId   = $rowName . '-' . get_row_index();
 
-	include( locate_template( "components/modules/{$rowName}.php" ) );
+    include( locate_template( "components/modules/{$rowName}.php" ) );
 }
