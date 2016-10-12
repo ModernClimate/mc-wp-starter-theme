@@ -1,50 +1,68 @@
 <?php
-// Constants
-define( 'AD_THEME_DIR', get_template_directory() . '/' );
-define( 'AD_THEME_PATH_URL', get_template_directory_uri() . '/' );
+/**
+ * Functions and definitions
+ *
+ * @package AD Starter
+ */
 
-// Global variable for theme class
-if ( !isset( $theme ) ) {
-  global $theme;
-  $theme = new AD_Theme();
-}
+use AD\App\Core\Init;
+use AD\App\Setup;
+use AD\App\Scripts;
+use AD\App\ACF;
+use AD\App\HybridMods;
+use AD\App\Shortcodes;
 
-// Theme class init
-add_action( 'after_setup_theme', [ $theme, 'after_setup_theme' ] );
+/**
+ * Define Theme Version
+ * Define Theme directories
+ * Defines custom Hybrid Core directories.
+ */
+define( 'THEME_VERSION', '1.0' );
+define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
+define( 'HYBRID_DIR', AD_THEME_DIR . 'vendor/justintadlock/hybrid-core/' );
+define( 'HYBRID_URI', AD_THEME_PATH_URL . 'vendor/justintadlock/hybrid-core/' );
 
-class AD_Theme {
+// Require Autoloader
+require_once 'vendor/autoload.php';
 
-  public function after_setup_theme() {
+/**
+ * Theme Setup
+ */
+add_action( 'after_setup_theme', function () {
 
-    // Theme includes
-    include_once 'inc/enqueue.php';
-    include_once 'inc/acf-fields.php';
-    include_once 'inc/shortcodes.php';
+    new Hybrid();
+    new Krumo();
+    ( new Init() )
+        ->add( new Setup() )
+        ->add( new Scripts() )
+        ->add( new ACF() )
+        ->add( new HybridMods() )
+        ->add( new Shortcodes() )
+        ->initialize();
 
-    // Register primary menu
-    register_nav_menus(['primary' => 'Primary Menu']);
+    // Translation setup
+    load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
 
-    // Register sidebar
-    register_sidebar([
-      'name'            => 'Sidebar',
-      'id'              => 'sidebar-1',
-      'before_widget'   => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'    => '</div>',
-      'before_title'    => '<h4 class="widgettitle">',
-      'after_title'     => '</h4>',
-    ]);
+    // Theme layouts.
+    add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
 
-    // Theme supports
-    add_theme_support( 'post-thumbnails' );
+    // Enable custom template hierarchy.
+    add_theme_support( 'hybrid-core-template-hierarchy' );
+
+    // Add automatic feed links in header
     add_theme_support( 'automatic-feed-links' );
 
-    // ACF options page
-    if( function_exists('acf_add_options_page') ) {
-      acf_add_options_page();
-    }
-  }
+    // Add Post Thumbnail Image sizes and support
+    add_theme_support( 'post-thumbnails' );
 
-}
+    // Switch default core markup to output valid HTML5.
+    add_theme_support( 'html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption'
+    ] );
 
-if ( defined('WP_ENV') )
-  require_once 'krumo/class.krumo.php';
+} );

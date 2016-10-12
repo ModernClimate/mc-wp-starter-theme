@@ -8,18 +8,9 @@
   "license": "MIT",
   "moduleType": [],
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
   "dependencies": {
-    "bootstrap-sass": "^3.3.6"
-  },
-  "overrides": {
-    "bootstrap-sass": {
-      "main": "assets/javascripts/bootstrap.min.js",
-      "dependencies": null
-    }
+    "bootstrap-sass": "^3.3.6",
+    "parsleyjs": "^2.4.4",
+    "fluidvids": "^2.4.1"
   }
 }

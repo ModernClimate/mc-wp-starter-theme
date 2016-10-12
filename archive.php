@@ -1,45 +1,39 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package AD Starter
+ */
 
-<div class="row">
-  <div class="col-md-8">
-    <h1>
-      <?php if( is_author() ): ?>
-        Author: <?php echo $author_name ?>
-      <?php elseif( is_category() ): ?>
-        Category: <?php single_cat_title(); ?>
-      <?php elseif( is_tag() ): ?>
-        Tag: <?php single_tag_title(); ?>
-      <?php elseif( is_year() ): ?>
-        Archive for <?php the_time('Y'); ?>
-      <?php elseif( is_month() ): ?>
-        Archive for <?php the_time('F Y'); ?>
-      <?php else: ?>
-        Archive
-      <?php endif; ?>
-    </h1>
-    <?php if( have_posts() ): ?>
-      <?php while( have_posts() ): the_post(); ?>
-        <?php $author_name = get_the_author_meta('nickname'); ?>
-        <h2>
-          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-        </h2>
-        <?php the_excerpt(); ?>
-      <?php endwhile; wp_reset_query(); ?>
-    <?php else: ?>
-      <h2>No posts found</h2>
-    <?php endif; ?>
+get_header();
+?>
 
-    <?php if( $wp_query->max_num_pages > 1 ): ?>
-      <nav>
-        <ul class="pager">
-          <li class="previous"><?php previous_posts_link( 'Prev' ); ?></li>
-          <li class="next"><?php next_posts_link( 'Next' ); ?></li>
-        </ul>
-      </nav>
-    <?php endif; ?>
-  </div>
+<div <?php hybrid_attr( 'layout' ); ?>>
+    <div class="row">
 
-  <?php get_sidebar(); ?>
-</div>
+        <div <?php hybrid_attr( 'primary' ); ?>>
+
+            <?php
+            if ( have_posts() ) {
+                while ( have_posts() ) {
+                    the_post();
+
+                    // Loads the content/archive/content.php template.
+                    hybrid_get_content_template();
+                }
+            } else {
+                // Loads the content/content-none.php template.
+                get_template_part( 'content/content', 'none' );
+            }
+            ?>
+
+        </div><!-- #primary -->
+
+        <?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
+
+    </div><!-- .row -->
+</div><!-- .container -->
 
 <?php get_footer(); ?>
