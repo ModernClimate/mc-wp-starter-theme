@@ -6,11 +6,11 @@
 $slides = get_sub_field( 'slides' );
 ?>
 
-<div id="<?php echo $rowId; ?>" class="carousel slide" data-ride="carousel">
+<div id="<?php echo $row_id; ?>" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
         <?php foreach ( $slides as $index => $slide ): ?>
-            <li data-target="#<?php echo $rowId; ?>" data-slide-to="<?php echo $index; ?>"
+            <li data-target="#<?php echo $row_id; ?>" data-slide-to="<?php echo $index; ?>"
                 class="<?php echo ( $index == 0 ) ? 'active' : ''; ?>"></li>
         <?php endforeach; ?>
     </ol>
@@ -28,11 +28,11 @@ $slides = get_sub_field( 'slides' );
         <?php endforeach; ?>
     </div>
 
-    <a class="left carousel-control" href="#<?php echo $rowId; ?>" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#<?php echo $row_id; ?>" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#<?php echo $rowId; ?>" role="button" data-slide="next">
+    <a class="right carousel-control" href="#<?php echo $row_id; ?>" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
