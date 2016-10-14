@@ -48,11 +48,7 @@ class ACF implements WordPressHooks {
     public function getACFOptions() {
         global $wpdb;
 
-        if ( ! wp_installing() || ! is_multisite() ) {
-            $acf_options = wp_cache_get( 'ad_acf_options', 'options' );
-        } else {
-            $acf_options = false;
-        }
+        $acf_options = wp_cache_get( 'ad_acf_options', 'options' );
 
         if ( ! $acf_options ) {
             $suppress       = $wpdb->suppress_errors();
