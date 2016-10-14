@@ -11,8 +11,8 @@ if ( ! function_exists( 'have_rows' ) && ! have_rows( 'content_rows' ) ) {
 
 while ( have_rows( 'content_rows' ) ) {
     the_row();
-    $rowName = get_row_layout();
-    $rowId   = $rowName . '-' . get_row_index();
+    $row_name = get_row_layout();
+    $row_id   = $row_name . '-' . get_row_index();
 
-    include( locate_template( "components/modules/{$rowName}.php" ) );
+    include( locate_template( "components/modules/{$row_name}.php" ) );
 }
