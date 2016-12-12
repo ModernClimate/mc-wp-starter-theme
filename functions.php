@@ -26,12 +26,13 @@ define( 'HYBRID_URI', AD_THEME_PATH_URL . 'vendor/justintadlock/hybrid-core/' );
 // Require Autoloader
 require_once 'vendor/autoload.php';
 
+new Hybrid();
+
 /**
  * Theme Setup
  */
 add_action( 'after_setup_theme', function () {
 
-    new Hybrid();
     new Krumo();
     ( new Init() )
         ->add( new Setup() )

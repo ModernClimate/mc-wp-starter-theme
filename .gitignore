@@ -13,7 +13,7 @@
 node_modules
 
 # Bower Components
-# bower_components
+bower_components
 
 # Mac
 *.DS_Store
