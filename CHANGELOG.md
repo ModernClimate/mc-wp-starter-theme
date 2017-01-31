@@ -6,4 +6,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.1] - 2017-01-31
 ### Added
-- Media Class to allow SVG uploads by default
+- Media Class to be used when registering additional image sizes

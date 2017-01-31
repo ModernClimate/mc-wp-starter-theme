@@ -38,11 +38,11 @@ add_action( 'after_setup_theme', function () {
     ( new Init() )
         ->add( new Setup() )
         ->add( new Scripts() )
-        ->add( new Media() )
         ->add( new ACF() )
         ->add( new HybridMods() )
         ->add( new Shortcodes() )
         ->initialize();
+    new Media();
 
     // Translation setup
     load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
