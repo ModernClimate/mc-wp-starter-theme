@@ -11,14 +11,14 @@
         <div class="footer__copyright">
             <?php printf(
             // Translators: 1 is current year, 2 is site name/link.
-                __( 'Copyright &#169; %1$s %2$s', 'adstarter' ),
+                __( 'Copyright &#169; %1$s %2$s', 'ad-starter' ),
                 date_i18n( 'Y' ), hybrid_get_site_link()
             ); ?>
         </div><!-- /.copyright -->
         <div class="footer__credit">
             <?php printf(
             // Translators: theme name/link.
-                __( 'Powered by %1$s', 'adstarter' ), hybrid_get_theme_link()
+                __( 'Powered by %1$s', 'ad-starter' ), hybrid_get_theme_link()
             ); ?>
         </div><!-- /.credit -->
     </div>

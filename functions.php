@@ -45,7 +45,7 @@ add_action( 'after_setup_theme', function () {
     new Media();
 
     // Translation setup
-    load_theme_textdomain( 'adstarter', AD_THEME_DIR . '/languages' );
+    load_theme_textdomain( 'ad-starter', AD_THEME_DIR . '/languages' );
 
     // Theme layouts.
     add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
