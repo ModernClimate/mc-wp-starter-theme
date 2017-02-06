@@ -30,13 +30,10 @@ class HybridMods implements WordPressHooks {
      * @return array
      */
     public function attrSiteLayout( array $attr ) {
-
-        $site_layout = null;
-
         if ( function_exists( 'get_field' ) ) {
             $site_layout = get_field( 'site_layout', 'options' );
         }
-        $attr['class'] = $site_layout ?: 'container';
+        $attr['class'] = isset( $site_layout ) ? $site_layout : 'container';
 
         return $attr;
     }
