@@ -30,6 +30,7 @@ class HybridMods implements WordPressHooks {
      * @return array
      */
     public function attrSiteLayout( array $attr ) {
+        global $site_layout;
         if ( function_exists( 'get_field' ) ) {
             $site_layout = get_field( 'site_layout', 'options' );
         }
