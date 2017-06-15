@@ -5,7 +5,7 @@
  * @package AD Starter
  */
 
-if ( ! function_exists( 'have_rows' ) && ! have_rows( 'content_rows' ) ) {
+if ( ! function_exists( 'have_rows' ) || ! have_rows( 'content_rows' ) ) {
     return false;
 }
 
