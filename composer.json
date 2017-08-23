@@ -12,7 +12,6 @@
     }
   ],
   "require": {
-    "justintadlock/hybrid-core": "^3.0",
     "oodle/krumo": "^0.5.0"
   },
   "autoload": {

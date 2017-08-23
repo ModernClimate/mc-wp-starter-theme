@@ -6,7 +6,7 @@
  */
 ?>
 
-<article <?php hybrid_attr( 'post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
     <header class="entry__header">
         <?php the_title( '<h1 class="hdg hdg--1">', '</h1>' ); ?>
@@ -15,16 +15,11 @@
     <div class="entry__content">
         <?php
         the_content();
-
         wp_link_pages( [
             'before' => '<div class="page-links">' . __( 'Pages:', 'ad-starter' ),
             'after'  => '</div>',
         ] );
         ?>
     </div><!-- .entry__content -->
-
-    <footer class="entry__footer">
-        <?php edit_post_link( __( 'Edit', 'ad-starter' ), '<span class="edit-link">', '</span>' ); ?>
-    </footer><!-- .entry__footer -->
 
 </article><!-- #post-## -->
