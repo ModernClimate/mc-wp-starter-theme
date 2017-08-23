@@ -12,7 +12,7 @@ get_header(); ?>
             <div id="primary" class="col-sm-8">
                 <header class="entry__header">
                     <h1 class="hdg hdg--1">
-                        <?php _e( 'Page Not Found', 'pressed' ); ?>
+                        <?php _e( 'Page Not Found', 'ad-starter' ); ?>
                     </h1>
                 </header><!-- /.entry__header -->
 
