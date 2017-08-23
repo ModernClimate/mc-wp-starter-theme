@@ -43,7 +43,6 @@ For local development load `acf-export.json` and edit with ACF Field Groups admi
 ## Copyright and License
 The following resources are included or used in part within the theme package.
 
-* [Hybrid Core](http://themehybrid.com/) by Justin Tadlock - Licensed under the [GPL, version 2 or later](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 * [Underscores](http://underscores.me/) by Automattic, Inc. - Licensed under the [GPL, version 2 or later](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.

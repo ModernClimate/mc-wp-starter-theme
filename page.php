@@ -12,30 +12,20 @@
 
 get_header(); ?>
 
-<div <?php hybrid_attr( 'layout' ); ?>>
-    <div class="row">
+    <div class="container">
+        <div class="row">
+            <div id="primary" class="col-sm-8">
+                <?php
+                while ( have_posts() ) {
+                    the_post();
+                    // Loads the content/singular/page.php template.
+                    get_template_part( 'content/singular/page' );
+                }
+                ?>
+            </div><!-- /#primary -->
 
-        <div <?php hybrid_attr( 'primary', hybrid_get_theme_layout() ); ?>>
+            <?php get_sidebar(); ?>
+        </div>
+    </div>
 
-            <?php hybrid_get_menu( 'breadcrumb' ); // Loads the menu/breadcrumb.php template. ?>
-
-            <?php
-            while ( have_posts() ) {
-                the_post();
-
-                // Loads the content/singular/page.php template.
-                hybrid_get_content_template();
-
-                // Flexible Content Rows
-                get_template_part( 'components/flexible', 'modules' );
-            }
-            ?>
-
-        </div><!-- /#primary -->
-
-        <?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
-
-    </div><!-- /.row -->
-</div><!-- /.container -->
-
-<?php get_footer(); ?>
+<?php get_footer();

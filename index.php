@@ -13,29 +13,23 @@
 
 get_header(); ?>
 
-<div <?php hybrid_attr( 'layout' ); ?>>
+<div class="container">
     <div class="row">
-
-        <div <?php hybrid_attr( 'primary' ); ?>>
-
+        <div id="primary" class="col-sm-8">
             <?php
             if ( have_posts() ) {
                 while ( have_posts() ) {
                     the_post();
-
-                    // Loads the content/archive/content.php template.
-                    hybrid_get_content_template();
+                    // Loads the content/singular/page.php template.
+                    get_template_part( 'content/archive/content' );
                 }
             } else {
+                // Loads the content/singular/page.php template.
                 get_template_part( 'content/content', 'none' );
             }
             ?>
-
         </div><!-- /#primary -->
 
-        <?php hybrid_get_sidebar( 'primary' ); // Loads the sidebar/primary.php template. ?>
-
-    </div><!-- /.row -->
-</div><!-- /.container -->
-
-<?php get_footer(); ?>
+        <?php get_sidebar(); ?>
+    </div>
+</div>

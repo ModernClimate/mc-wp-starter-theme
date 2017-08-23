@@ -4,7 +4,7 @@
  */
 ?>
 
-<article <?php hybrid_attr( 'post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
     <?php if ( has_post_thumbnail() ) : ?>
         <div class="entry__thumb">
@@ -19,14 +19,11 @@
     <div class="entry__content">
         <?php
         the_content();
-
         wp_link_pages( [
             'before' => '<div class="page-links">' . __( 'Pages:', 'ad-starter' ),
             'after'  => '</div>',
         ] );
         ?>
     </div><!-- .entry__content -->
-
-    <?php get_template_part( 'components/entry', 'footer' ); ?>
 
 </article><!-- #post-## -->
