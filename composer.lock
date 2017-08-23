@@ -4,63 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9b5ced599737dc79b391561810079edc",
-    "content-hash": "51d67b4706a9d1b45b4fe7004ba59159",
+    "content-hash": "6c6adb827da4f48d368cc4dcdfe933ca",
     "packages": [
         {
-            "name": "justintadlock/hybrid-core",
-            "version": "3.0.0",
+            "name": "mmucklo/krumo",
+            "version": "v0.5.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/justintadlock/hybrid-core.git",
-                "reference": "80bd6ee4e1b38239dac17be9dfb2efa0a3071daf"
+                "url": "https://github.com/mmucklo/krumo.git",
+                "reference": "133a5b2382ef8b9b2537f6049964c8d88c5e5ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justintadlock/hybrid-core/zipball/80bd6ee4e1b38239dac17be9dfb2efa0a3071daf",
-                "reference": "80bd6ee4e1b38239dac17be9dfb2efa0a3071daf",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "hybrid.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Justin Tadlock",
-                    "email": "justin@justintadlock.com",
-                    "homepage": "http://justintadlock.com"
-                }
-            ],
-            "description": "Hybrid Core WordPress theme framework",
-            "homepage": "http://themehybrid.com/hybrid-core",
-            "keywords": [
-                "wordpress"
-            ],
-            "time": "2015-08-17 21:31:12"
-        },
-        {
-            "name": "oodle/krumo",
-            "version": "v0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oodle/krumo.git",
-                "reference": "48239769290e267fd7d6ddd1c37e08f96b87221e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oodle/krumo/zipball/48239769290e267fd7d6ddd1c37e08f96b87221e",
-                "reference": "48239769290e267fd7d6ddd1c37e08f96b87221e",
+                "url": "https://api.github.com/repos/mmucklo/krumo/zipball/133a5b2382ef8b9b2537f6049964c8d88c5e5ad1",
+                "reference": "133a5b2382ef8b9b2537f6049964c8d88c5e5ad1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.17"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "dev-master",
+                "phpmd/phpmd": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -78,12 +43,16 @@
                     "email": "kaloyan@kaloyan.info"
                 },
                 {
-                    "name": "Matthew J. Mucklo",
-                    "email": "mmucklo@corp.oodle.com"
-                },
-                {
                     "name": "Stefan Thomas",
                     "email": "moon@justmoon.de"
+                },
+                {
+                    "name": "Matthew J. Mucklo",
+                    "email": "mmucklo@gmail.com"
+                },
+                {
+                    "name": "Scott Baker",
+                    "email": "scott@perturb.org"
                 }
             ],
             "description": "KRUMO - version 2.0 of print_r(); and var_dump(); (with new updates)",
@@ -96,8 +65,7 @@
                 "print_r",
                 "var_dump"
             ],
-            "abandoned": "mmucklo/krumo",
-            "time": "2014-02-26 21:10:16"
+            "time": "2016-03-15T07:21:38+00:00"
         }
     ],
     "packages-dev": [],

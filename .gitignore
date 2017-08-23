@@ -3,10 +3,10 @@
 *.log
 
 # Vendor (e.g. Composer)
-# vendor
+vendor
 
 # Ignore build directory
-# build
+build
 # /languages/*.pot
 
 # Node Package Manager
