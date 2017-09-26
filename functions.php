@@ -15,9 +15,8 @@ use AD\App\Shortcodes;
 /**
  * Define Theme Version
  * Define Theme directories
- * Defines custom Hybrid Core directories.
  */
-define( 'THEME_VERSION', '2.0.0' );
+define( 'THEME_VERSION', '2.0.1' );
 define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
 
@@ -43,9 +42,6 @@ add_action( 'after_setup_theme', function () {
 
     // Theme layouts.
     add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
-
-    // Enable custom template hierarchy.
-    add_theme_support( 'hybrid-core-template-hierarchy' );
 
     // Add automatic feed links in header
     add_theme_support( 'automatic-feed-links' );
