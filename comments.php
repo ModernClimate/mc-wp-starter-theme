@@ -23,10 +23,8 @@ if ( post_password_required() ) {
         <ol class="comment-list">
             <?php
             wp_list_comments( [
-                'style'        => 'ol',
-                'short_ping'   => true,
-                'callback'     => 'hybrid_comments_callback',
-                'end-callback' => 'hybrid_comments_end_callback'
+                'style'      => 'ol',
+                'short_ping' => true
             ] );
             ?>
         </ol><!-- .comment-list -->
