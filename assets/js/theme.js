@@ -6,7 +6,7 @@
 
 (function () {
 
-    // Initialize Javascript modules here.
-    // jsModule.init();
+  // Initialize Javascript modules here.
+  // jsModule.init();
 
 })();

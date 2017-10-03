@@ -114,10 +114,9 @@ gulp.task('dev:styles', function () {
 // run JS lint on theme scripts
 gulp.task('lint', function () {
     return gulp.src(PATHS.jsTheme)
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.jscs())
-        .pipe($.jscs.reporter());
+        .pipe($.eslint())
+        .pipe($.eslint.format())
+        .pipe($.eslint.failAfterError());
 });
 
 // Watch tasks
