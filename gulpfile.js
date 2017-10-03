@@ -2,7 +2,6 @@
 var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
-var del = require('del');
 
 function swallowError() {
     console.log('UGLIFY ERROR');
@@ -14,16 +13,15 @@ function swallowError() {
  */
 var PATHS = {
     fonts: [
-        'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'
+        'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
     ],
     sass: [
         'assets/scss/*.scss',
         'assets/scss/**/*.scss'
     ],
     jsVendor: [
-        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-        'bower_components/fluidvids/dist/fluidvids.js',
-        'bower_components/parsleyjs/dist/parsley.js'
+        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+        'node_modules/parsleyjs/dist/parsley.js'
     ],
     jsTheme: [
         'assets/js/theme/*.js',
@@ -84,9 +82,9 @@ gulp.task('build:styles', function () {
     return gulp.src('assets/scss/main.scss')
         .pipe($.sourcemaps.init())
         .pipe($.sass({
-                includePaths: PATHS.sass,
-                outputStyle: 'compressed'
-            })
+            includePaths: PATHS.sass,
+            outputStyle: 'compressed'
+        })
             .on('error', $.sass.logError))
         .pipe($.rename({
             basename: "theme",
@@ -100,11 +98,11 @@ gulp.task('build:styles', function () {
 gulp.task('dev:styles', function () {
     return gulp.src('assets/scss/main.scss')
         .pipe($.sass({
-                includePaths: PATHS.sass,
-                outputStyle: 'expanded',
-                indentType: 'tab',
-                indentWidth: 1
-            })
+            includePaths: PATHS.sass,
+            outputStyle: 'expanded',
+            indentType: 'tab',
+            indentWidth: 1
+        })
             .on('error', $.sass.logError))
         .pipe($.rename({
             basename: "theme",
@@ -156,13 +154,6 @@ gulp.task('dev', function (done) {
         'build:fonts',
         'dev:styles'
     ], done);
-});
-
-// Remove jquery bower dependency
-gulp.task('clean', function () {
-    return del([
-        'bower_components/jquery'
-    ]);
 });
 
 // Default task, run the build

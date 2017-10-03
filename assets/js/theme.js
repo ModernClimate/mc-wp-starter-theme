@@ -6,6 +6,7 @@
 
 (function () {
 
-    fluidVids._init();
+    // Initialize Javascript modules here.
+    // jsModule._init();
 
 })();
