@@ -7,6 +7,6 @@
 (function () {
 
     // Initialize Javascript modules here.
-    // jsModule._init();
+    // jsModule.init();
 
 })();
