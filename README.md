@@ -7,12 +7,11 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 
 ## What tools do I need to use the theme?
 1. [Node.js](https://github.com/ackmann-dickenson/ad-wp-starter-theme/wiki/Install-Node.js)
+1. [Yarn](https://yarnpkg.com/en/docs/install)
 2. [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 
 ## Instructions
-1. `$ npm install -g bower gulp` : Install global packages _(needed to run bower and gulp in the command line)_
-2. `$ npm install` : Install local packages
-3. `$ bower install` :  Install bower packages
+1. `$ yarn install` :  Install yarn packages _(postinstall will run composer install and gulp build)_
 
 ## Gulp Commands
 `$ gulp build` : Compiles minified assets
