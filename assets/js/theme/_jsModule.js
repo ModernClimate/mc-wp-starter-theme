@@ -5,12 +5,12 @@
  */
 var jsModule = (function () {
 
-    var pub = {}; // public facing functions
+  var pub = {}; // public facing functions
 
-    pub.init = function () {
+  pub.init = function () {
 
-    };
+  };
 
-    return pub;
+  return pub;
 
 }());
