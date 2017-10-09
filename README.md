@@ -24,7 +24,7 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 
 `$ gulp lint` : Runs linters on files in assets/js
 
-`$ gulp scss-lint` : Runs linters on files in assets/scss
+`$ gulp sass-lint` : Runs linters on files in assets/scss
 
 ## Environmental Checks
 The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
@@ -39,7 +39,8 @@ For local development load `acf-export.json` and edit with ACF Field Groups admi
 1. [PSR-4 Autoloader](http://www.php-fig.org/psr/psr-4/)
 2. [BEM Introduction](http://getbem.com/introduction/)
 3. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
-4. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
+4. [Sass Lint](https://github.com/sasstools/sass-lint)
+5. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
 ## Copyright and License
 The following resources are included or used in part within the theme package.
