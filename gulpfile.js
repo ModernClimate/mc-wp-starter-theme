@@ -155,9 +155,11 @@ gulp.task('watch:dev', function () {
 // Build and minify the theme assets
 gulp.task('build', function (done) {
   sequence([
+    'lint',
     'build:scripts:vendor',
     'build:scripts:theme',
     'build:fonts',
+    'scss-lint',
     'build:styles'
   ], done);
 });
@@ -165,9 +167,11 @@ gulp.task('build', function (done) {
 // Build the theme assets un-minified
 gulp.task('dev', function (done) {
   sequence([
+    'lint',
     'dev:scripts:vendor',
     'dev:scripts:theme',
     'build:fonts',
+    'scss-lint',
     'dev:styles'
   ], done);
 });

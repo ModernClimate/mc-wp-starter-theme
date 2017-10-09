@@ -24,6 +24,8 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 
 `$ gulp lint` : Runs linters on files in assets/js
 
+`$ gulp scss-lint` : Runs linters on files in assets/scss
+
 ## Environmental Checks
 The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
 
