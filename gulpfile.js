@@ -2,7 +2,7 @@
 var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
-var scsslint = require('gulp-scss-lint');
+var sassLint = require('gulp-sass-lint');
 
 function swallowError() {
   console.log('UGLIFY ERROR');
@@ -129,11 +129,11 @@ gulp.task('lint', function () {
 });
 
 // run SCSS lint on theme styles
-gulp.task('scss-lint', function () {
+gulp.task('sass-lint', function () {
   return gulp.src(PATHS.sass)
-    .pipe(scsslint({
-      'config': '.scss-lint.yml'
-    }))
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
 
 // Watch tasks
@@ -141,7 +141,7 @@ gulp.task('watch', function () {
   // Watch .js files
   gulp.watch(PATHS.jsTheme, ['build:scripts:theme', 'lint']);
   // Watch .scss files
-  gulp.watch(PATHS.sass, ['build:styles', 'scss-lint']);
+  gulp.watch(PATHS.sass, ['build:styles', 'sass-lint']);
 });
 
 // DEV Watch tasks
@@ -149,7 +149,7 @@ gulp.task('watch:dev', function () {
   // Watch .js files
   gulp.watch(PATHS.jsTheme, ['dev:scripts:theme', 'lint']);
   // Watch .scss files
-  gulp.watch(PATHS.sass, ['dev:styles', 'scss-lint']);
+  gulp.watch(PATHS.sass, ['dev:styles', 'sass-lint']);
 });
 
 // Build and minify the theme assets
@@ -159,7 +159,7 @@ gulp.task('build', function (done) {
     'build:scripts:vendor',
     'build:scripts:theme',
     'build:fonts',
-    'scss-lint',
+    'sass-lint',
     'build:styles'
   ], done);
 });
@@ -171,7 +171,7 @@ gulp.task('dev', function (done) {
     'dev:scripts:vendor',
     'dev:scripts:theme',
     'build:fonts',
-    'scss-lint',
+    'sass-lint',
     'dev:styles'
   ], done);
 });
