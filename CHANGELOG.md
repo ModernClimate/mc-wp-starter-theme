@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2017-10-09
+### Added
+- Sass Lint task in Gulp 
+
 ## [2.0.3] - 2017-10-09
 ### Added
 - Transients class to APP/Core to help standardized data caching.

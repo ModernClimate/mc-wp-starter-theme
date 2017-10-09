@@ -1,30 +1,25 @@
-/* Basic Setup
------------------------------------------------ */
+// Basic Setup
 
 body {
-    word-wrap: break-word;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
 }
 
 * {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .row-flex-content {
-    margin-top: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width;
+  margin-top: $grid-gutter-width;
+  margin-bottom: $grid-gutter-width;
 }
 
 .row_tabs {
-    .col-tabs {
-        margin-bottom: ($grid-gutter-width / 2);
-    }
+  .col-tabs {
+    margin-bottom: ($grid-gutter-width / 2);
+  }
 }
