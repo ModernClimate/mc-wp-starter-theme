@@ -13,7 +13,7 @@ use Walker_Nav_Menu;
 class PrimaryMenuWalker extends Walker_Nav_Menu {
 
     public function __construct() {
-        add_filter( 'nav_menu_css_class', [ $this, 'navMenuCssClasses' ], 10, 1 );
+        add_filter( 'nav_menu_css_class', [ $this, 'navMenuCssClasses' ], 10, 3 );
         add_filter( 'nav_menu_link_attributes', [ $this, 'navMenuLinkAttributes' ], 10, 4 );
         add_filter( 'nav_menu_item_title', [ $this, 'navMenuItemTitle' ], 10, 4 );
     }
@@ -25,13 +25,16 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
      *
      * @return array $classes
      */
-    public function navMenuCssClasses( $classes ) {
-        if ( in_array( 'menu-item-has-children', $classes ) ) {
-            $classes[] = 'dropdown';
-        }
+    public function navMenuCssClasses( $classes, $item, $args ) {
+        // Only affect the menu placed in the 'primary' theme location
+        if ( 'primary' === $args->theme_location ) {
+            if ( in_array( 'menu-item-has-children', $classes ) ) {
+                $classes[] = 'dropdown';
+            }
 
-        if ( in_array( 'current-menu-item', $classes ) || in_array( 'current_page_item', $classes ) ) {
-            $classes[] = 'active';
+            if ( in_array( 'current-menu-item', $classes ) || in_array( 'current_page_item', $classes ) ) {
+                $classes[] = 'active';
+            }
         }
 
         return $classes;
@@ -48,12 +51,15 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
      * @return mixed $atts
      */
     public function navMenuLinkAttributes( $atts, $item, $args, $depth ) {
-        if ( $args->walker->has_children && $depth === 0 ) {
-            $atts['class']         = 'dropdown-toggle';
-            $atts['data-toggle']   = 'dropdown';
-            $atts['role']          = 'button';
-            $atts['aria-haspopup'] = 'true';
-            $atts['aria-expanded'] = 'false';
+        // Only affect the menu placed in the 'primary' theme location
+        if ( 'primary' === $args->theme_location ) {
+            if ( $args->walker->has_children && $depth === 0 ) {
+                $atts['class']         = 'dropdown-toggle';
+                $atts['data-toggle']   = 'dropdown';
+                $atts['role']          = 'button';
+                $atts['aria-haspopup'] = 'true';
+                $atts['aria-expanded'] = 'false';
+            }
         }
 
         return $atts;
@@ -70,8 +76,11 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
      * @return mixed $title
      */
     public function navMenuItemTitle( $title, $item, $args, $depth ) {
-        if ( $args->walker->has_children && $depth === 0 ) {
-            $title .= ' <span class="caret"></span>';
+        // Only affect the menu placed in the 'primary' theme location
+        if ( 'primary' === $args->theme_location ) {
+            if ( $args->walker->has_children && $depth === 0 ) {
+                $title .= ' <span class="caret"></span>';
+            }
         }
 
         return $title;
@@ -86,7 +95,7 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
      * @param int $depth Depth of menu item. Used for padding.
      * @param array $args An array of arguments. @see wp_nav_menu()
      */
-    function start_lvl( &$output, $depth = 0, $args = [ ] ) {
+    function start_lvl( &$output, $depth = 0, $args = [] ) {
         $indent = str_repeat( "\t", $depth );
         $output .= "\n$indent<ul role=\"menu\" class=\"dropdown-menu \">\n";
     }
