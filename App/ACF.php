@@ -54,15 +54,13 @@ class ACF implements WordPressHooks {
         $post_meta = wp_cache_get( $cache_key, 'meta' );
 
         if ( ! $post_meta ) {
-            $suppress     = $wpdb->suppress_errors();
             $post_meta_db = $wpdb->get_results(
                 $wpdb->prepare(
                     "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%s AND meta_value NOT LIKE 'field_%'",
                     $post_id
                 )
             );
-            $wpdb->suppress_errors( $suppress );
-            $post_meta = [];
+            $post_meta    = [];
             foreach ( (array) $post_meta_db as $o ) {
                 $post_meta[ $o->meta_key ] = maybe_unserialize( $o->meta_value );
             }
@@ -80,16 +78,14 @@ class ACF implements WordPressHooks {
      *
      * @return array|bool
      */
-    public function getACFOptions() {
+    public static function getACFOptions() {
         global $wpdb;
 
         $acf_options = wp_cache_get( 'ad_acf_options', 'options' );
 
         if ( ! $acf_options ) {
-            $suppress       = $wpdb->suppress_errors();
             $acf_options_db = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'options_%'" );
-            $wpdb->suppress_errors( $suppress );
-            $acf_options = [];
+            $acf_options    = [];
             foreach ( (array) $acf_options_db as $o ) {
                 $new_key                 = str_replace( 'options_', '', $o->option_name );
                 $acf_options[ $new_key ] = maybe_unserialize( $o->option_value );
