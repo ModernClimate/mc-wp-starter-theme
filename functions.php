@@ -16,12 +16,12 @@ use AD\App\Shortcodes;
  * Define Theme Version
  * Define Theme directories
  */
-define( 'THEME_VERSION', '2.1.0' );
+define( 'THEME_VERSION', '2.1.1' );
 define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
 
 // Require Autoloader
-require_once 'vendor/autoload.php';
+require_once AD_THEME_DIR . 'vendor/autoload.php';
 
 /**
  * Theme Setup

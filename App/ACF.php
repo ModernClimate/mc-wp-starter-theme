@@ -7,13 +7,13 @@ use AD\App\Interfaces\WordPressHooks;
 /**
  * Class ACF
  *
- * @package AD Starter\App
+ * @package AD\App
  */
 class ACF implements WordPressHooks {
 
     public function __construct() {
         // load ACF Fields
-        require_once get_template_directory() . '/inc/acf/fields.php';
+        // require_once AD_THEME_DIR . 'inc/acf/fields.php';
     }
 
     /**
@@ -41,20 +41,51 @@ class ACF implements WordPressHooks {
     }
 
     /**
+     * Custom db query for grabbing all post meta while excluding ACF field key rows
+     *
+     * @param $post_id
+     *
+     * @return bool|mixed
+     */
+    public static function getPostMeta( $post_id ) {
+        global $wpdb;
+
+        $cache_key = 'ad_post_meta_' . $post_id;
+        $post_meta = wp_cache_get( $cache_key, 'meta' );
+
+        if ( ! $post_meta ) {
+            $post_meta_db = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%s AND meta_value NOT LIKE 'field_%'",
+                    $post_id
+                )
+            );
+            $post_meta    = [];
+            foreach ( (array) $post_meta_db as $o ) {
+                $post_meta[ $o->meta_key ] = maybe_unserialize( $o->meta_value );
+            }
+
+            if ( ! wp_installing() || ! is_multisite() ) {
+                wp_cache_add( $cache_key, $post_meta, 'meta' );
+            }
+        }
+
+        return $post_meta;
+    }
+
+    /**
      * Helper method to retrieve all ACF site options and cache the result
      *
      * @return array|bool
      */
-    public function getACFOptions() {
+    public static function getACFOptions() {
         global $wpdb;
 
         $acf_options = wp_cache_get( 'ad_acf_options', 'options' );
 
         if ( ! $acf_options ) {
-            $suppress       = $wpdb->suppress_errors();
             $acf_options_db = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'options_%'" );
-            $wpdb->suppress_errors( $suppress );
-            $acf_options = [ ];
+            $acf_options    = [];
             foreach ( (array) $acf_options_db as $o ) {
                 $new_key                 = str_replace( 'options_', '', $o->option_name );
                 $acf_options[ $new_key ] = maybe_unserialize( $o->option_value );

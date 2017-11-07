@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.1] - 2017-11-07
+### Added
+- ACF Helper function `getPostMeta()` to more efficiently get post meta fields from the DB.
+
+### Changed
+- Updated vendor autoload require to not interfere with vendor directories in the root.
+
 ## [2.1.0] - 2017-10-09
 ### Added
 - Sass Lint task in Gulp 
