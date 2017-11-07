@@ -30,7 +30,6 @@ rules:
   no-shadow: 1
   no-invalid-regexp: 2
   comma-dangle: [1, "never"]
-  no-undef: 2
   no-new: 2
   no-extra-semi: 2
   no-debugger: 2
