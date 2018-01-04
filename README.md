@@ -37,10 +37,11 @@ For local development load `acf-export.json` and edit with ACF Field Groups admi
 
 ## Resources
 1. [PSR-4 Autoloader](http://www.php-fig.org/psr/psr-4/)
-2. [BEM Introduction](http://getbem.com/introduction/)
-3. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
-4. [Sass Lint](https://github.com/sasstools/sass-lint)
-5. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
+2. [PSR-2 PHP Coding Style Guide](http://www.php-fig.org/psr/psr-2/)
+3. [BEM Introduction](http://getbem.com/introduction/)
+4. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
+5. [Sass Lint](https://github.com/sasstools/sass-lint)
+6. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
 ## Copyright and License
 The following resources are included or used in part within the theme package.
