@@ -343,11 +343,11 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
         ),
         'location'              => array(
             array(
-                array(
-                    'param'    => 'post_type',
-                    'operator' => '==',
-                    'value'    => 'page',
-                ),
+              array(
+                'param' => 'page_template',
+                'operator' => '==',
+                'value' => 'templates/template-page-builder.php',
+              ),
             ),
         ),
         'menu_order'            => 0,
@@ -355,7 +355,9 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
         'style'                 => 'default',
         'label_placement'       => 'top',
         'instruction_placement' => 'label',
-        'hide_on_screen'        => '',
+        'hide_on_screen' => array(
+      		0 => 'the_content',
+      	),
         'active'                => 1,
         'description'           => '',
     ) );

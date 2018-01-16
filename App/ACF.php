@@ -13,7 +13,7 @@ class ACF implements WordPressHooks {
 
     public function __construct() {
         // load ACF Fields
-        // require_once AD_THEME_DIR . 'inc/acf/fields.php';
+        require_once AD_THEME_DIR . 'inc/acf/fields.php';
     }
 
     /**
@@ -21,7 +21,21 @@ class ACF implements WordPressHooks {
      */
     public function addHooks() {
         add_action( 'init', [ $this, 'addOptionsPage' ] );
+        add_action( 'admin_head', [ $this, 'removePageBuilderEditor' ], 100 );
     }
+
+    /**
+     * Removes default page editor for page builer templates
+     */
+    public function removePageBuilderEditor()
+    {
+      $template_file = basename( get_page_template() );
+
+       if($template_file === 'template-page-builder.php') { // template
+         remove_post_type_support('page', 'editor');
+       }
+    }
+
 
     /**
      * ACF Options Panels

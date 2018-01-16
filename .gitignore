@@ -19,4 +19,4 @@ bower_components
 *.DS_Store
 thumbs.db
 .idea
-
+.env
