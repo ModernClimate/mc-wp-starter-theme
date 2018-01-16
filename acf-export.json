@@ -344,7 +344,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/template-page-builder.php"
+                "value": "templates\/page-builder.php"
             }
         ]
     ],

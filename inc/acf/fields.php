@@ -346,7 +346,7 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
               array(
                 'param' => 'page_template',
                 'operator' => '==',
-                'value' => 'templates/template-page-builder.php',
+                'value' => 'templates/page-builder.php',
               ),
             ),
         ),
