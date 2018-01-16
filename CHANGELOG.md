@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.1.2] - 2018-01-15
 ### Added
-- Added ACF Pro dependency
-- Added page builder template
+- ACF Pro dependency
+- Page Builder template
 
 ## [2.1.1] - 2017-11-07
 ### Added

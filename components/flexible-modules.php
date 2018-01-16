@@ -10,7 +10,6 @@ if ( ! function_exists( 'have_rows' ) || ! have_rows( 'content_rows' ) ) {
 }
 
 while ( have_rows( 'content_rows' ) ) {
-
     the_row();
     $row_name = get_row_layout();
     $row_id   = $row_name . '-' . get_row_index();
