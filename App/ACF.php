@@ -13,7 +13,7 @@ class ACF implements WordPressHooks {
 
     public function __construct() {
         // load ACF Fields
-        // require_once AD_THEME_DIR . 'inc/acf/fields.php';
+        require_once AD_THEME_DIR . 'inc/acf/fields.php';
     }
 
     /**
@@ -22,6 +22,7 @@ class ACF implements WordPressHooks {
     public function addHooks() {
         add_action( 'init', [ $this, 'addOptionsPage' ] );
     }
+
 
     /**
      * ACF Options Panels

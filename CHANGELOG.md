@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - 2018-01-15
+### Added
+- ACF Pro dependency
+- Page Builder template
+
 ## [2.1.1] - 2017-11-07
 ### Added
 - ACF Helper function `getPostMeta()` to more efficiently get post meta fields from the DB.
@@ -13,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.1.0] - 2017-10-09
 ### Added
-- Sass Lint task in Gulp 
+- Sass Lint task in Gulp
 
 ## [2.0.3] - 2017-10-09
 ### Added

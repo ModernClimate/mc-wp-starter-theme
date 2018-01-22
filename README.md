@@ -30,8 +30,13 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
 
 ## ACF Notes
+A `.env` file must be added to the root of the A&D Starter Theme directory with the following code `ACF_PRO_KEY=Your-Key-Here` to install ACF Pro. The `.env` file type has been added to the .gitignore and should never be committed to the repo.
 
-For local development load `acf-export.json` and edit with ACF Field Groups admin page. In production environment the ACF fields should load from `/inc/acf/fields.php`. See [Environment Constants](https://github.com/ackmann-dickenson/ad-wp-starter-theme#environmental-checks) for details on environment checks.
+ACF Pro is installed via Composer to the plugins directory. Activate the plugin at `/wp-admin/plugins.php`. Once activated a site Options page and boilerplate page builder modules will be generated from `/inc/acf/fields.php`.
+
+To utilize the ACF ui for local development comment out the `/inc/acf/fields.php` reference within `App/ACF.php` and import `acf-export.json` through the ACF ui. In production environments ACF fields should load from `/inc/acf/fields.php`. The PHP definitions can be generated via the ACF ui.  
+
+See [Environment Constants](https://github.com/ackmann-dickenson/ad-wp-starter-theme#environmental-checks) for details on environment checks.
 
 **Please keep `acf-export.json` and `/inc/acf/fields.php` up to date with changes.**
 
