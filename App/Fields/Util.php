@@ -10,28 +10,6 @@ namespace AD\App\Fields;
 class Util {
 
     /**
-     * Returns an ACF subfield wrapped in HTML. Automatically escapes content.
-     * Example usage: echo ACF::getSubFieldHTML('heading', 'h1', ['class'=>'block__heading', 'id'=>'my-heading']);
-     * Example usage: echo ACF::getSubFieldHTML('wysiwyg_content', 'div', ['class'=>'block__content wysiwyg'], false);
-     *
-     * @param       $subfield
-     * @param       $element
-     * @param array $atts
-     * @param bool  $escape
-     *
-     * @return string - an HTML element.
-     */
-    public static function getSimpleSubFieldHTML( $subfield, $element, $atts = [], $escape = true ) {
-        if ( ! function_exists( 'get_sub_field' ) ) {
-            return '';
-        }
-
-        $data = get_sub_field( $subfield );
-
-        return self::getHTML( $data, $element, $atts, $escape );
-    }
-
-    /**
      * Wraps data in HTML w/ optional attributes / escaping.
      *
      * @param       $data         - the content (typically text) to wrap

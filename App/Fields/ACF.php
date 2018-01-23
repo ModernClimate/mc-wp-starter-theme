@@ -114,20 +114,4 @@ class ACF implements WordPressHooks {
         return isset( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
     }
 
-    /**
-     * Returns an option wrapped in HTML. Works well for headings, spans, divs, etc.
-     *
-     * @param       $option
-     * @param       $element
-     * @param array $atts
-     * @param bool  $escape
-     *
-     * @return string
-     */
-    public static function getOptionHTML( $option, $element, $atts = [], $escape = true ) {
-        $option = self::getACFOption( $option );
-
-        return Util::getHTML( $option, $element, $atts, $escape );
-    }
-
 }
