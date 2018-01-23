@@ -21,7 +21,7 @@ class Util {
      *
      * @return string - an HTML element.
      */
-    public static function getSubFieldHTML( $subfield, $element, $atts = [], $escape = true ) {
+    public static function getSimpleSubFieldHTML( $subfield, $element, $atts = [], $escape = true ) {
         if ( ! function_exists( 'get_sub_field' ) ) {
             return '';
         }
@@ -37,7 +37,7 @@ class Util {
      * @param       $data         - the content (typically text) to wrap
      * @param       $element      - the HTML element to wrap the content with
      * @param array $atts         - any attributes that should be added to the HTML element
-     * @param bool  $escape       - whether to escape $data - defaults to true
+     * @param mixed $escape       - whether to escape $data - defaults to true - can be an escaping function
      * @param bool  $self_closing - whether the element is self closing i.e. <img />
      *
      * @return string - an HTML element.
@@ -50,7 +50,9 @@ class Util {
             return '';
         }
 
-        if ( $escape ) {
+        if ( is_callable( $escape ) ) {
+            $data = $escape( $data );
+        } else if ( $escape ) {
             $data = esc_html( $data );
         }
 
