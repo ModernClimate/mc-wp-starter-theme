@@ -1,15 +1,16 @@
 <?php
 
-namespace AD\App;
+namespace AD\App\Fields;
 
 use AD\App\Interfaces\WordPressHooks;
 
 /**
  * Class ACF
  *
- * @package AD\App
+ * @package AD\App\Fields
  */
 class ACF implements WordPressHooks {
+
 
     public function __construct() {
         // load ACF Fields
@@ -98,4 +99,19 @@ class ACF implements WordPressHooks {
 
         return $acf_options;
     }
+
+    /**
+     * Helper function for retrieving a single option.
+     *
+     * @param $option
+     *
+     * @return mixed|null
+     */
+    public static function getACFOption( $option ) {
+
+        $acf_options = self::getACFOptions();
+
+        return isset( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
+    }
+
 }
