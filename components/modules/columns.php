@@ -5,10 +5,10 @@
  * @global $data
  */
 
-use AD\App\Fields\Modules;
+use AD\App\Fields\ACF;
 
 $size  = ! empty( $data['col-size'] ) ? esc_attr( $data['col-size'] ) : 'md';
-$rows  = Modules::getRowsLayout( 'columns', $data );
+$rows  = ACF::getRowsLayout( 'columns', $data );
 $class = "col-$size-" . ( 12 / count( $rows ) );
 ?>
 
