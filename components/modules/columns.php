@@ -7,7 +7,7 @@
 
 use AD\App\Fields\ACF;
 
-$size  = ! empty( $data['col-size'] ) ? esc_attr( $data['col-size'] ) : 'md';
+$size  = ACF::getField( 'col_size', $data, 'md' );
 $rows  = ACF::getRowsLayout( 'columns', $data );
 $class = "col-$size-" . ( 12 / count( $rows ) );
 ?>

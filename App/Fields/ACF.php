@@ -111,14 +111,15 @@ class ACF implements WordPressHooks {
     }
 
     /**
-     *
      * @param $selector
+     * @param $data
+     * @param string $default
      *
-     * @return bool
+     * @return string
      */
-    public static function getField( $selector, $data ) {
+    public static function getField( $selector, $data, $default = '' ) {
         if ( empty( $data[ $selector ] ) ) {
-            return false;
+            return $default;
         }
 
         return maybe_unserialize( $data[ $selector ] );
