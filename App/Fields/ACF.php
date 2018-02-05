@@ -84,6 +84,9 @@ class ACF {
     }
 
     /**
+     * Check for and return the selected key value from the array passed in.
+     * A default return value can be passed if the key value does not exist.
+     *
      * @param $selector
      * @param $data
      * @param string $default
