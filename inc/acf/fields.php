@@ -1,34 +1,31 @@
 <?php
-if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) {
+if ( function_exists( 'acf_add_local_field_group' ) ):
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group( [
         'key'                   => 'group_573e0af187c60',
-        'title'                 => 'Custom Content',
-        'fields'                => array(
-            array(
+        'title'                 => 'Page Builder',
+        'fields'                => [
+            [
                 'key'               => 'field_573e0b06159d6',
-                'label'             => 'Content Rows',
-                'name'              => 'content_rows',
+                'label'             => 'Modules',
+                'name'              => 'modules',
                 'type'              => 'flexible_content',
                 'instructions'      => '',
                 'required'          => 0,
                 'conditional_logic' => 0,
-                'wrapper'           => array(
+                'wrapper'           => [
                     'width' => '',
                     'class' => '',
                     'id'    => '',
-                ),
-                'button_label'      => 'Add Content Row',
-                'min'               => '',
-                'max'               => '',
-                'layouts'           => array(
-                    array(
+                ],
+                'layouts'           => [
+                    '573e0b167c6da' => [
                         'key'        => '573e0b167c6da',
-                        'name'       => 'columns',
+                        'name'       => 'row_columns',
                         'label'      => 'Columns Row',
                         'display'    => 'block',
-                        'sub_fields' => array(
-                            array(
+                        'sub_fields' => [
+                            [
                                 'key'               => 'field_57a3969af2b2b',
                                 'label'             => 'Breakpoint Size',
                                 'name'              => 'col_size',
@@ -36,20 +33,20 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 0,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
-                                'choices'           => array(
+                                ],
+                                'choices'           => [
                                     'lg' => 'Large',
                                     'md' => 'Medium',
                                     'sm' => 'Small',
                                     'xs' => 'Extra Small',
-                                ),
-                                'default_value'     => array(
+                                ],
+                                'default_value'     => [
                                     0 => 'md',
-                                ),
+                                ],
                                 'allow_null'        => 0,
                                 'multiple'          => 0,
                                 'ui'                => 0,
@@ -57,8 +54,9 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'placeholder'       => '',
                                 'disabled'          => 0,
                                 'readonly'          => 0,
-                            ),
-                            array(
+                                'return_format'     => 'value',
+                            ],
+                            [
                                 'key'               => 'field_573e0b35159d7',
                                 'label'             => 'Columns',
                                 'name'              => 'columns',
@@ -66,18 +64,18 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 0,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
+                                ],
                                 'collapsed'         => '',
                                 'min'               => 1,
                                 'max'               => 6,
                                 'layout'            => 'block',
                                 'button_label'      => 'Add Column',
-                                'sub_fields'        => array(
-                                    array(
+                                'sub_fields'        => [
+                                    [
                                         'key'               => 'field_573e0b5c159d8',
                                         'label'             => 'Column Content',
                                         'name'              => 'column_content',
@@ -85,29 +83,30 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 0,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'default_value'     => '',
                                         'tabs'              => 'all',
                                         'toolbar'           => 'full',
                                         'media_upload'      => 1,
-                                    ),
-                                ),
-                            ),
-                        ),
+                                        'delay'             => 0,
+                                    ],
+                                ],
+                            ],
+                        ],
                         'min'        => '',
                         'max'        => '',
-                    ),
-                    array(
+                    ],
+                    '573e1d6947c6c' => [
                         'key'        => '573e1d6947c6c',
-                        'name'       => 'slideshow',
+                        'name'       => 'row_slideshow',
                         'label'      => 'Slideshow',
                         'display'    => 'block',
-                        'sub_fields' => array(
-                            array(
+                        'sub_fields' => [
+                            [
                                 'key'               => 'field_573e1d7947c6d',
                                 'label'             => 'Slides',
                                 'name'              => 'slides',
@@ -115,18 +114,18 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => '',
                                 'conditional_logic' => '',
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
+                                ],
                                 'collapsed'         => '',
                                 'min'               => 1,
-                                'max'               => '',
+                                'max'               => 0,
                                 'layout'            => '',
                                 'button_label'      => 'Add Slide',
-                                'sub_fields'        => array(
-                                    array(
+                                'sub_fields'        => [
+                                    [
                                         'key'               => 'field_573e1dda47c6e',
                                         'label'             => 'Slide Image',
                                         'name'              => 'slide_image',
@@ -134,11 +133,11 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 0,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'return_format'     => 'array',
                                         'preview_size'      => 'thumbnail',
                                         'library'           => 'all',
@@ -149,20 +148,20 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'max_height'        => '',
                                         'max_size'          => '',
                                         'mime_types'        => '',
-                                    ),
-                                ),
-                            ),
-                        ),
+                                    ],
+                                ],
+                            ],
+                        ],
                         'min'        => '',
                         'max'        => '',
-                    ),
-                    array(
+                    ],
+                    '57a3920ed9c78' => [
                         'key'        => '57a3920ed9c78',
-                        'name'       => 'tabs',
+                        'name'       => 'row_tabs',
                         'label'      => 'Tabs Row',
                         'display'    => 'block',
-                        'sub_fields' => array(
-                            array(
+                        'sub_fields' => [
+                            [
                                 'key'               => 'field_57a3a0ce16d8f',
                                 'label'             => 'Tab Position',
                                 'name'              => 'tab_pos',
@@ -170,16 +169,17 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 1,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
-                                'choices'           => array(
+                                ],
+                                'choices'           => [
                                     'top'  => 'Top',
                                     'side' => 'Side',
-                                ),
-                                'default_value'     => array(),
+                                ],
+                                'default_value'     => [
+                                ],
                                 'allow_null'        => 0,
                                 'multiple'          => 0,
                                 'ui'                => 0,
@@ -187,8 +187,9 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'placeholder'       => '',
                                 'disabled'          => 0,
                                 'readonly'          => 0,
-                            ),
-                            array(
+                                'return_format'     => 'value',
+                            ],
+                            [
                                 'key'               => 'field_57a39227d9c79',
                                 'label'             => 'Tabs',
                                 'name'              => 'tabs',
@@ -196,18 +197,18 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 1,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
+                                ],
                                 'collapsed'         => '',
                                 'min'               => 2,
                                 'max'               => 6,
                                 'layout'            => 'block',
                                 'button_label'      => 'Add Tab',
-                                'sub_fields'        => array(
-                                    array(
+                                'sub_fields'        => [
+                                    [
                                         'key'               => 'field_57a3927bd9c7a',
                                         'label'             => 'Tab Title',
                                         'name'              => 'tab_button',
@@ -215,11 +216,11 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 0,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'default_value'     => '',
                                         'placeholder'       => '',
                                         'prepend'           => '',
@@ -227,8 +228,8 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'maxlength'         => '',
                                         'readonly'          => 0,
                                         'disabled'          => 0,
-                                    ),
-                                    array(
+                                    ],
+                                    [
                                         'key'               => 'field_57a3929dd9c7b',
                                         'label'             => 'Tab Content',
                                         'name'              => 'tab_content',
@@ -236,29 +237,30 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 0,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'default_value'     => '',
                                         'tabs'              => 'all',
                                         'toolbar'           => 'full',
                                         'media_upload'      => 1,
-                                    ),
-                                ),
-                            ),
-                        ),
+                                        'delay'             => 0,
+                                    ],
+                                ],
+                            ],
+                        ],
                         'min'        => '',
                         'max'        => '',
-                    ),
-                    array(
+                    ],
+                    '57a4aca0e07a5' => [
                         'key'        => '57a4aca0e07a5',
-                        'name'       => 'accordion',
+                        'name'       => 'row_accordion',
                         'label'      => 'Accordion Row',
                         'display'    => 'block',
-                        'sub_fields' => array(
-                            array(
+                        'sub_fields' => [
+                            [
                                 'key'               => 'field_57a4b1e50234d',
                                 'label'             => 'Open First',
                                 'name'              => 'open_first',
@@ -266,15 +268,18 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 0,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
+                                ],
                                 'message'           => 'Open first panel on page load',
                                 'default_value'     => 1,
-                            ),
-                            array(
+                                'ui'                => 0,
+                                'ui_on_text'        => '',
+                                'ui_off_text'       => '',
+                            ],
+                            [
                                 'key'               => 'field_57a4acbde07a6',
                                 'label'             => 'Accordion',
                                 'name'              => 'accordion',
@@ -282,18 +287,18 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                 'instructions'      => '',
                                 'required'          => 1,
                                 'conditional_logic' => 0,
-                                'wrapper'           => array(
+                                'wrapper'           => [
                                     'width' => '',
                                     'class' => '',
                                     'id'    => '',
-                                ),
+                                ],
                                 'collapsed'         => '',
                                 'min'               => 2,
-                                'max'               => '',
+                                'max'               => 0,
                                 'layout'            => 'block',
                                 'button_label'      => 'Add Accordion Panel',
-                                'sub_fields'        => array(
-                                    array(
+                                'sub_fields'        => [
+                                    [
                                         'key'               => 'field_57a4accbe07a7',
                                         'label'             => 'Accordion Title',
                                         'name'              => 'accordion_title',
@@ -301,11 +306,11 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 1,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'default_value'     => '',
                                         'placeholder'       => '',
                                         'prepend'           => '',
@@ -313,8 +318,8 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'maxlength'         => '',
                                         'readonly'          => 0,
                                         'disabled'          => 0,
-                                    ),
-                                    array(
+                                    ],
+                                    [
                                         'key'               => 'field_57a4acd8e07a8',
                                         'label'             => 'Accordion Content',
                                         'name'              => 'accordion_content',
@@ -322,86 +327,38 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
                                         'instructions'      => '',
                                         'required'          => 1,
                                         'conditional_logic' => 0,
-                                        'wrapper'           => array(
+                                        'wrapper'           => [
                                             'width' => '',
                                             'class' => '',
                                             'id'    => '',
-                                        ),
+                                        ],
                                         'default_value'     => '',
                                         'tabs'              => 'all',
                                         'toolbar'           => 'full',
                                         'media_upload'      => 1,
-                                    ),
-                                ),
-                            ),
-                        ),
+                                        'delay'             => 0,
+                                    ],
+                                ],
+                            ],
+                        ],
                         'min'        => '',
                         'max'        => '',
-                    ),
-                ),
-            ),
-        ),
-        'location'              => array(
-            array(
-              array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'templates/page-builder.php',
-              ),
-            ),
-        ),
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => array(
-      		0 => 'the_content',
-      	),
-        'active'                => 1,
-        'description'           => '',
-    ) );
-
-    acf_add_local_field_group( array(
-        'key'                   => 'group_57a9f4dce4efe',
-        'title'                 => 'Site Options',
-        'fields'                => array(
-            array(
-                'key'               => 'field_57a9f4f464bb2',
-                'label'             => 'Site Layout',
-                'name'              => 'site_layout',
-                'type'              => 'select',
-                'instructions'      => '',
-                'required'          => 0,
-                'conditional_logic' => 0,
-                'wrapper'           => array(
-                    'width' => '',
-                    'class' => '',
-                    'id'    => '',
-                ),
-                'choices'           => array(
-                    'container'       => 'Centered Container',
-                    'container-fluid' => 'Full Screen (Fluid)',
-                ),
-                'default_value'     => array(),
-                'allow_null'        => 0,
-                'multiple'          => 0,
-                'ui'                => 0,
-                'ajax'              => 0,
-                'placeholder'       => '',
-                'disabled'          => 0,
-                'readonly'          => 0,
-            ),
-        ),
-        'location'              => array(
-            array(
-                array(
-                    'param'    => 'options_page',
+                    ],
+                ],
+                'button_label'      => 'Add Content Row',
+                'min'               => '',
+                'max'               => '',
+            ],
+        ],
+        'location'              => [
+            [
+                [
+                    'param'    => 'page_template',
                     'operator' => '==',
-                    'value'    => 'theme-general-options',
-                ),
-            ),
-        ),
+                    'value'    => 'templates/page-builder.php',
+                ],
+            ],
+        ],
         'menu_order'            => 0,
         'position'              => 'normal',
         'style'                 => 'default',
@@ -410,6 +367,6 @@ if ( ! defined( 'WP_ENV' ) and function_exists( 'acf_add_local_field_group' ) ) 
         'hide_on_screen'        => '',
         'active'                => 1,
         'description'           => '',
-    ) );
+    ] );
 
-}
+endif;

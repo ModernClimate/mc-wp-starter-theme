@@ -11,7 +11,9 @@ use AD\App\Interfaces\WordPressHooks;
  */
 class ACF implements WordPressHooks {
 
-
+    /**
+     * ACF constructor.
+     */
     public function __construct() {
         // load ACF Fields
         require_once AD_THEME_DIR . 'inc/acf/fields.php';
@@ -57,10 +59,7 @@ class ACF implements WordPressHooks {
 
         if ( ! $post_meta ) {
             $post_meta_db = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%s AND meta_value NOT LIKE 'field_%'",
-                    $post_id
-                )
+                "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id AND meta_value NOT LIKE 'field_%'"
             );
             $post_meta    = [];
             foreach ( (array) $post_meta_db as $o ) {
@@ -108,7 +107,6 @@ class ACF implements WordPressHooks {
      * @return mixed|null
      */
     public static function getACFOption( $option ) {
-
         $acf_options = self::getACFOptions();
 
         return isset( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
