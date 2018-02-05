@@ -19,6 +19,7 @@ get_header(); ?>
                     // Loads the content/singular/page.php template.
                     get_template_part( 'content/singular/page' );
 
+                    // hook: App/Fields/Modules/outputFlexibleModules()
                     do_action( 'ad/modules/output', get_the_ID() );
                 }
                 ?>
