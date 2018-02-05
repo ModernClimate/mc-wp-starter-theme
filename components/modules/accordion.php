@@ -19,7 +19,7 @@ $open_first = ACF::getField( 'open_first', $data );
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#<?php echo $row_id; ?>"
                        href="<?php echo "#{$row_id}-{$index}"; ?>">
-                        <?php echo $panel['accordion_title']; ?>
+                        <?php echo esc_html( $panel['accordion_title'] ); ?>
                     </a>
                 </h4>
             </div>

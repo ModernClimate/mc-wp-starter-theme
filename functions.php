@@ -34,18 +34,18 @@ add_action( 'after_setup_theme', function () {
     ( new Init() )
         ->add( new Setup() )
         ->add( new Scripts() )
-        ->add( new ACF() )
         ->add( new Options() )
         ->add( new Modules() )
         ->add( new Shortcodes() )
         ->initialize();
+    new ACF();
     new Media();
 
     // Translation setup
     load_theme_textdomain( 'ad-starter', AD_THEME_DIR . '/languages' );
 
-    // Theme layouts.
-    add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
+    // Let WordPress manage the document title.
+    add_theme_support( 'title-tag' );
 
     // Add automatic feed links in header
     add_theme_support( 'automatic-feed-links' );

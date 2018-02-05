@@ -2,14 +2,12 @@
 
 namespace AD\App\Fields;
 
-use AD\App\Interfaces\WordPressHooks;
-
 /**
  * Class ACF
  *
  * @package AD\App\Fields
  */
-class ACF implements WordPressHooks {
+class ACF {
 
     /**
      * ACF constructor.
@@ -17,31 +15,6 @@ class ACF implements WordPressHooks {
     public function __construct() {
         // load ACF Fields
         require_once AD_THEME_DIR . 'inc/acf/fields.php';
-    }
-
-    /**
-     * Add class hooks.
-     */
-    public function addHooks() {
-        add_action( 'init', [ $this, 'addOptionsPage' ] );
-    }
-
-
-    /**
-     * ACF Options Panels
-     */
-    public function addOptionsPage() {
-        if ( function_exists( 'acf_add_options_page' ) ) {
-            acf_add_options_page( [
-                'page_title' => __( 'Site Options', 'ad-starter' ),
-                'menu_title' => __( 'Options', 'ad-starter' ),
-                'menu_slug'  => 'theme-general-options',
-                'capability' => 'edit_posts',
-                'position'   => 28,
-                'icon_url'   => 'dashicons-admin-settings',
-                'redirect'   => false
-            ] );
-        }
     }
 
     /**
@@ -111,26 +84,11 @@ class ACF implements WordPressHooks {
     }
 
     /**
-     * @param $selector
-     * @param $data
-     * @param string $default
-     *
-     * @return string
-     */
-    public static function getField( $selector, $data, $default = '' ) {
-        if ( empty( $data[ $selector ] ) ) {
-            return $default;
-        }
-
-        return maybe_unserialize( $data[ $selector ] );
-    }
-
-    /**
      * Helper method to retrieve all ACF site options and cache the result
      *
      * @return array|bool
      */
-    public static function getACFOptions() {
+    public static function getSiteOptions() {
         global $wpdb;
 
         $acf_options = wp_cache_get( 'ad_acf_options', 'options' );
@@ -157,9 +115,20 @@ class ACF implements WordPressHooks {
      *
      * @return mixed|null
      */
-    public static function getACFOption( $option ) {
-        $acf_options = self::getACFOptions();
+    public static function getSiteOption( $option ) {
+        $acf_options = self::getSiteOptions();
 
-        return isset( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
+        return ! empty( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
+    }
+
+    /**
+     * @param $selector
+     * @param $data
+     * @param string $default
+     *
+     * @return string
+     */
+    public static function getField( $selector, $data, $default = '' ) {
+        return ! empty( $data[ $selector ] ) ? $data[ $selector ] : $default;
     }
 }
