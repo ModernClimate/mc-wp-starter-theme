@@ -10,13 +10,15 @@ use AD\App\Setup;
 use AD\App\Scripts;
 use AD\App\Media;
 use AD\App\Fields\ACF;
+use AD\App\Fields\Options;
+use AD\App\Fields\Modules;
 use AD\App\Shortcodes;
 
 /**
  * Define Theme Version
  * Define Theme directories
  */
-define( 'THEME_VERSION', '2.1.1' );
+define( 'THEME_VERSION', '2.2.0' );
 define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
 
@@ -32,16 +34,18 @@ add_action( 'after_setup_theme', function () {
     ( new Init() )
         ->add( new Setup() )
         ->add( new Scripts() )
-        ->add( new ACF() )
+        ->add( new Options() )
+        ->add( new Modules() )
         ->add( new Shortcodes() )
         ->initialize();
+    new ACF();
     new Media();
 
     // Translation setup
     load_theme_textdomain( 'ad-starter', AD_THEME_DIR . '/languages' );
 
-    // Theme layouts.
-    add_theme_support( 'theme-layouts', [ 'default' => is_rtl() ? 'sidebar-left' : 'sidebar' ] );
+    // Let WordPress manage the document title.
+    add_theme_support( 'title-tag' );
 
     // Add automatic feed links in header
     add_theme_support( 'automatic-feed-links' );

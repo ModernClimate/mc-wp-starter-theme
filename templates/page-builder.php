@@ -8,22 +8,25 @@
  * @package AD Starter
  */
 
-get_header();
-?>
+get_header(); ?>
 
-<div class="template__page-builder">
-  <div class="container">
-      <div class="row">
-          <div id="primary" class="col-sm-12">
+    <div class="container">
+        <div class="row">
+            <div id="primary" class="col-sm-8">
+                <?php
+                while ( have_posts() ) {
+                    the_post();
+                    // Loads the content/singular/page.php template.
+                    get_template_part( 'content/singular/page' );
 
-            <?php
-                // Flexible Content Rows
-                get_template_part( 'components/flexible', 'modules' );
+                    // hook: App/Fields/Modules/outputFlexibleModules()
+                    do_action( 'ad/modules/output', get_the_ID() );
+                }
+                ?>
+            </div><!-- /#primary -->
 
-            ?>
-            
+            <?php get_sidebar(); ?>
+        </div>
     </div>
-  </div>
-</div><!-- /.page-builder -->
 
-<?php get_footer(); ?>
+<?php get_footer();

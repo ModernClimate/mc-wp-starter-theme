@@ -1,16 +1,21 @@
 <?php
 /**
  * ACF Module: Tabs
+ *
+ * @global $data
+ * @global $row_id
  */
 
-$tab_pos = get_sub_field( 'tab_pos' );
-$tabs    = get_sub_field( 'tabs' );
+use AD\App\Fields\ACF;
+
+$tab_pos = ACF::getField( 'tab_pos', $data, 'top' );
+$tabs    = ACF::getRowsLayout( 'tabs', $data );
 ?>
-<div class="row row-flex-content <?php echo $row_name; ?>">
+<div class="row row-flex-content">
     <div class="<?php echo ( $tab_pos == 'side' ) ? 'col-sm-3' : 'col-xs-12'; ?> col-tabs">
         <ul class="nav <?php echo ( $tab_pos == 'side' ) ? 'nav-pills nav-stacked' : 'nav-tabs'; ?>" role="tablist">
             <?php foreach ( $tabs as $index => $tab ): ?>
-                <li role="presentation" <?php echo ( $index === 0 ) ? "class=\"active\"" : ""; ?>>
+                <li role="presentation" <?php echo ( 0 === $index ) ? "class=\"active\"" : ""; ?>>
                     <a href="<?php echo "#{$row_id}-{$index}"; ?>" role="tab"
                        data-toggle="tab"><?php echo $tab['tab_button']; ?></a>
                 </li>
@@ -21,7 +26,7 @@ $tabs    = get_sub_field( 'tabs' );
     <div class="<?php echo ( $tab_pos == 'side' ) ? 'col-sm-9' : 'col-xs-12'; ?>">
         <div class="tab-content">
             <?php foreach ( $tabs as $index => $tab ): ?>
-                <div role="tabpanel" class="tab-pane <?php echo ( $index === 0 ) ? "active" : ""; ?>"
+                <div role="tabpanel" class="tab-pane <?php echo ( 0 === $index ) ? "active" : ""; ?>"
                      id="<?php echo "{$row_id}-{$index}"; ?>">
                     <?php echo $tab['tab_content']; ?>
                 </div>

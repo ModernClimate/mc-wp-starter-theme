@@ -12,11 +12,11 @@ class Util {
     /**
      * Wraps data in HTML w/ optional attributes / escaping.
      *
-     * @param       $data         - the content (typically text) to wrap
-     * @param       $element      - the HTML element to wrap the content with
-     * @param array $atts         - any attributes that should be added to the HTML element
-     * @param mixed $escape       - whether to escape $data - defaults to true - can be an escaping function
-     * @param bool  $self_closing - whether the element is self closing i.e. <img />
+     * @param       $data - the content (typically text) to wrap
+     * @param       $element - the HTML element to wrap the content with
+     * @param array $atts - any attributes that should be added to the HTML element
+     * @param mixed $escape - whether to escape $data - defaults to true - can be an escaping function
+     * @param bool $self_closing - whether the element is self closing i.e. <img />
      *
      * @return string - an HTML element.
      */
@@ -35,7 +35,6 @@ class Util {
         }
 
         foreach ( $atts as $key => $att ) {
-
             // do not proceed if key is empty
             if ( empty( $key ) ) {
                 continue;
@@ -63,13 +62,12 @@ class Util {
      * Example usage: echo ACF::getImageHTML( $slide['image'], [ 'class' => 'slide__img' ], 'large' );
      *
      * @param        $acf_image_array
-     * @param array  $atts
+     * @param array $atts
      * @param string $size
      *
      * @return string - an HTML img element.
      */
     public static function getImageHTML( $acf_image_array, $atts = [], $size = 'medium' ) {
-
         if ( ! isset( $acf_image_array['sizes'][ $size ] ) ) {
             return '';
         }
@@ -92,5 +90,4 @@ class Util {
 
         return self::getHTML( null, 'img', $atts, false, true );
     }
-
 }
