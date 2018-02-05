@@ -21,7 +21,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
                 'layouts'           => [
                     '573e0b167c6da' => [
                         'key'        => '573e0b167c6da',
-                        'name'       => 'row_columns',
+                        'name'       => 'columns',
                         'label'      => 'Columns Row',
                         'display'    => 'block',
                         'sub_fields' => [
@@ -102,7 +102,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
                     ],
                     '573e1d6947c6c' => [
                         'key'        => '573e1d6947c6c',
-                        'name'       => 'row_slideshow',
+                        'name'       => 'slideshow',
                         'label'      => 'Slideshow',
                         'display'    => 'block',
                         'sub_fields' => [
@@ -157,7 +157,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
                     ],
                     '57a3920ed9c78' => [
                         'key'        => '57a3920ed9c78',
-                        'name'       => 'row_tabs',
+                        'name'       => 'tabs',
                         'label'      => 'Tabs Row',
                         'display'    => 'block',
                         'sub_fields' => [
@@ -256,7 +256,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
                     ],
                     '57a4aca0e07a5' => [
                         'key'        => '57a4aca0e07a5',
-                        'name'       => 'row_accordion',
+                        'name'       => 'accordion',
                         'label'      => 'Accordion Row',
                         'display'    => 'block',
                         'sub_fields' => [
@@ -345,7 +345,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
                         'max'        => '',
                     ],
                 ],
-                'button_label'      => 'Add Content Row',
+                'button_label'      => 'Add Module',
                 'min'               => '',
                 'max'               => '',
             ],

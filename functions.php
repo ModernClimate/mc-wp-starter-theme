@@ -10,6 +10,8 @@ use AD\App\Setup;
 use AD\App\Scripts;
 use AD\App\Media;
 use AD\App\Fields\ACF;
+use AD\App\Fields\Options;
+use AD\App\Fields\Modules;
 use AD\App\Shortcodes;
 
 /**
@@ -33,6 +35,8 @@ add_action( 'after_setup_theme', function () {
         ->add( new Setup() )
         ->add( new Scripts() )
         ->add( new ACF() )
+        ->add( new Options() )
+        ->add( new Modules() )
         ->add( new Shortcodes() )
         ->initialize();
     new Media();

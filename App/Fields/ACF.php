@@ -111,5 +111,4 @@ class ACF implements WordPressHooks {
 
         return isset( $acf_options[ $option ] ) ? $acf_options[ $option ] : null;
     }
-
 }

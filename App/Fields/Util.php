@@ -90,5 +90,4 @@ class Util {
 
         return self::getHTML( null, 'img', $atts, false, true );
     }
-
 }
