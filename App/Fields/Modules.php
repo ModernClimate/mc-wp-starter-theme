@@ -27,9 +27,10 @@ class Modules implements WordPressHooks {
     public function outputFlexibleModules( $post_id ) {
         $post_id = $post_id ?: get_the_ID();
         $meta    = ACF::getPostMeta( $post_id );
+
         if ( ! empty( $meta['modules'] ) && is_array( $meta['modules'] ) ) {
             $modules = ACF::getRowsLayout( 'modules', $meta );
-
+            
             foreach ( $meta['modules'] as $index => $module ) {
                 $data   = $modules[ $index ];
                 $row_id = $module . '-' . $index;
