@@ -2,12 +2,14 @@
 
 namespace AD\App\Fields;
 
+use AD\App\Interfaces\WordPressHooks;
+
 /**
  * Class ACF
  *
  * @package AD\App\Fields
  */
-class ACF {
+class ACF implements WordPressHooks {
 
     /**
      * ACF constructor.
@@ -15,6 +17,17 @@ class ACF {
     public function __construct() {
         // load ACF Fields
         require_once AD_THEME_DIR . 'inc/acf/fields.php';
+    }
+
+    /**
+     * Add hooks.
+     */
+    public function addHooks() {
+
+        // ACF field PHP exports will wrap text in the ad-starter text domain.
+        add_filter('acf/settings/l10n_textdomain', function() {
+            return 'ad-starter';
+        });
     }
 
     /**

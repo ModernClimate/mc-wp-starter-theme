@@ -37,8 +37,9 @@ add_action( 'after_setup_theme', function () {
         ->add( new Options() )
         ->add( new Modules() )
         ->add( new Shortcodes() )
+        ->add( new ACF() )
         ->initialize();
-    new ACF();
+
     new Media();
 
     // Translation setup
