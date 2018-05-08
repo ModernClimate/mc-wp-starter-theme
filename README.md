@@ -26,6 +26,12 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 
 `$ gulp sass-lint` : Runs linters on files in assets/scss
 
+## Composer notes
+If you decide to update the `psr-4` namespace prefix, you can use dump-autoload to do that without having to go through an install or update.
+```
+composer dump-autoload
+```
+
 ## Environmental Checks
 The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
 
