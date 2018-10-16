@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.1] - 2018-10-16
+- Fix SQL query in getPostMeta() where the '_' was treated as a wildcard pattern.
+
 ## [2.3.0] - 2018-05-07
 - Wrap ACF PHP field exports in text domain.
 
