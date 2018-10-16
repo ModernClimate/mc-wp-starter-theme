@@ -45,7 +45,7 @@ class ACF implements WordPressHooks {
 
         if ( ! $post_meta ) {
             $post_meta_db = $wpdb->get_results(
-                "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id AND meta_value NOT LIKE 'field_%'"
+                "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id AND meta_value NOT LIKE 'field\_%'"
             );
             $post_meta    = [];
             foreach ( (array) $post_meta_db as $o ) {
