@@ -2,6 +2,11 @@
   "name": "ackmann-dickenson/ad-starter-theme",
   "description": "A WordPress starter theme for Ackmann & Dickenson.",
   "type": "wordpress-theme",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.x-dev"
+    }
+  },
   "config": {
     "vendor-dir": "vendor",
     "bin-dir": "bin"
