@@ -5,7 +5,7 @@ namespace AD\App;
 /**
  * Class Media
  *
- * @package AD Starter\App
+ * @package AD\App
  */
 class Media {
 
