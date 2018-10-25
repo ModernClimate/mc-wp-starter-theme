@@ -14,7 +14,7 @@ class PostTypes {
      *
      * Example Usage:
      *
-     * new PostTypes(
+     * PostTypes::registerPostType(
      * 'project',
      * __( 'Project', 'ad-starter' ),
      * __( 'Projects', 'ad-starter' ),
@@ -28,7 +28,7 @@ class PostTypes {
      * @param $plural
      * @param array $args
      */
-    public function __construct( $slug, $singular, $plural, $args = [] ) {
+    public static function registerPostType( $slug, $singular, $plural, $args = [] ) {
         $labels = [
             'name'               => $plural,
             'singular_name'      => $singular,

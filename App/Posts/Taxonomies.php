@@ -14,7 +14,7 @@ class Taxonomies {
      *
      * Example Usage:
      *
-     * new Taxonomies(
+     * Taxonomies::registerTaxonomy(
      * 'location',
      * __( 'Location', 'ad-starter' ),
      * __( 'Locations', 'ad-starter' ),
@@ -27,7 +27,7 @@ class Taxonomies {
      * @param array $types Object type or array of object types
      * @param array $args
      */
-    public function __construct( $slug, $singular, $plural, $types = [], $args = [] ) {
+    public static function registerTaxonomy( $slug, $singular, $plural, $types = [], $args = [] ) {
         $labels = [
             'name'              => $plural,
             'singular_name'     => $singular,
