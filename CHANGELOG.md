@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Post Types and Taxonomies classes for consistent object registration.
 
-### Changed
+### Removed
+- Environment file. Will be handled in root directory in the future.
 
 ## [2.3.1] - 2018-10-16
 - Fix SQL query in getPostMeta() where the '_' was treated as a wildcard pattern.
