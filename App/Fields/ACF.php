@@ -23,7 +23,6 @@ class ACF implements WordPressHooks {
      * Add hooks.
      */
     public function addHooks() {
-
         // ACF field PHP exports will wrap text in the ad-starter text domain.
         add_filter('acf/settings/l10n_textdomain', function() {
             return 'ad-starter';
