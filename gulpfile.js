@@ -13,16 +13,12 @@ function swallowError() {
  * File paths to various assets are defined here.
  */
 var PATHS = {
-  fonts: [
-    'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
-  ],
   sass: [
     'assets/scss/*.scss',
     'assets/scss/**/*.scss'
   ],
   jsVendor: [
-    'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
-    'node_modules/parsleyjs/dist/parsley.js'
+    'node_modules/bootstrap/dist/js/bootstrap.js'
   ],
   jsTheme: [
     'assets/js/theme/*.js',
@@ -158,7 +154,6 @@ gulp.task('build', function (done) {
     'lint',
     'build:scripts:vendor',
     'build:scripts:theme',
-    'build:fonts',
     'sass-lint',
     'build:styles'
   ], done);
@@ -170,7 +165,6 @@ gulp.task('dev', function (done) {
     'lint',
     'dev:scripts:vendor',
     'dev:scripts:theme',
-    'build:fonts',
     'sass-lint',
     'dev:styles'
   ], done);

@@ -6,18 +6,12 @@
  */
 
 use AD\App\Menus\PrimaryMenuWalker;
-
-// Check if there's a menu assigned to the 'primary' location.
-if ( ! has_nav_menu( 'primary' ) ) {
-    return;
-}
 ?>
 
-<nav id="site-navigation" role="navigation">
     <?php
     wp_nav_menu( [
         'theme_location'  => 'primary',
-        'menu_class'      => 'nav navbar-nav',
+        'menu_class'      => 'navbar-nav',
         'container_class' => 'collapse navbar-collapse',
         'container_id'    => 'primary-menu',
         'fallback_cb'     => false,
@@ -25,4 +19,3 @@ if ( ! has_nav_menu( 'primary' ) ) {
         'walker'          => new PrimaryMenuWalker()
     ] );
     ?>
-</nav>

@@ -11,18 +11,14 @@
 <body <?php body_class(); ?>>
 
 <header id="masthead" class="header" role="banner">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#primary-menu">
-          <span class="sr-only"><?php _e( 'Toggle navigation', 'ad-starter' ); ?></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
-      </div>
+      <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu"
+              aria-controls="primary-menu" aria-expanded="false"
+              aria-label="<?php _e( 'Toggle navigation', 'ad-starter' ); ?>">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
         <?php
         // Loads the menu/primary.php template.

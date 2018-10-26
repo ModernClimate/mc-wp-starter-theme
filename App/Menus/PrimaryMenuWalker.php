@@ -28,6 +28,8 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
     public function navMenuCssClasses( $classes, $item, $args ) {
         // Only affect the menu placed in the 'primary' theme location
         if ( 'primary' === $args->theme_location ) {
+            $classes[] = 'nav-item';
+
             if ( in_array( 'menu-item-has-children', $classes ) ) {
                 $classes[] = 'dropdown';
             }
@@ -53,8 +55,10 @@ class PrimaryMenuWalker extends Walker_Nav_Menu {
     public function navMenuLinkAttributes( $atts, $item, $args, $depth ) {
         // Only affect the menu placed in the 'primary' theme location
         if ( 'primary' === $args->theme_location ) {
+            $atts['class'] = 'nav-link';
+
             if ( $args->walker->has_children && $depth === 0 ) {
-                $atts['class']         = 'dropdown-toggle';
+                $atts['class']         .= 'dropdown-toggle';
                 $atts['data-toggle']   = 'dropdown';
                 $atts['role']          = 'button';
                 $atts['aria-haspopup'] = 'true';
