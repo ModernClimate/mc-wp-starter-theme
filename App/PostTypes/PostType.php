@@ -4,19 +4,58 @@ namespace AD\App\PostTypes;
 
 abstract class PostType
 {
+    /** @var string The post slug to be used in register(), meant to be overwritten in  */
     const POST_TYPE = null;
-    const META_CACHE_PREFIX = 'ad_post_meta_';
-    const META_CACHE_GROUP = 'post_meta';
-
+    
+    /** @var string The post ID, usually set from the constructor */
     protected $postId = null;
-    protected $metaKeys = [];
+
+    /** @var string Meta keys and options to be set with setMeta() */
+    protected $metaFormats = [];
+
+    /** @var string Meta values to be stored with registerMetaKeys() */
     protected $meta = null;
 
+    /**
+     * Registering of meta keys and options meant to executed from registerMeta()
+     *
+     * USAGE:
+     * ```php
+     * const POST_TYPE = 'order';
+     *
+     * public static function register() {
+     *     $label = 'Order';
+     *     $icon = 'dashicons-admin-post';
+     *     $supports = ['title', 'editor', 'thumbnail'];
+     *     $plural = 's';
+     *
+     *     $this->registerPostType($label, $icon, $supports, $plural);
+     *
+     * }
+     * ```
+     * @return void
+     */
     abstract public static function register();
-    abstract public function setMetaKeys();
 
-    // TODO: setup public and private defaults
-
+    /**
+     * Registering of meta keys and options meant to executed from registerMeta()
+     *
+     * USAGE:
+     * ```php
+     * public static function registerMeta(){
+     *     $this->registerMetaFormats([
+     *         'total' => ['type' => 'currency', 'default' => 0],
+     *         'quantity' => ['type' => 'integer', 'default' => 0]
+     *     ]);
+     * }
+     * ```
+     * @param array $metaFormats
+     *
+     * @return void
+     */
+    abstract public function registerMeta(array $metaFormats);
+    
+    /** Registers the post type, meant to be called by register() */
     protected static function registerPostType(
         $label,
         $icon = 'dashicons-admin-post',
@@ -27,6 +66,13 @@ abstract class PostType
             return true;
         }
 
+        if (is_null(static::POST_TYPE)) {
+            return new WP_Error(
+                'no_post_type_set',
+                'A POST_TYPE needs to be set in order to register a post type.'
+            );
+        }
+
         $pluralLabel = $label . $plural;
         $pluralSlug = static::POST_TYPE . $plural;
 
@@ -34,19 +80,19 @@ abstract class PostType
             static::POST_TYPE,
             [
                 'labels' => [
-                    'name' => __($pluralLabel, 'pawgo'),
-                    'singular_name' => __($label, 'pawgo'),
-                    'all_items' => __('All '.$pluralLabel, 'pawgo'),
-                    'new_item' => __('New '.$label, 'pawgo'),
-                    'add_new' => __('Add New', 'pawgo'),
-                    'add_new_item' => __('Add New '.$label, 'pawgo'),
-                    'edit_item' => __('Edit '.$label, 'pawgo'),
-                    'view_item' => __('View '.$label, 'pawgo'),
-                    'search_items' => __('Search '.$pluralLabel, 'pawgo'),
-                    'not_found' => __('No '.$pluralLabel.' found', 'pawgo'),
-                    'not_found_in_trash' => __('No '.$pluralLabel.' found in trash', 'pawgo'),
-                    'parent_item_colon' => __('Parent '.$label, 'pawgo'),
-                    'menu_name' => __($pluralLabel, 'pawgo'),
+                    'name' => __($pluralLabel, 'ad-starter'),
+                    'singular_name' => __($label, 'ad-starter'),
+                    'all_items' => __('All '.$pluralLabel, 'ad-starter'),
+                    'new_item' => __('New '.$label, 'ad-starter'),
+                    'add_new' => __('Add New', 'ad-starter'),
+                    'add_new_item' => __('Add New '.$label, 'ad-starter'),
+                    'edit_item' => __('Edit '.$label, 'ad-starter'),
+                    'view_item' => __('View '.$label, 'ad-starter'),
+                    'search_items' => __('Search '.$pluralLabel, 'ad-starter'),
+                    'not_found' => __('No '.$pluralLabel.' found', 'ad-starter'),
+                    'not_found_in_trash' => __('No '.$pluralLabel.' found in trash', 'ad-starter'),
+                    'parent_item_colon' => __('Parent '.$label, 'ad-starter'),
+                    'menu_name' => __($pluralLabel, 'ad-starter'),
                 ],
                 'hierarchical' => false,
                 'supports' => $supports,
@@ -62,6 +108,84 @@ abstract class PostType
                 'rewrite' => false,  // it shouldn't have rewrite rules
             ]
         );
+    }
+
+    /** Registers the meta keys, meant to be called by registerMeta() */
+    protected function registerMetaFormats(array $metaFormats)
+    {
+        $this->metaFormats = $metaFormats;
+    }
+
+    protected function getMeta(array $returnFields = null)
+    {
+        global $wpdb;
+
+        $metaKeys = empty($returnFields) ? $returnFields : array_keys($this->metaFormats);
+        $metaKeyList = join(',', $metaKeys);
+
+        $query = "SELECT $metaKeyList FROM $wpdb->postmeta WHERE post_id = $this->postId";
+        $metaResults = $wpdb->get_results($query, ARRAY_A);
+
+        if ($metaResults === false) {
+            return new \WP_Error(
+                'get_meta_failed',
+                'Sorry, get meta for this post has failed',
+                [
+                    'order_id' => $this->orderId,
+                    'meta_keys' => $metaKeys
+                ]
+            );
+        }
+
+        $formattedResults = $this->formatMetaResults($metaResults);
+
+        $this->meta = $formattedResults;
+        return $this->meta;
+    }
+
+    private function formatMetaResults(array $metaResults)
+    {
+        $formattedResults = [];
+
+        foreach ((array) $metaResults as $meta) {
+            $metaKey = $meta['meta_key'];
+            if (empty($this->metaFormats[$metaKey])) {
+                return new WP_Error(
+                    'meta_key_not_registered',
+                    __('This meta key must be registered.', 'ad-starter'),
+                    [
+                        'meta_key' => $metaKey,
+                        'meta_key_formats' => $this->metaFormats
+                    ]
+                );
+            }
+            $options = $this->metaFormats[$metaKey];
+            $format = $options['type'];
+            $default = $options['default'];
+            $formattedResults[$meta['meta_key']] = $this->formatValue($format, $meta['meta_value'], $default);
+        }
+
+        return $formattedResults;
+    }
+
+    private function formatValue(string $format, $value, $default)
+    {
+        if (empty($value)) {
+            return $default;
+        }
+        switch ($format) {
+            case 'int':
+                return (int) $value;
+            case 'float':
+                return (float) $value;
+            case 'bool':
+                return (bool) $value;
+            case 'string':
+                return (string) $value;
+            case 'array':
+                return maybe_unserialize($value);
+        }
+        return null;
     }
 
     public static function postsExist(array $postIdsToCheck)
@@ -80,7 +204,10 @@ abstract class PostType
 
         $missingPosts = array_diff($postIdsToCheck, $postsInDatabase);
         if (!empty($missingPosts)) {
-            return new \WP_Error('posts_do_not_exist', __('Post(s) '.implode(', ', $missingPosts).' do not exist.', 'pawgo'));
+            return new \WP_Error(
+                'posts_do_not_exist',
+                __('Post(s) '.implode(', ', $missingPosts).' do not exist.', 'ad-starter')
+            );
         }
 
         return true;
@@ -96,33 +223,27 @@ abstract class PostType
     private function setMeta() : array
     {
         if (is_null($this->postId)) {
-            return Error::get('no_post_id_set', 'You must set a post ID in order to get meta.');
+            return new \WP_Error(
+                'no_post_id_set',
+                __('You must set a post ID in order to get meta.', 'ad-starter')
+            );
         }
 
         global $wpdb;
 
-        $cacheKey = self::META_CACHE_PREFIX . $this->postId;
-        $postMeta = wp_cache_get($cacheKey, self::META_CACHE_GROUP);
-        $metaFields = '"' . implode('","', $this->metaKeys) . '"';
+        $postMetaQuery = $wpdb->get_results(
+            "SELECT meta_key, meta_value 
+            FROM $wpdb->postmeta 
+            WHERE post_id = $post_id 
+            AND meta_value IN ($metaFields)"
+        );
 
-        if (!$postMeta) {
-            $postMetaQuery = $wpdb->get_results(
-                "SELECT meta_key, meta_value 
-                FROM $wpdb->postmeta 
-                WHERE post_id = $post_id 
-                AND meta_value IN ($metaFields)"
-            );
-            $postMeta = [];
-            foreach ((array) $postMetaQuery as $post) {
-                $postMeta[ $post->meta_key ] = maybe_unserialize($post->meta_value);
-            }
-
-            if (!wp_installing()) {
-                wp_cache_add($cacheKey, $postMeta, self::META_CACHE_GROUP);
-            }
+        $meta = [];
+        foreach ((array) $postMetaQuery as $post) {
+            $postMeta[ $post->meta_key ] = maybe_unserialize($post->meta_value);
         }
 
-        return $this->meta = $postMeta;
+        return $this->meta = $meta;
     }
 
     public function getMetaField(string $metaKey, $default)
