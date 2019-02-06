@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 
 <!-- skip to main content -->
-<a href="#primary" class="screen-reader-text">Skip to Main Content</a>
+<a href="#primary" class="screen-reader-text"><?php _e( 'Skip to Main Content', 'ad-starter' ); ?></a>
 
 <header id="masthead" class="header" role="banner">
   <nav class="navbar navbar-expand-lg navbar-light">
