@@ -1,6 +1,12 @@
 # Ignored theme files
 *.sass-cache*
 *.log
+
+# Vendor (e.g. Composer)
+vendor
+
+# Ignore build directory
+build
 # /languages/*.pot
 
 # Node Package Manager
