@@ -31,7 +31,7 @@ class Modules implements WordPressHooks
         $post_id = $post_id ?: get_the_ID();
         $meta    = ACF::getPostMeta($post_id);
 
-        if ( ! empty($meta['modules']) && is_array($meta['modules'])) {
+        if (! empty($meta['modules']) && is_array($meta['modules'])) {
             $modules = ACF::getRowsLayout('modules', $meta);
 
             foreach ($meta['modules'] as $index => $module) {

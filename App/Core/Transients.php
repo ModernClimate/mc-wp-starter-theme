@@ -38,7 +38,7 @@ class Transients implements WordPressHooks
     {
         $this->transientKeys = get_option(self::KEY, []);
 
-        if ( ! in_array($key, $this->transientKeys)) {
+        if (! in_array($key, $this->transientKeys)) {
             $this->transientKeys[] = $key;
         }
 
@@ -59,4 +59,3 @@ class Transients implements WordPressHooks
         }
     }
 }
-

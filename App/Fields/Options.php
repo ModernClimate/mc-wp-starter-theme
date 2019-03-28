@@ -50,14 +50,14 @@ class Options implements WordPressHooks
 
         $acf_options = wp_cache_get('ad_acf_options', 'options');
 
-        if ( ! $acf_options) {
+        if (! $acf_options) {
             $acf_options_db = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'options_%'");
             $acf_options    = [];
             foreach ((array)$acf_options_db as $o) {
                 $new_key               = str_replace('options_', '', $o->option_name);
                 $acf_options[$new_key] = maybe_unserialize($o->option_value);
             }
-            if ( ! wp_installing() || ! is_multisite()) {
+            if (! wp_installing() || ! is_multisite()) {
                 wp_cache_add('ad_acf_options', $acf_options, 'options');
             }
         }

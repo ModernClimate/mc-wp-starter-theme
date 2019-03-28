@@ -13,15 +13,6 @@ class ACF implements WordPressHooks
 {
 
     /**
-     * ACF constructor.
-     */
-    public function __construct()
-    {
-        // load ACF Fields
-        require_once AD_THEME_DIR . 'inc/acf/fields.php';
-    }
-
-    /**
      * Add hooks.
      */
     public function addHooks()
@@ -46,7 +37,7 @@ class ACF implements WordPressHooks
         $cache_key = 'ad_post_meta_' . $post_id;
         $post_meta = wp_cache_get($cache_key, 'meta');
 
-        if ( ! $post_meta) {
+        if (! $post_meta) {
             $post_meta_db = $wpdb->get_results(
                 "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id AND meta_value NOT LIKE 'field\_%'"
             );
@@ -55,7 +46,7 @@ class ACF implements WordPressHooks
                 $post_meta[$o->meta_key] = maybe_unserialize($o->meta_value);
             }
 
-            if ( ! wp_installing() || ! is_multisite()) {
+            if (! wp_installing() || ! is_multisite()) {
                 wp_cache_add($cache_key, $post_meta, 'meta');
             }
         }
@@ -72,10 +63,10 @@ class ACF implements WordPressHooks
      *
      * @return mixed $modules
      */
-    public static function getRowsLayout($selector = '', $meta)
+    public static function getRowsLayout($selector = '', $meta = [])
     {
         $modules = [];
-        if ( ! $selector || empty($meta[$selector])) {
+        if (! $selector || empty($meta[$selector])) {
             return $modules;
         }
 
@@ -115,4 +106,3 @@ class ACF implements WordPressHooks
         return ! empty($data[$selector]) ? $data[$selector] : $default;
     }
 }
-

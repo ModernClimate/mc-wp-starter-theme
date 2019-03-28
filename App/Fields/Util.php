@@ -45,7 +45,7 @@ class Util
             // if key is present and attribute is empty, add only key to output.
             // This allows for HTML5 boolean attributes.
             // e.g. <input type="checkbox" checked disabled>Test</input>
-            if ( ! isset($att) || empty($att)) {
+            if (! isset($att) || empty($att)) {
                 $atts_output .= esc_attr($key) . ' ';
                 continue;
             }
@@ -71,27 +71,26 @@ class Util
      */
     public static function getImageHTML($acf_image_array, $atts = [], $size = 'medium')
     {
-        if ( ! isset($acf_image_array['sizes'][$size])) {
+        if (! isset($acf_image_array['sizes'][$size])) {
             return '';
         }
 
-        if ( ! isset($atts['src'])) {
+        if (! isset($atts['src'])) {
             $atts['src'] = $acf_image_array['sizes'][$size];
         }
 
-        if ( ! isset($atts['alt'])) {
+        if (! isset($atts['alt'])) {
             $atts['alt'] = $acf_image_array['alt'];
         }
 
-        if ( ! isset($atts['height'])) {
+        if (! isset($atts['height'])) {
             $atts['height'] = $acf_image_array['sizes'][$size . '-height'];
         }
 
-        if ( ! isset($atts['width'])) {
+        if (! isset($atts['width'])) {
             $atts['width'] = $acf_image_array['sizes'][$size . '-width'];
         }
 
         return self::getHTML(null, 'img', $atts, false, true);
     }
 }
-

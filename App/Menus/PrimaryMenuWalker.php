@@ -1,4 +1,7 @@
 <?php
+/**
+ * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+ */
 
 namespace AD\App\Menus;
 
@@ -104,7 +107,7 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
      * @param int $depth Depth of menu item. Used for padding.
      * @param array $args An array of arguments. @see wp_nav_menu()
      */
-    function start_lvl(&$output, $depth = 0, $args = [])
+    public function start_lvl(&$output, $depth = 0, $args = [])
     {
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<ul role=\"menu\" class=\"dropdown-menu \">\n";

@@ -15,9 +15,8 @@ function swallowError() {
  */
 var PATHS = {
   php: [
-    'App',
-    '*.php',
-    '!vendor/*.php'
+    '**/*.php',
+    '!vendor/**/*.*'
   ],
   sass: [
     'assets/scss/*.scss',
