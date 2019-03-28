@@ -155,6 +155,8 @@ gulp.task('watch', function () {
   gulp.watch(PATHS.jsTheme, ['build:scripts:theme', 'lint']);
   // Watch .scss files
   gulp.watch(PATHS.sass, ['build:styles', 'sass-lint']);
+  // Watch .scss files
+  gulp.watch(PATHS.php, ['phpcs']);
 });
 
 // DEV Watch tasks
@@ -163,6 +165,8 @@ gulp.task('watch:dev', function () {
   gulp.watch(PATHS.jsTheme, ['dev:scripts:theme', 'lint']);
   // Watch .scss files
   gulp.watch(PATHS.sass, ['dev:styles', 'sass-lint']);
+  // Watch .scss files
+  gulp.watch(PATHS.php, ['phpcs']);
 });
 
 // Build and minify the theme assets
@@ -172,6 +176,7 @@ gulp.task('build', function (done) {
     'build:scripts:vendor',
     'build:scripts:theme',
     'sass-lint',
+    'phpcs',
     'build:styles'
   ], done);
 });
@@ -183,6 +188,7 @@ gulp.task('dev', function (done) {
     'dev:scripts:vendor',
     'dev:scripts:theme',
     'sass-lint',
+    'phpcs',
     'dev:styles'
   ], done);
 });
