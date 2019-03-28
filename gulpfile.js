@@ -26,7 +26,8 @@ const PATHS = {
     'assets/scss/**/*.scss'
   ],
   jsVendor: [
-    'node_modules/bootstrap/dist/js/bootstrap.js'
+    //'node_modules/bootstrap/dist/js/bootstrap.js',
+    'assets/js/vendor/*.js',
   ],
   jsTheme: [
     'assets/js/theme/*.js',
@@ -141,7 +142,7 @@ gulp.task('build', function(done) {
 
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
-const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
+const build = gulp.series(scriptsLint, stylesLint, gulp.parallel( phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
 const watch = watchFiles;
 
 // export tasks

@@ -26,18 +26,20 @@ class Scripts implements WordPressHooks
      */
     public function enqueueScripts()
     {
-        wp_enqueue_script(
-            'ad-vendors',
-            get_stylesheet_directory_uri() . '/build/js/vendor.min.js',
-            ['jquery'],
-            THEME_VERSION,
-            true
-        );
+        /**
+         * wp_enqueue_script(
+         * 'ad-vendor',
+         * get_stylesheet_directory_uri() . '/build/js/vendor.min.js',
+         * ['jquery'],
+         * THEME_VERSION,
+         * true
+         * );
+         */
 
         wp_enqueue_script(
             'ad-theme',
             get_stylesheet_directory_uri() . '/build/js/theme.min.js',
-            ['ad-vendors'],
+            ['jquery'],
             THEME_VERSION,
             true
         );
