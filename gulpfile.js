@@ -13,9 +13,7 @@ const sassLint     = require('gulp-sass-lint');
 const eslint       = require("gulp-eslint");
 const phpcs        = require('gulp-phpcs');
 
-/**
- * File paths to various assets are defined here.
- */
+// File paths to various assets are defined here.
 const PATHS = {
   php: [
     '**/*.php',
@@ -142,7 +140,7 @@ gulp.task('build', function(done) {
 
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
-const build = gulp.series(scriptsLint, stylesLint, gulp.parallel( phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
+const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
 const watch = watchFiles;
 
 // export tasks
