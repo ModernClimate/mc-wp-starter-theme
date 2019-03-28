@@ -16,8 +16,6 @@
     "gulp-autoprefixer": "^6.0",
     "gulp-concat": "^2.6",
     "gulp-eslint": "^5.0",
-    "gulp-load-plugins": "^1.5",
-    "gulp-postcss": "^8.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0",
     "gulp-sass-lint": "^1.4.0",
