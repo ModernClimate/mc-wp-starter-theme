@@ -9,12 +9,14 @@ use AD\App\Interfaces\WordPressHooks;
  *
  * @package AD\App\Fields
  */
-class ACF implements WordPressHooks {
+class ACF implements WordPressHooks
+{
 
     /**
      * ACF constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         // load ACF Fields
         require_once AD_THEME_DIR . 'inc/acf/fields.php';
     }
@@ -22,9 +24,10 @@ class ACF implements WordPressHooks {
     /**
      * Add hooks.
      */
-    public function addHooks() {
+    public function addHooks()
+    {
         // ACF field PHP exports will wrap text in the ad-starter text domain.
-        add_filter('acf/settings/l10n_textdomain', function() {
+        add_filter('acf/settings/l10n_textdomain', function () {
             return 'ad-starter';
         });
     }
@@ -36,23 +39,24 @@ class ACF implements WordPressHooks {
      *
      * @return bool|mixed
      */
-    public static function getPostMeta( $post_id ) {
+    public static function getPostMeta($post_id)
+    {
         global $wpdb;
 
         $cache_key = 'ad_post_meta_' . $post_id;
-        $post_meta = wp_cache_get( $cache_key, 'meta' );
+        $post_meta = wp_cache_get($cache_key, 'meta');
 
-        if ( ! $post_meta ) {
+        if ( ! $post_meta) {
             $post_meta_db = $wpdb->get_results(
                 "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id AND meta_value NOT LIKE 'field\_%'"
             );
             $post_meta    = [];
-            foreach ( (array) $post_meta_db as $o ) {
-                $post_meta[ $o->meta_key ] = maybe_unserialize( $o->meta_value );
+            foreach ((array)$post_meta_db as $o) {
+                $post_meta[$o->meta_key] = maybe_unserialize($o->meta_value);
             }
 
-            if ( ! wp_installing() || ! is_multisite() ) {
-                wp_cache_add( $cache_key, $post_meta, 'meta' );
+            if ( ! wp_installing() || ! is_multisite()) {
+                wp_cache_add($cache_key, $post_meta, 'meta');
             }
         }
 
@@ -68,26 +72,27 @@ class ACF implements WordPressHooks {
      *
      * @return mixed $modules
      */
-    public static function getRowsLayout( $selector = '', $meta ) {
+    public static function getRowsLayout($selector = '', $meta)
+    {
         $modules = [];
-        if ( ! $selector || empty( $meta[ $selector ] ) ) {
+        if ( ! $selector || empty($meta[$selector])) {
             return $modules;
         }
 
         // check if this selector is a flexible module or a repeater row
-        $counter = is_array( $meta[ $selector ] ) ? count( $meta[ $selector ] ) : $meta[ $selector ];
+        $counter = is_array($meta[$selector]) ? count($meta[$selector]) : $meta[$selector];
 
-        for ( $i = 0; $i < $counter; $i ++ ) {
+        for ($i = 0; $i < $counter; $i++) {
             $prefix = $selector . '_' . $i . '_';
             // Loop through meta and set selector rows into our array.
-            foreach ( $meta as $key => $value ) {
+            foreach ($meta as $key => $value) {
                 // check if our key matches the selector we need.
-                if ( strpos( $key, $prefix ) === 0 ) {
+                if (strpos($key, $prefix) === 0) {
                     // strip the current key of its prefixed selector to clean up our return array.
-                    $new_key = str_replace( $prefix, '', $key );
+                    $new_key = str_replace($prefix, '', $key);
 
                     // set our key and value.
-                    $modules[ $i ][ $new_key ] = $value;
+                    $modules[$i][$new_key] = $value;
                 }
             }
         }
@@ -105,7 +110,9 @@ class ACF implements WordPressHooks {
      *
      * @return string
      */
-    public static function getField( $selector, $data, $default = '' ) {
-        return ! empty( $data[ $selector ] ) ? $data[ $selector ] : $default;
+    public static function getField($selector, $data, $default = '')
+    {
+        return ! empty($data[$selector]) ? $data[$selector] : $default;
     }
 }
+

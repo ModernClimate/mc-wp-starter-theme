@@ -3,6 +3,7 @@
 *.log
 
 # Vendor (e.g. Composer)
+bin
 vendor
 
 # Ignore build directory

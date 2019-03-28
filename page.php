@@ -16,10 +16,10 @@ get_header(); ?>
         <div class="row">
             <div id="primary" class="col-sm-8">
                 <?php
-                while ( have_posts() ) {
+                while (have_posts()) {
                     the_post();
                     // Loads the content/singular/page.php template.
-                    get_template_part( 'content/singular/page' );
+                    get_template_part('content/singular/page');
                 }
                 ?>
             </div><!-- /#primary -->

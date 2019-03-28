@@ -12,13 +12,16 @@ get_header(); ?>
             <div id="primary" class="col-sm-8">
                 <header class="entry__header">
                     <h1 class="hdg hdg--1">
-                        <?php _e( 'Page Not Found', 'ad-starter' ); ?>
+                        <?php _e('Page Not Found', 'ad-starter'); ?>
                     </h1>
                 </header><!-- /.entry__header -->
 
                 <div class="entry__content">
                     <?php
-                    _e( '<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>', 'ad-starter' );
+                    _e(
+                        '<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>',
+                        'ad-starter'
+                    );
                     get_search_form();
                     ?>
                 </div><!-- /.entry__content -->

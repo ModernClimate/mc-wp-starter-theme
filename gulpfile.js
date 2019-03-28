@@ -3,6 +3,7 @@ var $ = require('gulp-load-plugins')();
 var gulp = require('gulp');
 var sequence = require('run-sequence');
 var sassLint = require('gulp-sass-lint');
+var phpcs = require('gulp-phpcs');
 
 function swallowError() {
   console.log('UGLIFY ERROR');
@@ -13,6 +14,11 @@ function swallowError() {
  * File paths to various assets are defined here.
  */
 var PATHS = {
+  php: [
+    'App',
+    '*.php',
+    '!vendor/*.php'
+  ],
   sass: [
     'assets/scss/*.scss',
     'assets/scss/**/*.scss'
@@ -130,6 +136,18 @@ gulp.task('sass-lint', function () {
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError())
+});
+
+gulp.task('phpcs', function () {
+  return gulp.src(PATHS.php)
+  // Validate files using PHP Code Sniffer
+    .pipe(phpcs({
+      bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
+      standard: 'PSR2',
+      warningSeverity: 0
+    }))
+    // Log all problems that was found
+    .pipe(phpcs.reporter('log'));
 });
 
 // Watch tasks
