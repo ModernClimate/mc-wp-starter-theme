@@ -130,6 +130,13 @@ function phpCodeSniffer() {
 }
 
 // Watch files
+function watchDevFiles() {
+  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
+  gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, devScriptsTheme));
+  gulp.watch(PATHS.php, phpCodeSniffer);
+}
+
+// Watch files
 function watchFiles() {
   gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
   gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, buildScriptsTheme));
@@ -139,17 +146,19 @@ function watchFiles() {
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
 const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
-const watch = watchFiles;
+const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles));
 
 // export tasks
 exports.vendor      = buildScriptsVendor;
 exports.theme       = buildScriptsTheme;
-exports.devTheme    = devScriptsTheme;
+exports.themeDev    = devScriptsTheme;
 exports.styles      = buildStyles;
 exports.scriptsLint = scriptsLint;
 exports.sassLint    = stylesLint;
 exports.phpcs       = phpCodeSniffer;
+exports.watchDev    = watchDevFiles;
+exports.watch       = watchFiles;
 exports.js          = js;
 exports.build       = build;
-exports.watch       = watch;
+exports.dev         = dev;
 exports.default     = build;

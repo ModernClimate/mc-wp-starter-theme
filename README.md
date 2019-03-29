@@ -28,6 +28,8 @@ All minified assets are created to the `/build/` directory of the theme.
 
 `$ gulp watch` : Watches assets/scss, assets/js, and php files for linters and phpcs, then compiles build assets
 
+`$ gulp watchDev` : Similar to `watch`, does not minify /js/theme files.
+
 `$ gulp scriptsLint` : Runs linters on files in assets/js 
 
 `$ gulp sassLint` : Runs linters on files in assets/scss
@@ -35,6 +37,8 @@ All minified assets are created to the `/build/` directory of the theme.
 `$ gulp phpcs` : Runs PHP Code Sniffer on all *.php files within the theme directory.
 
 `$ gulp theme` : Compiles theme.min.js file from assets/js/theme directory.
+
+`$ gulp themeDev` : Compiles theme.min.js file from assets/js/theme directory, uncompressed.
 
 `$ gulp vendor` : Compiles vendors.min.js file from assets/js/vendors directory.
 
