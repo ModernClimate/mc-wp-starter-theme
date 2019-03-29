@@ -12,19 +12,33 @@ A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is t
 
 ## Instructions
 1. `$ yarn install` :  Install yarn packages _(postinstall will run composer install and gulp build)_
-
+exports.vendor      = buildScriptsVendor;
+exports.theme       = buildScriptsTheme;
+exports.styles      = buildStyles;
+exports.scriptsLint = scriptsLint;
+exports.sassLint    = stylesLint;
+exports.phpcs       = phpCodeSniffer;
+exports.js          = js;
+exports.build       = build;
+exports.watch       = watch;
 ## Gulp Commands
-`$ gulp build` : Compiles minified assets
+All minified assets are created to the `/build/` directory of the theme.
 
-`$ gulp dev` : Compiles uncompressed assets
+`$ gulp build` : Runs linters and PHPCS, then compiles minified assets
 
-`$ gulp watch` : Watches assets/scss and assets/js and compiles build assets
+`$ gulp watch` : Watches assets/scss, assets/js, and php files for linters and phpcs, then compiles build assets
 
-`$ gulp watch:dev` : Watches assets/scss and assets/js and compiles build:dev assets
+`$ gulp scriptsLint` : Runs linters on files in assets/js 
 
-`$ gulp lint` : Runs linters on files in assets/js
+`$ gulp sassLint` : Runs linters on files in assets/scss
 
-`$ gulp sass-lint` : Runs linters on files in assets/scss
+`$ gulp phpcs` : Runs PHP Code Sniffer on all *.php files within the theme directory.
+
+`$ gulp theme` : Compiles theme.min.js file from assets/js/theme directory.
+
+`$ gulp vendor` : Compiles vendors.min.js file from assets/js/vendors directory.
+
+`$ gulp styles` : Compiles theme.min.css file from assets/scss directory.
 
 ## Composer notes
 If you decide to update the `psr-4` namespace prefix, you can use dump-autoload to do that without having to go through an install or update.
@@ -32,27 +46,14 @@ If you decide to update the `psr-4` namespace prefix, you can use dump-autoload 
 composer dump-autoload
 ```
 
-## Environmental Checks
-The `wp-config.php` should define `WP_ENV` as `dev` for local development. Production checks should be flagged by this constant not being defined for fail safe reason. *ie* `<?php if ( !defined('WP_ENV') ): ?>`
-
-## ACF Notes
-A `.env` file must be added to the root of the A&D Starter Theme directory with the following code `ACF_PRO_KEY=Your-Key-Here` to install ACF Pro. The `.env` file type has been added to the .gitignore and should never be committed to the repo.
-
-ACF Pro is installed via Composer to the plugins directory. Activate the plugin at `/wp-admin/plugins.php`. Once activated a site Options page and boilerplate page builder modules will be generated from `/inc/acf/fields.php`.
-
-To utilize the ACF ui for local development comment out the `/inc/acf/fields.php` reference within `App/ACF.php` and import `acf-export.json` through the ACF ui. In production environments ACF fields should load from `/inc/acf/fields.php`. The PHP definitions can be generated via the ACF ui.  
-
-See [Environment Constants](https://github.com/ackmann-dickenson/ad-wp-starter-theme#environmental-checks) for details on environment checks.
-
-**Please keep `acf-export.json` and `/inc/acf/fields.php` up to date with changes.**
-
 ## Resources
 1. [PSR-4 Autoloader](http://www.php-fig.org/psr/psr-4/)
 2. [PSR-2 PHP Coding Style Guide](http://www.php-fig.org/psr/psr-2/)
 3. [BEM Introduction](http://getbem.com/introduction/)
 4. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
 5. [Sass Lint](https://github.com/sasstools/sass-lint)
-6. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
+6. [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+7. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
 ## Copyright and License
 The following resources are included or used in part within the theme package.

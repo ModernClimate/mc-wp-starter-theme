@@ -112,7 +112,8 @@ function phpCodeSniffer() {
       .pipe(phpcs({
         bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
         standard: 'PSR2',
-        warningSeverity: 0
+        warningSeverity: 0,
+        colors: 1
       }))
       // Log all problems that was found
       .pipe(phpcs.reporter('log'))
