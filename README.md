@@ -36,6 +36,8 @@ All minified assets are created to the `/build/` directory of the theme.
 
 `$ gulp phpcs` : Runs PHP Code Sniffer on all *.php files within the theme directory.
 
+`$ gulp phpcbf` : Runs PHP Code Beautifier on all *.php files within the theme directory.
+
 `$ gulp theme` : Compiles theme.min.js file from assets/js/theme directory.
 
 `$ gulp themeDev` : Compiles theme.min.js file from assets/js/theme directory, uncompressed.

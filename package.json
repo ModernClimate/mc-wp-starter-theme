@@ -16,12 +16,13 @@
     "gulp-autoprefixer": "^6.0",
     "gulp-concat": "^2.6",
     "gulp-eslint": "^5.0",
+    "gulp-phpcbf": "^0.1.2",
+    "gulp-phpcs": "^2.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "gulp-phpcs": "^2.2.0"
+    "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
     "bootstrap": ">=4.1.3"
