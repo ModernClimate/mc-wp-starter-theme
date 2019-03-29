@@ -60,6 +60,16 @@ function buildScriptsTheme() {
   );
 }
 
+// Concatenate all theme javascript files
+function devScriptsTheme() {
+  return (
+    gulp
+      .src(PATHS.jsTheme)
+      .pipe(concat('theme.js'))
+      .pipe(gulp.dest('build/js'))
+  );
+}
+
 // run JS lint on theme scripts
 function scriptsLint() {
   return gulp
@@ -134,6 +144,7 @@ const watch = watchFiles;
 // export tasks
 exports.vendor      = buildScriptsVendor;
 exports.theme       = buildScriptsTheme;
+exports.devTheme    = devScriptsTheme;
 exports.styles      = buildStyles;
 exports.scriptsLint = scriptsLint;
 exports.sassLint    = stylesLint;
