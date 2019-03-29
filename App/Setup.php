@@ -34,12 +34,14 @@ class Setup implements WordPressHooks
      */
     public function registerSidebars()
     {
-        register_sidebar([
-            'id'            => 'primary',
-            'name'          => __('Sidebar', 'ad-starter'),
-            'description'   => __('Main sidebar area displayed on right side of page via trigger.', 'ad-starter'),
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</div>',
-        ]);
+        register_sidebar(
+            [
+                'id'            => 'primary',
+                'name'          => __('Sidebar', 'ad-starter'),
+                'description'   => __('Main sidebar area displayed on right side of page via trigger.', 'ad-starter'),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+            ]
+        );
     }
 }

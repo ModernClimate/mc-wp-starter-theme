@@ -11,6 +11,7 @@ const sass         = require("gulp-sass");
 const sassLint     = require('gulp-sass-lint');
 const eslint       = require("gulp-eslint");
 const phpcs        = require('gulp-phpcs');
+const phpcbf       = require('gulp-phpcbf');
 
 // File paths to various assets are defined here.
 const PATHS = {
@@ -129,6 +130,20 @@ function phpCodeSniffer() {
   );
 }
 
+// run php code sniffer on theme files
+function phpCodeBeautifier() {
+  return (
+    gulp
+      .src(PATHS.php)
+      .pipe(phpcbf({
+        bin: 'vendor/squizlabs/php_codesniffer/bin/phpcbf',
+        standard: 'PSR2',
+        warningSeverity: 0
+      }))
+      .pipe(gulp.dest('.'))
+  );
+}
+
 // Watch files
 function watchDevFiles() {
   gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
@@ -156,6 +171,7 @@ exports.styles      = buildStyles;
 exports.scriptsLint = scriptsLint;
 exports.sassLint    = stylesLint;
 exports.phpcs       = phpCodeSniffer;
+exports.phpcbf      = phpCodeBeautifier;
 exports.watchDev    = watchDevFiles;
 exports.watch       = watchFiles;
 exports.js          = js;
