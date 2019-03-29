@@ -1,24 +1,31 @@
-// Include gulp
-var $ = require('gulp-load-plugins')();
-var gulp = require('gulp');
-var sequence = require('run-sequence');
-var sassLint = require('gulp-sass-lint');
+"use strict";
 
-function swallowError() {
-  console.log('UGLIFY ERROR');
-  this.emit('end');
-}
+// Load plugins
+const gulp         = require('gulp');
+const concat       = require("gulp-concat");
+const rename       = require("gulp-rename");
+const uglify       = require("gulp-uglify");
+const sourcemaps   = require("gulp-sourcemaps");
+const autoprefixer = require("gulp-autoprefixer");
+const sass         = require("gulp-sass");
+const sassLint     = require('gulp-sass-lint');
+const eslint       = require("gulp-eslint");
+const phpcs        = require('gulp-phpcs');
+const phpcbf       = require('gulp-phpcbf');
 
-/**
- * File paths to various assets are defined here.
- */
-var PATHS = {
+// File paths to various assets are defined here.
+const PATHS = {
+  php: [
+    '**/*.php',
+    '!vendor/**/*.*'
+  ],
   sass: [
     'assets/scss/*.scss',
     'assets/scss/**/*.scss'
   ],
   jsVendor: [
-    'node_modules/bootstrap/dist/js/bootstrap.js'
+    //'node_modules/bootstrap/dist/js/bootstrap.js',
+    'assets/js/vendor/*.js',
   ],
   jsTheme: [
     'assets/js/theme/*.js',
@@ -27,148 +34,147 @@ var PATHS = {
 };
 
 // Concatenate & Minify all bower dependency javascript files
-gulp.task('build:scripts:vendor', function () {
-  return gulp.src(PATHS.jsVendor)
-    .pipe($.concat('vendor.js'))
-    .pipe($.rename({
-      suffix: '.min'
-    }))
-    .pipe($.uglify().on('error', swallowError))
-    .pipe(gulp.dest('build/js'));
-});
+function buildScriptsVendor() {
+  return (
+    gulp
+      .src(PATHS.jsVendor)
+      .pipe(concat('vendor.js'))
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(uglify())
+      .pipe(gulp.dest('build/js'))
+  );
+}
 
 // Concatenate & Minify all theme javascript files
-gulp.task('dev:scripts:vendor', function () {
-  return gulp.src(PATHS.jsVendor)
-    .pipe($.concat('vendor.js'))
-    .pipe($.rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('build/js'));
-});
+function buildScriptsTheme() {
+  return (
+    gulp
+      .src(PATHS.jsTheme)
+      .pipe(concat('theme.js'))
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(uglify())
+      .pipe(gulp.dest('build/js'))
+  );
+}
 
-// Concatenate & Minify all theme javascript files
-gulp.task('build:scripts:theme', function () {
-  return gulp.src(PATHS.jsTheme)
-    .pipe($.concat('theme.js'))
-    .pipe($.rename({
-      suffix: '.min'
-    }))
-    .pipe($.uglify().on('error', swallowError))
-    .pipe(gulp.dest('build/js'));
-});
-
-// Concatenate & Minify all theme javascript files
-gulp.task('dev:scripts:theme', function () {
-  return gulp.src(PATHS.jsTheme)
-    .pipe($.concat('theme.js'))
-    .pipe($.rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('build/js'));
-});
-
-// Copy bower package fonts into version control
-gulp.task('build:fonts', function () {
-  return gulp.src(PATHS.fonts)
-    .pipe(gulp.dest('assets/fonts'));
-});
-
-// Compile min CSS
-gulp.task('build:styles', function () {
-  return gulp.src('assets/scss/main.scss')
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      includePaths: PATHS.sass,
-      outputStyle: 'compressed'
-    })
-      .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe($.rename({
-      basename: "theme",
-      suffix: '.min'
-    }))
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('build/css'))
-});
-
-// Compile uncompressed CSS
-gulp.task('dev:styles', function () {
-  return gulp.src('assets/scss/main.scss')
-    .pipe($.sass({
-      includePaths: PATHS.sass,
-      outputStyle: 'expanded',
-      indentType: 'tab',
-      indentWidth: 1
-    })
-      .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe($.rename({
-      basename: "theme",
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('build/css'))
-});
+// Concatenate all theme javascript files
+function devScriptsTheme() {
+  return (
+    gulp
+      .src(PATHS.jsTheme)
+      .pipe(concat('theme.js'))
+      .pipe(gulp.dest('build/js'))
+  );
+}
 
 // run JS lint on theme scripts
-gulp.task('lint', function () {
-  return gulp.src(PATHS.jsTheme)
-    .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
-});
+function scriptsLint() {
+  return gulp
+    .src(PATHS.jsTheme)
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+}
+
+// Compile min CSS
+function buildStyles() {
+  return (
+    gulp
+      .src('assets/scss/main.scss')
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: PATHS.sass,
+        outputStyle: 'compressed'
+      }))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(rename({
+        basename: "theme",
+        suffix: '.min'
+      }))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('build/css'))
+  );
+}
 
 // run SCSS lint on theme styles
-gulp.task('sass-lint', function () {
-  return gulp.src(PATHS.sass)
-    .pipe(sassLint())
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
-});
+function stylesLint() {
+  return (
+    gulp
+      .src(PATHS.sass)
+      .pipe(sassLint())
+      .pipe(sassLint.format())
+      .pipe(sassLint.failOnError())
+  );
+}
 
-// Watch tasks
-gulp.task('watch', function () {
-  // Watch .js files
-  gulp.watch(PATHS.jsTheme, ['build:scripts:theme', 'lint']);
-  // Watch .scss files
-  gulp.watch(PATHS.sass, ['build:styles', 'sass-lint']);
-});
+// run php code sniffer on theme files
+function phpCodeSniffer() {
+  return (
+    gulp
+      .src(PATHS.php)
+      .pipe(phpcs({
+        bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
+        standard: 'PSR2',
+        warningSeverity: 0,
+        colors: 1
+      }))
+      // Log all problems that was found
+      .pipe(phpcs.reporter('log'))
+  );
+}
 
-// DEV Watch tasks
-gulp.task('watch:dev', function () {
-  // Watch .js files
-  gulp.watch(PATHS.jsTheme, ['dev:scripts:theme', 'lint']);
-  // Watch .scss files
-  gulp.watch(PATHS.sass, ['dev:styles', 'sass-lint']);
-});
+// run php code sniffer on theme files
+function phpCodeBeautifier() {
+  return (
+    gulp
+      .src(PATHS.php)
+      .pipe(phpcbf({
+        bin: 'vendor/squizlabs/php_codesniffer/bin/phpcbf',
+        standard: 'PSR2',
+        warningSeverity: 0
+      }))
+      .pipe(gulp.dest('.'))
+  );
+}
 
-// Build and minify the theme assets
-gulp.task('build', function (done) {
-  sequence([
-    'lint',
-    'build:scripts:vendor',
-    'build:scripts:theme',
-    'sass-lint',
-    'build:styles'
-  ], done);
-});
+// Watch files
+function watchDevFiles() {
+  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
+  gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, devScriptsTheme));
+  gulp.watch(PATHS.php, phpCodeSniffer);
+}
 
-// Build the theme assets un-minified
-gulp.task('dev', function (done) {
-  sequence([
-    'lint',
-    'dev:scripts:vendor',
-    'dev:scripts:theme',
-    'sass-lint',
-    'dev:styles'
-  ], done);
-});
+// Watch files
+function watchFiles() {
+  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
+  gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, buildScriptsTheme));
+  gulp.watch(PATHS.php, phpCodeSniffer);
+}
 
-// Default task, run the build
-gulp.task('default', ['build']);
+// define complex tasks
+const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
+const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
+const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles));
+
+// export tasks
+exports.vendor      = buildScriptsVendor;
+exports.theme       = buildScriptsTheme;
+exports.themeDev    = devScriptsTheme;
+exports.styles      = buildStyles;
+exports.scriptsLint = scriptsLint;
+exports.sassLint    = stylesLint;
+exports.phpcs       = phpCodeSniffer;
+exports.beautify    = phpCodeBeautifier;
+exports.watchDev    = watchDevFiles;
+exports.watch       = watchFiles;
+exports.js          = js;
+exports.build       = build;
+exports.dev         = dev;
+exports.default     = build;

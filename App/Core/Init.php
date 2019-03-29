@@ -11,14 +11,15 @@ use AD\App\Interfaces\WordPressHooks;
  *
  * @package AD\App\Core
  */
-class Init implements \IteratorAggregate {
+class Init implements \IteratorAggregate
+{
 
     /**
      * A container for objects that implement WordPressHooks interface
      *
      * @var array
      */
-    public $plugin_components = [ ];
+    public $plugin_components = [];
 
     /**
      * Adds an object to $container property
@@ -27,7 +28,8 @@ class Init implements \IteratorAggregate {
      *
      * @return $this
      */
-    public function add( WordPressHooks $object ) {
+    public function add(WordPressHooks $object)
+    {
         $this->plugin_components[] = $object;
 
         return $this;
@@ -37,10 +39,11 @@ class Init implements \IteratorAggregate {
      * All the methods that need to be performed upon plugin initialization should
      * be done here.
      */
-    public function initialize() {
+    public function initialize()
+    {
 
-        foreach ( $this as $container_object ) {
-            if ( $container_object instanceof WordPressHooks ) {
+        foreach ($this as $container_object) {
+            if ($container_object instanceof WordPressHooks) {
                 $container_object->addHooks();
             }
         }
@@ -51,7 +54,8 @@ class Init implements \IteratorAggregate {
      *
      * @return \ArrayIterator
      */
-    public function getIterator() {
-        return new \ArrayIterator( $this->plugin_components );
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->plugin_components);
     }
 }

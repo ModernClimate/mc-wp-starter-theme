@@ -7,9 +7,11 @@ namespace AD\App;
  *
  * @package AD\App
  */
-class Media {
+class Media
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->addImageSizes();
     }
 
@@ -20,10 +22,11 @@ class Media {
      *
      * @return object
      */
-    public static function getAttachmentByID( $attachment_id ) {
-        $attachment = acf_get_attachment( $attachment_id );
+    public static function getAttachmentByID($attachment_id)
+    {
+        $attachment = acf_get_attachment($attachment_id);
 
-        return (object) $attachment;
+        return (object)$attachment;
     }
 
     /**
@@ -33,6 +36,7 @@ class Media {
      *
      * @since 1.0.1
      */
-    public function addImageSizes() {
+    public function addImageSizes()
+    {
     }
 }

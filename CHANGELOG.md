@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.4.0] - 2019-03-29
+### Changed
+- Updated Gulp to v4
+
+### Added
+- Added PHP CodeSniffer to gulp tasks and builds.
+
 ## [2.3.2] - 2018-10-26
 ### Changed
 - Updated Bootstrap to 4.1.3.

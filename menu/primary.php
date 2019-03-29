@@ -6,10 +6,9 @@
  */
 
 use AD\App\Menus\PrimaryMenuWalker;
-?>
 
-    <?php
-    wp_nav_menu( [
+wp_nav_menu(
+    [
         'theme_location'  => 'primary',
         'menu_class'      => 'navbar-nav',
         'container_class' => 'collapse navbar-collapse',
@@ -17,5 +16,5 @@ use AD\App\Menus\PrimaryMenuWalker;
         'fallback_cb'     => false,
         'depth'           => 2,
         'walker'          => new PrimaryMenuWalker()
-    ] );
-    ?>
+    ]
+);

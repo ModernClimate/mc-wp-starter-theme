@@ -7,7 +7,8 @@ namespace AD\App\Fields;
  *
  * @package AD\App\Fields
  */
-class Util {
+class Util
+{
 
     /**
      * Wraps data in HTML w/ optional attributes / escaping.
@@ -20,35 +21,36 @@ class Util {
      *
      * @return string - an HTML element.
      */
-    public static function getHTML( $data = null, $element = 'span', $atts = [], $escape = true, $self_closing = false ) {
+    public static function getHTML($data = null, $element = 'span', $atts = [], $escape = true, $self_closing = false)
+    {
         $atts_output = ' ';
 
         // data cannot be empty without the element being self-closing
-        if ( empty( $data ) && $self_closing === false ) {
+        if (empty($data) && $self_closing === false) {
             return '';
         }
 
-        if ( is_callable( $escape ) ) {
-            $data = $escape( $data );
-        } else if ( $escape ) {
-            $data = esc_html( $data );
+        if (is_callable($escape)) {
+            $data = $escape($data);
+        } elseif ($escape) {
+            $data = esc_html($data);
         }
 
-        foreach ( $atts as $key => $att ) {
+        foreach ($atts as $key => $att) {
             // do not proceed if key is empty
-            if ( empty( $key ) ) {
+            if (empty($key)) {
                 continue;
             }
 
             // if key is present and attribute is empty, add only key to output.
             // This allows for HTML5 boolean attributes.
             // e.g. <input type="checkbox" checked disabled>Test</input>
-            if ( ! isset( $att ) || empty( $att ) ) {
-                $atts_output .= esc_attr( $key ) . ' ';
+            if (! isset($att) || empty($att)) {
+                $atts_output .= esc_attr($key) . ' ';
                 continue;
             }
 
-            $atts_output .= esc_attr( $key ) . '="' . esc_attr( $att ) . '" ';
+            $atts_output .= esc_attr($key) . '="' . esc_attr($att) . '" ';
         }
 
         return $self_closing ? '<' . $element . $atts_output . ' />' : '<' . $element . $atts_output . '>' . $data . '</' . $element . '>';
@@ -67,27 +69,28 @@ class Util {
      *
      * @return string - an HTML img element.
      */
-    public static function getImageHTML( $acf_image_array, $atts = [], $size = 'medium' ) {
-        if ( ! isset( $acf_image_array['sizes'][ $size ] ) ) {
+    public static function getImageHTML($acf_image_array, $atts = [], $size = 'medium')
+    {
+        if (! isset($acf_image_array['sizes'][$size])) {
             return '';
         }
 
-        if ( ! isset( $atts['src'] ) ) {
-            $atts['src'] = $acf_image_array['sizes'][ $size ];
+        if (! isset($atts['src'])) {
+            $atts['src'] = $acf_image_array['sizes'][$size];
         }
 
-        if ( ! isset( $atts['alt'] ) ) {
+        if (! isset($atts['alt'])) {
             $atts['alt'] = $acf_image_array['alt'];
         }
 
-        if ( ! isset( $atts['height'] ) ) {
-            $atts['height'] = $acf_image_array['sizes'][ $size . '-height' ];
+        if (! isset($atts['height'])) {
+            $atts['height'] = $acf_image_array['sizes'][$size . '-height'];
         }
 
-        if ( ! isset( $atts['width'] ) ) {
-            $atts['width'] = $acf_image_array['sizes'][ $size . '-width' ];
+        if (! isset($atts['width'])) {
+            $atts['width'] = $acf_image_array['sizes'][$size . '-width'];
         }
 
-        return self::getHTML( null, 'img', $atts, false, true );
+        return self::getHTML(null, 'img', $atts, false, true);
     }
 }

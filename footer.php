@@ -11,9 +11,9 @@
         <div class="footer__copyright">
             <?php
             printf(
-                '&copy %1$s %2$s. ' . __( 'All Rights Reserved.', 'ad-starter' ),
-                date( 'Y' ),
-                get_bloginfo( 'name' )
+                '&copy %1$s %2$s. ' . __('All Rights Reserved.', 'ad-starter'),
+                date('Y'),
+                get_bloginfo('name')
             );
             ?>
         </div>

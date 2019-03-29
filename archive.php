@@ -13,15 +13,15 @@ get_header(); ?>
         <div class="row">
             <div id="primary" class="col-sm-8">
                 <?php
-                if ( have_posts() ) {
-                    while ( have_posts() ) {
+                if (have_posts()) {
+                    while (have_posts()) {
                         the_post();
                         // Loads the content/singular/page.php template.
-                        get_template_part( 'content/archive/content' );
+                        get_template_part('content/archive/content');
                     }
                 } else {
                     // Loads the content/singular/page.php template.
-                    get_template_part( 'content/content', 'none' );
+                    get_template_part('content/content', 'none');
                 }
                 ?>
             </div><!-- /#primary -->

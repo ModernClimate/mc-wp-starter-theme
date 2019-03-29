@@ -18,9 +18,9 @@ use AD\App\Shortcodes;
  * Define Theme Version
  * Define Theme directories
  */
-define( 'THEME_VERSION', '2.3.3' );
-define( 'AD_THEME_DIR', trailingslashit( get_template_directory() ) );
-define( 'AD_THEME_PATH_URL', trailingslashit( get_template_directory_uri() ) );
+define('THEME_VERSION', '2.4.0');
+define('AD_THEME_DIR', trailingslashit(get_template_directory()));
+define('AD_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
 // Require Autoloader
 require_once AD_THEME_DIR . 'vendor/autoload.php';
@@ -28,39 +28,37 @@ require_once AD_THEME_DIR . 'vendor/autoload.php';
 /**
  * Theme Setup
  */
-add_action( 'after_setup_theme', function () {
+add_action('after_setup_theme', function () {
 
-    new Krumo();
-    ( new Init() )
-        ->add( new Setup() )
-        ->add( new Scripts() )
-        ->add( new Options() )
-        ->add( new Modules() )
-        ->add( new Shortcodes() )
-        ->add( new ACF() )
+    (new Init())
+        ->add(new Setup())
+        ->add(new Scripts())
+        ->add(new Options())
+        ->add(new Modules())
+        ->add(new Shortcodes())
+        ->add(new ACF())
         ->initialize();
 
     new Media();
 
     // Translation setup
-    load_theme_textdomain( 'ad-starter', AD_THEME_DIR . '/languages' );
+    load_theme_textdomain('ad-starter', AD_THEME_DIR . '/languages');
 
     // Let WordPress manage the document title.
-    add_theme_support( 'title-tag' );
+    add_theme_support('title-tag');
 
     // Add automatic feed links in header
-    add_theme_support( 'automatic-feed-links' );
+    add_theme_support('automatic-feed-links');
 
     // Add Post Thumbnail Image sizes and support
-    add_theme_support( 'post-thumbnails' );
+    add_theme_support('post-thumbnails');
 
     // Switch default core markup to output valid HTML5.
-    add_theme_support( 'html5', [
+    add_theme_support('html5', [
         'search-form',
         'comment-form',
         'comment-list',
         'gallery',
         'caption'
-    ] );
-
-} );
+    ]);
+});
