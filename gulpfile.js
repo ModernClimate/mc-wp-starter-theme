@@ -8,7 +8,6 @@ const uglify       = require("gulp-uglify");
 const sourcemaps   = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const sass         = require("gulp-sass");
-const sequence     = require('run-sequence');
 const sassLint     = require('gulp-sass-lint');
 const eslint       = require("gulp-eslint");
 const phpcs        = require('gulp-phpcs');
@@ -126,18 +125,6 @@ function watchFiles() {
   gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, buildScriptsTheme));
   gulp.watch(PATHS.php, phpCodeSniffer);
 }
-
-// Build and minify the theme assets
-gulp.task('build', function(done) {
-  sequence([
-    'lint',
-    'build:scripts:vendor',
-    'build:scripts:theme',
-    'sass-lint',
-    'phpcs',
-    'build:styles'
-  ], done);
-});
 
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
