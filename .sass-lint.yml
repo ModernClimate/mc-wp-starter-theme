@@ -104,7 +104,7 @@ rules:
     - 1
     - additional-identifiers: []
       excluded-identifiers: []
-  placeholder-in-extend: 1
+  placeholder-in-extend: 0
   placeholder-name-format:
     - 0
     - convention: hyphenatedlowercase
