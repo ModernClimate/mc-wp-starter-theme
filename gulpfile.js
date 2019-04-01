@@ -120,7 +120,7 @@ function phpCodeSniffer() {
     gulp
       .src(PATHS.php)
       .pipe(phpcs({
-        bin: 'vendor/squizlabs/php_codesniffer/bin/phpcs',
+        bin: './vendor/squizlabs/php_codesniffer/bin/phpcs',
         standard: 'PSR2',
         warningSeverity: 0,
         colors: 1
@@ -136,7 +136,7 @@ function phpCodeBeautifier() {
     gulp
       .src(PATHS.php)
       .pipe(phpcbf({
-        bin: 'vendor/squizlabs/php_codesniffer/bin/phpcbf',
+        bin: './vendor/squizlabs/php_codesniffer/bin/phpcbf',
         standard: 'PSR2',
         warningSeverity: 0
       }))
