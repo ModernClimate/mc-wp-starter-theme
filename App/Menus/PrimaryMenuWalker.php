@@ -33,16 +33,18 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
     public function navMenuCssClasses($classes, $item, $args)
     {
         // Only affect the menu placed in the 'primary' theme location
-        if ('primary' === $args->theme_location) {
-            $classes[] = 'nav-item';
+        if ('primary' !== $args->theme_location) {
+            return $classes;
+        }
 
-            if (in_array('menu-item-has-children', $classes)) {
-                $classes[] = 'dropdown';
-            }
+        $classes[] = 'nav-item';
 
-            if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
-                $classes[] = 'active';
-            }
+        if (in_array('menu-item-has-children', $classes)) {
+            $classes[] = 'dropdown';
+        }
+
+        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
+            $classes[] = 'active';
         }
 
         return $classes;
@@ -61,16 +63,18 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
     public function navMenuLinkAttributes($atts, $item, $args, $depth)
     {
         // Only affect the menu placed in the 'primary' theme location
-        if ('primary' === $args->theme_location) {
-            $atts['class'] = 'nav-link';
+        if ('primary' !== $args->theme_location) {
+            return $atts;
+        }
 
-            if ($args->walker->has_children && $depth === 0) {
-                $atts['class']         .= 'dropdown-toggle';
-                $atts['data-toggle']   = 'dropdown';
-                $atts['role']          = 'button';
-                $atts['aria-haspopup'] = 'true';
-                $atts['aria-expanded'] = 'false';
-            }
+        $atts['class'] = 'nav-link';
+
+        if ($args->walker->has_children && $depth === 0) {
+            $atts['class']         .= 'dropdown-toggle';
+            $atts['data-toggle']   = 'dropdown';
+            $atts['role']          = 'button';
+            $atts['aria-haspopup'] = 'true';
+            $atts['aria-expanded'] = 'false';
         }
 
         return $atts;
@@ -89,10 +93,12 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
     public function navMenuItemTitle($title, $item, $args, $depth)
     {
         // Only affect the menu placed in the 'primary' theme location
-        if ('primary' === $args->theme_location) {
-            if ($args->walker->has_children && $depth === 0) {
-                $title .= ' <span class="caret"></span>';
-            }
+        if ('primary' !== $args->theme_location) {
+            return $title;
+        }
+            
+        if ($args->walker->has_children && $depth === 0) {
+            $title .= ' <span class="caret"></span>';
         }
 
         return $title;
