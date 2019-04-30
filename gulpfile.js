@@ -4,7 +4,7 @@
 const gulp         = require('gulp');
 const concat       = require("gulp-concat");
 const rename       = require("gulp-rename");
-const uglify       = require("gulp-uglify");
+const terser       = require('gulp-terser');
 const sourcemaps   = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const sass         = require("gulp-sass");
@@ -42,7 +42,7 @@ function buildScriptsVendor() {
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(uglify())
+      .pipe(terser())
       .pipe(gulp.dest('build/js'))
   );
 }
@@ -56,7 +56,7 @@ function buildScriptsTheme() {
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(uglify())
+      .pipe(terser())
       .pipe(gulp.dest('build/js'))
   );
 }
