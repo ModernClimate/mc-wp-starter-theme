@@ -34,12 +34,12 @@ add_action('after_setup_theme', function () {
         ->add(new Setup())
         ->add(new Scripts())
         ->add(new Options())
+        ->add(new Media())
         ->add(new Modules())
         ->add(new Shortcodes())
         ->add(new ACF())
         ->initialize();
 
-    new Media();
 
     // Translation setup
     load_theme_textdomain('ad-starter', AD_THEME_DIR . '/languages');
