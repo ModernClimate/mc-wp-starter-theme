@@ -21,7 +21,7 @@ if (! $image) {
         <div class="module__image">
             <?php
             $attachment = Media::getAttachmentByID($image);
-            echo Util::getImageHTML((array)$attachment);
+            echo Util::getImageHTML($attachment);
             ?>
         </div>
     </div>
