@@ -2,6 +2,8 @@
 
 namespace AD\App\Fields;
 
+use AD\App\Media;
+
 /**
  * Class Util
  *
@@ -56,41 +58,105 @@ class Util
         return $self_closing ? '<' . $element . $atts_output . ' />' : '<' . $element . $atts_output . '>' . $data . '</' . $element . '>';
     }
 
+
     /**
-     * Helper/wrapper function that makes dealing with ACF image arrays easier.
-     * Grabs the required data from the ACF image array and passes it to self::getHTML().
-     * Assumes ACF image field is configured to save data as an image array.
-     * Default data can be overwritten if passed in $atts.
-     * Example usage: echo ACF::getImageHTML( $slide['image'], [ 'class' => 'slide__img' ], 'large' );
+     * Helper/wrapper function that makes dealing with ACF image objects easier.
+     * Grabs the required data from the ACF image object renders values into proper image markup.
      *
-     * @param        $acf_image_array
-     * @param array $atts
+     * @param $attachment
      * @param string $size
+     * @param array $args
      *
-     * @return string - an HTML img element.
+     * @return string
      */
-    public static function getImageHTML($acf_image_array, $atts = [], $size = 'medium')
+    public static function getImageHTML($attachment, $size = 'medium', $args = [])
     {
-        if (! isset($acf_image_array['sizes'][$size])) {
+        $src    = ACF::getField($size, $attachment->sizes, $attachment->url);
+        $alt    = ! empty($attachment->alt) ? esc_attr($attachment->alt) : esc_attr($attachment->title);
+        $params = '';
+        foreach ($args as $attr => $value) {
+            $params .= sprintf(
+                ' %1$s="%2$s"',
+                $attr,
+                esc_attr($value)
+            );
+        }
+        $image_markup = sprintf(
+            '<img src="%1$s" alt="%2$s"%3$s>',
+            esc_url($src),
+            esc_attr($alt),
+            $params
+        );
+        // check for image caption
+        if (! empty($attachment->caption)) {
+            $image_markup = sprintf(
+                '<figure class="image__caption">%1$s <figcaption>%2$s</figcaption></figure>',
+                $image_markup,
+                esc_html($attachment->caption)
+            );
+        }
+
+        return $image_markup;
+    }
+
+
+    /**
+     * Check for background options in module data and output inline styles.
+     *
+     * @param $data
+     * @param $size
+     *
+     * @return string
+     */
+    public static function getInlineBackgroundStyles($data, $size = 'full')
+    {
+        if (empty($data) || ! isset($data['background'])) {
             return '';
         }
 
-        if (! isset($atts['src'])) {
-            $atts['src'] = $acf_image_array['sizes'][$size];
-        }
+        $image      = ACF::getField('background_image', $data);
+        $attachment = ! empty($image) ? Media::getAttachmentByID($image) : false;
+        $src        = ACF::getField($size, $attachment->sizes, $attachment->url);
 
-        if (! isset($atts['alt'])) {
-            $atts['alt'] = $acf_image_array['alt'];
-        }
+        // build out our inline background styles
+        $styles = sprintf(
+            'style="background: %1$s %2$s %3$s %4$s/%5$s;"',
+            ACF::getField('background_color', $data, '#FFFFFF'),
+            'url( ' . (! empty($attachment) ? esc_url($src) : '') . ')',
+            ACF::getField('background_repeat', $data, 'no-repeat'),
+            ACF::getField('background_position', $data, 'center center'),
+            ACF::getField('background_size', $data, 'auto auto')
+        );
 
-        if (! isset($atts['height'])) {
-            $atts['height'] = $acf_image_array['sizes'][$size . '-height'];
-        }
+        return $styles;
+    }
 
-        if (! isset($atts['width'])) {
-            $atts['width'] = $acf_image_array['sizes'][$size . '-width'];
+    /**
+     * Wrapper function for parsing button data and outputting proper markup.
+     *
+     * @param $link_array
+     * @param array $args
+     *
+     * @return string
+     */
+    public static function getButtonHTML($link_array, $args = [])
+    {
+        $output = '';
+        if (! isset($link_array['title'])) {
+            return $output;
         }
+        $defaults = [
+            'class' => 'btn btn-primary',
+        ];
+        $atts     = wp_parse_args($args, $defaults);
+        $output   = sprintf(
+            '<a href="%3$s" target="%4$s" class="%2$s">%1$s</a>',
+            esc_html($link_array['title']),
+            $atts['class'],
+            esc_url($link_array['url']),
+            $link_array['target']
+        );
 
-        return self::getHTML(null, 'img', $atts, false, true);
+        return $output;
     }
 }

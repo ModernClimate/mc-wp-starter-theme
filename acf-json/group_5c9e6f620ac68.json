@@ -154,6 +154,154 @@
                                 "id": ""
                             },
                             "return_format": "array"
+                        },
+                        {
+                            "key": "field_5cd5a1070a795",
+                            "label": "Background",
+                            "name": "background",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5cd5a10f0a796",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5cd5a11f0a797",
+                                    "label": "Color",
+                                    "name": "color",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": ""
+                                },
+                                {
+                                    "key": "field_5cd5a1360a798",
+                                    "label": "Repeat",
+                                    "name": "repeat",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33.33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "no-repeat": "No Repeat",
+                                        "repeat": "Repeat",
+                                        "repeat-x": "Repeat (X)",
+                                        "repeat-y": "Repeat (Y)"
+                                    },
+                                    "default_value": [
+                                        "no-repeat"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5cd5a1a60a799",
+                                    "label": "Position",
+                                    "name": "position",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33.33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "left top": "Left \/ Top",
+                                        "left center": "Left \/ Center",
+                                        "left bottom": "Left \/ Bottom",
+                                        "right top": "Right \/ Top",
+                                        "right center": "Right \/ Center",
+                                        "right bottom": "Right \/ Bottom",
+                                        "center top": "Center \/ Top",
+                                        "center center": "Center \/ Center",
+                                        "center bottom": "Center \/ Bottom"
+                                    },
+                                    "default_value": [
+                                        "center center"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5cd5a1b80a79a",
+                                    "label": "Size",
+                                    "name": "size",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33.33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "auto auto": "Auto",
+                                        "cover": "Cover",
+                                        "contain": "Contain",
+                                        "inherit": "Inherit"
+                                    },
+                                    "default_value": [
+                                        "cover"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -232,5 +380,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553895746
+    "modified": 1557504517
 }
