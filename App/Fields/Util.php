@@ -110,10 +110,10 @@ class Util
      */
     public static function getInlineBackgroundStyles($data, $size = 'full')
     {
-        if (empty($data)) {
+        if (empty($data) || ! isset($data['background'])) {
             return '';
         }
-
+        
         $image      = ACF::getField('background_image', $data);
         $attachment = ! empty($image) ? Media::getAttachmentByID($image) : false;
         $src        = ACF::getField($size, $attachment->sizes, $attachment->url);
