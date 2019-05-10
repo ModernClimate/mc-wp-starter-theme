@@ -142,17 +142,14 @@ class Util
     public static function getButtonHTML($link_array, $args = [])
     {
         $output = '';
-        if (empty($link_array)) {
+        if (! isset($link_array['title'])) {
             return $output;
         }
         $defaults = [
             'class' => 'btn btn-primary',
         ];
         $atts     = wp_parse_args($args, $defaults);
-        if (! isset($link_array['title'])) {
-            return $output;
-        }
-        $output = sprintf(
+        $output   = sprintf(
             '<a href="%3$s" target="%4$s" class="%2$s">%1$s</a>',
             esc_html($link_array['title']),
             $atts['class'],
