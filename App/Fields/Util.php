@@ -113,7 +113,7 @@ class Util
         if (empty($data) || ! isset($data['background'])) {
             return '';
         }
-        
+
         $image      = ACF::getField('background_image', $data);
         $attachment = ! empty($image) ? Media::getAttachmentByID($image) : false;
         $src        = ACF::getField($size, $attachment->sizes, $attachment->url);
@@ -141,7 +141,10 @@ class Util
      */
     public static function getButtonHTML($link_array, $args = [])
     {
-        $output   = '';
+        $output = '';
+        if (empty($link_array)) {
+            return $output;
+        }
         $defaults = [
             'class' => 'btn btn-primary',
         ];
@@ -150,9 +153,7 @@ class Util
             return $output;
         }
         $output = sprintf(
-            '<a href="%3$s" target="%4$s" class="%2$s">
-                <div class="btn__text">%1$s</div>
-                </a>',
+            '<a href="%3$s" target="%4$s" class="%2$s">%1$s</a>',
             esc_html($link_array['title']),
             $atts['class'],
             esc_url($link_array['url']),

@@ -23,6 +23,8 @@ $button   = ACF::getField('button', $data);
         <div class="module__body">
             <?php echo apply_filters('the_content', $content); ?>
         </div>
+
+        <?php echo Util::getButtonHTML($button); ?>
     </div>
 </div>
 
