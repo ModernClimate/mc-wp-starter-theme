@@ -61,6 +61,9 @@ composer dump-autoload
 6. [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 7. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
+## Extensions
+Check out the [Code Snippets Repo](https://github.com/ackmann-dickenson/ad-code-snippets) for additional functionality.
+
 ## Copyright and License
 The following resources are included or used in part within the theme package.
 
