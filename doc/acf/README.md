@@ -7,29 +7,29 @@ more info.
 
 Fortunately the A&D Wordpress Starter Theme comes with some handy utilities to avoid the ACF function overhead.
 
-**Location**
+**Location**<br/>
 `/App/Fields/ACF.php`
 
 ### `getPostMeta()`
 Used to retrieve ACF values from the database the preferred way.
 
-**Example**
+**Example**<br/>
 `$post_meta = ACF::getPostMeta(get_the_ID());`
 
 ### `getField()`
 Utility function to check field key and avoid PHP errors
 
-**Example**
+**Example**<br/>
 `$heading = ACF::getField($your_flat_acf_data, heading);`
 
 ### `getRowsLayout()`
 Loops through Flexible Modules or Repeater Fields and compiles a multidimensional array.
 
-**Example**
+**Example**<br/>
 `$links = ACF::getRowsLayout(‘links’, $your_flat_acf_data);`
 
 ### `getAttachmentByID()`
 Used to return an image array based on the ACF image ID.
 
-**Example**
+**Example**<br/>
 `$background_image = Media::getAttachmentByID(ACF::getField('background_image', $your_flat_acf_data));`
