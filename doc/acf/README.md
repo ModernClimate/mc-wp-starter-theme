@@ -10,13 +10,11 @@ Fortunately the A&D Wordpress Starter Theme comes with some handy utilities to a
 **Location**<br/>
 `/App/Fields/ACF.php`
 
-
 ### `getPostMeta()`
 Used to retrieve ACF values from the database the preferred way.
 
 **Example**<br/>
 `$post_meta = ACF::getPostMeta(get_the_ID());`
-
 
 ### `getField()`
 Utility function to check field key and avoid PHP errors
@@ -24,13 +22,11 @@ Utility function to check field key and avoid PHP errors
 **Example**<br/>
 `$heading = ACF::getField($your_flat_acf_data, heading);`
 
-
 ### `getRowsLayout()`
 Loops through Flexible Modules or Repeater Fields and compiles a multidimensional array.
 
 **Example**<br/>
 `$links = ACF::getRowsLayout(‘links’, $your_flat_acf_data);`
-
 
 ### `getAttachmentByID()`
 Used to return an image array based on the ACF image ID.
