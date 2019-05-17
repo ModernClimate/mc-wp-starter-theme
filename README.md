@@ -64,6 +64,9 @@ composer dump-autoload
 ## Extensions
 Check out the [Code Snippets Repo](https://github.com/ackmann-dickenson/ad-code-snippets) for additional functionality.
 
+## Documentation
+* [ACF Utility Functions](https://github.com/ackmann-dickenson/ad-wp-starter-theme/blob/master/doc/acf/README.md)
+
 ## Copyright and License
 The following resources are included or used in part within the theme package.
 
