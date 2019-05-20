@@ -20,16 +20,19 @@ Used to retrieve ACF values from the database the preferred way.
 Utility function to check field key and avoid PHP errors
 
 **Example**<br/>
-`$heading = ACF::getField($your_flat_acf_data, heading);`
+`$heading = ACF::getField('heading', $your_flat_acf_data);`
 
 ### `getRowsLayout()`
 Loops through Flexible Modules or Repeater Fields and compiles a multidimensional array.
 
 **Example**<br/>
-`$links = ACF::getRowsLayout(‘links’, $your_flat_acf_data);`
+`$links = ACF::getRowsLayout('links', $your_flat_acf_data);`
 
 ### `getAttachmentByID()`
 Used to return an image array based on the ACF image ID.
+
+**Location**<br/>
+`/App/Media.php`
 
 **Example**<br/>
 `$background_image = Media::getAttachmentByID(ACF::getField('background_image', $your_flat_acf_data));`
