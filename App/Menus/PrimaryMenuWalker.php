@@ -70,7 +70,7 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
         $atts['class'] = 'nav-link';
 
         if ($args->walker->has_children && $depth === 0) {
-            $atts['class']         .= 'dropdown-toggle';
+            $atts['class']         .= ' dropdown-toggle';
             $atts['data-toggle']   = 'dropdown';
             $atts['role']          = 'button';
             $atts['aria-haspopup'] = 'true';
