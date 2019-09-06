@@ -1,25 +1,7 @@
-// Responsive utilities
+// Mixins
 
-@mixin mobile {
-  @media (min-width: #{$screen-xs}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: #{$screen-sm}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$screen-md}) {
-    @content;
-  }
-}
-
-@mixin desktop-lg {
-  @media (min-width: #{$screen-lg}) {
-    @content;
-  }
+// Calculate rem value based on the px value passed in.
+@function _calc-rem($size) {
+  $rem-size: $size / 16px;
+  @return #{$rem-size}rem;
 }
