@@ -2,14 +2,14 @@
 // https://sass-guidelin.es/#the-7-1-pattern
 
 // Framework
-@import 'base/reset';
-@import 'abstracts/functions';
 @import 'abstracts/variables';
-@import 'abstracts/mixins/breakpoints';
-@import 'abstracts/mixins/grid-framework';
-@import 'abstracts/mixins/grid';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/mixins/breakpoints';
+@import 'node_modules/bootstrap/scss/mixins/grid-framework';
+@import 'node_modules/bootstrap/scss/mixins/grid';
 
 // Base
+@import 'base/reset';
 @import 'base/base';
 @import 'base/grid';
 @import 'base/accessibility';
