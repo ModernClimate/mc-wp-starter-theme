@@ -31,6 +31,7 @@ $white-90: rgba($white, .9);
 $grid-columns: 12 !default;
 $grid-gutter: .9375rem !default;
 $grid-gutter-width: $grid-gutter * 2 !default;
+$enable-grid-classes: true !default;
 
 // Spacing
 $spacer: $grid-gutter;
