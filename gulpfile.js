@@ -24,8 +24,7 @@ const PATHS = {
     'assets/scss/**/*.scss'
   ],
   jsVendor: [
-    //'node_modules/bootstrap/dist/js/bootstrap.js',
-    'assets/js/vendor/*.js',
+    'assets/js/vendor/*.js'
   ],
   jsTheme: [
     'assets/js/theme/*.js',

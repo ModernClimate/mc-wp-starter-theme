@@ -1,9 +1,18 @@
 // SCSS Imports
 // https://sass-guidelin.es/#the-7-1-pattern
+
+// Framework
+@import 'base/reset';
+@import 'abstracts/functions';
 @import 'abstracts/variables';
-@import 'node_modules/bootstrap/scss/bootstrap';
-//@import 'base/typography';
-@import 'abstracts/mixins';
+@import 'abstracts/mixins/breakpoints';
+@import 'abstracts/mixins/grid-framework';
+@import 'abstracts/mixins/grid';
+
+// Base
 @import 'base/base';
+@import 'base/grid';
 @import 'base/accessibility';
-@import 'themes/entry-content';
+@import 'base/entry-content';
+// @import 'base/typography';
+// @import 'base/media';
