@@ -85,7 +85,6 @@ class Hero
                             'instructions' => ''
                         ],
                         [
-                            'key'           => 'field_5cd5a1360a798',
                             'label'         => __('Repeat', 'ad-starter'),
                             'name'          => 'repeat',
                             'type'          => 'select',
@@ -127,7 +126,6 @@ class Hero
                             'ui'            => 1
                         ],
                         [
-                            'key'           => 'field_5cd5a1b80a79a',
                             'label'         => __('Size', 'ad-starter'),
                             'name'          => 'size',
                             'type'          => 'select',
