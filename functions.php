@@ -13,6 +13,7 @@ use AD\App\Fields\ACF;
 use AD\App\Fields\Options;
 use AD\App\Fields\Modules;
 use AD\App\Shortcodes;
+use AD\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 
 /**
  * Define Theme Version
@@ -38,8 +39,8 @@ add_action('after_setup_theme', function () {
         ->add(new Modules())
         ->add(new Shortcodes())
         ->add(new ACF())
+        ->add(new SiteOptionsFieldGroup())
         ->initialize();
-
 
     // Translation setup
     load_theme_textdomain('ad-starter', AD_THEME_DIR . '/languages');

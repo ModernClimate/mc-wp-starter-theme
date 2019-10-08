@@ -105,4 +105,33 @@ class ACF implements WordPressHooks
     {
         return ! empty($data[$selector]) ? $data[$selector] : $default;
     }
+
+    /**
+     * Loop through fields array and generate field keys based on prefix and name.
+     *
+     * @param string $prefix
+     * @param array $fields
+     *
+     * @return array
+     */
+    public static function generateFieldKeys($prefix = 'field', $fields = [])
+    {
+        if (empty($fields)) {
+            return $fields;
+        }
+
+        // loop through fields and generate key
+        foreach ($fields as $index => $field) {
+            $name                  = ! empty($field['name']) ? $field['name'] : 'tab_' . $index;
+            $fields[$index]['key'] = "{$prefix}_{$name}";
+
+            // loop through sub fields and generate key
+            if (array_key_exists('sub_fields', $field)) {
+                $sub_fields                   = self::generateFieldKeys($prefix, $field['sub_fields']);
+                $fields[$index]['sub_fields'] = $sub_fields;
+            }
+        }
+
+        return $fields;
+    }
 }
