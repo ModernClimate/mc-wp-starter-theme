@@ -14,6 +14,7 @@ use AD\App\Fields\Options;
 use AD\App\Fields\Modules;
 use AD\App\Shortcodes;
 use AD\App\Fields\FieldGroups\SiteOptionsFieldGroup;
+use AD\App\Fields\FieldGroups\PageBuilderFieldGroup;
 
 /**
  * Define Theme Version
@@ -40,6 +41,7 @@ add_action('after_setup_theme', function () {
         ->add(new Shortcodes())
         ->add(new ACF())
         ->add(new SiteOptionsFieldGroup())
+        ->add(new PageBuilderFieldGroup())
         ->initialize();
 
     // Translation setup

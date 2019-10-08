@@ -40,7 +40,7 @@ class SiteOptionsFieldGroup extends RegisterFieldGroups
     public function getLocalFieldGroup()
     {
         return apply_filters('ad/field-group/site-options/params', [
-            'key'    => 'ad_field-group_' . $this->group_key,
+            'key'    => "ad_field-group_{$this->group_key}",
             'title'  => __('Site Options', 'ad-starter'),
             'fields' => $this->getFields(),
         ]);
