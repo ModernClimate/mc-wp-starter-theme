@@ -57,7 +57,96 @@ class Hero
                     'name'          => 'button',
                     'type'          => 'link',
                     'return_format' => 'array',
-                ]
+                ],
+                [
+                    'label'     => __('Options', 'ad-starter'),
+                    'type'      => 'tab',
+                    'placement' => 'left',
+                    'endpoint'  => 0,
+                ],
+                [
+                    'label'        => __('Background', 'ad-starter'),
+                    'name'         => 'background',
+                    'type'         => 'group',
+                    'instructions' => '',
+                    'layout'       => 'block',
+                    'sub_fields'   => [
+                        [
+                            'label'        => __('Image', 'ad-starter'),
+                            'name'         => 'image',
+                            'type'         => 'image',
+                            'preview_size' => 'thumbnail',
+                            'library'      => 'all'
+                        ],
+                        [
+                            'label'        => __('Color', 'ad-starter'),
+                            'name'         => 'color',
+                            'type'         => 'color_picker',
+                            'instructions' => ''
+                        ],
+                        [
+                            'key'           => 'field_5cd5a1360a798',
+                            'label'         => __('Repeat', 'ad-starter'),
+                            'name'          => 'repeat',
+                            'type'          => 'select',
+                            'wrapper'       => [
+                                'width' => '33.33'
+                            ],
+                            'choices'       => [
+                                'no-repeat' => __('No Repeat', 'ad-starter'),
+                                'repeat'    => __('Repeat', 'ad-starter'),
+                                'repeat-x'  => __('Repeat (X)', 'ad-starter'),
+                                'repeat-y'  => __('Repeat (Y)', 'ad-starter'),
+                            ],
+                            'default_value' => [
+                                0 => 'no-repeat',
+                            ],
+                            'ui'            => 1
+                        ],
+                        [
+                            'label'         => __('Position', 'ad-starter'),
+                            'name'          => 'position',
+                            'type'          => 'select',
+                            'wrapper'       => [
+                                'width' => '33.33'
+                            ],
+                            'choices'       => [
+                                'left top'      => __('Left / Top', 'ad-starter'),
+                                'left center'   => __('Left / Center', 'ad-starter'),
+                                'left bottom'   => __('Left / Bottom', 'ad-starter'),
+                                'right top'     => __('Right / Top', 'ad-starter'),
+                                'right center'  => __('Right / Center', 'ad-starter'),
+                                'right bottom'  => __('Right / Bottom', 'ad-starter'),
+                                'center top'    => __('Center / Top', 'ad-starter'),
+                                'center center' => __('Center / Center', 'ad-starter'),
+                                'center bottom' => __('Center / Bottom', 'ad-starter'),
+                            ],
+                            'default_value' => [
+                                0 => 'center center',
+                            ],
+                            'ui'            => 1
+                        ],
+                        [
+                            'key'           => 'field_5cd5a1b80a79a',
+                            'label'         => __('Size', 'ad-starter'),
+                            'name'          => 'size',
+                            'type'          => 'select',
+                            'wrapper'       => [
+                                'width' => '33.33'
+                            ],
+                            'choices'       => [
+                                'auto auto' => __('Auto', 'ad-starter'),
+                                'cover'     => __('Cover', 'ad-starter'),
+                                'contain'   => __('Contain', 'ad-starter'),
+                                'inherit'   => __('Inherit', 'ad-starter'),
+                            ],
+                            'default_value' => [
+                                0 => 'cover',
+                            ],
+                            'ui'            => 1
+                        ],
+                    ],
+                ],
             ],
         ];
 
