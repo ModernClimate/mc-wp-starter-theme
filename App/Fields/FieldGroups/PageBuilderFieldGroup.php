@@ -3,6 +3,7 @@
 namespace AD\App\Fields\FieldGroups;
 
 use AD\App\Fields\Layouts\ContentArea;
+use AD\App\Fields\Layouts\Image;
 
 /**
  * Class PageBuilderFieldGroup
@@ -63,6 +64,7 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
                 'button_label' => __('Add Module', 'ad-starter'),
                 'layouts'      => [
                     (new ContentArea())->layoutFields($this->group_key),
+                    (new Image())->layoutFields($this->group_key),
                 ]
             ]
         ]); // end return

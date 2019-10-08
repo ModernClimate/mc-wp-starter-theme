@@ -5,14 +5,14 @@ namespace AD\App\Fields\Layouts;
 use AD\App\Fields\ACF;
 
 /**
- * Class ContentArea
+ * Class Image
  *
  * @package AD\App\Fields\Layouts
  */
-class ContentArea
+class Image
 {
 
-    public $slug = 'content-area';
+    public $slug = 'image';
 
     /**
      * Defines fields used within this module.
@@ -27,7 +27,7 @@ class ContentArea
 
         $fields = [
             'name'       => $this->slug,
-            'label'      => __('Content Area', 'ad-starter'),
+            'label'      => __('Image', 'ad-starter'),
             'display'    => 'block',
             'sub_fields' => [
                 [
@@ -37,20 +37,13 @@ class ContentArea
                     'endpoint'     => 0,
                 ],
                 [
-                    'label'        => __('Headline', 'ad-starter'),
-                    'name'         => 'headline',
-                    'type'         => 'textarea',
-                    'instructions' => '',
-                    'rows'         => 2
-                ],
-                [
-                    'label'        => __('Content', 'ad-starter'),
-                    'name'         => 'content',
-                    'type'         => 'wysiwyg',
-                    'instructions' => '',
-                    'tabs'         => 'all',
-                    'toolbar'      => 'full',
-                    'media_upload' => 0
+                    'label'         => __('Image', 'ad-starter'),
+                    'name'          => 'image',
+                    'type'          => 'image',
+                    'instructions'  => '',
+                    'return_format' => 'array',
+                    'preview_size'  => 'medium',
+                    'library'       => 'all',
                 ]
             ],
         ];
@@ -58,6 +51,6 @@ class ContentArea
         // get our field keys
         $fields['sub_fields'] = ACF::generateFieldKeys($prefix, $fields['sub_fields']);
 
-        return apply_filters('ad/layout/content-area', $fields);
+        return apply_filters('ad/layout/image', $fields);
     }
 }
