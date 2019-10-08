@@ -17,7 +17,7 @@ $button   = ACF::getField('button', $data);
     <div class="container">
         <div class="module__heading">
             <h1 class="module__title hdg hdg--1">
-                <?php echo apply_filters('the_content', $headline); ?>
+                <?php echo esc_html($headline); ?>
             </h1>
         </div>
         <div class="module__body">
