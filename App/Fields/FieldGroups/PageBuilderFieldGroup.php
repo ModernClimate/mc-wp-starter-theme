@@ -42,7 +42,7 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
     public function getLocalFieldGroup()
     {
         return apply_filters('ad/field-group/page-builder/params', [
-            'key'    => 'ad_field-group_' . $this->group_key,
+            'key'    => "ad_field-group_{$this->group_key}",
             'title'  => __('Page Builder', 'ad-starter'),
             'fields' => $this->getFields()
         ]);
