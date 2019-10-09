@@ -20,7 +20,7 @@ use AD\App\Fields\FieldGroups\PageBuilderFieldGroup;
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '2.4.0');
+define('THEME_VERSION', '2.5.0');
 define('AD_THEME_DIR', trailingslashit(get_template_directory()));
 define('AD_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
