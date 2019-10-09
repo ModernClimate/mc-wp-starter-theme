@@ -15,7 +15,7 @@ $content  = ACF::getField('content', $data);
     <div class="container">
         <div class="module__heading">
             <h2 class="module__title hdg hdg--2">
-                <?php echo apply_filters('the_content', $headline); ?>
+                <?php echo esc_html($headline); ?>
             </h2>
         </div>
         <div class="module__body">
