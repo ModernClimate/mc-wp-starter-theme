@@ -16,11 +16,11 @@ $content  = ACF::getField('content', $data);
     <div class="container">
         <div class="module__heading">
             <?php
-            echo Util::getHTML(
-                nl2br($headline),
+            echo nl2br(Util::getHTML(
+                $headline,
                 'h2',
                 ['class' => 'module__title hdg hdg--2']
-            );
+            ));
             ?>
         </div>
         <div class="module__body">

@@ -17,11 +17,11 @@ $button   = ACF::getField('button', $data);
     <div class="container">
         <div class="module__heading">
             <?php
-            echo Util::getHTML(
-                nl2br($headline),
+            echo nl2br(Util::getHTML(
+                $headline,
                 'h1',
                 ['class' => 'module__title hdg hdg--1']
-            );
+            ));
             ?>
         </div>
         <div class="module__body">
