@@ -13,12 +13,14 @@ use AD\App\Fields\ACF;
 use AD\App\Fields\Options;
 use AD\App\Fields\Modules;
 use AD\App\Shortcodes;
+use AD\App\Fields\FieldGroups\SiteOptionsFieldGroup;
+use AD\App\Fields\FieldGroups\PageBuilderFieldGroup;
 
 /**
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '2.4.0');
+define('THEME_VERSION', '2.5.0');
 define('AD_THEME_DIR', trailingslashit(get_template_directory()));
 define('AD_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
@@ -38,8 +40,9 @@ add_action('after_setup_theme', function () {
         ->add(new Modules())
         ->add(new Shortcodes())
         ->add(new ACF())
+        ->add(new SiteOptionsFieldGroup())
+        ->add(new PageBuilderFieldGroup())
         ->initialize();
-
 
     // Translation setup
     load_theme_textdomain('ad-starter', AD_THEME_DIR . '/languages');

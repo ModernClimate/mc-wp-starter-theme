@@ -19,10 +19,7 @@ if (! $image) {
 <div class="module image">
     <div class="container">
         <div class="module__image">
-            <?php
-            $attachment = Media::getAttachmentByID($image);
-            echo Util::getImageHTML($attachment);
-            ?>
+            <?php echo Util::getImageHTML(Media::getAttachmentByID($image)); ?>
         </div>
     </div>
 </div>
