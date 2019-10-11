@@ -6,6 +6,7 @@
  */
 
 use AD\App\Fields\ACF;
+use AD\App\Fields\Util;
 
 $headline = ACF::getField('headline', $data);
 $content  = ACF::getField('content', $data);
@@ -14,9 +15,13 @@ $content  = ACF::getField('content', $data);
 <div class="module content-area">
     <div class="container">
         <div class="module__heading">
-            <h2 class="module__title hdg hdg--2">
-                <?php echo esc_html($headline); ?>
-            </h2>
+            <?php
+            echo Util::getHTML(
+                nl2br($headline),
+                'h2',
+                ['class' => 'module__title hdg hdg--2']
+            );
+            ?>
         </div>
         <div class="module__body">
             <?php echo apply_filters('the_content', $content); ?>

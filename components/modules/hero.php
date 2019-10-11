@@ -16,9 +16,13 @@ $button   = ACF::getField('button', $data);
 <div class="module hero" <?php echo Util::getInlineBackgroundStyles($data); ?>>
     <div class="container">
         <div class="module__heading">
-            <h1 class="module__title hdg hdg--1">
-                <?php echo esc_html($headline); ?>
-            </h1>
+            <?php
+            echo Util::getHTML(
+                nl2br($headline),
+                'h1',
+                ['class' => 'module__title hdg hdg--1']
+            );
+            ?>
         </div>
         <div class="module__body">
             <?php echo apply_filters('the_content', $content); ?>
