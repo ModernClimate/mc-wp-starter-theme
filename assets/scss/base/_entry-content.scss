@@ -101,9 +101,8 @@
   }
 
   .alignleft {
-    width: 100%;
-    height: auto;
-    margin: 0 0 15px;
+    float: left;
+    margin: 0 15px 15px 0;
   }
 
   .alignright {
@@ -112,7 +111,7 @@
   }
 
   .aligncenter {
-    margin: 0 auto;
+    margin: 0 auto 15px;
     display: block;
   }
 
