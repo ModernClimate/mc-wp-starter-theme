@@ -7,7 +7,7 @@ use AD\App\Interfaces\WordPressHooks;
 /**
  * Class Shortcodes
  *
- * @package AD Starter\App
+ * @package AD\App
  */
 class Shortcodes implements WordPressHooks
 {

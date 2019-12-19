@@ -2,7 +2,7 @@
 /**
  * The Primary Site navigation
  *
- * @package AD Starter
+ * @package AD
  */
 
 use AD\App\Menus\PrimaryMenuWalker;

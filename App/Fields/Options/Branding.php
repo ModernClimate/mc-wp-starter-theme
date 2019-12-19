@@ -7,7 +7,7 @@ use AD\App\Fields\ACF;
 /**
  * Class Branding
  *
- * @package StoryMate\App\Fields\Options
+ * @package AD\App\Fields\Options
  */
 class Branding
 {

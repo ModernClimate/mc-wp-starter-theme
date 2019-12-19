@@ -2,7 +2,7 @@
 /**
  * Default search form.
  *
- * @package AD Starter
+ * @package AD
  */
 ?>
 

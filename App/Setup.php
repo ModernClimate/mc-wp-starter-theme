@@ -7,7 +7,7 @@ use AD\App\Interfaces\WordPressHooks;
 /**
  * Class Setup
  *
- * @package AD Starter\App
+ * @package AD\App
  */
 class Setup implements WordPressHooks
 {

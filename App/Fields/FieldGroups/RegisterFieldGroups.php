@@ -7,7 +7,7 @@ use AD\App\Interfaces\WordPressHooks;
 /**
  * Class RegisterFieldGroups
  *
- * @package StoryMate\App\Fields
+ * @package AD\App\Fields
  */
 abstract class RegisterFieldGroups implements WordPressHooks
 {

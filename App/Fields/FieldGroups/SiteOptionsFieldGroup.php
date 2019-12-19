@@ -7,7 +7,7 @@ use AD\App\Fields\Options\Branding;
 /**
  * Class SiteOptionsFieldGroup
  *
- * @package StoryMate\App\Fields\SiteOptionsFieldGroup
+ * @package AD\App\Fields\SiteOptionsFieldGroup
  */
 class SiteOptionsFieldGroup extends RegisterFieldGroups
 {

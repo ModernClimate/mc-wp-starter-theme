@@ -5,7 +5,7 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  *
- * @package AD Starter
+ * @package AD
  */
 
 if (post_password_required()) {
