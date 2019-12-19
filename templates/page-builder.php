@@ -5,7 +5,7 @@
  * This template displays Advanced Custom Fields
  * flexible content fields in a user-defined order.
  *
- * @package AD Starter
+ * @package AD
  */
 
 get_header();

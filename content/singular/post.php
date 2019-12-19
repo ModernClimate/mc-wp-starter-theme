@@ -1,6 +1,6 @@
 <?php
 /**
- * @package AD Starter
+ * @package AD
  */
 ?>
 
