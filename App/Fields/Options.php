@@ -72,10 +72,10 @@ class Options implements WordPressHooks
      *
      * @return mixed|null
      */
-    public static function getSiteOption($option)
+    public static function getSiteOption($option, $default = '')
     {
         $acf_options = self::getSiteOptions();
 
-        return ! empty($acf_options[$option]) ? $acf_options[$option] : null;
+        return ! empty($acf_options[$option]) ? $acf_options[$option] : $default;
     }
 }
