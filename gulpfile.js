@@ -1,21 +1,21 @@
 "use strict";
 
 // Load plugins
-const gulp          = require('gulp');
-const concat        = require('gulp-concat');
-const rename        = require('gulp-rename');
-const terser        = require('gulp-terser');
-const sourcemaps    = require('gulp-sourcemaps');
-const autoprefixer  = require('gulp-autoprefixer');
-const sass          = require('gulp-sass');
-const sassLint      = require('gulp-sass-lint');
-const eslint        = require('gulp-eslint');
-const phpcs         = require('gulp-phpcs');
-const phpcbf        = require('gulp-phpcbf');
-const babel         = require('gulp-babel');
-const webpack       = require('webpack');
-const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
+const gulp              = require('gulp');
+const concat            = require('gulp-concat');
+const rename            = require('gulp-rename');
+const terser            = require('gulp-terser');
+const sourcemaps        = require('gulp-sourcemaps');
+const autoprefixer      = require('gulp-autoprefixer');
+const sass              = require('gulp-sass');
+const sassLint          = require('gulp-sass-lint');
+const eslint            = require('gulp-eslint');
+const phpcs             = require('gulp-phpcs');
+const phpcbf            = require('gulp-phpcbf');
+const webpack           = require('webpack');
+const webpackStream     = require('webpack-stream');
+const webpackDevConfig  = require('./webpack.dev.config.js');
+const webpackProdConfig = require('./webpack.prod.config.js');
 
 // File paths to various assets are defined here.
 const PATHS = {
@@ -55,7 +55,10 @@ function buildScriptsTheme() {
   return (
     gulp
       .src('assets/js/theme.js')
-      .pipe(webpackStream(webpackConfig), webpack)
+      .pipe(webpackStream(webpackProdConfig), webpack)
+      .pipe(rename({
+        suffix: '.min'
+      }))
       .pipe(gulp.dest('build/js'))
   );
 }
@@ -64,8 +67,8 @@ function buildScriptsTheme() {
 function devScriptsTheme() {
   return (
     gulp
-      .src(PATHS.jsTheme)
-      .pipe(concat('theme.js'))
+      .src('assets/js/theme.js')
+      .pipe(webpackStream(webpackDevConfig), webpack)
       .pipe(gulp.dest('build/js'))
   );
 }
@@ -143,7 +146,7 @@ function phpCodeBeautifier() {
 // Watch files
 function watchDevFiles() {
   gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
-  gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, buildScriptsTheme));
+  gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, devScriptsTheme));
   gulp.watch(PATHS.php, phpCodeSniffer);
 }
 
@@ -157,11 +160,12 @@ function watchFiles() {
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
 const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
-const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
+const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles));
 
 // export tasks
 exports.vendor      = buildScriptsVendor;
 exports.theme       = buildScriptsTheme;
+exports.themeDev    = devScriptsTheme;
 exports.styles      = buildStyles;
 exports.scriptsLint = scriptsLint;
 exports.sassLint    = stylesLint;

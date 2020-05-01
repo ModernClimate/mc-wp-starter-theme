@@ -1,4 +1,4 @@
-// webpack.config.js
+// webpack.dev.config.js
 
 module.exports = {
   output: {
