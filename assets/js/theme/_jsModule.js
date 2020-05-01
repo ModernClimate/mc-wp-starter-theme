@@ -3,14 +3,16 @@
  *
  *  Example Javascript module with self-contained object interface.
  */
-var jsModule = (function () {
+const jsModule = (() => {
 
   var pub = {}; // public facing functions
 
   pub.init = function () {
-
+    console.log('it worked');
   };
 
   return pub;
 
-}());
+})();
+
+export default jsModule;

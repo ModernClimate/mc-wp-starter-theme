@@ -1,17 +1,21 @@
 "use strict";
 
 // Load plugins
-const gulp         = require('gulp');
-const concat       = require("gulp-concat");
-const rename       = require("gulp-rename");
-const terser       = require('gulp-terser');
-const sourcemaps   = require("gulp-sourcemaps");
-const autoprefixer = require("gulp-autoprefixer");
-const sass         = require("gulp-sass");
-const sassLint     = require('gulp-sass-lint');
-const eslint       = require("gulp-eslint");
-const phpcs        = require('gulp-phpcs');
-const phpcbf       = require('gulp-phpcbf');
+const gulp              = require('gulp');
+const concat            = require('gulp-concat');
+const rename            = require('gulp-rename');
+const terser            = require('gulp-terser');
+const sourcemaps        = require('gulp-sourcemaps');
+const autoprefixer      = require('gulp-autoprefixer');
+const sass              = require('gulp-sass');
+const sassLint          = require('gulp-sass-lint');
+const eslint            = require('gulp-eslint');
+const phpcs             = require('gulp-phpcs');
+const phpcbf            = require('gulp-phpcbf');
+const webpack           = require('webpack');
+const webpackStream     = require('webpack-stream');
+const webpackDevConfig  = require('./webpack.dev.config.js');
+const webpackProdConfig = require('./webpack.prod.config.js');
 
 // File paths to various assets are defined here.
 const PATHS = {
@@ -50,12 +54,11 @@ function buildScriptsVendor() {
 function buildScriptsTheme() {
   return (
     gulp
-      .src(PATHS.jsTheme)
-      .pipe(concat('theme.js'))
+      .src('assets/js/theme.js')
+      .pipe(webpackStream(webpackProdConfig), webpack)
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(terser())
       .pipe(gulp.dest('build/js'))
   );
 }
@@ -64,8 +67,8 @@ function buildScriptsTheme() {
 function devScriptsTheme() {
   return (
     gulp
-      .src(PATHS.jsTheme)
-      .pipe(concat('theme.js'))
+      .src('assets/js/theme.js')
+      .pipe(webpackStream(webpackDevConfig), webpack)
       .pipe(gulp.dest('build/js'))
   );
 }
