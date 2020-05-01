@@ -56,10 +56,6 @@ function buildScriptsTheme() {
     gulp
       .src('assets/js/theme.js')
       .pipe(webpackStream(webpackConfig), webpack)
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(terser())
       .pipe(gulp.dest('build/js'))
   );
 }

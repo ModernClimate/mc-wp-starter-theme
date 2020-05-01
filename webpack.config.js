@@ -5,6 +5,7 @@ module.exports = {
     filename: 'theme.js',
   },
   mode: 'development',
+  devtool: 'source-map',
   module: {
     rules: [
       {
