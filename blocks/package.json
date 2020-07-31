@@ -1,0 +1,23 @@
+{
+  "name": "ad-blocks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AD Blocks",
+  "author": "Modern climate",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "devDependencies": {
+    "@wordpress/block-library": "^2.17.0",
+    "@wordpress/scripts": "^9.0.0"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "format:js": "wp-scripts format-js",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "start": "wp-scripts start"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

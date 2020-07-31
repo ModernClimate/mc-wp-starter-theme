@@ -9,18 +9,19 @@ use AD\App\Core\Init;
 use AD\App\Setup;
 use AD\App\Scripts;
 use AD\App\Media;
+use AD\App\Shortcodes;
 use AD\App\Fields\ACF;
 use AD\App\Fields\Options;
 use AD\App\Fields\Modules;
-use AD\App\Shortcodes;
 use AD\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use AD\App\Fields\FieldGroups\PageBuilderFieldGroup;
+use AD\App\Blocks\RegisterBlocks;
 
 /**
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '2.5.0');
+define('THEME_VERSION', '2.6.0');
 define('AD_THEME_DIR', trailingslashit(get_template_directory()));
 define('AD_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
@@ -35,13 +36,14 @@ add_action('after_setup_theme', function () {
     (new Init())
         ->add(new Setup())
         ->add(new Scripts())
-        ->add(new Options())
         ->add(new Media())
-        ->add(new Modules())
         ->add(new Shortcodes())
         ->add(new ACF())
+        ->add(new Options())
+        ->add(new Modules())
         ->add(new SiteOptionsFieldGroup())
         ->add(new PageBuilderFieldGroup())
+        ->add(new RegisterBlocks())
         ->initialize();
 
     // Translation setup

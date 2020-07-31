@@ -1,0 +1,16 @@
+// Block hero styles
+.hero {
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  background: $black-10;
+
+  &__image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: no-repeat center center/cover;
+  }
+}
