@@ -17,6 +17,7 @@ const phpcbf       = require('gulp-phpcbf');
 const PATHS = {
   php: [
     '**/*.php',
+    '!blocks/**/*.*',
     '!vendor/**/*.*'
   ],
   sass: [
@@ -139,7 +140,8 @@ function phpCodeSniffer() {
         bin: './vendor/squizlabs/php_codesniffer/bin/phpcs',
         standard: 'PSR2',
         warningSeverity: 0,
-        colors: 1
+        colors: 1,
+        ignore: ['node_modules', 'build']
       }))
       // Log all problems that was found
       .pipe(phpcs.reporter('log'))

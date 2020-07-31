@@ -24,4 +24,4 @@ const registerBlock = (block) => {
 /**
  * Register our set of custom blocks
  */
-[hero, banner, logos, products].forEach(registerBlock);
+[hero].forEach(registerBlock);
