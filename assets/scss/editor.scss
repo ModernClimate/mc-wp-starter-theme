@@ -9,4 +9,7 @@
 @import 'node_modules/bootstrap/scss/mixins/grid';
 @import 'node_modules/bootstrap/scss/grid';
 @import 'base/typography';
+
+// Blocks
+@import 'components/blocks/shared';
 @import 'components/blocks/hero';
