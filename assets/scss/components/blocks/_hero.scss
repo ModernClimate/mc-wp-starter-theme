@@ -1,16 +1,21 @@
 // Block hero styles
-.hero {
+.ad-hero {
   position: relative;
   min-height: 450px;
   overflow: hidden;
   background: $black-10;
 
-  &__image {
+  &__hdg {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: no-repeat center center/cover;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    display: block;
   }
 }
