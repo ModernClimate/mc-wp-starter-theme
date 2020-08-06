@@ -2,55 +2,32 @@
 
 namespace AD\App\Fields\Layouts;
 
-use AD\App\Fields\ACF;
+use WordPlate\Acf\Fields\Image as WPImage;
+use WordPlate\Acf\Fields\Layout;
 
 /**
  * Class Image
  *
  * @package AD\App\Fields\Layouts
  */
-class Image
+class Image extends Layouts
 {
-
-    public $slug = 'image';
-
     /**
-     * Defines fields used within this module.
+     * Defines fields for this layout.
      *
-     * @param $key
-     *
-     * @return mixed|void
+     * @return object
      */
-    public function layoutFields($key)
+    public function fields()
     {
-        $prefix = "field_{$key}_{$this->slug}";
-
-        $fields = [
-            'name'       => $this->slug,
-            'label'      => __('Image', 'ad-starter'),
-            'display'    => 'block',
-            'sub_fields' => [
-                [
-                    'label'        => __('Content', 'ad-starter'),
-                    'type'         => 'tab',
-                    'placement'    => 'left',
-                    'endpoint'     => 0,
-                ],
-                [
-                    'label'         => __('Image', 'ad-starter'),
-                    'name'          => 'image',
-                    'type'          => 'image',
-                    'instructions'  => '',
-                    'return_format' => 'array',
-                    'preview_size'  => 'medium',
-                    'library'       => 'all',
-                ]
-            ],
-        ];
-
-        // get our field keys
-        $fields['sub_fields'] = ACF::generateFieldKeys($prefix, $fields['sub_fields']);
-
-        return apply_filters('ad/layout/image', $fields);
+        return apply_filters(
+            'mc/layout/image',
+            Layout::make('Image')
+                ->layout('block')
+                ->fields([
+                    $this->contentTab(),
+                    WPImage::make('Image')
+                        ->returnFormat('array')
+                ])
+        );
     }
 }

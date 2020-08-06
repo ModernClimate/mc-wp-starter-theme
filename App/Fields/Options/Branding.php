@@ -2,7 +2,8 @@
 
 namespace AD\App\Fields\Options;
 
-use AD\App\Fields\ACF;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Image;
 
 /**
  * Class Branding
@@ -11,37 +12,22 @@ use AD\App\Fields\ACF;
  */
 class Branding
 {
-
-    public $slug = 'branding';
-
     /**
-     * Defines fields used within this module.
+     * Defines fields used within Options tab.
      *
-     * @return mixed|void
+     * @return array
      */
-    public function layoutFields()
+    public function fields()
     {
-        $prefix = "site-options_$this->slug";
-
-        $fields = [
+        return apply_filters(
+            'mc/options/branding', 
             [
-                'label'     => __('Branding', 'ad-starter'),
-                'type'      => 'tab',
-                'placement' => 'left',
-            ],
-            [
-                'label'         => __('Site Logo', 'ad-starter'),
-                'name'          => 'site_logo',
-                'type'          => 'image',
-                'return_format' => 'array',
-                'preview_size'  => 'thumbnail',
-                'library'       => 'all',
+                Tab::make('Branding')
+                    ->placement('left'),
+                Image::make('Site Logo')
+                    ->returnFormat('array')
+                    ->previewSize('thumbnail')
             ]
-        ];
-
-        // get our field keys
-        $fields = ACF::generateFieldKeys($prefix, $fields);
-
-        return apply_filters('ad/options/branding', $fields);
+        );
     }
 }

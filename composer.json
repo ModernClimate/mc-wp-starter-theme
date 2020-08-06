@@ -12,6 +12,7 @@
     }
   },
   "require": {
-    "squizlabs/php_codesniffer": "*"
+    "squizlabs/php_codesniffer": "*",
+    "wordplate/acf": "^8.4"
   }
 }
