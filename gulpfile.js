@@ -17,6 +17,7 @@ const phpcbf       = require('gulp-phpcbf');
 const PATHS = {
   php: [
     '**/*.php',
+    '!blocks/**/*.*',
     '!vendor/**/*.*'
   ],
   sass: [
@@ -99,6 +100,26 @@ function buildStyles() {
   );
 }
 
+// Compile min Editor CSS
+function buildEditorStyles() {
+  return (
+    gulp
+      .src('assets/scss/editor.scss')
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: PATHS.sass,
+        outputStyle: 'compressed'
+      }))
+      .pipe(autoprefixer())
+      .pipe(rename({
+        basename: "editor",
+        suffix: '.min'
+      }))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('build/css'))
+  );
+}
+
 // run SCSS lint on theme styles
 function stylesLint() {
   return (
@@ -119,7 +140,8 @@ function phpCodeSniffer() {
         bin: './vendor/squizlabs/php_codesniffer/bin/phpcs',
         standard: 'PSR2',
         warningSeverity: 0,
-        colors: 1
+        colors: 1,
+        ignore: ['node_modules', 'build']
       }))
       // Log all problems that was found
       .pipe(phpcs.reporter('log'))
@@ -142,28 +164,29 @@ function phpCodeBeautifier() {
 
 // Watch files
 function watchDevFiles() {
-  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
+  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles, buildEditorStyles));
   gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, devScriptsTheme));
   gulp.watch(PATHS.php, phpCodeSniffer);
 }
 
 // Watch files
 function watchFiles() {
-  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles));
+  gulp.watch(PATHS.sass, gulp.series(stylesLint, buildStyles, buildEditorStyles));
   gulp.watch(PATHS.jsTheme, gulp.series(scriptsLint, buildScriptsTheme));
   gulp.watch(PATHS.php, phpCodeSniffer);
 }
 
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
-const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles));
-const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles));
+const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles, buildEditorStyles));
+const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles, buildEditorStyles));
 
 // export tasks
 exports.vendor      = buildScriptsVendor;
 exports.theme       = buildScriptsTheme;
 exports.themeDev    = devScriptsTheme;
 exports.styles      = buildStyles;
+exports.editor      = buildEditorStyles;
 exports.scriptsLint = scriptsLint;
 exports.sassLint    = stylesLint;
 exports.phpcs       = phpCodeSniffer;

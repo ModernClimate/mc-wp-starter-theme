@@ -1,0 +1,14 @@
+// Editor styles for WP Block Editor
+// SCSS Imports
+// https://sass-guidelin.es/#the-7-1-pattern
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/mixins/breakpoints';
+@import 'node_modules/bootstrap/scss/mixins/grid-framework';
+@import 'node_modules/bootstrap/scss/mixins/grid';
+@import 'node_modules/bootstrap/scss/grid';
+@import 'base/typography';
+
+// Blocks
+@import 'components/blocks/shared';
