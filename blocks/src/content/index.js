@@ -12,13 +12,10 @@ const settings = {
   category: "mc_blocks",
   description: __("Standard content display", "mc-starter"),
   icon: "format-aside",
-  edit: ({ className }) => {
+  edit: () => {
     const ALLOWED_BLOCKS = ['core/classic'];
     const TEMPLATE = [
-      [
-        'core/freeform',
-        {}
-      ]
+      ['core/freeform']
     ];
 
     return (
