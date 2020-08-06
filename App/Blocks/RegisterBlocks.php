@@ -11,7 +11,7 @@ use AD\App\Interfaces\WordPressHooks;
  */
 class RegisterBlocks implements WordPressHooks
 {
-    public $block_key = 'ad-blocks';
+    public $block_key = 'mc-blocks';
 
     /**
      * Add class hooks.
@@ -19,16 +19,17 @@ class RegisterBlocks implements WordPressHooks
     public function addHooks()
     {
         add_action('init', [$this, 'registerBlocks']);
+        add_filter('block_categories', [$this, 'registerBlockCategory'], 10, 2);
     }
 
     /**
-     * Register custom AD blocks
+     * Register custom MC blocks
      */
     public function registerBlocks()
     {
         // automatically load dependencies and version
         $dir_path   = AD_THEME_PATH_URL . 'blocks/';
-        $asset_file = include(AD_THEME_DIR . 'blocks/build/index.asset.php');
+        $asset_file = include AD_THEME_DIR . 'blocks/build/index.asset.php';
 
         wp_register_script(
             $this->block_key,
@@ -43,12 +44,30 @@ class RegisterBlocks implements WordPressHooks
             ['wp-edit-blocks']
         );
 
-        // register ad blocks
         register_block_type(
-            'ad-blocks/blocks',
+            'mc-blocks/blocks',
             [
                 'editor_script' => $this->block_key,
-                'editor_style' => $this->block_key
+                'editor_style'  => $this->block_key
+            ]
+        );
+    }
+
+    /**
+     * Register custom MC blocks category
+     *
+     * @param array $categories
+     * @param object $post
+     */
+    public function registerBlockCategory($categories, $post)
+    {
+        return array_merge(
+            $categories,
+            [
+                [
+                    'slug'  => 'mc_blocks',
+                    'title' => __('MC Blocks', 'mc-starter'),
+                ],
             ]
         );
     }
