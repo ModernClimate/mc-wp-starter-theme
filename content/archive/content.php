@@ -1,6 +1,6 @@
 <?php
 /**
- * @package AD
+ * @package MC
  */
 ?>
 
@@ -28,7 +28,7 @@
         <?php
         the_content();
         wp_link_pages([
-            'before' => '<div class="page-links">' . __('Pages:', 'ad-starter'),
+            'before' => '<div class="page-links">' . __('Pages:', 'mc-starter'),
             'after'  => '</div>',
         ]);
         ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace AD\App\Fields\Options;
+namespace MC\App\Fields\Options;
 
 use WordPlate\Acf\Fields\Tab;
 use WordPlate\Acf\Fields\Image;
@@ -8,7 +8,7 @@ use WordPlate\Acf\Fields\Image;
 /**
  * Class Branding
  *
- * @package AD\App\Fields\Options
+ * @package MC\App\Fields\Options
  */
 class Branding
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App;
+namespace MC\App;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class Shortcodes
  *
- * @package AD\App
+ * @package MC\App
  */
 class Shortcodes implements WordPressHooks
 {

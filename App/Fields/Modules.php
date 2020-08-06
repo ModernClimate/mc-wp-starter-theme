@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App\Fields;
+namespace MC\App\Fields;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class Modules
  *
- * @package AD\App\Fields
+ * @package MC\App\Fields
  */
 class Modules implements WordPressHooks
 {
@@ -17,7 +17,7 @@ class Modules implements WordPressHooks
      */
     public function addHooks()
     {
-        add_action('ad/modules/output', [$this, 'outputFlexibleModules']);
+        add_action('mc/modules/output', [$this, 'outputFlexibleModules']);
         add_action('admin_head', [$this, 'disableClassicEditor']);
         add_filter('gutenberg_can_edit_post_type', [$this, 'disableGutenberg'], 10, 2);
         add_filter('use_block_editor_for_post_type', [$this, 'disableGutenberg'], 10, 2);

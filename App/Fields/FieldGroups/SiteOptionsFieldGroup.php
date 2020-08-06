@@ -1,14 +1,14 @@
 <?php
 
-namespace AD\App\Fields\FieldGroups;
+namespace MC\App\Fields\FieldGroups;
 
 use WordPlate\Acf\Location;
-use AD\App\Fields\Options\Branding;
+use MC\App\Fields\Options\Branding;
 
 /**
  * Class SiteOptionsFieldGroup
  *
- * @package AD\App\Fields\SiteOptionsFieldGroup
+ * @package MC\App\Fields\SiteOptionsFieldGroup
  */
 class SiteOptionsFieldGroup extends RegisterFieldGroups
 {

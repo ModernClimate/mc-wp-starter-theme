@@ -2,31 +2,30 @@
 /**
  * Functions and definitions
  *
- * @package AD
+ * @package MC
  */
 
-use AD\App\Core\Init;
-use AD\App\Setup;
-use AD\App\Scripts;
-use AD\App\Media;
-use AD\App\Shortcodes;
-use AD\App\Fields\ACF;
-use AD\App\Fields\Options;
-use AD\App\Fields\Modules;
-use AD\App\Fields\FieldGroups\SiteOptionsFieldGroup;
-use AD\App\Fields\FieldGroups\PageBuilderFieldGroup;
-use AD\App\Blocks\RegisterBlocks;
+use MC\App\Core\Init;
+use MC\App\Setup;
+use MC\App\Scripts;
+use MC\App\Media;
+use MC\App\Fields\ACF;
+use MC\App\Fields\Options;
+use MC\App\Fields\Modules;
+use MC\App\Shortcodes;
+use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
+use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 
 /**
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '2.6.0');
-define('AD_THEME_DIR', trailingslashit(get_template_directory()));
-define('AD_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
+define('THEME_VERSION', '2.5.0');
+define('MC_THEME_DIR', trailingslashit(get_template_directory()));
+define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
 // Require Autoloader
-require_once AD_THEME_DIR . 'vendor/autoload.php';
+require_once MC_THEME_DIR . 'vendor/autoload.php';
 
 /**
  * Theme Setup
@@ -47,7 +46,7 @@ add_action('after_setup_theme', function () {
         ->initialize();
 
     // Translation setup
-    load_theme_textdomain('ad-starter', AD_THEME_DIR . '/languages');
+    load_theme_textdomain('mc-starter', MC_THEME_DIR . '/languages');
 
     // Let WordPress manage the document title.
     add_theme_support('title-tag');

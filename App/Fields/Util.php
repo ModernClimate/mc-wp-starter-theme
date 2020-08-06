@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App\Fields;
+namespace MC\App\Fields;
 
-use AD\App\Media;
+use MC\App\Media;
 
 /**
  * Class Util
  *
- * @package AD\App\Fields
+ * @package MC\App\Fields
  */
 class Util
 {

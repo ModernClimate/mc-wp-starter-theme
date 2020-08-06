@@ -1,6 +1,6 @@
 <?php
 
-namespace AD\App\Fields\Layouts;
+namespace MC\App\Fields\Layouts;
 
 use WordPlate\Acf\Fields\Image as WPImage;
 use WordPlate\Acf\Fields\Layout;
@@ -8,7 +8,7 @@ use WordPlate\Acf\Fields\Layout;
 /**
  * Class Image
  *
- * @package AD\App\Fields\Layouts
+ * @package MC\App\Fields\Layouts
  */
 class Image extends Layouts
 {

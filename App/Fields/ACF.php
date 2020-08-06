@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App\Fields;
+namespace MC\App\Fields;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class ACF
  *
- * @package AD\App\Fields
+ * @package MC\App\Fields
  */
 class ACF implements WordPressHooks
 {
@@ -17,9 +17,9 @@ class ACF implements WordPressHooks
      */
     public function addHooks()
     {
-        // ACF field PHP exports will wrap text in the ad-starter text domain.
+        // ACF field PHP exports will wrap text in the mc-starter text domain.
         add_filter('acf/settings/l10n_textdomain', function () {
-            return 'ad-starter';
+            return 'mc-starter';
         });
     }
 
@@ -34,7 +34,7 @@ class ACF implements WordPressHooks
     {
         global $wpdb;
 
-        $cache_key = 'ad_post_meta_' . $post_id;
+        $cache_key = 'mc_post_meta_' . $post_id;
         $post_meta = wp_cache_get($cache_key, 'meta');
 
         if (! $post_meta) {

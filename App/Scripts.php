@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App;
+namespace MC\App;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class Scripts
  *
- * @package AD\App
+ * @package MC\App
  */
 class Scripts implements WordPressHooks
 {
@@ -28,7 +28,7 @@ class Scripts implements WordPressHooks
     {
         /**
          * wp_enqueue_script(
-         * 'ad-vendor',
+         * 'mc-vendor',
          * get_stylesheet_directory_uri() . '/build/js/vendor.min.js',
          * ['jquery'],
          * THEME_VERSION,
@@ -43,7 +43,7 @@ class Scripts implements WordPressHooks
         }
 
         wp_enqueue_script(
-            'ad-theme',
+            'mc-theme',
             get_stylesheet_directory_uri() . "/build/js/theme{$filename}.js",
             ['jquery'],
             THEME_VERSION,
@@ -61,7 +61,7 @@ class Scripts implements WordPressHooks
     public function enqueueStyles()
     {
         wp_enqueue_style(
-            'ad-styles',
+            'mc-styles',
             get_stylesheet_directory_uri() . '/build/css/theme.min.css',
             [],
             THEME_VERSION

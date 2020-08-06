@@ -1,11 +1,11 @@
 <?php
 
-namespace AD\App\Posts;
+namespace MC\App\Posts;
 
 /**
  * Class PostTypes
  *
- * @package AD\App\Posts
+ * @package MC\App\Posts
  */
 class PostTypes
 {
@@ -17,8 +17,8 @@ class PostTypes
      *
      * PostTypes::registerPostType(
      * 'project',
-     * __( 'Project', 'ad-starter' ),
-     * __( 'Projects', 'ad-starter' ),
+     * __( 'Project', 'mc-starter' ),
+     * __( 'Projects', 'mc-starter' ),
      * [
      * 'menu_icon'   => 'dashicons-portfolio'
      * ]
@@ -36,16 +36,16 @@ class PostTypes
             'singular_name'      => $singular,
             'menu_name'          => $plural,
             'name_admin_bar'     => $singular,
-            'add_new'            => sprintf(__('Add %1$s', 'ad-starter'), $singular),
-            'add_new_item'       => sprintf(__('Add New %1$s', 'ad-starter'), $singular),
-            'new_item'           => sprintf(__('New %1$s', 'ad-starter'), $singular),
-            'edit_item'          => sprintf(__('Edit %1$s', 'ad-starter'), $singular),
-            'view_item'          => sprintf(__('View %1$s', 'ad-starter'), $plural),
-            'all_items'          => sprintf(__('%1$s', 'ad-starter'), $plural),
-            'search_items'       => sprintf(__('search %1$s', 'ad-starter'), $plural),
-            'parent_item_colon'  => sprintf(__('Parent %1$s:', 'ad-starter'), $plural),
-            'not_found'          => sprintf(__('No %1$s found.', 'ad-starter'), $plural),
-            'not_found_in_trash' => sprintf(__('No %1$s found in Trash.', 'ad-starter'), $plural)
+            'add_new'            => sprintf(__('Add %1$s', 'mc-starter'), $singular),
+            'add_new_item'       => sprintf(__('Add New %1$s', 'mc-starter'), $singular),
+            'new_item'           => sprintf(__('New %1$s', 'mc-starter'), $singular),
+            'edit_item'          => sprintf(__('Edit %1$s', 'mc-starter'), $singular),
+            'view_item'          => sprintf(__('View %1$s', 'mc-starter'), $plural),
+            'all_items'          => sprintf(__('%1$s', 'mc-starter'), $plural),
+            'search_items'       => sprintf(__('search %1$s', 'mc-starter'), $plural),
+            'parent_item_colon'  => sprintf(__('Parent %1$s:', 'mc-starter'), $plural),
+            'not_found'          => sprintf(__('No %1$s found.', 'mc-starter'), $plural),
+            'not_found_in_trash' => sprintf(__('No %1$s found in Trash.', 'mc-starter'), $plural)
         ];
 
         $defaults = [

@@ -1,20 +1,20 @@
 <?php
 
-namespace AD\App\Core;
+namespace MC\App\Core;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class Transients
  *
  * Class for handling transient data in the theme
  *
- * @package AD\App\Core
+ * @package MC\App\Core
  */
 class Transients implements WordPressHooks
 {
 
-    const KEY = 'ad_transient_keys';
+    const KEY = 'mc_transient_keys';
 
     public $transientKeys = [];
 

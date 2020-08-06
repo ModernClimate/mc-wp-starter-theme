@@ -2,10 +2,10 @@
 /**
  * The Primary Site navigation
  *
- * @package AD
+ * @package MC
  */
 
-use AD\App\Menus\PrimaryMenuWalker;
+use MC\App\Menus\PrimaryMenuWalker;
 
 wp_nav_menu(
     [
