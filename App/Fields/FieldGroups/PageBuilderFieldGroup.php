@@ -39,7 +39,7 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
      */
     public function getFields()
     {
-        return apply_filters('mc/field-group/page-builder/fields', [
+        return [
             FlexibleContent::make(__('Modules', 'mc-starter'))
                 ->buttonLabel(__('Add Module', 'mc-starter'))
                 ->layouts([
@@ -47,6 +47,6 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
                     (new Hero())->fields(),
                     (new Image())->fields(),
                 ])
-        ]);
+        ];
     }
 }

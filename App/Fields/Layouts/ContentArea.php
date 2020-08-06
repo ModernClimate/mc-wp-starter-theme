@@ -20,7 +20,7 @@ class ContentArea extends Layouts
      */
     public function fields()
     {
-        $layout = Layout::make(__('Content Area', 'mc-starter'))
+        return Layout::make(__('Content Area', 'mc-starter'))
             ->layout('block')
             ->fields([
                 $this->contentTab(),
@@ -29,7 +29,5 @@ class ContentArea extends Layouts
                 Wysiwyg::make(__('Content', 'mc-starter'))
                     ->mediaUpload(false)
             ]);
-
-        return apply_filters('mc/layout/content-area', $layout);
     }
 }

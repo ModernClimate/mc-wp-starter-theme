@@ -35,10 +35,8 @@ class SiteOptionsFieldGroup extends RegisterFieldGroups
     public function getFields()
     {
         // merge our fields into a single array
-        $fields = array_merge(
+        return array_merge(
             (new Branding())->fields()
         );
-
-        return apply_filters('mc/field-group/site-options/fields', $fields);
     }
 }

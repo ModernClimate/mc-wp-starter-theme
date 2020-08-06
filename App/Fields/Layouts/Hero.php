@@ -25,7 +25,7 @@ class Hero extends Layouts
      */
     public function fields()
     {
-        $layout = Layout::make(__('Hero', 'mc-starter'))
+        return Layout::make(__('Hero', 'mc-starter'))
             ->layout('block')
             ->fields([
                 $this->contentTab(),
@@ -84,8 +84,6 @@ class Hero extends Layouts
                                 'width' => '33.33'
                             ]),
                     ])
-                ]);
-
-        return apply_filters('mc/layout/hero', $layout);
+            ]);
     }
 }

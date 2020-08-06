@@ -19,14 +19,12 @@ class Branding
      */
     public function fields()
     {
-        $fields = [
+        return [
             Tab::make('Branding')
                 ->placement('left'),
             Image::make('Site Logo')
                 ->returnFormat('array')
                 ->previewSize('thumbnail')
         ];
-
-        return apply_filters('mc/options/branding', $fields);
     }
 }
