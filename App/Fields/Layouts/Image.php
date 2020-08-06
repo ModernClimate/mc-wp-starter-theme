@@ -19,12 +19,15 @@ class Image extends Layouts
      */
     public function fields()
     {
-        return Layout::make('Image')
-            ->layout('block')
-            ->fields([
-                $this->contentTab(),
-                WPImage::make('Image')
-                    ->returnFormat('array')
-            ]);
+        return apply_filters(
+            'mc/layout/image',
+            Layout::make('Image')
+                ->layout('block')
+                ->fields([
+                    $this->contentTab(),
+                    WPImage::make('Image')
+                        ->returnFormat('array')
+                ])
+        );
     }
 }

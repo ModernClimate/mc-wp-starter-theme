@@ -20,14 +20,17 @@ class ContentArea extends Layouts
      */
     public function fields()
     {
-        return Layout::make(__('Content Area', 'mc-starter'))
-            ->layout('block')
-            ->fields([
-                $this->contentTab(),
-                Textarea::make(__('Headline', 'mc-starter'))
-                    ->rows(2),
-                Wysiwyg::make(__('Content', 'mc-starter'))
-                    ->mediaUpload(false)
-            ]);
+        return apply_filters(
+            'mc/layout/content-area',
+            Layout::make(__('Content Area', 'mc-starter'))
+                ->layout('block')
+                ->fields([
+                    $this->contentTab(),
+                    Textarea::make(__('Headline', 'mc-starter'))
+                        ->rows(2),
+                    Wysiwyg::make(__('Content', 'mc-starter'))
+                        ->mediaUpload(false)
+                ])
+        );
     }
 }
