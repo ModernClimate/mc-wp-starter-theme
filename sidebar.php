@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package AD
+ * @package MC
  */
 if (! is_active_sidebar('primary')) {
     return;

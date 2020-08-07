@@ -1,11 +1,11 @@
 <?php
 
-namespace AD\App\Interfaces;
+namespace MC\App\Interfaces;
 
 /**
  * Interface Hooks provides a contract for classes that add WordPress hooks
  *
- * @package AD\App\Interfaces
+ * @package MC\App\Interfaces
  */
 interface WordPressHooks
 {

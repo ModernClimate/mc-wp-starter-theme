@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (not found).
  *
- * @package AD
+ * @package MC
  */
 
 get_header(); ?>
@@ -12,7 +12,7 @@ get_header(); ?>
             <div id="primary" class="col-sm-8">
                 <header class="entry__header">
                     <h1 class="hdg hdg--1">
-                        <?php _e('Page Not Found', 'ad-starter'); ?>
+                        <?php _e('Page Not Found', 'mc-starter'); ?>
                     </h1>
                 </header><!-- /.entry__header -->
 
@@ -20,7 +20,7 @@ get_header(); ?>
                     <?php
                     _e(
                         '<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>',
-                        'ad-starter'
+                        'mc-starter'
                     );
                     get_search_form();
                     ?>

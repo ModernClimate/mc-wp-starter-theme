@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App\Blocks;
+namespace MC\App\Blocks;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class RegisterBlocks
  *
- * @package AD\App\Blocks
+ * @package MC\App\Blocks
  */
 class RegisterBlocks implements WordPressHooks
 {
@@ -28,8 +28,8 @@ class RegisterBlocks implements WordPressHooks
     public function registerBlocks()
     {
         // automatically load dependencies and version
-        $dir_path   = AD_THEME_PATH_URL . 'blocks/';
-        $asset_file = include AD_THEME_DIR . 'blocks/build/index.asset.php';
+        $dir_path   = MC_THEME_PATH_URL . 'blocks/';
+        $asset_file = include MC_THEME_DIR . 'blocks/build/index.asset.php';
 
         wp_register_script(
             $this->block_key,

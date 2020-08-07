@@ -1,6 +1,6 @@
 <?php
 
-namespace AD\App\Fields\Layouts;
+namespace MC\App\Fields\Layouts;
 
 use WordPlate\Acf\Fields\Link;
 use WordPlate\Acf\Fields\Group;
@@ -14,7 +14,7 @@ use WordPlate\Acf\Fields\ColorPicker;
 /**
  * Class Hero
  *
- * @package AD\App\Fields\Layouts
+ * @package MC\App\Fields\Layouts
  */
 class Hero extends Layouts
 {

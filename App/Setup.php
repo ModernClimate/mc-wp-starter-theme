@@ -1,13 +1,13 @@
 <?php
 
-namespace AD\App;
+namespace MC\App;
 
-use AD\App\Interfaces\WordPressHooks;
+use MC\App\Interfaces\WordPressHooks;
 
 /**
  * Class Setup
  *
- * @package AD\App
+ * @package MC\App
  */
 class Setup implements WordPressHooks
 {
@@ -26,7 +26,7 @@ class Setup implements WordPressHooks
      */
     public function registerMenus()
     {
-        register_nav_menu('primary', __('Primary', 'ad-starter'));
+        register_nav_menu('primary', __('Primary', 'mc-starter'));
     }
 
     /**
@@ -37,8 +37,8 @@ class Setup implements WordPressHooks
         register_sidebar(
             [
                 'id'            => 'primary',
-                'name'          => __('Sidebar', 'ad-starter'),
-                'description'   => __('Main sidebar area displayed on right side of page via trigger.', 'ad-starter'),
+                'name'          => __('Sidebar', 'mc-starter'),
+                'description'   => __('Main sidebar area displayed on right side of page via trigger.', 'mc-starter'),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
             ]

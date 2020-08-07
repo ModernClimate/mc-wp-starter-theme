@@ -5,8 +5,8 @@
  * @global $data
  */
 
-use AD\App\Fields\ACF;
-use AD\App\Fields\Util;
+use MC\App\Fields\ACF;
+use MC\App\Fields\Util;
 
 $headline = ACF::getField('headline', $data);
 $content  = ACF::getField('content', $data);

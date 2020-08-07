@@ -1,8 +1,8 @@
 {
-  "name": "ad-blocks",
+  "name": "mc-blocks",
   "version": "1.0.0",
   "private": true,
-  "description": "AD Blocks",
+  "description": "MC Blocks",
   "author": "Modern climate",
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",

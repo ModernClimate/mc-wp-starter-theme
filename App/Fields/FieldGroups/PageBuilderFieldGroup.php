@@ -1,11 +1,11 @@
 <?php
 
-namespace AD\App\Fields\FieldGroups;
+namespace MC\App\Fields\FieldGroups;
 
-use AD\App\Fields\Layouts\Hero;
-use AD\App\Fields\Layouts\Image;
-use AD\App\Fields\Layouts\ContentArea;
-use AD\App\Fields\FieldGroups\RegisterFieldGroups;
+use MC\App\Fields\Layouts\Hero;
+use MC\App\Fields\Layouts\Image;
+use MC\App\Fields\Layouts\ContentArea;
+use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 
 use WordPlate\Acf\Location;
 use WordPlate\Acf\Fields\FlexibleContent;
@@ -13,7 +13,7 @@ use WordPlate\Acf\Fields\FlexibleContent;
 /**
  * Class PageBuilderFieldGroup
  *
- * @package AD\App\Fields\PageBuilderFieldGroup
+ * @package MC\App\Fields\PageBuilderFieldGroup
  */
 class PageBuilderFieldGroup extends RegisterFieldGroups
 {

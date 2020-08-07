@@ -1,14 +1,14 @@
 <?php
 
-namespace AD\App\Fields\Layouts;
+namespace MC\App\Fields\Layouts;
 
-use AD\App\Fields\ACF;
+use MC\App\Fields\ACF;
 use WordPlate\Acf\Fields\Tab;
 
 /**
  * Class Layouts
  *
- * @package AD\App\Fields\Layouts
+ * @package MC\App\Fields\Layouts
  */
 abstract class Layouts
 {

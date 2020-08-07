@@ -1,12 +1,12 @@
-# A&D Starter Theme
+# Modern Climate Starter Theme
 Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass), SCSS compiler, JS linting and minifying and class based functions.php
 
 Requires a minimum of WordPress 4.5.
 
-A&D Starter Theme is built with **Composer** and **Gulp** usage in mind and is the recommended way to use this theme.
+MC Starter Theme is built with **Composer** and **Gulp** usage in mind and is the recommended way to use this theme.
 
 ## What tools do I need to use the theme?
-1. [Node.js](https://github.com/ackmann-dickenson/ad-wp-starter-theme/wiki/Install-Node.js)
+1. [Node.js](https://github.com/ModernClimate/mc-wp-starter-theme/wiki/Install-Node.js)
 1. [Yarn](https://yarnpkg.com/en/docs/install)
 2. [Composer](https://getcomposer.org/doc/00-intro.md#globally)
 
@@ -62,10 +62,10 @@ composer dump-autoload
 7. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
 ## Extensions
-Check out the [Code Snippets Repo](https://github.com/ackmann-dickenson/ad-code-snippets) for additional functionality.
+Check out the [Code Snippets Repo](https://github.com/ModernClimate/ad-code-snippets) for additional functionality.
 
 ## Documentation
-* [ACF Utility Functions](https://github.com/ackmann-dickenson/ad-wp-starter-theme/blob/master/doc/acf/README.md)
+* [ACF Utility Functions](https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/acf/README.md)
 
 ## Copyright and License
 The following resources are included or used in part within the theme package.

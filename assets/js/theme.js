@@ -1,7 +1,7 @@
 /**
  * Custom JS Scripts
  *
- * @package AD
+ * @package MC
  */
 
 (function () {
