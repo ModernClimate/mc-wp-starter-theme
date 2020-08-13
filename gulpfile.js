@@ -7,6 +7,7 @@ const rename       = require("gulp-rename");
 const terser       = require('gulp-terser');
 const sourcemaps   = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
+const csso         = require('gulp-csso');
 const sass         = require("gulp-sass");
 const sassLint     = require('gulp-sass-lint');
 const eslint       = require("gulp-eslint");
@@ -24,8 +25,11 @@ const PATHS = {
     'assets/scss/*.scss',
     'assets/scss/**/*.scss'
   ],
+  cssVendor: [
+    'node_modules/slick-carousel/slick/slick.css'
+  ],
   jsVendor: [
-    'assets/js/vendor/*.js'
+    'node_modules/slick-carousel/slick/slick.js'
   ],
   jsTheme: [
     'assets/js/theme/*.js',
@@ -96,6 +100,21 @@ function buildStyles() {
         suffix: '.min'
       }))
       .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('build/css'))
+  );
+}
+
+// Compile min CSS
+function buildStylesVendor() {
+  return (
+    gulp
+      .src(PATHS.cssVendor)
+      .pipe(concat('vendor.css'))
+      .pipe(csso())
+      .pipe(autoprefixer())
+      .pipe(rename({
+        suffix: '.min'
+      }))
       .pipe(gulp.dest('build/css'))
   );
 }
@@ -178,22 +197,23 @@ function watchFiles() {
 
 // define complex tasks
 const js    = gulp.series(scriptsLint, gulp.parallel(buildScriptsTheme, buildScriptsVendor));
-const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles, buildEditorStyles));
-const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles, buildEditorStyles));
+const build = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, buildScriptsTheme, buildStyles, buildEditorStyles, buildStylesVendor));
+const dev   = gulp.series(scriptsLint, stylesLint, gulp.parallel(phpCodeSniffer, buildScriptsVendor, devScriptsTheme, buildStyles, buildEditorStyles, buildStylesVendor));
 
 // export tasks
-exports.vendor      = buildScriptsVendor;
-exports.theme       = buildScriptsTheme;
-exports.themeDev    = devScriptsTheme;
-exports.styles      = buildStyles;
-exports.editor      = buildEditorStyles;
-exports.scriptsLint = scriptsLint;
-exports.sassLint    = stylesLint;
-exports.phpcs       = phpCodeSniffer;
-exports.beautify    = phpCodeBeautifier;
-exports.watchDev    = watchDevFiles;
-exports.watch       = watchFiles;
-exports.js          = js;
-exports.build       = build;
-exports.dev         = dev;
-exports.default     = build;
+exports.vendor       = buildScriptsVendor;
+exports.theme        = buildScriptsTheme;
+exports.themeDev     = devScriptsTheme;
+exports.styles       = buildStyles;
+exports.stylesVendor = buildStylesVendor;
+exports.editor       = buildEditorStyles;
+exports.scriptsLint  = scriptsLint;
+exports.sassLint     = stylesLint;
+exports.phpcs        = phpCodeSniffer;
+exports.beautify     = phpCodeBeautifier;
+exports.watchDev     = watchDevFiles;
+exports.watch        = watchFiles;
+exports.js           = js;
+exports.build        = build;
+exports.dev          = dev;
+exports.default      = build;

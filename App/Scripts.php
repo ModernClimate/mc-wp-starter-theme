@@ -11,6 +11,12 @@ use MC\App\Interfaces\WordPressHooks;
  */
 class Scripts implements WordPressHooks
 {
+    private $stylesheet_directory_uri;
+
+    public function __construct()
+    {
+        $this->stylesheet_directory_uri = get_stylesheet_directory_uri();
+    }
 
     /**
      * Add class hooks.
@@ -26,15 +32,13 @@ class Scripts implements WordPressHooks
      */
     public function enqueueScripts()
     {
-        /**
-         * wp_enqueue_script(
-         * 'mc-vendor',
-         * get_stylesheet_directory_uri() . '/build/js/vendor.min.js',
-         * ['jquery'],
-         * THEME_VERSION,
-         * true
-         * );
-         */
+        wp_enqueue_script(
+            'mc-scripts-vendor',
+            $this->stylesheet_directory_uri . '/build/js/vendor.min.js',
+            ['jquery'],
+            THEME_VERSION,
+            true
+        );
 
         // set the unminified file type if we're in development env.
         $filename = '.min';
@@ -43,9 +47,9 @@ class Scripts implements WordPressHooks
         }
 
         wp_enqueue_script(
-            'mc-theme',
-            get_stylesheet_directory_uri() . "/build/js/theme{$filename}.js",
-            ['jquery'],
+            'mc-scripts-theme',
+            $this->stylesheet_directory_uri . "/build/js/theme{$filename}.js",
+            ['jquery', 'mc-scripts-vendor'],
             THEME_VERSION,
             true
         );
@@ -61,9 +65,16 @@ class Scripts implements WordPressHooks
     public function enqueueStyles()
     {
         wp_enqueue_style(
-            'mc-styles',
-            get_stylesheet_directory_uri() . '/build/css/theme.min.css',
+            'mc-styles-vendor',
+            $this->stylesheet_directory_uri . '/build/css/vendor.min.css',
             [],
+            THEME_VERSION
+        );
+
+        wp_enqueue_style(
+            'mc-styles-theme',
+            $this->stylesheet_directory_uri . '/build/css/theme.min.css',
+            ['mc-styles-vendor'],
             THEME_VERSION
         );
     }

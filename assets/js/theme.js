@@ -7,6 +7,6 @@
 (function () {
 
   // Initialize Javascript modules here.
-  // jsModule.init();
+  carousel.init();
 
 })();

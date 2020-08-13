@@ -30,7 +30,7 @@ class CarouselBlock implements WordPressHooks
 
         acf_register_block_type(
             [
-                'name'              => 'Carousel',
+                'name'              => 'carousel',
                 'title'             => __('Carousel', 'mc-starter'),
                 'description'       => __('MC Carousel block initialized with slick.'),
                 'render_template'   => 'components/blocks/carousel.php',
