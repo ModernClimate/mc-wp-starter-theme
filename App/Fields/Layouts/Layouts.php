@@ -21,7 +21,7 @@ abstract class Layouts
 
     /**
      * Creates Content Tab Field.
-     * 
+     *
      * @return object
      */
     public function contentTab()
@@ -32,7 +32,7 @@ abstract class Layouts
 
     /**
      * Creates Options Tab Field.
-     * 
+     *
      * @return object
      */
     public function optionsTab()

@@ -9,12 +9,14 @@ use MC\App\Core\Init;
 use MC\App\Setup;
 use MC\App\Scripts;
 use MC\App\Media;
+use MC\App\Shortcodes;
 use MC\App\Fields\ACF;
 use MC\App\Fields\Options;
 use MC\App\Fields\Modules;
-use MC\App\Shortcodes;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
+use MC\App\Blocks\RegisterBlocks;
+use MC\App\Blocks\Types\CarouselBlock;
 
 /**
  * Define Theme Version
@@ -43,6 +45,7 @@ add_action('after_setup_theme', function () {
         ->add(new SiteOptionsFieldGroup())
         ->add(new PageBuilderFieldGroup())
         ->add(new RegisterBlocks())
+        ->add(new CarouselBlock())
         ->initialize();
 
     // Translation setup
