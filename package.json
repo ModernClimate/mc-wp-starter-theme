@@ -28,7 +28,7 @@
     "bootstrap": ">=4.1.3"
   },
   "scripts": {
-    "postinstall": "composer install && gulp build",
+    "postinstall": "composer install && gulp build && cd blocks && npm install",
     "build": "gulp build",
     "production": "gulp build"
   }
