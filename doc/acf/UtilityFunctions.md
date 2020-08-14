@@ -1,4 +1,4 @@
-## ACF Utility Functions
+# ACF Utility Functions
 Advanced Custom Fields comes with a number of [built in functions](https://www.advancedcustomfields.com/resources/)
 to retrieve ACF data. Commonly used functions include `get_field()`, `get_fields()`, and `get_sub_field()`. These
 functions are convenient but significantly increase database queries compared to WP core functions and should not
