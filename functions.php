@@ -9,12 +9,13 @@ use MC\App\Core\Init;
 use MC\App\Setup;
 use MC\App\Scripts;
 use MC\App\Media;
+use MC\App\Shortcodes;
 use MC\App\Fields\ACF;
 use MC\App\Fields\Options;
 use MC\App\Fields\Modules;
-use MC\App\Shortcodes;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
+use MC\App\Blocks\RegisterBlocks;
 
 /**
  * Define Theme Version
