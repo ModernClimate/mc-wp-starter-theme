@@ -20,7 +20,7 @@ class Branding
     public function fields()
     {
         return apply_filters(
-            'mc/options/branding', 
+            'mc/options/branding',
             [
                 Tab::make('Branding')
                     ->placement('left'),
