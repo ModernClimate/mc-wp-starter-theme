@@ -1,12 +1,3 @@
-/**
- * Custom JS Scripts
- *
- * @package MC
- */
+import init from "./theme/jsModule";
 
-(function () {
-
-  // Initialize Javascript modules here.
-  // jsModule.init();
-
-})();
+init();

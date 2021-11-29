@@ -21,7 +21,7 @@ use MC\App\Blocks\RegisterBlocks;
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '2.5.0');
+define('THEME_VERSION', '2.7.0');
 define('MC_THEME_DIR', trailingslashit(get_template_directory()));
 define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 

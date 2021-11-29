@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.7.0] - 2021-11-30
+
+### Changed
+- Switched theme JS to use ES modules rather than modular pattern
+- Switched build process to use Rollup.js
+- Build processes are now moved to a separate folder
+- Moved to Bootstrap 5
+
 ## [2.4.0] - 2019-03-29
 ### Changed
 - Updated Gulp to v4
