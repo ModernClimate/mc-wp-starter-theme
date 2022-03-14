@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
@@ -10,12 +10,10 @@ const processStyles = () => {
     gulp.src('./assets/scss/**/*.scss')
       .pipe(sourcemaps.init())
       .pipe(sass({
-        outputStyle: 'nested',
         precision: 3,
         errLogToConsole: true,
         includePaths: [
           'node_modules/bootstrap/scss',
-          'node_modules/@glidejs/glide/src/assets/sass'
         ]
       }))
       .on('error', sass.logError)

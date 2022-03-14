@@ -30,22 +30,8 @@ function phpCodeSniffer() {
   );
 }
 
-// run php code sniffer on theme files
-// function phpCodeBeautifier() {
-//   return (
-//     gulp.src(PATHS.php)
-//       .pipe(phpcbf({
-//         bin: './vendor/squizlabs/php_codesniffer/bin/phpcbf',
-//         standard: 'PSR2',
-//         warningSeverity: 0
-//       }))
-//       .pipe(gulp.dest('.'))
-//   );
-// }
-
 const watch = gulp.parallel(styles.watch, themeScripts.watch, adminScripts.watch);
-// const build = gulp.series(styles.process, themeScripts.process, adminScripts.process, vendorScripts.process, phpCodeSniffer);
-const build = gulp.series(styles.process, themeScripts.process, adminScripts.process, phpCodeSniffer);
+const build = gulp.series(styles.process, themeScripts.process, adminScripts.process, vendorScripts.process, phpCodeSniffer);
 
 exports.watch = watch;
 exports.build = build;

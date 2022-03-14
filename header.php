@@ -23,16 +23,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="glide">
-                <div data-glide-el="track" class="glide__track">
-                    <ul class="glide__slides">
-                        <li class="glide__slide"><img src="https://via.placeholder.com/150"/></li>
-                        <li class="glide__slide"><img src="https://via.placeholder.com/150"/></li>
-                        <li class="glide__slide"><img src="https://via.placeholder.com/150"/></li>
-                    </ul>
-                </div>
-            </div>
-
             <?php
             // Loads the menu/primary.php template.
             get_template_part('menu/primary');
