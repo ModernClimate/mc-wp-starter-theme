@@ -7,9 +7,9 @@
 
 get_header(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div id="primary" class="col-sm-8">
+    <div class="uk-container uk-container-large">
+        <div uk-grid>
+            <div id="primary" class="uk-width-s">
                 <header class="entry__header">
                     <h1 class="hdg hdg--1">
                         <?php _e('Page Not Found', 'mc-starter'); ?>
