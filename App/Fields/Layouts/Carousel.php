@@ -2,10 +2,11 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\ButtonGroup;
 use WordPlate\Acf\Fields\Image as WPImage;
 use WordPlate\Acf\Fields\Layout;
 use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Select;
 
 /**
  * Class Carousel
@@ -36,13 +37,39 @@ class Carousel extends Layouts
                           ->returnFormat('array'),
                     ]),
                     $this->optionsTab(),
-                    // Group::make(__('Module Layout', 'mc-starter'))
-                    //     ->layout('block')
-                    //     ->fields([
-                    //         Common::width('full'),
-                    //         Common::contentAlignment('center')
-                    //     ]),
-                    // Common::paddingGroup('Padding', [3, 3, 3, 3]),
+                    Select::make(__('Animation Type', 'mc-starter'), 'carousel-animation-type')
+                        ->choices([
+                            'fade'  => __('Fade', 'mc-starter'),
+                            'pull'  => __('Pull', 'mc-starter'),
+                            'push'  => __('Push', 'mc-starter'),
+                            'scale' => __('Scale', 'mc-starter'),
+                            'slide' => __('Slide', 'mc-starter'),
+                        ])
+                        ->defaultValue('slide')
+                        ->returnFormat('value')
+                        ->wrapper([
+                            'width' => '33.33'
+                        ]),
+                    ButtonGroup::make(__('Enable Arrow Navigation', 'mc-starter'), 'show-carousel-arrows-nav')
+                        ->choices([
+                            'true'  => __('Enable', 'mc-starter'),
+                            'false' => __('Disable', 'mc-starter'),
+                        ])
+                        ->instructions(__('Enabling will show a previous and next navigation arrow overlayed on the carousel.', 'mc-starter'))
+                        ->defaultValue('true')
+                        ->wrapper([
+                            'width' => '33.33'
+                        ]),
+                    ButtonGroup::make(__('Enable Indicators', 'mc-starter'), 'show-carousel-indicators')
+                        ->choices([
+                            'true'  => __('Enable', 'mc-starter'),
+                            'false' => __('Disable', 'mc-starter'),
+                        ])
+                        ->instructions(__('Enabling will show a dot navigation button group.', 'mc-starter'))
+                        ->defaultValue('false')
+                        ->wrapper([
+                            'width' => '33.33'
+                        ]),
                 ])
         );
     }

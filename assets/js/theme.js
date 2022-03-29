@@ -1,3 +1,3 @@
-import init from './theme/slideshow'
+import initSlideshows from './theme/slideshow'
 
-init()
+initSlideshows()

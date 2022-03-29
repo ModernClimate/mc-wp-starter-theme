@@ -1,7 +1,8 @@
 import UIkit from './UIKit'
 
-const init = () => {
-  const slideshows = UIkit.slideshow('.uk-slideshow', {})
+const initSlideshows = () => {
+  const slideshows = UIkit
+    .slideshow('.uk-slideshow', {})
 }
 
-export default init
+export default initSlideshows

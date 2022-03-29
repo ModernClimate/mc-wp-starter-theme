@@ -1,10 +1,9 @@
 const gulp = require('gulp');
 const phpcs = require('gulp-phpcs');
-// const phpcbf = require('gulp-phpcbf');
 
+// Theme tasks
 const styles = require('./gulp-tasks/styles');
 const themeScripts = require('./gulp-tasks/themeScripts');
-// const adminScripts = require('./gulp-tasks/adminScripts');
 
 const PATHS = {
   php: [
@@ -14,7 +13,7 @@ const PATHS = {
   ]
 };
 
-// run php code sniffer on theme files
+// Run php code sniffer on theme files
 function phpCodeSniffer() {
   return (
     gulp.src(PATHS.php)
