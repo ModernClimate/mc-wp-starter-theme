@@ -7,7 +7,7 @@ const {terser} = require('rollup-plugin-terser');
 
 const processAdminScripts = async () => {
   const bundle = await rollup.rollup({
-    external: ['jquery', 'popper.js'],
+    // external: ['jQuery'],
     input: './assets/js/admin.js',
     plugins: [
       commonjs(),

@@ -1,3 +1,3 @@
-import init from "./admin/jsModule";
+import init from './admin/jsModule'
 
-init();
+init()

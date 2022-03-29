@@ -4,8 +4,7 @@ const phpcs = require('gulp-phpcs');
 
 const styles = require('./gulp-tasks/styles');
 const themeScripts = require('./gulp-tasks/themeScripts');
-const adminScripts = require('./gulp-tasks/adminScripts');
-const vendorScripts = require('./gulp-tasks/vendorScripts');
+// const adminScripts = require('./gulp-tasks/adminScripts');
 
 const PATHS = {
   php: [
@@ -30,8 +29,8 @@ function phpCodeSniffer() {
   );
 }
 
-const watch = gulp.parallel(styles.watch, themeScripts.watch, adminScripts.watch);
-const build = gulp.series(styles.process, themeScripts.process, adminScripts.process, vendorScripts.process, phpCodeSniffer);
+const watch = gulp.parallel(styles.watch, themeScripts.watch);
+const build = gulp.series(styles.process, themeScripts.process, phpCodeSniffer);
 
 exports.watch = watch;
 exports.build = build;

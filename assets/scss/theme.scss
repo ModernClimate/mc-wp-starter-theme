@@ -4,14 +4,12 @@
 // Framework
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
-@import 'vendors/custom-bootstrap';
-
-// Vendor
+@import 'vendors/custom-ui-kit';
 
 // Base
 @import 'base/reset';
 @import 'base/base';
 @import 'base/accessibility';
 @import 'base/entry-content';
-// @import 'base/typography';
-// @import 'base/media';
+@import 'base/typography';
+@import 'base/media';

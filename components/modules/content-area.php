@@ -13,7 +13,7 @@ $content  = ACF::getField('content', $data);
 ?>
 
 <div class="module content-area">
-    <div class="container">
+    <div class="uk-container">
         <div class="module__heading">
             <?php
             echo nl2br(Util::getHTML(

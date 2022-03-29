@@ -12,9 +12,9 @@
 
 get_header(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div id="primary" class="col-sm-8">
+    <div class="uk-container uk-container-large">
+        <div uk-grid>
+            <div id="primary" class="uk-width-s">
                 <?php
                 while (have_posts()) {
                     the_post();

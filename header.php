@@ -15,7 +15,7 @@
 
 <header id="masthead" class="header" role="banner">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+        <div class="uk-container uk-container-large">
             <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu"
                     aria-controls="primary-menu" aria-expanded="false"

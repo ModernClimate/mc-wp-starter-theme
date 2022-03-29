@@ -5,11 +5,17 @@ const eslint = require('@rollup/plugin-eslint');
 const {babel} = require('@rollup/plugin-babel');
 const nodeResolve = require('@rollup/plugin-node-resolve');
 const {terser} = require('rollup-plugin-terser');
+const alias = require('@rollup/plugin-alias');
 
 const processThemeScripts = async () => {
   const bundle = await rollup.rollup({
     input: './assets/js/theme.js',
     plugins: [
+      alias({
+        entries: [
+          {find: 'uikit-util', replacement: 'uikit/src/js/util'},
+        ]
+      }),
       nodeResolve(),
       commonjs(),
       eslint(),
@@ -23,7 +29,7 @@ const processThemeScripts = async () => {
 
   return await bundle.write({
     file: './build/js/theme.min.js',
-    format: 'cjs',
+    format: 'umd',
     name: 'main',
     sourcemap: true
   });
@@ -32,7 +38,7 @@ const processThemeScripts = async () => {
 const watchThemeScripts = () => {
   const files = [
     'assets/js/theme.js',
-    'assets/js/theme/**/*.*',
+    'assets/js/theme/**/*.js',
   ];
   gulp.watch(files, processThemeScripts);
 }

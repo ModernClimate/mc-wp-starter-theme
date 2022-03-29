@@ -4,6 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
+const rename = require('gulp-rename');
 
 const processStyles = () => {
   return (
@@ -18,6 +19,9 @@ const processStyles = () => {
       }))
       .on('error', sass.logError)
       .pipe(postcss([autoprefixer(), cssnano()]))
+      .pipe(rename({
+        suffix: '.min'
+      }))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('./build/css/'))
   );

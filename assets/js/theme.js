@@ -1,3 +1,3 @@
-import init from "./theme/jsModule";
+import init from './theme/slideshow'
 
-init();
+init()
