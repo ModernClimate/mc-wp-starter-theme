@@ -4,13 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.7.0] - 2022-03-14
+## [3.0.0] - 2022-03-29
 
 ### Changed
 - Switched build process to use Rollup.js to support ES modules rather than modular pattern
+- Remove Bootstrap
+- Add UIKit for front end components
 - Build processes are now moved to a separate folder
-- Moved to Bootstrap 5
 - Updated dependencies
+- Support Composer 2
+- Require PHP >= 7.4
 
 ## [2.4.0] - 2019-03-29
 ### Changed
