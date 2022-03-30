@@ -1,12 +1,3 @@
-/**
- * Custom JS Scripts
- *
- * @package MC
- */
+import initSlideshows from './theme/slideshow'
 
-(function () {
-
-  // Initialize Javascript modules here.
-  // jsModule.init();
-
-})();
+initSlideshows()

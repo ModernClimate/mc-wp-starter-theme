@@ -17,7 +17,7 @@ if (! $image) {
 ?>
 
 <div class="module image">
-    <div class="container">
+    <div class="uk-container">
         <div class="module__image">
             <?php echo Util::getImageHTML(Media::getAttachmentByID($image)); ?>
         </div>

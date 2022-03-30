@@ -1,4 +1,3 @@
-// Editor styles for WP Block Editor
 // SCSS Imports
 // https://sass-guidelin.es/#the-7-1-pattern
 
@@ -8,7 +7,9 @@
 @import 'vendors/custom-ui-kit';
 
 // Base
+@import 'base/reset';
+@import 'base/base';
+@import 'base/accessibility';
+@import 'base/entry-content';
 @import 'base/typography';
-
-// Blocks
-@import 'components/blocks/shared';
+@import 'base/media';

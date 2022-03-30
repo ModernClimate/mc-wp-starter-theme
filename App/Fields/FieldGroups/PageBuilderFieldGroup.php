@@ -2,9 +2,10 @@
 
 namespace MC\App\Fields\FieldGroups;
 
+use MC\App\Fields\Layouts\Carousel;
+use MC\App\Fields\Layouts\ContentArea;
 use MC\App\Fields\Layouts\Hero;
 use MC\App\Fields\Layouts\Image;
-use MC\App\Fields\Layouts\ContentArea;
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 
 use WordPlate\Acf\Location;
@@ -43,6 +44,7 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
             FlexibleContent::make(__('Modules', 'mc-starter'))
                 ->buttonLabel(__('Add Module', 'mc-starter'))
                 ->layouts([
+                    (new Carousel())->fields(),
                     (new ContentArea())->fields(),
                     (new Hero())->fields(),
                     (new Image())->fields(),

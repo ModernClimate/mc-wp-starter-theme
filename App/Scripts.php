@@ -26,16 +26,6 @@ class Scripts implements WordPressHooks
      */
     public function enqueueScripts()
     {
-        /**
-         * wp_enqueue_script(
-         * 'mc-vendor',
-         * get_stylesheet_directory_uri() . '/build/js/vendor.min.js',
-         * ['jquery'],
-         * THEME_VERSION,
-         * true
-         * );
-         */
-
         // set the unminified file type if we're in development env.
         $filename = '.min';
         if (isset($_ENV['WP_ENV']) && 'development' === $_ENV['WP_ENV']) {
@@ -45,7 +35,7 @@ class Scripts implements WordPressHooks
         wp_enqueue_script(
             'mc-theme',
             get_stylesheet_directory_uri() . "/build/js/theme{$filename}.js",
-            ['jquery'],
+            [],
             THEME_VERSION,
             true
         );

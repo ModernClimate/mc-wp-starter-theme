@@ -13,6 +13,9 @@
   },
   "require": {
     "squizlabs/php_codesniffer": "*",
-    "wordplate/acf": "^8.4"
+    "wordplate/acf": "^8.6"
+  },
+  "require-dev": {
+    "paulthewalton/acf-stubs": "*"
   }
 }

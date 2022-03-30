@@ -9,9 +9,9 @@
 
 get_header(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div id="primary" class="col-sm-8">
+    <div class="uk-container uk-container-large">
+        <div uk-grid>
+            <div id="primary" class="uk-width-3-4@s">
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {

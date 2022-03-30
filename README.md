@@ -1,14 +1,16 @@
 # Modern Climate Starter Theme
 Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass), SCSS compiler, JS linting and minifying and class based functions.php
 
-Requires a minimum of WordPress 4.5.
+Requires a minimum of WordPress 5.3, PHP 7.4, and Composer 2
 
 MC Starter Theme is built with **Composer** and **Gulp** usage in mind and is the recommended way to use this theme.
 
 ## What tools do I need to use the theme?
 1. [Node.js](https://github.com/ModernClimate/mc-wp-starter-theme/wiki/Install-Node.js)
-1. [Yarn](https://yarnpkg.com/en/docs/install)
-2. [Composer](https://getcomposer.org/doc/00-intro.md#globally)
+2. [NVM](https://github.com/nvm-sh/nvm)
+3. [Yarn](https://yarnpkg.com/en/docs/install)
+4. [Composer](https://getcomposer.org/doc/00-intro.md#globally)
+5. [PHP](https://www.php.net/supported-versions.php)
 
 ## Instructions
 1. `$ yarn install` :  Install yarn packages _(postinstall will run composer install and gulp build)_
@@ -59,7 +61,12 @@ composer dump-autoload
 4. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
 5. [Sass Lint](https://github.com/sasstools/sass-lint)
 6. [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-7. [Modular JS Pattern](https://toddmotto.com/mastering-the-module-pattern/)
+7. [Wordplate Extended ACF](https://github.com/wordplate/extended-acf)
+7. [UIkit](https://getuikit.com/)
+
+## ACF Documentation
+- Wordplate Extended ACF is included as the means to build fields, field groups, reusable fields
+- Custom `ACF Utility Functions` are included in the theme to retrieve ACF data in a more effecient way: (https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/acf/README.md)
 
 ## Extensions
 Check out the [Code Snippets Repo](https://github.com/ModernClimate/ad-code-snippets) for additional functionality.
