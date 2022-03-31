@@ -13,40 +13,24 @@ MC Starter Theme is built with **Composer** and **Gulp** usage in mind and is th
 5. [PHP](https://www.php.net/supported-versions.php)
 
 ## Instructions
-1. `$ yarn install` :  Install yarn packages _(postinstall will run composer install and gulp build)_
-exports.vendor      = buildScriptsVendor;
-exports.theme       = buildScriptsTheme;
-exports.styles      = buildStyles;
-exports.scriptsLint = scriptsLint;
-exports.sassLint    = stylesLint;
-exports.phpcs       = phpCodeSniffer;
-exports.js          = js;
-exports.build       = build;
-exports.watch       = watch;
+1. `$ nvm i` : Installs and switches to necessary node defined in `.nvmrc`
+2. `$ yarn install` :  Install yarn packages _(postinstall will run composer install and gulp build)_
+
 ## Gulp Commands
 All minified assets are created to the `/build/` directory of the theme.
+ex: `yarn gulp styles` to run commands exported from gulpfile.js
 
+`$ gulp` : Runs linters and PHPCS, then compiles both minified and non-minified assets
+`$ gulp watch` : Watches assets/scss, assets/js, then compiles non-minified build assets
+`$ gulp watchDev` : Watches assets/scss, assets/js, then compiles minified build assets
 `$ gulp build` : Runs linters and PHPCS, then compiles minified assets
-
-`$ gulp watch` : Watches assets/scss, assets/js, and php files for linters and phpcs, then compiles build assets
-
-`$ gulp watchDev` : Similar to `watch`, does not minify /js/theme files.
-
-`$ gulp scriptsLint` : Runs linters on files in assets/js 
-
-`$ gulp sassLint` : Runs linters on files in assets/scss
-
+`$ gulp buildDev` : Runs linters and PHPCS, then compiles non-minified assets
+`$ gulp js` : Compiles theme.min.js file from assets/js/theme directory.
+`$ gulp jsDev` : Compiles theme.js file from assets/js/theme directory.
+`$ gulp styles` : Compiles minified (_.min.css) files based on root scss files in assets/scss directory.
+`$ gulp stylesDev` : Compiles non-minified files based on root scss files in assets/scss directory.
 `$ gulp phpcs` : Runs PHP Code Sniffer on all *.php files within the theme directory.
-
 `$ gulp phpcbf` : Runs PHP Code Beautifier on all *.php files within the theme directory.
-
-`$ gulp theme` : Compiles theme.min.js file from assets/js/theme directory.
-
-`$ gulp themeDev` : Compiles theme.min.js file from assets/js/theme directory, uncompressed.
-
-`$ gulp vendor` : Compiles vendors.min.js file from assets/js/vendors directory.
-
-`$ gulp styles` : Compiles theme.min.css file from assets/scss directory.
 
 ## Composer notes
 If you decide to update the `psr-4` namespace prefix, you can use dump-autoload to do that without having to go through an install or update.

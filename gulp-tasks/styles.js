@@ -6,16 +6,20 @@ const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const rename = require('gulp-rename');
 
+const PATHS = {
+  scss: {
+    src: './assets/scss',
+    dest: './build/css/'
+  }
+}
+
 const processStyles = () => {
   return (
-    gulp.src('./assets/scss/**/*.scss')
+    gulp.src(`${PATHS.scss.src}/**/*.scss`)
       .pipe(sourcemaps.init())
       .pipe(sass({
         precision: 3,
         errLogToConsole: true,
-        includePaths: [
-          'node_modules/bootstrap/scss',
-        ]
       }))
       .on('error', sass.logError)
       .pipe(postcss([autoprefixer(), cssnano()]))
@@ -23,19 +27,43 @@ const processStyles = () => {
         suffix: '.min'
       }))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./build/css/'))
+      .pipe(gulp.dest(PATHS.scss.dest))
   );
-};
+}
 
 const watchStyles = () => {
   const files = [
-    'assets/scss/*.scss',
-    'assets/scss/**/*.scss'
+    `${PATHS.scss.src}/*.scss`,
+    `${PATHS.scss.src}/**/*.scss`
   ];
   gulp.watch(files, processStyles);
-};
+}
+
+const processStylesDev = () => {
+  return (
+    gulp.src(`${PATHS.scss.src}/**/*.scss`)
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        precision: 3,
+        errLogToConsole: true,
+      }))
+      .on('error', sass.logError)
+      .pipe(postcss([autoprefixer()]))
+      .pipe(gulp.dest(PATHS.scss.dest))
+  );
+}
+
+const watchStylesDev = () => {
+  const files = [
+    `${PATHS.scss.src}/*.scss`,
+    `${PATHS.scss.src}/**/*.scss`
+  ];
+  gulp.watch(files, processStylesDev);
+}
 
 module.exports =  {
-  process: processStyles,
-  watch: watchStyles
-};
+  prod: processStyles,
+  dev: processStylesDev,
+  watch: watchStyles,
+  watchDev: watchStylesDev,
+}

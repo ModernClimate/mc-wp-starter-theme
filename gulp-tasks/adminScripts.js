@@ -36,6 +36,6 @@ const watchAdminScripts = () => {
 }
 
 module.exports =  {
-  process: processAdminScripts,
+  prod: processAdminScripts,
   watch: watchAdminScripts,
 }

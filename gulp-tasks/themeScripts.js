@@ -7,14 +7,24 @@ const nodeResolve = require('@rollup/plugin-node-resolve');
 const {terser} = require('rollup-plugin-terser');
 const alias = require('@rollup/plugin-alias');
 
+
+const MODULE_FORMAT = 'umd'
+const ALIASES = [
+  {find: 'uikit-util', replacement: 'uikit/src/js/util'}
+]
+const PATHS = {
+  js: {
+    src: './assets/js',
+    dest: './build/js'
+  }
+}
+
 const processThemeScripts = async () => {
   const bundle = await rollup.rollup({
-    input: './assets/js/theme.js',
+    input: `${PATHS.js.src}/theme.js`,
     plugins: [
       alias({
-        entries: [
-          {find: 'uikit-util', replacement: 'uikit/src/js/util'},
-        ]
+        entries: ALIASES
       }),
       nodeResolve(),
       commonjs(),
@@ -28,8 +38,8 @@ const processThemeScripts = async () => {
   });
 
   return await bundle.write({
-    file: './build/js/theme.min.js',
-    format: 'umd',
+    file: `${PATHS.js.dest}/theme.min.js`,
+    format: MODULE_FORMAT,
     name: 'main',
     sourcemap: true
   });
@@ -37,13 +47,48 @@ const processThemeScripts = async () => {
 
 const watchThemeScripts = () => {
   const files = [
-    'assets/js/theme.js',
-    'assets/js/theme/**/*.js',
+    `${PATHS.js.src}/theme.js`,
+    `${PATHS.js.src}/**/*.js`,
   ];
   gulp.watch(files, processThemeScripts);
 }
 
+const processThemeScriptsDev = async () => {
+  const bundle = await rollup.rollup({
+    input: `${PATHS.js.src}/theme.js`,
+    plugins: [
+      alias({
+        entries: ALIASES
+      }),
+      nodeResolve(),
+      commonjs(),
+      eslint(),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled'
+      })
+    ]
+  });
+
+  return await bundle.write({
+    file: `${PATHS.js.dest}/theme.js`,
+    format: MODULE_FORMAT,
+    name: 'main',
+    sourcemap: false
+  });
+}
+
+const watchThemeScriptsDev = () => {
+  const files = [
+    `${PATHS.js.src}/theme.js`,
+    `${PATHS.js.src}/**/*.js`,
+  ];
+  gulp.watch(files, processThemeScriptsDev);
+}
+
 module.exports =  {
-  process: processThemeScripts,
+  prod: processThemeScripts,
+  dev: processThemeScriptsDev,
   watch: watchThemeScripts,
+  watchDev: watchThemeScriptsDev
 }
