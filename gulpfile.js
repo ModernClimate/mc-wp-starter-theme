@@ -26,4 +26,3 @@ exports.styles = styles.prod;
 exports.stylesDev = styles.dev;
 
 exports.phpcs = php.codeSniffer;
-exports.phpcbf = php.codeBeautifier;

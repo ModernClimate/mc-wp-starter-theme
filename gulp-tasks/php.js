@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const phpcs = require('gulp-phpcs');
-const phpcbf = require('gulp-phpcbf');
 
 const PATHS = {
   php: [
@@ -25,21 +24,6 @@ function phpCodeSniffer() {
   );
 }
 
-// Run php code sniffer on theme files
-function phpCodeBeautifier() {
-  return (
-    gulp
-      .src(PATHS.php)
-      .pipe(phpcbf({
-        bin: './vendor/squizlabs/php_codesniffer/bin/phpcbf',
-        standard: 'PSR2',
-        warningSeverity: 0
-      }))
-      .pipe(gulp.dest('.'))
-  );
-}
-
 module.exports =  {
   codeSniffer: phpCodeSniffer,
-  codeBeautifier: phpCodeBeautifier,
 }

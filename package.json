@@ -24,12 +24,12 @@
     "autoprefixer": "^9.8.5",
     "cssnano": "^5.1.5",
     "gulp": "^4.0",
-    "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^3.1.0",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.12",
     "rollup": "^2.26.0",
     "rollup-plugin-combine": "^2.1.1",
     "rollup-plugin-includepaths": "^0.2.4",
@@ -37,6 +37,7 @@
     "sass": "^1.49.9"
   },
   "dependencies": {
+    "rollup-plugin-swc": "^0.2.1",
     "uikit": "^3.12.2"
   },
   "scripts": {
