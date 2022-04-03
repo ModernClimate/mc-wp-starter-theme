@@ -9,8 +9,9 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 16.14.2"
   },
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-spread": "^7.10.4",
@@ -37,7 +38,6 @@
     "sass": "^1.49.9"
   },
   "dependencies": {
-    "rollup-plugin-swc": "^0.2.1",
     "uikit": "^3.12.2"
   },
   "scripts": {

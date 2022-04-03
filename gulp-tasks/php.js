@@ -1,5 +1,5 @@
-const gulp = require('gulp');
-const phpcs = require('gulp-phpcs');
+ import gulp from 'gulp';
+ import phpcs from 'gulp-phpcs';
 
 const PATHS = {
   php: [
@@ -24,6 +24,6 @@ function phpCodeSniffer() {
   );
 }
 
-module.exports =  {
+export default {
   codeSniffer: phpCodeSniffer,
 }

@@ -1,27 +1,35 @@
-const gulp = require('gulp');
-const rollup = require('rollup');
-const commonjs = require('@rollup/plugin-commonjs');
-const eslint = require('@rollup/plugin-eslint');
-const {babel} = require('@rollup/plugin-babel');
-const {terser} = require('rollup-plugin-terser');
+import gulp from 'gulp';
+import { rollup } from 'rollup';
+import commonjs from '@rollup/plugin-commonjs';
+import eslint from '@rollup/plugin-eslint';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+
+const MODULE_FORMAT = 'umd'
+const PATHS = {
+  js: {
+    src: './assets/js',
+    dest: './build/js'
+  }
+}
 
 const processAdminScripts = async () => {
-  const bundle = await rollup.rollup({
-    input: './assets/js/admin.js',
+  const bundle = await rollup({
+    input: `${PATHS.js.src}/admin.js`,
     plugins: [
       commonjs(),
       eslint(),
       babel({
         exclude: 'node_modules/**',
-        babelHelpers: 'bundled'
+        babelHelpers: 'bundled',
       }),
-      terser()
+      terser(),
     ]
   });
 
   return await bundle.write({
-    file: './build/js/admin.min.js',
-    format: 'umd',
+    file: `${PATHS.js.dest}/admin.min.js`,
+    format: MODULE_FORMAT,
     name: 'admin',
     sourcemap: true
   });
@@ -29,13 +37,13 @@ const processAdminScripts = async () => {
 
 const watchAdminScripts = () => {
   const files = [
-    'assets/js/admin.js',
-    'assets/js/admin/**/*.*',
+    `${PATHS.js.src}/admin.js`,
+    `${PATHS.js.src}/admin/**/*.*`,
   ];
   gulp.watch(files, processAdminScripts);
 }
 
-module.exports =  {
+export default {
   prod: processAdminScripts,
   watch: watchAdminScripts,
 }
