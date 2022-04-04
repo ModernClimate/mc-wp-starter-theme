@@ -21,15 +21,25 @@ All minified assets are created to the `/build/` directory of the theme.
 ex: `yarn gulp styles` to run commands exported from gulpfile.js
 
 `$ gulp` : Runs linters and PHPCS, then compiles both minified and non-minified assets
+
 `$ gulp watch` : Watches assets/scss, assets/js, then compiles non-minified build assets
+
 `$ gulp watchDev` : Watches assets/scss, assets/js, then compiles minified build assets
+
 `$ gulp build` : Runs linters and PHPCS, then compiles minified assets
+
 `$ gulp buildDev` : Runs linters and PHPCS, then compiles non-minified assets
+
 `$ gulp js` : Compiles theme.min.js file from assets/js/theme directory.
+
 `$ gulp jsDev` : Compiles theme.js file from assets/js/theme directory.
+
 `$ gulp styles` : Compiles minified (_.min.css) files based on root scss files in assets/scss directory.
+
 `$ gulp stylesDev` : Compiles non-minified files based on root scss files in assets/scss directory.
+
 `$ gulp phpcs` : Runs PHP Code Sniffer on all *.php files within the theme directory.
+
 `$ gulp phpcbf` : Runs PHP Code Beautifier on all *.php files within the theme directory.
 
 ## Composer notes
