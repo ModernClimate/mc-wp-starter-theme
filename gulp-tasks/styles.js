@@ -1,10 +1,12 @@
-const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass')(require('sass'));
-const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
-const autoprefixer = require('autoprefixer');
-const rename = require('gulp-rename');
+import gulp from 'gulp';
+import sourcemaps from 'gulp-sourcemaps';
+import postcss from 'gulp-postcss';
+import cssnano from 'cssnano';
+import autoprefixer from 'autoprefixer';
+import rename from 'gulp-rename';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass( dartSass );
 
 const PATHS = {
   scss: {
@@ -61,7 +63,7 @@ const watchStylesDev = () => {
   gulp.watch(files, processStylesDev);
 }
 
-module.exports =  {
+export default {
   prod: processStyles,
   dev: processStylesDev,
   watch: watchStyles,

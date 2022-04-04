@@ -1,29 +1,19 @@
-const gulp = require('gulp');
+import gulp from 'gulp';
 
 // Import tasks
-const taskDir = './gulp-tasks';
-const styles = require(`${taskDir}/styles`);
-const themeScripts = require(`${taskDir}/themeScripts`);
-const php = require(`${taskDir}/php`);
+import styleTasks from './gulp-tasks/styles.js';
+import themeScripts from './gulp-tasks/themeScripts.js';
+import php from './gulp-tasks/php.js';
 
 // Define grouped tasks
-const watch = gulp.parallel(styles.watch, themeScripts.watch);
-const watchDev = gulp.parallel(styles.watchDev, themeScripts.watchDev);
-const build = gulp.series(styles.prod, themeScripts.prod, php.codeSniffer);
-const buildDev = gulp.series(styles.dev, themeScripts.dev, php.codeSniffer);
-const all = gulp.series(styles.prod, styles.dev, themeScripts.prod, themeScripts.dev, php.codeSniffer);
+export default gulp.series(styleTasks.prod, styleTasks.dev, themeScripts.prod, themeScripts.dev, php.codeSniffer);
+export const watch = gulp.parallel(styleTasks.watch, themeScripts.watch);
+export const watchDev = gulp.parallel(styleTasks.watchDev, themeScripts.watchDev);
+export const build = gulp.series(styleTasks.prod, themeScripts.prod, php.codeSniffer);
+export const buildDev = gulp.series(styleTasks.dev, themeScripts.dev, php.codeSniffer);
 
-exports.default = all;
-exports.watch = watch;
-exports.watchDev = watchDev;
-exports.build = build;
-exports.buildDev = buildDev;
-
-exports.js = themeScripts.prod;
-exports.jsDev = themeScripts.dev;
-
-exports.styles = styles.prod;
-exports.stylesDev = styles.dev;
-
-exports.phpcs = php.codeSniffer;
-exports.phpcbf = php.codeBeautifier;
+export const js = themeScripts.prod;
+export const jsDev = themeScripts.dev;
+export const styles = styleTasks.prod;
+export const stylesDev = styleTasks.dev;
+export const phpcs = php.codeSniffer;

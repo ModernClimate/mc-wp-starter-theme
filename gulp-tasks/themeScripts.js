@@ -1,12 +1,11 @@
-const gulp = require('gulp');
-const rollup = require('rollup');
-const commonjs = require('@rollup/plugin-commonjs');
-const eslint = require('@rollup/plugin-eslint');
-const {babel} = require('@rollup/plugin-babel');
-const nodeResolve = require('@rollup/plugin-node-resolve');
-const {terser} = require('rollup-plugin-terser');
-const alias = require('@rollup/plugin-alias');
-
+import gulp from 'gulp';
+import { rollup } from 'rollup';
+import commonjs from '@rollup/plugin-commonjs';
+import eslint from '@rollup/plugin-eslint';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import alias from '@rollup/plugin-alias';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 
 const MODULE_FORMAT = 'umd'
 const ALIASES = [
@@ -20,20 +19,18 @@ const PATHS = {
 }
 
 const processThemeScripts = async () => {
-  const bundle = await rollup.rollup({
+  const bundle = await rollup({
     input: `${PATHS.js.src}/theme.js`,
     plugins: [
-      alias({
-        entries: ALIASES
-      }),
+      alias({ entries: ALIASES }),
       nodeResolve(),
       commonjs(),
       eslint(),
       babel({
         exclude: 'node_modules/**',
-        babelHelpers: 'bundled'
+        babelHelpers: 'bundled',
       }),
-      terser()
+      terser(),
     ]
   });
 
@@ -41,7 +38,7 @@ const processThemeScripts = async () => {
     file: `${PATHS.js.dest}/theme.min.js`,
     format: MODULE_FORMAT,
     name: 'main',
-    sourcemap: true
+    sourcemap: true,
   });
 }
 
@@ -54,19 +51,17 @@ const watchThemeScripts = () => {
 }
 
 const processThemeScriptsDev = async () => {
-  const bundle = await rollup.rollup({
+  const bundle = await rollup({
     input: `${PATHS.js.src}/theme.js`,
     plugins: [
-      alias({
-        entries: ALIASES
-      }),
+      alias({ entries: ALIASES }),
       nodeResolve(),
       commonjs(),
       eslint(),
       babel({
         exclude: 'node_modules/**',
-        babelHelpers: 'bundled'
-      })
+        babelHelpers: 'bundled',
+      }),
     ]
   });
 
@@ -74,7 +69,6 @@ const processThemeScriptsDev = async () => {
     file: `${PATHS.js.dest}/theme.js`,
     format: MODULE_FORMAT,
     name: 'main',
-    sourcemap: false
   });
 }
 
@@ -86,7 +80,7 @@ const watchThemeScriptsDev = () => {
   gulp.watch(files, processThemeScriptsDev);
 }
 
-module.exports =  {
+export default {
   prod: processThemeScripts,
   dev: processThemeScriptsDev,
   watch: watchThemeScripts,

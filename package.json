@@ -9,8 +9,9 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 16.14.2"
   },
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-spread": "^7.10.4",
@@ -24,12 +25,12 @@
     "autoprefixer": "^9.8.5",
     "cssnano": "^5.1.5",
     "gulp": "^4.0",
-    "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^3.1.0",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.12",
     "rollup": "^2.26.0",
     "rollup-plugin-combine": "^2.1.1",
     "rollup-plugin-includepaths": "^0.2.4",
