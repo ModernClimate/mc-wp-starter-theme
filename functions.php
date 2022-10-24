@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions and definitions
  *
@@ -22,7 +23,7 @@ use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '3.0.0');
+define('THEME_VERSION', '3.0.1');
 define('MC_THEME_DIR', trailingslashit(get_template_directory()));
 define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
