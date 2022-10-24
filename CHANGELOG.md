@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.1] - 2022-10-24
+### Changed
+- Switch style/script enqueue to use get_template_directory_uri instead of get_stylesheet_directory_uri as requirement to support child theming.
+
 ## [3.0.0] - 2022-03-29
 
 ### Changed
