@@ -17,7 +17,7 @@ abstract class RegisterFieldGroups implements WordPressHooks
      */
     public function addHooks()
     {
-        add_action('admin_init', [$this, 'registerFieldGroup']);
+        add_action('acf/init', [$this, 'registerFieldGroup']);
     }
 
     /**

@@ -1,5 +1,5 @@
 # Modern Climate Starter Theme
-Starter WordPress theme. Features [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass), SCSS compiler, JS linting and minifying and class based functions.php
+Starter WordPress theme. Features [UIKit](https://getuikit.com/docs/introduction), SCSS compiler, JS linting and minifying and class based functions.php
 
 Requires a minimum of WordPress 5.3, PHP 7.4, and Composer 2
 
