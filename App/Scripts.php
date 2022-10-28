@@ -34,7 +34,7 @@ class Scripts implements WordPressHooks
 
         wp_enqueue_script(
             'mc-theme',
-            get_template_directory_uri() . "/build/js/theme{$filename}.js",
+            get_template_directory_uri() . "/build/scripts/theme-scripts{$filename}.js",
             [],
             THEME_VERSION,
             true
@@ -52,7 +52,7 @@ class Scripts implements WordPressHooks
     {
         wp_enqueue_style(
             'mc-styles',
-            get_template_directory_uri() . '/build/css/theme.min.css',
+            get_template_directory_uri() . '/build/styles/theme-styles.min.css',
             [],
             THEME_VERSION
         );
