@@ -19,6 +19,7 @@ class Setup implements WordPressHooks
     {
         add_action('init', [$this, 'registerMenus']);
         add_action('widgets_init', [$this, 'registerSidebars'], 5);
+        add_action('acf/init', [$this, 'my_acf_init_block_types']);
     }
 
     /**
@@ -43,5 +44,34 @@ class Setup implements WordPressHooks
                 'after_widget'  => '</div>',
             ]
         );
+    }
+
+    public function my_acf_init_block_types() {
+    
+        // Check function exists.
+        if( function_exists('acf_register_block_type') ) {
+            
+            // register a testimonial block.
+            acf_register_block_type(array(
+                'name'              => 'testimonial',
+                'title'             => __('Testimonial'),
+                'description'       => __('A custom testimonial block.'),
+                'render_template'   => 'components/blocks/testimonial/testimonial.php',
+                'category'          => 'formatting',
+                'icon'              => 'admin-comments',
+                'keywords'          => array( 'testimonial', 'quote' ),
+            ));
+    
+            // register a Carousel block.
+            acf_register_block_type(array(
+                'name'              => 'carousel',
+                'title'             => __('Carousel'),
+                'description'       => __('A custom carousel block.'),
+                'render_template'   => 'components/blocks/carousel/carousel.php',
+                'category'          => 'formatting',
+                'icon'              => 'slides',
+                'keywords'          => array( 'carousel', 'slider' ),
+            ));
+        }
     }
 }
