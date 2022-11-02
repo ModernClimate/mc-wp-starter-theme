@@ -40,7 +40,7 @@ class RegisterBlocks implements WordPressHooks
 
         wp_register_style(
             $this->block_key,
-            get_template_directory_uri() . '/build/css/editor.min.css',
+            get_stylesheet_directory_uri() . '/build/css/editor.min.css',
             ['wp-edit-blocks']
         );
 

@@ -27,17 +27,5 @@ class CarouselBlock implements WordPressHooks
         if (!function_exists('acf_register_block_type')) {
             return;
         }
-
-        acf_register_block_type(
-            [
-                'name'              => 'carousel',
-                'title'             => __('Carousel', 'mc-starter'),
-                'description'       => __('MC Carousel block initialized with slick.'),
-                'render_template'   => 'components/blocks/carousel.php',
-                'category'          => 'mc_blocks',
-                'icon'              => 'slides',
-                'keywords'          => ['carousel', 'slider'],
-            ]
-        );
     }
 }

@@ -32,10 +32,8 @@ $text             = get_field('testimonial') ?: 'Your testimonial here...';
 $author           = get_field('author') ?: 'Author name';
 $role             = get_field('role') ?: 'Author role';
 $image            = get_field('image');
-$background_color = get_field('background_color');
-$text_color       = get_field('text_color');
-
-var_dump($image)
+$background_color = get_field('background-color');
+$text_color       = get_field('text-color');
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">

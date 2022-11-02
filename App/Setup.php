@@ -57,7 +57,7 @@ class Setup implements WordPressHooks
                 'title'             => __('Testimonial'),
                 'description'       => __('A custom testimonial block.'),
                 'render_template'   => 'components/blocks/testimonial/testimonial.php',
-                'category'          => 'formatting',
+                'category'          => 'mc_blocks',
                 'icon'              => 'admin-comments',
                 'keywords'          => array( 'testimonial', 'quote' ),
             ));
@@ -68,7 +68,7 @@ class Setup implements WordPressHooks
                 'title'             => __('Carousel'),
                 'description'       => __('A custom carousel block.'),
                 'render_template'   => 'components/blocks/carousel/carousel.php',
-                'category'          => 'formatting',
+                'category'          => 'mc_blocks',
                 'icon'              => 'slides',
                 'keywords'          => array( 'carousel', 'slider' ),
             ));
@@ -78,7 +78,7 @@ class Setup implements WordPressHooks
                 'name'				=> 'Content-block',
                 'title'				=> 'MC: Content Block',
                 'description' => '',
-                'category'    => '',
+                'category'    => 'mc_blocks',
                 'mode'				=> '',
                 'align'       => '',
                 'supports'	=> array(

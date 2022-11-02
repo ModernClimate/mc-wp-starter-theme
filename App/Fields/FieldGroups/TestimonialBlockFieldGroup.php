@@ -3,12 +3,12 @@
 namespace MC\App\Fields\FieldGroups;
 
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
-
+use WordPlate\Acf\Fields\Accordion;
+use WordPlate\Acf\Fields\ColorPicker;
 use WordPlate\Acf\Location;
 use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Tab;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\Textarea;
+use WordPlate\Acf\Fields\Text;
 
 /**
  * Class CarouselBlockFieldGroup
@@ -40,7 +40,13 @@ class TestimonialBlockFieldGroup extends RegisterFieldGroups
     public function getFields()
     {
         return apply_filters('mc/field-group/testimonial-block/fields', [
-            Wysiwyg::make('Caption', 'mc-stater')
+            Textarea::make('Testimonial'),
+            Text::make(_('Author')),
+            Text::make(_('Role')),
+            Image::make('Image'),
+            Accordion::make(_('Color Setting')),
+            ColorPicker::make(_('Background Color')),
+            ColorPicker::make(_('Text Color'))
         ]);
     }
 }
