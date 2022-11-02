@@ -72,6 +72,22 @@ class Setup implements WordPressHooks
                 'icon'              => 'slides',
                 'keywords'          => array( 'carousel', 'slider' ),
             ));
+
+            // Begin Create-ACF-Block
+            acf_register_block_type(array(
+                'name'				=> 'Content-block',
+                'title'				=> 'MC: Content Block',
+                'description' => '',
+                'category'    => '',
+                'mode'				=> '',
+                'align'       => '',
+                'supports'	=> array(
+                    'anchor' => true,
+                    
+                ),
+                'render_template'   => 'components/blocks/Content-block.php',
+            ));
+            // End Create-ACF-Block
         }
     }
 }
