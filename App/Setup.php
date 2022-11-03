@@ -57,7 +57,9 @@ class Setup implements WordPressHooks
                 'render_template'   => 'components/blocks/carousel/carousel.php',
                 'category'          => 'mc_blocks',
                 'icon'              => 'slides',
-                'keywords'          => array( 'carousel', 'slider' )
+                'keywords'          => array( 'carousel', 'slider' ),
+                'align'             => 'wide',
+                'mode'              => 'preview'
             ));
         }
     }

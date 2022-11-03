@@ -10,5 +10,5 @@
         "mode": "preview",
         "renderTemplate": "carousel.php"
     },
-    "align": "full"
+    "align": "wide"
 }

@@ -3,12 +3,11 @@
 namespace MC\App\Fields\FieldGroups;
 
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
-
+use WordPlate\Acf\Fields\Accordion;
 use WordPlate\Acf\Location;
 use WordPlate\Acf\Fields\Image;
 use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Tab;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\Textarea;
 
 /**
  * Class CarouselBlockFieldGroup
@@ -42,10 +41,10 @@ class CarouselBlockFieldGroup extends RegisterFieldGroups
         return apply_filters('mc/field-group/carousel-block/fields', [
             Repeater::make('Carousel')
                 ->fields([
-                    Tab::make('Content'),
-                    Wysiwyg::make('Caption'),
-                    Tab::make('Media'),
+                    Accordion::make('Slide'),
                     Image::make('Image'),
+                    Textarea::make('Caption')
+                        ->rows(2),
                 ])
                 ->min(1)
                 ->buttonLabel('Add Slide')
