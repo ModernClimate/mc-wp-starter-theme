@@ -47,21 +47,8 @@ class Setup implements WordPressHooks
     }
 
     public function my_acf_init_block_types() {
-    
         // Check function exists.
         if( function_exists('acf_register_block_type') ) {
-            
-            // register a testimonial block.
-            acf_register_block_type(array(
-                'name'              => 'testimonial',
-                'title'             => __('Testimonial'),
-                'description'       => __('A custom testimonial block.'),
-                'render_template'   => 'components/blocks/testimonial/testimonial.php',
-                'category'          => 'mc_blocks',
-                'icon'              => 'admin-comments',
-                'keywords'          => array( 'testimonial', 'quote' ),
-            ));
-    
             // register a Carousel block.
             acf_register_block_type(array(
                 'name'              => 'carousel',
@@ -70,24 +57,8 @@ class Setup implements WordPressHooks
                 'render_template'   => 'components/blocks/carousel/carousel.php',
                 'category'          => 'mc_blocks',
                 'icon'              => 'slides',
-                'keywords'          => array( 'carousel', 'slider' ),
+                'keywords'          => array( 'carousel', 'slider' )
             ));
-
-            // Begin Create-ACF-Block
-            acf_register_block_type(array(
-                'name'				=> 'Content-block',
-                'title'				=> 'MC: Content Block',
-                'description' => '',
-                'category'    => 'mc_blocks',
-                'mode'				=> '',
-                'align'       => '',
-                'supports'	=> array(
-                    'anchor' => true,
-                    
-                ),
-                'render_template'   => 'components/blocks/Content-block.php',
-            ));
-            // End Create-ACF-Block
         }
     }
 }
