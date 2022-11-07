@@ -17,6 +17,7 @@
     "vite": "^3.1.4"
   },
   "dependencies": {
+    "@prettier/plugin-php": "^0.19.2",
     "@types/uikit": "^3.14.0",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
@@ -36,9 +37,12 @@
     "glob-parent": "^6.0.1"
   },
   "scripts": {
-    "postinstall": "composer install && yarn run build",
-    "lint": "eslint . --ext .ts,.tsx",
     "build": "tsc && vite build",
+    "dev": "APP_ENV=development tsc && vite",
+    "lint": "yarn lint:format && yarn lint:fix ",
+    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "postinstall": "composer install && yarn run build",
     "watch": "tsc && vite build --watch"
   }
 }

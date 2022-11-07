@@ -1,11 +1,6 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      'uikit-util': 'uikit/src/js/util',
-    },
-  },
   build: {
     rollupOptions: {
       input: {
@@ -27,5 +22,11 @@ export default defineConfig({
       },
     },
     sourcemap: true,
+  },
+  plugins: [],
+  resolve: {
+    alias: {
+      'uikit-util': 'uikit/src/js/util',
+    },
   },
 });
