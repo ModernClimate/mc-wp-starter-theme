@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Switched from [Gulp](https://gulpjs.com/) to [Vite](https://vitejs.dev/) for theme task runner (more succinct and much faster)
+- use prettier to format .php files
 
 ## [3.0.2] - 2022-10-26
 
