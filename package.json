@@ -33,6 +33,7 @@
     "stylelint-config-standard": "^28.0.0",
     "uikit": "^3.12.2"
   },
+  "pre-commit": "lint",
   "resolutions": {
     "glob-parent": "^6.0.1"
   },
@@ -40,8 +41,8 @@
     "build": "tsc && vite build",
     "dev": "APP_ENV=development tsc && vite",
     "lint": "yarn lint:format && yarn lint:fix ",
-    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
-    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "lint:fix": "eslint ./assets --ext .js,.ts, --quiet --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,ts,css,scss,php,md,json}\" ",
     "postinstall": "composer install && yarn run build",
     "watch": "tsc && vite build --watch"
   }

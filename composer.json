@@ -12,7 +12,6 @@
     }
   },
   "require": {
-    "squizlabs/php_codesniffer": "*",
     "wordplate/acf": "^8.6"
   },
   "require-dev": {
