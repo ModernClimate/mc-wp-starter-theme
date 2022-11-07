@@ -3,8 +3,10 @@
  * to this script before it initializes
  */
 
-/* eslint-env jquery */
-const $ = jQuery;
+// eslint-disable-next-line import/no-unresolved
+import jquery from 'jQuery';
+
+const $ = jquery;
 
 const initWithJq = () => {
   if (typeof $ === 'undefined') {
