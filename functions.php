@@ -20,6 +20,7 @@ use MC\App\Fields\FieldGroups\CarouselBlockFieldGroup;
 use MC\App\Fields\FieldGroups\TestimonialBlockFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
+use MC\App\Fields\FieldGroups\HeroBlockFieldGroup;
 
 /**
  * Define Theme Version
@@ -52,6 +53,7 @@ add_action('after_setup_theme', function () {
         ->add(new CarouselBlockFieldGroup())
         ->add(new PageBuilderFieldGroup())
         ->add(new SiteOptionsFieldGroup())
+        ->add(new HeroBlockFieldGroup())
         ->initialize();
 
     // Translation setup

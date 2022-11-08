@@ -61,6 +61,19 @@ class Setup implements WordPressHooks
                 'align'             => 'wide',
                 'mode'              => 'preview'
             ));
+
+            // register a Hero block.
+            acf_register_block_type(array(
+                'name'              => 'hero',
+                'title'             => __('Hero'),
+                'description'       => __('A custom hero block.'),
+                'render_template'   => 'components/blocks/hero/hero.php',
+                'category'          => 'mc_blocks',
+                'icon'              => 'images',
+                'keywords'          => array( 'hero', 'image' ),
+                'align'             => 'wide',
+                'mode'              => 'preview'
+            ));
         }
     }
 }
