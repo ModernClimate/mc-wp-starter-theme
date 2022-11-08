@@ -40,12 +40,13 @@ composer dump-autoload
 1. [PSR-4 Autoloader](http://www.php-fig.org/psr/psr-4/)
 2. [PSR-2 PHP Coding Style Guide](http://www.php-fig.org/psr/psr-2/)
 3. [Wordplate Extended ACF](https://github.com/wordplate/extended-acf)
-4. [UIkit](https://getuikit.com/)
-5. [BEM Introduction](http://getbem.com/introduction/)
-6. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
-7. [Sass Lint](https://github.com/sasstools/sass-lint)
-8. [Vite](https://vitejs.dev/)
-9. [TypeScript](https://www.typescriptlang.org/)
+4. [Vite](https://vitejs.dev/)
+5. [Prettier](https://prettier.io/)
+6. [UIkit](https://getuikit.com/)
+7. [BEM Introduction](http://getbem.com/introduction/)
+8. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
+9. [Sass Lint](https://github.com/sasstools/sass-lint)
+10. [TypeScript](https://www.typescriptlang.org/)
 
 ## ACF Documentation
 
@@ -58,7 +59,9 @@ Check out the [Code Snippets Repo](https://github.com/ModernClimate/ad-code-snip
 
 ## Documentation
 
-- [ACF Utility Functions](https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/acf/README.md)
+- [ACF Utility Functions](https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/acf/UtilityFunctions.md)
+- [ACF Field Registration](https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/acf/FieldRegistration.md)
+- [Setting up autoformat on save in your code editor](https://github.com/ModernClimate/mc-wp-starter-theme/blob/master/doc/Autoformatting.md)
 
 ## Copyright and License
 
