@@ -21,6 +21,7 @@ use MC\App\Fields\FieldGroups\TestimonialBlockFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\HeroBlockFieldGroup;
+use MC\App\Theme\Styles;
 
 /**
  * Define Theme Version
@@ -49,6 +50,7 @@ add_action('after_setup_theme', function () {
         ->add(new ACF())
         ->add(new Options())
         ->add(new Modules())
+        ->add(new Styles())
         ->add(new TestimonialBlockFieldGroup())
         ->add(new CarouselBlockFieldGroup())
         ->add(new PageBuilderFieldGroup())

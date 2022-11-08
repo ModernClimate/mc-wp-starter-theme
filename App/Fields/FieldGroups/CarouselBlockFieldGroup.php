@@ -2,6 +2,7 @@
 
 namespace MC\App\Fields\FieldGroups;
 
+use MC\App\Fields\Common;
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 use WordPlate\Acf\Fields\Accordion;
 use WordPlate\Acf\Location;
@@ -48,7 +49,9 @@ class CarouselBlockFieldGroup extends RegisterFieldGroups
                 ])
                 ->min(1)
                 ->buttonLabel('Add Slide')
-                ->layout('block')
+                ->layout('block'),
+            Accordion::make('Block Settings'),
+            Common::marginGroup()
         ]);
     }
 }
