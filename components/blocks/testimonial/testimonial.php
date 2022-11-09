@@ -28,19 +28,50 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$text             = get_field('testimonial') ?: 'Your testimonial here...';
-$author           = get_field('author') ?: 'Author name';
-$role             = get_field('role') ?: 'Author role';
 $image            = get_field('image');
 $background_color = get_field('background-color');
 $text_color       = get_field('text-color');
 
+
+
+$template = [
+    [
+        'core/paragraph', 
+        [
+            'content' => 'Testimonial', 
+            'align' => 'left',
+            'className'     => 'mc-testimonial__message',
+        ] 
+    ],
+    [
+        'core/heading',
+        [
+            'level'         => 2,
+            'content'       => 'Author',
+            'algin'         => 'left',
+            'className'     => 'mc-testimonial__title',
+        ]
+    ],
+    [
+        'core/heading',
+        [
+            'level'         => 6,
+            'content'       => 'Role',
+            'align'         => 'left',
+            'className'     => 'mc-testimonial__role',
+        ]
+    ],
+];
+
+$allowed_blocks = array( 'core/heading', 'core/paragraph' );
+
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <blockquote class="testimonial-blockquote">
-        <div class="testimonial-text"><?php echo $text; ?></div>
-        <div class="testimonial-author"><?php echo $author; ?></div>
-        <dov class="testimonial-role"><?php echo $role; ?></dov>
+    <InnerBlocks 
+        template="<?php echo esc_attr(wp_json_encode($template)); ?>"
+        allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" 
+        templatLock="all"/>
     </blockquote>
     <div class="testimonial-image">
         <?php 

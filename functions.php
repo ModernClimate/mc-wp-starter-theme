@@ -18,6 +18,7 @@ use MC\App\Fields\Options;
 use MC\App\Fields\Modules;
 use MC\App\Fields\FieldGroups\CarouselBlockFieldGroup;
 use MC\App\Fields\FieldGroups\TestimonialBlockFieldGroup;
+use MC\App\Fields\FieldGroups\ContentBlockFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\HeroBlockFieldGroup;
@@ -56,6 +57,7 @@ add_action('after_setup_theme', function () {
         ->add(new PageBuilderFieldGroup())
         ->add(new SiteOptionsFieldGroup())
         ->add(new HeroBlockFieldGroup())
+        ->add(new ContentBlockFieldGroup())
         ->initialize();
 
     // Translation setup

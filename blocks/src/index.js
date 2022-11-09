@@ -5,6 +5,7 @@ import { registerBlockType } from "@wordpress/blocks";
  * Import blocks
  */
 import * as content from "./content";
+import * as hero from "./hero";
 
 /**
  * Function to register an individual block.
@@ -24,4 +25,5 @@ const registerBlock = (block) => {
 /**
  * Register our set of custom blocks
  */
-[content].forEach(registerBlock);
+// [content].forEach(registerBlock);
+// [hero].forEach(registerBlock);

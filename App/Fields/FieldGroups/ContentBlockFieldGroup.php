@@ -4,31 +4,30 @@ namespace MC\App\Fields\FieldGroups;
 
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 use WordPlate\Acf\Fields\Accordion;
-use WordPlate\Acf\Fields\ColorPicker;
 use WordPlate\Acf\Location;
 use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Textarea;
 use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Fields\Textarea;
 
 /**
- * Class CarouselBlockFieldGroup
+ * Class ContentBlockFieldGroup
  *
  * @package MC\App\Fields\PageBuilderFieldGroup
  */
-class TestimonialBlockFieldGroup extends RegisterFieldGroups
+class ContentBlockFieldGroup extends RegisterFieldGroups
 {
     /**
      * Register Field Group via Wordplate
      */
     public function registerFieldGroup()
     {
-        register_block_type(MC_THEME_DIR . 'components/blocks/testimonial/block.json');
+        register_block_type(MC_THEME_DIR . 'components/blocks/contentBlock/block.json');
 
         register_extended_field_group([
-            'title'    => __('MC Testimonial', 'mc-starter'),
+            'title'    => __('MC Content', 'mc-starter'),
             'fields'   => $this->getFields(),
             'location' => [
-                Location::if('block', 'acf/testimonial')
+                Location::if('block', 'acf/content')
             ],
             'style' => 'default'
         ]);
@@ -41,11 +40,9 @@ class TestimonialBlockFieldGroup extends RegisterFieldGroups
      */
     public function getFields()
     {
-        return apply_filters('mc/field-group/testimonial/fields', [
-            Image::make('Image'),
-            Accordion::make(_('Color Setting')),
-            ColorPicker::make(_('Background Color')),
-            ColorPicker::make(_('Text Color'))
+        return apply_filters('mc/field-group/contentBlock/fields', [
+            Text::make(__('Title')),
+            Textarea::make(__('Copy'))
         ]);
     }
 }

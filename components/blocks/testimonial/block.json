@@ -1,0 +1,21 @@
+{
+    "name": "testimonial",
+    "title": "Testimonial Block",
+    "description": "A custom testimonial block.",
+    "style": [ "file:/test.css" ],
+    "category": "mc_blocks",
+    "icon": "testimonial",
+    "keywords": ["testimonial", "text"],
+    "mode": "preview",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "testimonial.php"
+    },
+    "support": {
+        "algin": "left",
+        "anchor": true,
+		"customClassName": true,
+        "jsx": true
+    }
+    
+}

@@ -4,10 +4,10 @@
     "description": "A custom Hero block.",
     "style": [ "file:/test.css" ],
     "category": "mc_blocks",
-    "icon": "image",
+    "icon": "cover-image",
     "keywords": ["hero", "image"],
     "acf": {
-        "mode": "edit",
+        "mode": "preview",
         "renderTemplate": "hero.php"
     },
     "align": "center"
