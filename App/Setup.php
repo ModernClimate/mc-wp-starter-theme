@@ -19,7 +19,6 @@ class Setup implements WordPressHooks
     {
         add_action('init', [$this, 'registerMenus']);
         add_action('widgets_init', [$this, 'registerSidebars'], 5);
-        add_action('acf/init', [$this, 'my_acf_init_block_types']);
     }
 
     /**
@@ -44,36 +43,5 @@ class Setup implements WordPressHooks
                 'after_widget'  => '</div>',
             ]
         );
-    }
-
-    public function my_acf_init_block_types() {
-        // Check function exists.
-        if( function_exists('acf_register_block_type') ) {
-            // register a Carousel block.
-            acf_register_block_type(array(
-                'name'              => 'carousel',
-                'title'             => __('Carousel'),
-                'description'       => __('A custom carousel block.'),
-                'render_template'   => 'components/blocks/carousel/carousel.php',
-                'category'          => 'mc_blocks',
-                'icon'              => 'slides',
-                'keywords'          => array( 'carousel', 'slider' ),
-                'align'             => 'wide',
-                'mode'              => 'preview'
-            ));
-
-            // register a Hero block.
-            acf_register_block_type(array(
-                'name'              => 'hero',
-                'title'             => __('Hero'),
-                'description'       => __('A custom hero block.'),
-                'render_template'   => 'components/blocks/hero/hero.php',
-                'category'          => 'mc_blocks',
-                'icon'              => 'images',
-                'keywords'          => array( 'hero', 'image' ),
-                'align'             => 'wide',
-                'mode'              => 'preview'
-            ));
-        }
     }
 }

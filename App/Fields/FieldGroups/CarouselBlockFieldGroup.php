@@ -22,6 +22,8 @@ class CarouselBlockFieldGroup extends RegisterFieldGroups
      */
     public function registerFieldGroup()
     {
+        register_block_type(MC_THEME_DIR . 'components/blocks/carousel/block.json');
+
         register_extended_field_group([
             'title'    => __('MC Carousel', 'mc-starter'),
             'fields'   => $this->getFields(),
