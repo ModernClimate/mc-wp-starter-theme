@@ -7,8 +7,6 @@ use WordPlate\Acf\Fields\Accordion;
 use WordPlate\Acf\Fields\ColorPicker;
 use WordPlate\Acf\Location;
 use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Textarea;
-use WordPlate\Acf\Fields\Text;
 
 /**
  * Class CarouselBlockFieldGroup

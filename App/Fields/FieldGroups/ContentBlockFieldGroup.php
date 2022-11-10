@@ -3,9 +3,7 @@
 namespace MC\App\Fields\FieldGroups;
 
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
-use WordPlate\Acf\Fields\Accordion;
 use WordPlate\Acf\Location;
-use WordPlate\Acf\Fields\Image;
 use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Fields\Textarea;
 
