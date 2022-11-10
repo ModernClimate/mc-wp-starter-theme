@@ -6,9 +6,8 @@
     "category": "mc_blocks",
     "icon": "text-page",
     "keywords": ["content", "text"],
-    "mode": "preview",
     "acf": {
-        "mode": "edit",
+        "mode": "preview",
         "renderTemplate": "content.php"
     },
     "support": {

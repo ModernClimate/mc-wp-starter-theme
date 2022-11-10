@@ -41,8 +41,8 @@ class ContentBlockFieldGroup extends RegisterFieldGroups
     public function getFields()
     {
         return apply_filters('mc/field-group/contentBlock/fields', [
-            Text::make(__('Title')),
-            Textarea::make(__('Copy'))
+            Text::make(__('Title', 'mc-starter')),
+            Textarea::make(__('Copy', 'mc-starter'))
         ]);
     }
 }
