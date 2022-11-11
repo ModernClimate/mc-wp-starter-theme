@@ -5,12 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.0] - 2022-10-26
+## [3.1.0] - 2022-11-11
 
 ### Changed
 
 - Switched from [Gulp](https://gulpjs.com/) to [Vite](https://vitejs.dev/) for theme task runner (more succinct and much faster)
-- use prettier to format .php files
+- Use prettier to format php files on pre-commit
+- Add autoformat file configs for css, scss, js, ts, php, etc
+- Added some theme scripts to help replace namespaces, text-domains and uptick theme version
 
 ## [3.0.2] - 2022-10-26
 
