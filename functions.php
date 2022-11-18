@@ -22,6 +22,7 @@ use MC\App\Fields\FieldGroups\ContentBlockFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\HeroBlockFieldGroup;
+use MC\App\Fields\FieldGroups\ColumnsBlockFieldGroup;
 use MC\App\Theme\Styles;
 
 /**
@@ -58,6 +59,7 @@ add_action('after_setup_theme', function () {
         ->add(new SiteOptionsFieldGroup())
         ->add(new HeroBlockFieldGroup())
         ->add(new ContentBlockFieldGroup())
+        ->add(new ColumnsBlockFieldGroup())
         ->initialize();
 
     // Translation setup
