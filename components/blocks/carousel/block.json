@@ -1,0 +1,14 @@
+{
+    "name": "carousel",
+    "title": "Carousel",
+    "description": "A custom Carousel block.",
+    "style": [ "file:/test.css" ],
+    "category": "mc_blocks",
+    "icon": "slides",
+    "keywords": ["carousel", "slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "carousel.php"
+    },
+    "align": "center"
+}

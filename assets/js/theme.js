@@ -1,3 +1,7 @@
-import initSlideshows from './theme/slideshow'
+import initUIkit from './theme/UIkit';
+import initSlideshows from './theme/slideshow';
+import initCarousel from '../../components/blocks/carousel/carousel';
 
-initSlideshows()
+initUIkit();
+initSlideshows();
+initCarousel();

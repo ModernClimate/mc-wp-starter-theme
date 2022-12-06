@@ -1,0 +1,19 @@
+{
+    "name": "mccolumns",
+    "title": "Columns Block",
+    "description": "A custom Columns block.",
+    "style": [ "file:/test.css" ],
+    "category": "mc_blocks",
+    "icon": "columns",
+    "keywords": ["content", "layout"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "columns.php"
+    },
+    "support": {
+        "jsx": true,
+        "align": false,
+		"customClassName": true
+    }
+    
+}

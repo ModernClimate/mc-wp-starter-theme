@@ -1,0 +1,19 @@
+{
+    "name": "content",
+    "title": "Content Block",
+    "description": "A custom Content block.",
+    "style": [ "file:/test.css" ],
+    "category": "mc_blocks",
+    "icon": "text-page",
+    "keywords": ["content", "text"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "content.php"
+    },
+    "support": {
+        "jsx": true,
+        "align": false,
+		"customClassName": true
+    }
+    
+}

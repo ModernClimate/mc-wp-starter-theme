@@ -44,7 +44,7 @@
     "glob-parent": "^6.0.1"
   },
   "scripts": {
-    "postinstall": "composer install && gulp build",
+    "postinstall": "composer install && gulp build && cd blocks && npm install",
     "watch": "gulp watch",
     "watchDev": "gulp watchDev",
     "build": "gulp build",

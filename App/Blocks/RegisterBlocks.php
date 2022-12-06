@@ -38,11 +38,14 @@ class RegisterBlocks implements WordPressHooks
             $asset_file['version']
         );
 
-        wp_register_style(
-            $this->block_key,
-            get_template_directory_uri() . '/build/css/editor.min.css',
-            ['wp-edit-blocks']
-        );
+        /**
+         * This makes the wp editor full width.
+         */
+        // wp_register_style(
+        //     $this->block_key,
+        //     get_stylesheet_directory_uri() . '/build/css/editor.min.css',
+        //     ['wp-edit-blocks']
+        // );
 
         register_block_type(
             'mc-blocks/blocks',

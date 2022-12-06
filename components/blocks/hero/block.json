@@ -1,0 +1,14 @@
+{
+    "name": "hero",
+    "title": "Hero",
+    "description": "A custom Hero block.",
+    "style": [ "file:/test.css" ],
+    "category": "mc_blocks",
+    "icon": "cover-image",
+    "keywords": ["hero", "image"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero.php"
+    },
+    "align": "center"
+}
