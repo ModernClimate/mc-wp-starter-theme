@@ -2,7 +2,7 @@
     "name": "testimonial",
     "title": "Testimonial Block",
     "description": "A custom testimonial block.",
-    "style": [ "file:/test.css" ],
+    "style": [ "file:/testtimonial.css" ],
     "category": "mc_blocks",
     "icon": "testimonial",
     "keywords": ["testimonial", "text"],
@@ -16,6 +16,7 @@
         "anchor": true,
 		"customClassName": true,
         "jsx": true
-    }
+    },
+    "editorStyle": "file:./testimonial.css"
     
 }

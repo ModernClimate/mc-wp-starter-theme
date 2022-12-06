@@ -29,16 +29,21 @@ if( !empty($block['align']) ) {
 
 // Load values and assign defaults.
 $image            = get_field('image');
-$background_color = get_field('background-color');
-$text_color       = get_field('text-color');
+$imageUrl = "";
+$background_color = get_field('background-color') ?: '#f3f3f3';
+$text_color       = get_field('text-color') ?: '#000000';
 
-
+if (!empty($image['id'])) {
+    $imageUrl = Util::getImageHTML(Media::getAttachmentByID($image['id']));
+} else {
+    $imageUrl = '<img src="https://via.placeholder.com/750" alt="hero" />';
+}
 
 $template = [
     [
         'core/paragraph', 
         [
-            'content' => 'Testimonial', 
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non urna ante. Curabitur tempor nibh sit amet erat ullamcorper, at maximus nulla venenatis.', 
             'align' => 'left',
             'className'     => 'mc-testimonial__message',
         ] 
@@ -47,7 +52,7 @@ $template = [
         'core/heading',
         [
             'level'         => 2,
-            'content'       => 'Author',
+            'content'       => 'John Doe',
             'algin'         => 'left',
             'className'     => 'mc-testimonial__title',
         ]
@@ -56,7 +61,7 @@ $template = [
         'core/heading',
         [
             'level'         => 6,
-            'content'       => 'Role',
+            'content'       => 'Web Developer',
             'align'         => 'left',
             'className'     => 'mc-testimonial__role',
         ]
@@ -68,16 +73,16 @@ $allowed_blocks = array( 'core/heading', 'core/paragraph' );
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <blockquote class="testimonial-blockquote">
-    <InnerBlocks 
-        template="<?php echo esc_attr(wp_json_encode($template)); ?>"
-        allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" 
-        templatLock="all"/>
+        <InnerBlocks 
+            template="<?php echo esc_attr(wp_json_encode($template)); ?>"
+            allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" 
+            templatLock="all"/>
     </blockquote>
     <div class="testimonial-image">
         <?php 
             printf(
-                '<img src="%1$s">',
-                $image['url']
+                '%1$s',
+                $imageUrl
             )
         ?>
     </div>
@@ -85,11 +90,6 @@ $allowed_blocks = array( 'core/heading', 'core/paragraph' );
         #<?php echo $id; ?> {
             background: <?php echo $background_color; ?>;
             color: <?php echo $text_color; ?>;
-            display: grid;
-            grid-template-columns: 40% 40%;
-            gap: 20%;
-            align-content: center;
-            align-items: center;
         }
     </style>
 </div>
