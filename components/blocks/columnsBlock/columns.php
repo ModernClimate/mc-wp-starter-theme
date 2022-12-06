@@ -23,14 +23,37 @@
 
   $template = [
     [
-      'core/columns',
+      'core/group',
+      [],
       [
-        'className'     => 'mc-column',
+        [
+          'core/columns',
+          [],
+          [
+            [
+              'core/column',
+              [],
+            
+            ],
+            [
+              'core/column',
+              [],
+            ],
+          ],
+        ],
       ]
     ]
   ];
 
-  $allowed_blocks = array('core/columns')
+  $allowed_blocks = [
+    'core/column',
+    'core/columns',
+    'core/group',
+    'core/heading',
+    'core/paragraph',
+  ];
+
+  do_action('mc/styles/margin', $block_id, $block);
   ?>
   
   <div id="<?php echo $block_id; ?>" class="<?php echo $className; ?>">

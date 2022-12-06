@@ -2,6 +2,7 @@
 
 namespace MC\App\Fields\FieldGroups;
 
+use MC\App\Fields\Common;
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 use WordPlate\Acf\Fields\Accordion;
 use WordPlate\Acf\Fields\ColorPicker;
@@ -41,7 +42,9 @@ class ColumnsBlockFieldGroup extends RegisterFieldGroups
         return apply_filters('mc/field-group/mc_columns/fields', [
             Accordion::make(_('Color Setting')),
             ColorPicker::make(_('Background Color')),
-            ColorPicker::make(_('Text Color'))
+            ColorPicker::make(_('Text Color')),
+            Accordion::make(_('Block Settings')),
+            Common::marginGroup()
         ]);
     }
 }

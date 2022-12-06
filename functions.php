@@ -11,18 +11,16 @@ use MC\App\Scripts;
 use MC\App\Media;
 use MC\App\Shortcodes;
 use MC\App\Blocks\RegisterBlocks;
-use MC\App\Blocks\Types\CarouselBlock;
-use MC\App\Blocks\Types\TestimonialBlock;
 use MC\App\Fields\ACF;
 use MC\App\Fields\Options;
 use MC\App\Fields\Modules;
 use MC\App\Fields\FieldGroups\CarouselBlockFieldGroup;
+use MC\App\Fields\FieldGroups\ColumnsBlockFieldGroup;
 use MC\App\Fields\FieldGroups\TestimonialBlockFieldGroup;
 use MC\App\Fields\FieldGroups\ContentBlockFieldGroup;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 use MC\App\Fields\FieldGroups\HeroBlockFieldGroup;
-use MC\App\Fields\FieldGroups\ColumnsBlockFieldGroup;
 use MC\App\Theme\Styles;
 
 /**
@@ -47,8 +45,6 @@ add_action('after_setup_theme', function () {
         ->add(new Media())
         ->add(new Shortcodes())
         ->add(new RegisterBlocks())
-        ->add(new CarouselBlock())
-        ->add(new TestimonialBlock())
         ->add(new ACF())
         ->add(new Options())
         ->add(new Modules())
