@@ -80,7 +80,10 @@ TrueFalse::make(__('True or False', 'mc-starter'))
 ```php
 Group::make(__('Group', 'mc-starter'))
   ->instructions(__('Instructions go here.', 'mc-starter'))
-  ->fields([Text::make(__('Text', 'mc-starter')), Image::make(__('Image', 'mc-starter'))])
+  ->fields([
+    Text::make(__('Text', 'mc-starter')),
+    Image::make(__('Image', 'mc-starter')),
+  ])
   ->layout('row')
   ->required();
 ```
@@ -90,7 +93,10 @@ Group::make(__('Group', 'mc-starter'))
 ```php
 Repeater::make(__('Repeater', 'mc-starter'))
   ->instructions(__('Instructions go here.', 'mc-starter'))
-  ->fields([Text::make(__('Text', 'mc-starter')), Image::make(__('Image', 'mc-starter'))])
+  ->fields([
+    Text::make(__('Text', 'mc-starter')),
+    Image::make(__('Image', 'mc-starter')),
+  ])
   ->min(2)
   ->collapsed('name')
   ->buttonLabel(__('Add Component', 'mc-starter'))

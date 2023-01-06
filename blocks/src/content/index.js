@@ -19,7 +19,11 @@ const settings = {
     return (
       <Fragment>
         <div className="mc-block__content mc-content">
-          <InnerBlocks allowedBlocks={ALLOWED_BLOCKS} template={TEMPLATE} templateLock={true} />
+          <InnerBlocks
+            allowedBlocks={ALLOWED_BLOCKS}
+            template={TEMPLATE}
+            templateLock={true}
+          />
         </div>
       </Fragment>
     );
