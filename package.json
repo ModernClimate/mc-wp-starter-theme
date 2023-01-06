@@ -14,7 +14,7 @@
   "type": "module",
   "devDependencies": {
     "typescript": "^4.6.4",
-    "vite": "^3.1.4"
+    "vite": "^4.0.4"
   },
   "dependencies": {
     "@types/uikit": "^3.14.0",
