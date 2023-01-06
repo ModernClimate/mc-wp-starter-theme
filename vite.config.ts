@@ -13,7 +13,8 @@ export default defineConfig({
         dir: './build',
         entryFileNames: 'scripts/[name].min.js',
         assetFileNames: (asset) => {
-          const hasStyleExt = asset.name?.includes('.css') || asset.name?.includes('.scss');
+          const hasStyleExt =
+            asset.name?.includes('.css') || asset.name?.includes('.scss');
           if (hasStyleExt) {
             return `styles/[name]-styles.min.[ext]`;
           }
