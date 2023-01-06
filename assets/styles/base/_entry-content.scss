@@ -30,12 +30,12 @@
   }
 
   table {
-    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
     margin: 0 0 1.6em;
     table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: separate;
-    border-width: 1px 0 0 1px;
+    width: 100%;
   }
 
   caption,
@@ -45,8 +45,8 @@
   }
 
   th {
-    font-weight: bold;
     border-width: 0 1px 1px 0;
+    font-weight: bold;
   }
 
   td {
@@ -55,7 +55,7 @@
 
   th,
   td {
-    padding: .4em;
+    padding: 0.4em;
   }
 
   ol,
@@ -64,7 +64,6 @@
   }
 
   ol {
-
     li {
       list-style-type: decimal;
       margin-bottom: 5px;
@@ -72,13 +71,10 @@
       ol {
         margin-bottom: 0;
       }
-
     }
-
   }
 
   ul {
-
     li {
       list-style-type: disc;
       margin-bottom: 5px;
@@ -86,9 +82,7 @@
       ul {
         margin-bottom: 0;
       }
-
     }
-
   }
 
   blockquote {
@@ -96,8 +90,8 @@
   }
 
   img {
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
   }
 
   .alignleft {
@@ -111,8 +105,8 @@
   }
 
   .aligncenter {
-    margin: 0 auto 15px;
     display: block;
+    margin: 0 auto 15px;
   }
 
   .wp-caption-text {
@@ -123,16 +117,15 @@
     p {
       margin-bottom: 0;
     }
-
   }
 
   pre {
-    font-family: monospace;
+    background: #eee;
     display: block;
+    font-family: monospace;
     margin: 15px 0;
     padding: 15px;
     white-space: pre;
-    background: #eee;
   }
 
   sub,
@@ -144,11 +137,10 @@
   }
 
   sup {
-    top: -.5em;
+    top: -0.5em;
   }
 
   sub {
-    bottom: -.25em;
+    bottom: -0.25em;
   }
-
 }

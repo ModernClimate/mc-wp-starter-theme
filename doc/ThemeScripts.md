@@ -1,20 +1,20 @@
 # Theme Scripts
 
-Navigate to `./theme-scripts` to run the following commands
+Navigate to `./tools` to run the following commands
 
 ## Changing the theme namespace
 
-`node namespace.js [MyNewNameSpace]`
-Will read the .themerc.json THEME_NAMESPACE value with the new namespace argument you provide then does a find/replace in all theme .php files.
+`node theme --namespace [MyNewNameSpace]`
+Will read the theme root composer.json `autoload` `psr-4` namespace value then replace all namespaces in the theme .php files. It then updates the theme root composer.json namespace and finally runs `composer dump-autoload` to create new autoload files with updated namespace.
 
 ## Changing the theme text domain
 
-`node text-domain.js [some-new-text-domain]`
-Will read the .themerc.json THEME_TEXT_DOMAIN value and replace it with the argument you provide to the above command. It will traverse all theme .php files and replace the text-domain with what you specify.
+`node theme --text-domain [some-new-text-domain]`
+Will read the `text-domain` property value in the theme root package.json file and replace it with the specified value you provide to the above command. It will traverse all theme .php files and replace the text-domain with what you specify. It will also update root package.json `text-domain` property value.
 
 ## Changing the theme version
 
-`node version.js #.#.#`
-Will read the .themerc.json THEME_VERSION value and replace it with the specified version from the command in various files (packages.json, style.css, functions.php)
+`node theme --theme-version #.#.#`
+Will read the `version` property value in the theme root package.json file and replace it with the specified version from the command. It will also update style.css and functions.php and finally will run a new build.
 
 Note that you can do all of the above manually. The scripts are just helpers.

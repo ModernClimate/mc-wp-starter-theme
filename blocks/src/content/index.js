@@ -1,31 +1,25 @@
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
-import { Fragment } from "@wordpress/element";
-import { InnerBlocks } from "@wordpress/block-editor";
+import { __ } from '@wordpress/i18n';
+import { Fragment } from '@wordpress/element';
+import { InnerBlocks } from '@wordpress/block-editor';
 
-const name = "mc-blocks/content";
+const name = 'mc-blocks/content';
 
 const settings = {
-  title: __("Content", "mc-starter"),
-  category: "mc_blocks",
-  description: __("Standard content display", "mc-starter"),
-  icon: "format-aside",
+  title: __('Content', 'mc-starter'),
+  category: 'mc_blocks',
+  description: __('Standard content display', 'mc-starter'),
+  icon: 'format-aside',
   edit: () => {
     const ALLOWED_BLOCKS = ['core/classic'];
-    const TEMPLATE = [
-      ['core/freeform']
-    ];
+    const TEMPLATE = [['core/freeform']];
 
     return (
       <Fragment>
         <div className="mc-block__content mc-content">
-          <InnerBlocks
-            allowedBlocks={ALLOWED_BLOCKS}
-            template={TEMPLATE}
-            templateLock={true}
-          />
+          <InnerBlocks allowedBlocks={ALLOWED_BLOCKS} template={TEMPLATE} templateLock={true} />
         </div>
       </Fragment>
     );

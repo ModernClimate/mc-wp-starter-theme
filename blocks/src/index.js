@@ -1,10 +1,10 @@
-import "@wordpress/block-editor";
-import { registerBlockType } from "@wordpress/blocks";
+import '@wordpress/block-editor';
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Import blocks
  */
-import * as content from "./content";
+import * as content from './content';
 
 /**
  * Function to register an individual block.

@@ -6,7 +6,7 @@
   "htmlWhitespaceSensitivity": "css",
   "insertPragma": false,
   "order": "alphabetical",
-  "printWidth": 200,
+  "printWidth": 80,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "requirePragma": false,
@@ -14,13 +14,5 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false,
-  "overrides": [
-    {
-      "files": ["*.php"],
-      "options": {
-        "tabWidth": 4
-      }
-    }
-  ]
+  "useTabs": false
 }

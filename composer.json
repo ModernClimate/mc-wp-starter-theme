@@ -2,6 +2,7 @@
   "name": "modern-climate/mc-wp-starter-theme",
   "description": "A WordPress starter theme for Modern Climate.",
   "type": "wordpress-theme",
+  "text-domain": "mc-starter",
   "config": {
     "vendor-dir": "vendor",
     "bin-dir": "bin"
