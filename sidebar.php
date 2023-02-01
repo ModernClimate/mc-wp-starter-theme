@@ -9,6 +9,6 @@ if (! is_active_sidebar('primary')) {
 }
 ?>
 
-<aside id="secondary" class="widget-area uk-width-1-4@s" role="complementary">
+<aside id="secondary" class="widget-area w-full md:w-1/4" role="complementary">
     <?php dynamic_sidebar('primary'); ?>
 </aside><!-- #secondary -->

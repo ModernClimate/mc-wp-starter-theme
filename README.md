@@ -1,8 +1,8 @@
 # Modern Climate Starter Theme
 
-Starter WordPress theme. Features [UIKit](https://getuikit.com/docs/introduction), SCSS compiler, TS/JS linting and minifying and class based functions.php
+Starter WordPress theme. Features [Tailwind](https://tailwindcss.com/), [Vue](https://vuejs.org/), SCSS compiler, TS/JS linting and minifying and class based functions.php
 
-Requires a minimum of WordPress 5.3, PHP 7.4, and Composer 2
+Requires a minimum of WordPress 6.0, PHP 8.0, and Composer 2
 
 MC Starter Theme is built with **Composer** and **Vite** usage in mind and is the recommended way to use this theme.
 
@@ -41,12 +41,13 @@ composer dump-autoload
 2. [PSR-2 PHP Coding Style Guide](http://www.php-fig.org/psr/psr-2/)
 3. [Wordplate Extended ACF](https://github.com/wordplate/extended-acf)
 4. [Vite](https://vitejs.dev/)
-5. [Prettier](https://prettier.io/)
-6. [UIkit](https://getuikit.com/)
-7. [BEM Introduction](http://getbem.com/introduction/)
-8. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
-9. [Sass Lint](https://github.com/sasstools/sass-lint)
-10. [TypeScript](https://www.typescriptlang.org/)
+5. [Vue](https://vuejs.org/)
+6. [TypeScript](https://www.typescriptlang.org/)
+7. [Tailwind](https://tailwindcss.com/)
+8. [BEM Introduction](http://getbem.com/introduction/)
+9. [Sass 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
+10. [Sass Lint](https://github.com/sasstools/sass-lint)
+11. [Prettier](https://prettier.io/)
 
 ## ACF Documentation
 

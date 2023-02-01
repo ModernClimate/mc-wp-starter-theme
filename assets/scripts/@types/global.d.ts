@@ -1,3 +1,7 @@
-declare module 'uikit/dist/js/uikit-core';
-declare module 'uikit/src/js/components/slider';
-declare module 'uikit/src/js/components/slideshow';
+declare module '*.vue' {
+  // NOTE: ts-loader
+  import { defineComponent } from 'vue';
+
+  const component: ReturnType<typeof defineComponent>;
+  export default component;
+}

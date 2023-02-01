@@ -17,6 +17,11 @@
     "target": "es5",
     "useDefineForClassFields": true
   },
-  "include": ["assets/scripts"],
+  "include": [
+    "assets/scripts/**/*.ts",
+    "assets/scripts/**/*.d.ts",
+    "assets/scripts/**/*.tsx",
+    "assets/scripts/**/*.vue"
+  ],
   "exclude": []
 }

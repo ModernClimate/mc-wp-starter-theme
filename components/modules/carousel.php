@@ -22,7 +22,7 @@ $show_indicators = ACF::getField('show-carousel-indicators', $data, 'false');
 ?>
 
 <div class="module carousel">
-    <div class="uk-container uk-container-large">
+    <div class="container">
         <div ukgrid>
             <div class="uk-slideshow uk-width-1-2 uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-animation="<?php echo esc_attr($animation_type) ?>">
                 <ul class="uk-slideshow-items">

@@ -13,9 +13,9 @@
     }
   },
   "require": {
-    "wordplate/acf": "^8.6"
+    "vinkla/extended-acf": "*"
   },
   "require-dev": {
-    "paulthewalton/acf-stubs": "*"
+    "php-stubs/acf-pro-stubs": "*"
   }
 }

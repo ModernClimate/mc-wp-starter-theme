@@ -12,20 +12,17 @@
 
 get_header(); ?>
 
-    <div class="uk-container uk-container-large">
-        <div uk-grid>
-            <div id="primary" class="uk-width-s">
-                <?php
-                while (have_posts()) {
-                    the_post();
-                    // Loads the content/singular/page.php template.
-                    get_template_part('content/singular/page');
-                }
-                ?>
-            </div><!-- /#primary -->
+    <div class="container flex space-x-2 mx-auto">
+        <main id="primary" class="w-full md:w-3/4">
+            <?php
+            while (have_posts()) {
+                the_post();
+                // Loads the content/singular/page.php template.
+                get_template_part('content/singular/page');
+            } ?>
+        </main><!-- /#primary -->
 
-            <?php get_sidebar(); ?>
-        </div>
+        <?php get_sidebar(); ?>
     </div>
 
 <?php get_footer();

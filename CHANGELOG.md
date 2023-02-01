@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.2.0] - 2023-01-30
+
+### Changed
+
+- Require PHP 8.0 as minimimum version
+- Add Vue 3 to build
+- Add Tailwind to build
+- Upgrade to Vite 4
+- Remove UIKit
+
 ## [3.1.0] - 2022-11-11
 
 ### Changed
