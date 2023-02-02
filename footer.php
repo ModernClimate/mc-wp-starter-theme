@@ -7,7 +7,7 @@
 ?>
 
 <footer class="footer" role="contentinfo">
-    <div class="uk-container uk-container-large">
+    <div class="container flex space-x-2 mx-auto">
         <div class="footer__copyright">
             <?php
             printf(

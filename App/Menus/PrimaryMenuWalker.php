@@ -15,7 +15,6 @@ use Walker_Nav_Menu;
  */
 class PrimaryMenuWalker extends Walker_Nav_Menu
 {
-
     public function __construct()
     {
         add_filter('nav_menu_css_class', [$this, 'navMenuCssClasses'], 10, 3);
@@ -96,7 +95,7 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
         if ('primary' !== $args->theme_location) {
             return $title;
         }
-            
+
         if ($args->walker->has_children && $depth === 0) {
             $title .= ' <span class="caret"></span>';
         }

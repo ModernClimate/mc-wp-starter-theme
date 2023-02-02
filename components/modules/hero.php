@@ -14,7 +14,7 @@ $button   = ACF::getField('button', $data);
 ?>
 
 <div class="module hero" <?php echo Util::getInlineBackgroundStyles($data); ?>>
-    <div class="uk-container">
+    <div class="container">
         <div class="module__heading">
             <?php
             echo nl2br(Util::getHTML(

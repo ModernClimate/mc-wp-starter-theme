@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "ignoreFiles": ["./build/**/*.css"],
+  "rules": {
+    "alpha-value-notation": "number",
+    "at-rule-no-unknown": null,
+    "color-function-notation": "legacy"
+  }
+}
