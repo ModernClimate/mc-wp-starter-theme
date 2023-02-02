@@ -29,13 +29,13 @@ class Carousel extends Layouts
                 ->fields([
                     $this->contentTab(),
                     Repeater::make(__('Carousel Items'))
-                    ->layout('block')
-                    ->min(1)
-                    ->buttonLabel(__('Add Item'))
-                    ->fields([
-                        WPImage::make('Image')
-                          ->returnFormat('array'),
-                    ]),
+                        ->layout('block')
+                        ->min(1)
+                        ->buttonLabel(__('Add Item'))
+                        ->fields([
+                            WPImage::make('Image')
+                                ->returnFormat('array'),
+                        ]),
                     $this->optionsTab(),
                     Select::make(__('Animation Type', 'mc-starter'), 'carousel-animation-type')
                         ->choices([

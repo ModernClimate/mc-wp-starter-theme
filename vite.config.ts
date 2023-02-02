@@ -4,21 +4,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        ['theme-scripts']: './assets/scripts/theme.ts',
-        ['admin-scripts']: './assets/scripts/admin.ts',
-        ['theme-styles']: './assets/styles/theme.scss',
-        ['editor-styles']: './assets/styles/editor.scss',
+        ['theme-scripts']: './assets/scripts/theme-scripts.ts',
+        ['admin-scripts']: './assets/scripts/admin-scripts.ts',
+        ['theme-styles']: './assets/styles/theme-styles.scss',
+        ['editor-styles']: './assets/styles/editor-styles.scss',
       },
       output: {
         dir: './build',
-        entryFileNames: 'scripts/[name].min.js',
-        assetFileNames: (asset) => {
-          const hasStyleExt =
-            asset.name?.includes('.css') || asset.name?.includes('.scss');
-          if (hasStyleExt) {
-            return `styles/[name]-styles.min.[ext]`;
-          }
-          return `[name]-styles.[ext]`;
+        entryFileNames: () => {
+          return `scripts/[name].min.js`;
+        },
+        assetFileNames: () => {
+          return `styles/[name].min.[ext]`;
         },
       },
     },
