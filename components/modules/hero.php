@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ACF Module: Hero
  *
@@ -31,4 +32,3 @@ $button   = ACF::getField('button', $data);
         <?php echo Util::getButtonHTML($button); ?>
     </div>
 </div>
-

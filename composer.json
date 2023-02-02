@@ -2,6 +2,7 @@
   "name": "modern-climate/mc-wp-starter-theme",
   "description": "A WordPress starter theme for Modern Climate.",
   "type": "wordpress-theme",
+  "text-domain": "mc-starter",
   "config": {
     "vendor-dir": "vendor",
     "bin-dir": "bin"
@@ -12,10 +13,9 @@
     }
   },
   "require": {
-    "squizlabs/php_codesniffer": "*",
-    "wordplate/acf": "^8.6"
+    "vinkla/extended-acf": "*"
   },
   "require-dev": {
-    "paulthewalton/acf-stubs": "*"
+    "php-stubs/acf-pro-stubs": "*"
   }
 }

@@ -1,0 +1,17 @@
+// Required for imported component styles to work. Override any of these imported variables under /assets/scss/abstracts/_variables.scss
+@import 'node_modules/uikit/src/scss/variables-theme.scss';
+@import 'node_modules/uikit/src/scss/mixins-theme.scss';
+
+// Import component styles from UIkit here. Documentation can be found at [https://getuikit.com/docs/introduction].
+@import 'node_modules/uikit/src/scss/components/container.scss';
+@import 'node_modules/uikit/src/scss/components/dotnav.scss';
+@import 'node_modules/uikit/src/scss/components/flex.scss';
+@import 'node_modules/uikit/src/scss/components/grid.scss';
+@import 'node_modules/uikit/src/scss/components/margin.scss';
+@import 'node_modules/uikit/src/scss/components/padding.scss';
+@import 'node_modules/uikit/src/scss/components/position.scss';
+@import 'node_modules/uikit/src/scss/components/slidenav.scss';
+@import 'node_modules/uikit/src/scss/components/slider.scss';
+@import 'node_modules/uikit/src/scss/components/slideshow.scss';
+@import 'node_modules/uikit/src/scss/components/visibility.scss';
+@import 'node_modules/uikit/src/scss/components/width.scss';

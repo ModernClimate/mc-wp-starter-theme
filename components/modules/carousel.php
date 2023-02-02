@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ACF Module: Image
  *
@@ -11,7 +12,7 @@ use MC\App\Fields\Util;
 
 $items = ACF::getRowsLayout('carousel-items', $data);
 
-if (! $items) {
+if (!$items) {
     return;
 }
 
@@ -23,11 +24,7 @@ $show_indicators = ACF::getField('show-carousel-indicators', $data, 'false');
 <div class="module carousel">
     <div class="uk-container uk-container-large">
         <div ukgrid>
-            <div
-                class="uk-slideshow uk-position-relative uk-visible-toggle uk-light"
-                tabindex="-1"
-                data-animation="<?php echo esc_attr($animation_type) ?>"
-            >
+            <div class="uk-slideshow uk-width-1-2 uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-animation="<?php echo esc_attr($animation_type) ?>">
                 <ul class="uk-slideshow-items">
                     <?php
                     foreach ($items as $item) {
@@ -51,7 +48,7 @@ $show_indicators = ACF::getField('show-carousel-indicators', $data, 'false');
                 <?php endif; ?>
 
                 <?php if ($show_indicators === 'true') : ?>
-                    <div class="uk-position-bottom-center uk-position-small">
+                    <div class="uk-flex uk-flex-center uk-margin">
                         <ul class="uk-dotnav">
                             <?php
                             foreach ($items as $key => $item) {

@@ -1,0 +1,7 @@
+// Mixins
+
+// Calculate rem value based on the px value passed in.
+@function _calc-rem($size) {
+  $rem-size: $size / 16px;
+  @return #{$rem-size}rem;
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ACF Module: Image
  *
@@ -11,7 +12,7 @@ use MC\App\Fields\Util;
 
 $image = ACF::getField('image', $data);
 
-if (! $image) {
+if (!$image) {
     return;
 }
 ?>

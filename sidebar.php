@@ -1,10 +1,11 @@
 <?php
+
 /**
  * The sidebar containing the main widget area
  *
  * @package MC
  */
-if (! is_active_sidebar('primary')) {
+if (!is_active_sidebar('primary')) {
     return;
 }
 ?>

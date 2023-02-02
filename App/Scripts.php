@@ -26,15 +26,9 @@ class Scripts implements WordPressHooks
      */
     public function enqueueScripts()
     {
-        // set the unminified file type if we're in development env.
-        $filename = '.min';
-        if (isset($_ENV['WP_ENV']) && 'development' === $_ENV['WP_ENV']) {
-            $filename = '';
-        }
-
         wp_enqueue_script(
             'mc-theme',
-            get_template_directory_uri() . "/build/js/theme{$filename}.js",
+            get_template_directory_uri() . "/build/scripts/theme-scripts.min.js",
             [],
             THEME_VERSION,
             true
@@ -52,7 +46,7 @@ class Scripts implements WordPressHooks
     {
         wp_enqueue_style(
             'mc-styles',
-            get_template_directory_uri() . '/build/css/theme.min.css',
+            get_template_directory_uri() . '/build/styles/theme-styles.min.css',
             [],
             THEME_VERSION
         );

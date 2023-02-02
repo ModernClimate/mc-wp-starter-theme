@@ -44,7 +44,7 @@ class Shortcodes implements WordPressHooks
         );
 
         $classes = $atts['classes'] . ' ' . $atts['style'];
-        $classes .= (! empty($atts['block']) && 'true' === $atts['block']) ? ' btn-block' : '';
+        $classes .= (!empty($atts['block']) && 'true' === $atts['block']) ? ' btn-block' : '';
 
         return "<a class=\"{$classes}\" href=\"{$atts['link']}\" target=\"{$atts['target']}\">{$content}</a>";
     }

@@ -1,0 +1,6 @@
+.prettierrc
+
+dist/
+node_modules/
+vendor/
+**/*.php

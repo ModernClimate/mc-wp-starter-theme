@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
  */
@@ -96,7 +97,7 @@ class PrimaryMenuWalker extends Walker_Nav_Menu
         if ('primary' !== $args->theme_location) {
             return $title;
         }
-            
+
         if ($args->walker->has_children && $depth === 0) {
             $title .= ' <span class="caret"></span>';
         }
