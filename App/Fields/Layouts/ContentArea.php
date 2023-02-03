@@ -3,7 +3,7 @@
 namespace MC\App\Fields\Layouts;
 
 use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 use WordPlate\Acf\Fields\Textarea;
 
 /**
@@ -28,7 +28,7 @@ class ContentArea extends Layouts
                     $this->contentTab(),
                     Textarea::make(__('Headline', 'mc-starter'))
                         ->rows(2),
-                    Wysiwyg::make(__('Content', 'mc-starter'))
+                    WysiwygEditor::make(__('Content', 'mc-starter'))
                         ->mediaUpload(false)
                 ])
         );

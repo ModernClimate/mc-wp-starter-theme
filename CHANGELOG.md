@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.1] - 2023-02-02
+## [3.1.1] - 2023-02-03
 
 ### Changed
 
-- Updated Wordplate to Vinkla
+- Updated Wordplate to Vinkla 11.2
 - Renamed some script/style files to be more explicit
 - Formatted all PHP files based on Intelephense formatting
 

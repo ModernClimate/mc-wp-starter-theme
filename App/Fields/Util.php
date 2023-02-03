@@ -19,7 +19,7 @@ class Util
      * @param       $element - the HTML element to wrap the content with
      * @param array $atts - any attributes that should be added to the HTML element
      * @param mixed $escape - whether to escape $data - defaults to true - can be an escaping function
-     * @param bool $self_closing - whether the element is self closing i.e. <img />
+     * @param bool  $self_closing - whether the element is self closing i.e. <img />
      *
      * @return string - an HTML element.
      */
@@ -47,7 +47,7 @@ class Util
             // if key is present and attribute is empty, add only key to output.
             // This allows for HTML5 boolean attributes.
             // e.g. <input type="checkbox" checked disabled>Test</input>
-            if (! isset($att) || empty($att)) {
+            if (!isset($att) || empty($att)) {
                 $atts_output .= esc_attr($key) . ' ';
                 continue;
             }
@@ -72,7 +72,7 @@ class Util
     public static function getImageHTML($attachment, $size = 'medium', $args = [])
     {
         $src    = ACF::getField($size, $attachment->sizes, $attachment->url);
-        $alt    = ! empty($attachment->alt) ? esc_attr($attachment->alt) : esc_attr($attachment->title);
+        $alt    = !empty($attachment->alt) ? esc_attr($attachment->alt) : esc_attr($attachment->title);
         $params = '';
         foreach ($args as $attr => $value) {
             $params .= sprintf(
@@ -88,7 +88,7 @@ class Util
             $params
         );
         // check for image caption
-        if (! empty($attachment->caption)) {
+        if (!empty($attachment->caption)) {
             $image_markup = sprintf(
                 '<figure class="image__caption">%1$s <figcaption>%2$s</figcaption></figure>',
                 $image_markup,
@@ -110,19 +110,19 @@ class Util
      */
     public static function getInlineBackgroundStyles($data, $size = 'full')
     {
-        if (empty($data) || ! isset($data['background'])) {
+        if (empty($data) || !isset($data['background'])) {
             return '';
         }
 
         $image      = ACF::getField('background_image', $data);
-        $attachment = ! empty($image) ? Media::getAttachmentByID($image) : false;
+        $attachment = !empty($image) ? Media::getAttachmentByID($image) : false;
         $src        = ACF::getField($size, $attachment->sizes, $attachment->url);
 
         // build out our inline background styles
         $styles = sprintf(
             'style="background: %1$s %2$s %3$s %4$s/%5$s;"',
             ACF::getField('background_color', $data, '#FFFFFF'),
-            'url( ' . (! empty($attachment) ? esc_url($src) : '') . ')',
+            'url( ' . (!empty($attachment) ? esc_url($src) : '') . ')',
             ACF::getField('background_repeat', $data, 'no-repeat'),
             ACF::getField('background_position', $data, 'center center'),
             ACF::getField('background_size', $data, 'auto auto')
@@ -142,7 +142,7 @@ class Util
     public static function getButtonHTML($link_array, $args = [])
     {
         $output = '';
-        if (! isset($link_array['title'])) {
+        if (!isset($link_array['title'])) {
             return $output;
         }
         $defaults = [
