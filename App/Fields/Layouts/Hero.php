@@ -7,7 +7,7 @@ use WordPlate\Acf\Fields\Group;
 use WordPlate\Acf\Fields\Image;
 use WordPlate\Acf\Fields\Layout;
 use WordPlate\Acf\Fields\Select;
-use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Fields\WysiwygEditor;
 use WordPlate\Acf\Fields\Textarea;
 use WordPlate\Acf\Fields\ColorPicker;
 
@@ -33,7 +33,7 @@ class Hero extends Layouts
                     $this->contentTab(),
                     Textarea::make(__('Headline', 'mc-starter'))
                         ->rows(2),
-                    Wysiwyg::make(__('Content', 'mc-starter'))
+                    WysiwygEditor::make(__('Content', 'mc-starter'))
                         ->mediaUpload(false),
                     Link::make(__('Button', 'mc-starter'))
                         ->returnFormat('array'),

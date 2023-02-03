@@ -41,7 +41,6 @@ class Init implements \IteratorAggregate
      */
     public function initialize()
     {
-
         foreach ($this as $container_object) {
             if ($container_object instanceof WordPressHooks) {
                 $container_object->addHooks();
@@ -54,7 +53,7 @@ class Init implements \IteratorAggregate
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->plugin_components);
     }

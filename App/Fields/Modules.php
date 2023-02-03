@@ -34,7 +34,7 @@ class Modules implements WordPressHooks
         $post_id = $post_id ?: get_the_ID();
         $meta    = ACF::getPostMeta($post_id);
 
-        if (! empty($meta['modules']) && is_array($meta['modules'])) {
+        if (!empty($meta['modules']) && is_array($meta['modules'])) {
             $modules = ACF::getRowsLayout('modules', $meta);
 
             foreach ($meta['modules'] as $index => $module) {
@@ -56,10 +56,10 @@ class Modules implements WordPressHooks
     {
         $post_id = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT);
         $screen  = get_current_screen();
-        if ('page' !== $screen->id || ! isset($post_id)) {
+        if ('page' !== $screen->id || !isset($post_id)) {
             return;
         }
-        if (! self::disableEditor($_GET['post'])) {
+        if (!self::disableEditor($_GET['post'])) {
             remove_post_type_support('page', 'editor');
         }
     }
@@ -75,7 +75,7 @@ class Modules implements WordPressHooks
     public function disableGutenberg($can_edit, $post_type)
     {
         $post_id = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT);
-        if (! (is_admin() && ! empty($post_id))) {
+        if (!(is_admin() && !empty($post_id))) {
             return $can_edit;
         }
 
@@ -101,6 +101,6 @@ class Modules implements WordPressHooks
 
         $template = get_page_template_slug($id);
 
-        return ! in_array($template, $disabled_templates);
+        return !in_array($template, $disabled_templates);
     }
 }

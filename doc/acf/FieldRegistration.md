@@ -2,7 +2,7 @@
 
 Register advanced custom fields with object oriented PHP using the Extended ACF Plugin.
 
-Visit the [Extended ACF github README](https://github.com/wordplate/extended-acf) for a full list of field examples and documentation.
+Visit the [Extended ACF github README](https://github.com/vinkla/extended-acf) for a full list of field examples and documentation.
 
 ## **Field Names**
 
@@ -27,7 +27,7 @@ Textarea::make(__('Content', 'mc-starter'))
 ```
 
 ```php
-Wysiwyg::make(__('Content', 'mc-starter'))
+WysiwygEditor::make(__('Content', 'mc-starter'))
   ->instructions(__('Instructions go here.', 'mc-starter'))
   ->mediaUpload(false)
   ->required();
