@@ -1,8 +1,8 @@
 # Modern Climate Starter Theme
 
-Starter WordPress theme. Features [UIKit](https://getuikit.com/docs/introduction), SCSS compiler, TS/JS linting and minifying and class based functions.php
+Starter WordPress theme. Features [UIKit](https://getuikit.com/docs/introduction), SCSS compiler, TS/JS linting and minifying, and class-based functions.php
 
-Requires a minimum of WordPress 5.3, PHP 7.4, and Composer 2
+Requires a minimum of WordPress 6.0, PHP 8.0, and Composer 2
 
 MC Starter Theme is built with **Composer** and **Vite** usage in mind and is the recommended way to use this theme.
 
