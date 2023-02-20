@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.2] - 2023-02-20
+
+### Changed
+
+- Switch theme .ts files to .js to make .ts optional from the start
+- Add .github PR description template
+- Update UIKit slider module with a real example
+- Remove redundant slider init
+- Import UIKit in root theme scripts correctly
+
 ## [3.1.1] - 2023-02-03
 
 ### Changed

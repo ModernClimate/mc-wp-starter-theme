@@ -21,3 +21,6 @@ bower_components
 thumbs.db
 .idea
 .env
+
+# Hidden Files
+!.github
