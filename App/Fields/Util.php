@@ -132,6 +132,27 @@ class Util
     }
 
     /**
+     * Returns standardized icon html by name
+     *
+     * @param string $icon_name
+     *
+     * @return string
+     */
+    public static function getIconHTML($icon_name)
+    {
+        if (empty($icon_name)) {
+            return '';
+        }
+
+        return sprintf(
+            '<svg class="icon icon-%1$s" aria-hidden="true">
+                <use xlink:href="#icon-%1$s"></use>
+            </svg>',
+            $icon_name
+        );
+    }
+
+    /**
      * Wrapper function for parsing button data and outputting proper markup.
      *
      * @param $link_array
@@ -145,16 +166,24 @@ class Util
         if (!isset($link_array['title'])) {
             return $output;
         }
+
         $defaults = [
             'class' => 'btn btn-primary',
+            'icon-end' => '',
+            'icon-start' => ''
         ];
-        $atts     = wp_parse_args($args, $defaults);
-        $output   = sprintf(
-            '<a href="%3$s" target="%4$s" class="%2$s">%1$s</a>',
+        $atts = wp_parse_args($args, $defaults);
+        $icon_start = self::getIconHTML($atts['icon-start']);
+        $icon_end = self::getIconHTML($atts['icon-end']);
+
+        $output = sprintf(
+            '<a href="%2$s" target="%3$s" class="%4$s">%5$s%1$s%6$s</a>',
             esc_html($link_array['title']),
-            $atts['class'],
             esc_url($link_array['url']),
-            $link_array['target']
+            esc_attr($link_array['target']),
+            $atts['class'],
+            $icon_start,
+            $icon_end,
         );
 
         return $output;
