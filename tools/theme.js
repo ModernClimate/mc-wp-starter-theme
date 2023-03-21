@@ -14,6 +14,6 @@ const options = program.opts();
 console.log(options);
 
 if (options.themeVersion) {
-  console.log('Updating theme version to: ', options.themeVersion);
+  console.log('Updating theme version to:', options.themeVersion);
   changeThemeVersion(options.themeVersion);
 }

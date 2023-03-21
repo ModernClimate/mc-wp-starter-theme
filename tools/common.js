@@ -49,7 +49,7 @@ export const insertString = ({ items, startLine, files, options }) => {
       }
 
       const exp = new RegExp('^.*' + startLine + '.*$', 'gm');
-      contents = contents.replace(exp, startLine + '\n' + items);
+      contents = contents.replace(exp, startLine + '\n' + items.join('\n'));
 
       try {
         await promises.writeFile(file, contents, 'utf-8');
