@@ -1,6 +1,8 @@
 # Theme Scripts
 
-Navigate to `./tools` to run the following commands
+1. cd into `./tools`
+2. Run `yarn install` if you haven't in that folder yet
+3. See below for any script commands
 
 ## Changing the theme version
 
