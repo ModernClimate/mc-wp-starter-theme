@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Versions
+
+## [3.1.4] - 2023-03-21
+
+### Changed
+
+- Add tool to update theme version. See the doc/ThemeScripts.md file on how to use
+
 ## [3.1.3] - 2023-03-21
 
 ### Changed

@@ -1,0 +1,26 @@
+{
+  "name": "mc-wp-starter-theme-tools",
+  "version": "0.1.0",
+  "description": "Starter wordpress theme tools",
+  "author": "Modern Climate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ModernClimate/mc-wp-starter-theme.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 17.7.1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "commander": "^9.4.1",
+    "glob": "^8.0.3"
+  },
+  "resolutions": {
+    "glob-parent": "^6.0.1"
+  }
+}
