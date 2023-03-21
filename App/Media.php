@@ -31,13 +31,13 @@ class Media implements WordPressHooks
      *
      * @param $attachment_id
      *
-     * @return object
+     * @return null|object
      */
     public static function getAttachmentByID($attachment_id)
     {
         $attachment = acf_get_attachment($attachment_id);
 
-        return (object)$attachment;
+        return $attachment ? (object) $attachment : null;
     }
 
     /**
