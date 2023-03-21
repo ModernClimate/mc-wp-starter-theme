@@ -1,29 +1,33 @@
 import { exec } from 'child_process';
+import { replaceString, insertString, replaceJson } from './common.js';
 
-import packageJson from '../package.json' assert { type: 'json' };
-import { replaceString, replaceJson } from './common.js';
-
-const { version } = packageJson;
+const dateObj = new Date();
+const dd = ('0' + dateObj.getDate()).slice(-2);
+const mm = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+const yyyy = dateObj.getFullYear();
 
 export const changeThemeVersion = async (newVersion) => {
-  await replaceJson({
-    items: [['version', newVersion]],
-    files: '../package.json',
-  });
-
   await replaceString({
-    items: [[`Version: ${version}`, `Version: ${newVersion}`]],
+    items: [[`Version:`, `Version: ${newVersion}`]],
     files: '../style.css',
   });
 
   await replaceString({
-    items: [
-      [
-        `define('THEME_VERSION', '${version}');`,
-        `define('THEME_VERSION', '${newVersion}');`,
-      ],
-    ],
+    items: [['THEME_VERSION', `define('THEME_VERSION', '${newVersion}');`]],
     files: '../functions.php',
+  });
+
+  await insertString({
+    startLine: '## Versions',
+    items: [
+      `\r\n## [${newVersion}] - ${yyyy}-${mm}-${dd}\r\n### Changed\r\n\r\n-`,
+    ],
+    files: '../CHANGELOG.md',
+  });
+
+  await replaceJson({
+    items: [['version', newVersion]],
+    files: '../package.json',
   });
 
   // Rebuild composer autoload namespace
