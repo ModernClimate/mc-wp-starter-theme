@@ -21,8 +21,6 @@
     "assets/scripts/**/*.ts",
     "assets/scripts/**/*.d.ts",
     "assets/scripts/**/*.tsx",
-    "assets/scripts/**/*.vue",
-    "assets/scripts/theme-scripts.js",
     "assets/scripts/theme-scripts.js",
     "assets/scripts/admin-scripts.js",
     "assets/scripts/theme/UIkit.js",
