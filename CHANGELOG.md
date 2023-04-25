@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.1.5] - 2023-04-24
+
+### Changed
+
+- Upgrade Vite to 4.3
+- Upgrade node to v18
+- Upgrade uikit to 3.16
+
 ## [3.1.4] - 2023-03-21
 
 ### Changed
