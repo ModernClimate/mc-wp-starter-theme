@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added a style hook to each module and added the hook action to the Module class
 - Change starter modules in section rather than div
 - Switch @globals in included starter modules to @var and add types then add missing $row_id variable
+- uikit: add visibility scss include. Add uikit js parallax imports to slider/slideshow
 
 ## [3.1.5] - 2023-04-24
 
