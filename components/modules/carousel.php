@@ -3,12 +3,13 @@
 /**
  * ACF Module: Image
  *
- * @global $data
+ * @var array $data
+ * @var string $row_id
  */
 
 use MC\App\Fields\ACF;
-use MC\App\Media;
 use MC\App\Fields\Util;
+use MC\App\Media;
 
 $items = ACF::getRowsLayout('carousel-items', $data);
 
@@ -19,9 +20,11 @@ if (!$items) {
 $animation_type = ACF::getField('carousel-animation-type', $data, 'slide');
 $show_arrows_nav = ACF::getField('show-carousel-arrows-nav', $data, 'true');
 $show_indicators = ACF::getField('show-carousel-indicators', $data, 'false');
+
+do_action('mc/modules/styles', $row_id, $data);
 ?>
 
-<div class="module carousel">
+<section class="module carousel" id="<?php echo esc_html($row_id); ?>">
     <div class="uk-container uk-container-large">
         <div ukgrid>
             <div class="uk-slideshow uk-width-1-2 uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-animation="<?php echo esc_attr($animation_type) ?>">
@@ -67,4 +70,4 @@ $show_indicators = ACF::getField('show-carousel-indicators', $data, 'false');
             </div>
         </div>
     </div>
-</div>
+</section>

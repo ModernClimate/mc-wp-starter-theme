@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.1.6] - 2023-04-26
+
+### Changed
+
+- Added a style hook to each module and added the hook action to the Module class
+- Change starter modules in section rather than div
+- Switch @globals in included starter modules to @var and add types then add missing $row_id variable
+
 ## [3.1.5] - 2023-04-24
 
 ### Changed

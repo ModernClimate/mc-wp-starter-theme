@@ -3,7 +3,8 @@
 /**
  * ACF Module: Hero
  *
- * @global $data
+ * @var array $data
+ * @var string $row_id
  */
 
 use MC\App\Fields\ACF;
@@ -12,9 +13,11 @@ use MC\App\Fields\Util;
 $headline = ACF::getField('headline', $data);
 $content  = ACF::getField('content', $data);
 $button   = ACF::getField('button', $data);
+
+do_action('mc/modules/styles', $row_id, $data);
 ?>
 
-<div class="module hero" <?php echo Util::getInlineBackgroundStyles($data); ?>>
+<section class="module hero" id="<?php echo esc_html($row_id); ?>" <?php echo Util::getInlineBackgroundStyles($data); ?>>
     <div class="uk-container">
         <div class="module__heading">
             <?php
@@ -31,4 +34,4 @@ $button   = ACF::getField('button', $data);
 
         <?php echo Util::getButtonHTML($button); ?>
     </div>
-</div>
+</section>

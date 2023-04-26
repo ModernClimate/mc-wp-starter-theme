@@ -18,6 +18,7 @@ class Modules implements WordPressHooks
     public function addHooks()
     {
         add_action('mc/modules/output', [$this, 'outputFlexibleModules']);
+        add_action('hr/modules/styles', [$this, 'outputModuleStyles'], 10, 2);
         add_action('admin_head', [$this, 'disableClassicEditor']);
         add_filter('gutenberg_can_edit_post_type', [$this, 'disableGutenberg'], 10, 2);
         add_filter('use_block_editor_for_post_type', [$this, 'disableGutenberg'], 10, 2);
@@ -102,5 +103,21 @@ class Modules implements WordPressHooks
         $template = get_page_template_slug($id);
 
         return !in_array($template, $disabled_templates);
+    }
+
+
+    /**
+     * Print module specific styles if set
+     *
+     * @param string $row_id
+     * @param array $data
+     */
+    public function outputModuleStyles($row_id, $data)
+    {
+        if (empty($row_id) || empty($data)) {
+            return false;
+        }
+
+        // Get module specific styles
     }
 }

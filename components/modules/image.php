@@ -3,7 +3,8 @@
 /**
  * ACF Module: Image
  *
- * @global $data
+ * @var array $data
+ * @var string $row_id
  */
 
 use MC\App\Fields\ACF;
@@ -15,12 +16,14 @@ $image = ACF::getField('image', $data);
 if (!$image) {
     return;
 }
+
+do_action('mc/modules/styles', $row_id, $data);
 ?>
 
-<div class="module image">
+<section class="module image" id="<?php echo esc_html($row_id); ?>">
     <div class="uk-container">
         <div class="module__image">
             <?php echo Util::getImageHTML(Media::getAttachmentByID($image)); ?>
         </div>
     </div>
-</div>
+</section>
