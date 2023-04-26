@@ -10,8 +10,14 @@
  */
 
 get_header();
+?>
 
-// hook: App/Fields/Modules/outputFlexibleModules()
-do_action('mc/modules/output', get_the_ID());
+<div id="primary">
+    <?php
+    // hook: App/Fields/Modules/outputFlexibleModules()
+    do_action('mc/modules/output', get_the_ID());
+    ?>
+</div><!-- /#primary -->'
 
+<?php
 get_footer();
