@@ -78,10 +78,6 @@ class Media implements WordPressHooks
     {
         $attachment = self::getAttachmentByID($attachment_id);
 
-        if (!$attachment || !property_exists($attachment, 'sizes')) {
-            return null;
-        }
-
         return self::getAttachmentSrc($attachment, $size);
     }
 
