@@ -34,10 +34,39 @@ Loops through Flexible Modules or Repeater Fields and compiles a multidimensiona
 
 ### `getAttachmentByID()`
 
-Used to return an image array based on the ACF image ID.
+Used to return an image object based on the ACF image ID.
 
 **Location**<br/>
 `/App/Media.php`
 
 **Example**<br/>
 `$background_image = Media::getAttachmentByID(ACF::getField('background_image', $your_flat_acf_data));`
+
+### `getAttachmentSrc($attachment, $size)`
+
+Used to return an image src based on the passed $attachment and $size values.
+
+**Location**<br/>
+`/App/Media.php`
+
+**Example**<br/>
+
+```
+$image_id = ACF::getField('image', $data);
+$attachment = ! empty($image_id) ? Media::getAttachmentByID($image_id) : false;
+$background_image_src = Media::getAttachmentSrc($attachment, 'full');
+```
+
+### `getAttachmentSrcById($attachment_id, $size)`
+
+Used to return an image src based on the passed $attachment_id and $size values.
+
+**Location**<br/>
+`/App/Media.php`
+
+**Example**<br/>
+
+```
+$image_id = ACF::getField('image', $data);
+$background_image_full_src = Media::getAttachmentSrcById($image_id, 'full');
+```
