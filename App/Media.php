@@ -82,7 +82,7 @@ class Media implements WordPressHooks
             return null;
         }
 
-        return ACF::getField($size, $attachment->sizes, $attachment->url);
+        return self::getAttachmentSrc($attachment, $size);
     }
 
     /**
