@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.1.7] - 2023-05-17
+
+### Changed
+
+- Added a constants.php file to hold all theme constants
+- Added new Media method for getting image attachment src `Media::getAttachmentSrc($attachment, 'full')`
+- Added new Media method for getting image attachment src by id `Media::getAttachmentSrcById($attachment_id, 'full')`
+
 ## [3.1.6] - 2023-04-26
 
 ### Changed

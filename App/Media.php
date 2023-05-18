@@ -3,6 +3,7 @@
 namespace MC\App;
 
 use MC\App\Interfaces\WordPressHooks;
+use MC\App\Fields\ACF;
 
 /**
  * Class Media
@@ -29,7 +30,7 @@ class Media implements WordPressHooks
     /**
      * Retrieve an image to represent an attachment and return the attachment object of the image
      *
-     * @param $attachment_id
+     * @param number $attachment_id
      *
      * @return null|object
      */
@@ -37,7 +38,47 @@ class Media implements WordPressHooks
     {
         $attachment = acf_get_attachment($attachment_id);
 
-        return $attachment ? (object) $attachment : null;
+        if (!$attachment) {
+            return null;
+        }
+
+        return (object) $attachment;
+    }
+
+    /**
+     * Retrieve an image's src by attachment object and size
+     *
+     * @param object $attachment
+     * @param string $size
+     *
+     * @return null|string
+     *
+     * @since 3.1.7
+     */
+    public static function getAttachmentSrc($attachment, $size = 'full')
+    {
+        if (!$attachment || !property_exists($attachment, 'sizes')) {
+            return null;
+        }
+
+        return ACF::getField($size, $attachment->sizes, $attachment->url);
+    }
+
+    /**
+     * Retrieve an image's src by attachment ID and size
+     *
+     * @param number $attachment_id
+     * @param string $size
+     *
+     * @return null|string
+     *
+     * @since 3.1.7
+     */
+    public static function getAttachmentSrcByID($attachment_id, $size = 'full')
+    {
+        $attachment = self::getAttachmentByID($attachment_id);
+
+        return self::getAttachmentSrc($attachment, $size);
     }
 
     /**
@@ -54,10 +95,10 @@ class Media implements WordPressHooks
     /**
      * Allow uploading of SVG file types within the WP Media Uploader.
      *
-     * @param $data
+     * @param array $data
      * @param $file
-     * @param $filename
-     * @param $mimes
+     * @param string $filename
+     * @param string[] $mimes
      *
      * @return array
      */
@@ -75,7 +116,7 @@ class Media implements WordPressHooks
     /**
      * Adds SVGs to array of allowed mime types and file extensions
      *
-     * @param $mimes
+     * @param array $mimes
      *
      * @return mixed
      */

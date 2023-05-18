@@ -23,9 +23,11 @@ use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '3.1.6');
+define('THEME_VERSION', '3.1.7');
 define('MC_THEME_DIR', trailingslashit(get_template_directory()));
 define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
+
+require __DIR__ . '/constants.php';
 
 // Require Autoloader
 require_once MC_THEME_DIR . 'vendor/autoload.php';
