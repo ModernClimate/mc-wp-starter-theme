@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.1.8] - 2023-07-17
+
+### Changed
+
+- Added an ACF class method called getTermMeta that gets and caches term meta similarly to how getPostMeta works.
+
 ## [3.1.7] - 2023-05-17
 
 ### Changed

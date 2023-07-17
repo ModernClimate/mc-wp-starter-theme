@@ -55,6 +55,37 @@ class ACF implements WordPressHooks
     }
 
     /**
+     * Custom database query for retrieving term meta excluding ACF field key rows.
+     *
+     * @param int $term_id Term ID.
+     *
+     * @return array|false Array of term meta, or false on failure.
+     */
+    public static function getTermMeta($term_id)
+    {
+        global $wpdb;
+
+        $cache_key = 'mc_term_meta_' . $term_id;
+        $term_meta = wp_cache_get($cache_key, 'meta');
+
+        if (!$term_meta) {
+            $term_meta_db = $wpdb->get_results(
+                "SELECT meta_key, meta_value FROM $wpdb->termmeta WHERE term_id = $term_id"
+            );
+            $term_meta = [];
+            foreach ((array) $term_meta_db as $o) {
+                $term_meta[$o->meta_key] = maybe_unserialize($o->meta_value);
+            }
+
+            if (!wp_installing() || !is_multisite()) {
+                wp_cache_add($cache_key, $term_meta, 'meta');
+            }
+        }
+
+        return $term_meta;
+    }
+
+    /**
      * This function loops through Flexible Modules or Repeater Fields and compiles a multidimensional array
      * containing the field keys/values in the post meta.
      *
