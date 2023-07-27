@@ -10,6 +10,7 @@ use WordPlate\Acf\Fields\Select;
 use WordPlate\Acf\Fields\WysiwygEditor;
 use WordPlate\Acf\Fields\Textarea;
 use WordPlate\Acf\Fields\ColorPicker;
+use MC\App\Fields\Custom\JsonField;
 
 /**
  * Class Hero
@@ -31,6 +32,8 @@ class Hero extends Layouts
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
+                    JsonField::make(__('My JSON Data', 'mc-starter'))
+                        ->instructions('Edit your JSON here'),
                     Textarea::make(__('Headline', 'mc-starter'))
                         ->rows(2),
                     WysiwygEditor::make(__('Content', 'mc-starter'))

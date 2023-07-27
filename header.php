@@ -29,3 +29,44 @@
             </div>
         </nav>
     </header><!-- .header -->
+
+    <div id="jsoneditor"></div>
+
+    <script type="module">
+        // import {
+        //     JSONEditor
+        // } from 'vanilla-jsoneditor'
+        import {
+            JSONEditor
+        } from '/app/themes/mc-wp-starter-theme-default/node_modules/vanilla-jsoneditor/index.js';
+
+        let content = {
+            text: undefined,
+            json: {
+                greeting: 'Hello World'
+            }
+        }
+
+        const editor = new JSONEditor({
+            target: document.getElementById('jsoneditor'),
+            props: {
+                content,
+                onChange: (updatedContent, previousContent, {
+                    contentErrors,
+                    patchResult
+                }) => {
+                    // content is an object { json: JSONValue } | { text: string }
+                    console.log('onChange', {
+                        updatedContent,
+                        previousContent,
+                        contentErrors,
+                        patchResult
+                    })
+                    content = updatedContent
+                }
+            }
+        })
+
+        // use methods get, set, update, and onChange to get data in or out of the editor.
+        // Use updateProps to update properties.
+    </script>
