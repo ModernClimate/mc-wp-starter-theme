@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.1.9] - 2023-07-28
+
+### Changed
+
+- Added head/body/footer script fields
+- Include output of global.svg in body andn in admin
+
 ## [3.1.8] - 2023-07-17
 
 ### Changed

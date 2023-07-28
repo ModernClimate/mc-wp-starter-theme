@@ -2,6 +2,8 @@
 
 namespace MC\App;
 
+use MC\App\Fields\ACF;
+use MC\App\Fields\Options;
 use MC\App\Interfaces\WordPressHooks;
 
 /**
@@ -19,6 +21,9 @@ class Scripts implements WordPressHooks
     {
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_action('wp_enqueue_scripts', [$this, 'enqueueStyles']);
+        add_action('mc/scripts/head', [$this, 'outputHeadScripts']);
+        add_action('mc/scripts/body', [$this, 'outputBodyScripts']);
+        add_action('mc/scripts/footer', [$this, 'outputFooterScripts']);
     }
 
     /**
@@ -50,5 +55,35 @@ class Scripts implements WordPressHooks
             [],
             THEME_VERSION
         );
+    }
+
+    /**
+     * Output scripts in the head.
+     */
+    public function outputHeadScripts()
+    {
+        $options = Options::getSiteOptions();
+        $scripts = ACF::getField('head-scripts', $options);
+        echo $scripts;
+    }
+
+    /**
+     * Output scripts in the body.
+     */
+    public function outputBodyScripts()
+    {
+        $options = Options::getSiteOptions();
+        $scripts = ACF::getField('body-scripts', $options);
+        echo $scripts;
+    }
+
+    /**
+     * Output scripts in the footer.
+     */
+    public function outputFooterScripts()
+    {
+        $options = Options::getSiteOptions();
+        $scripts = ACF::getField('footer-scripts', $options);
+        echo $scripts;
     }
 }
