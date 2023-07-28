@@ -7,9 +7,12 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
+    <?php do_action('mc/scripts/head'); ?>
 </head>
 
 <body <?php body_class(); ?>>
+    <?php do_action('mc/scripts/body'); ?>
+    <?php do_action('mc/styles/icons'); ?>
 
     <!-- skip to main content -->
     <a href="#primary" class="screen-reader-text"><?php _e('Skip to Main Content', 'mc-starter'); ?></a>

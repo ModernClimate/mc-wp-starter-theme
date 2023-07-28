@@ -18,6 +18,8 @@ class Setup implements WordPressHooks
     public function addHooks()
     {
         add_action('init', [$this, 'registerMenus']);
+        add_action('mc/styles/icons', [$this, 'outputInlineIcons']);
+        add_action('admin_head', [$this, 'outputInlineIcons']);
         add_action('widgets_init', [$this, 'registerSidebars'], 5);
     }
 
@@ -43,5 +45,16 @@ class Setup implements WordPressHooks
                 'after_widget'  => '</div>',
             ]
         );
+    }
+
+    /**
+     * Output inline svg icons
+     */
+    public function outputInlineIcons()
+    {
+        $file = locate_template('/assets/images/icons/global.svg');
+        if (file_exists($file)) {
+            include($file);
+        }
     }
 }

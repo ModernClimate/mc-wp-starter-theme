@@ -22,6 +22,7 @@
 </footer>
 
 <?php wp_footer(); ?>
+<?php do_action('mc/scripts/footer'); ?>
 
 </body>
 

@@ -4,6 +4,7 @@ namespace MC\App\Fields\FieldGroups;
 
 use WordPlate\Acf\Location;
 use MC\App\Fields\Options\Branding;
+use MC\App\Fields\Options\Scripts;
 
 /**
  * Class SiteOptionsFieldGroup
@@ -37,7 +38,8 @@ class SiteOptionsFieldGroup extends RegisterFieldGroups
         return apply_filters(
             'mc/field-group/site-options/fields',
             array_merge(
-                (new Branding())->fields()
+                (new Branding())->fields(),
+                (new Scripts())->fields(),
             )
         );
     }

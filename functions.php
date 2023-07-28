@@ -7,15 +7,15 @@
  */
 
 use MC\App\Core\Init;
-use MC\App\Setup;
 use MC\App\Scripts;
 use MC\App\Media;
+use MC\App\Setup;
 use MC\App\Shortcodes;
 use MC\App\Fields\ACF;
-use MC\App\Fields\Options;
 use MC\App\Fields\Modules;
-use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
+use MC\App\Fields\Options;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
+use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 
 // use MC\App\Blocks\RegisterBlocks;
 
@@ -23,7 +23,7 @@ use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
  * Define Theme Version
  * Define Theme directories
  */
-define('THEME_VERSION', '3.1.8');
+define('THEME_VERSION', '3.1.9');
 define('MC_THEME_DIR', trailingslashit(get_template_directory()));
 define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 

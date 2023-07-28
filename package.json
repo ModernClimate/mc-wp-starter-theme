@@ -1,6 +1,6 @@
 {
   "name": "mc-wp-starter-theme",
-  "version": "3.1.7",
+  "version": "3.1.9",
   "description": "Starter wordpress theme",
   "author": "Modern Climate",
   "repository": {
@@ -31,7 +31,7 @@
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^28.0.0",
-    "uikit": "^3.16^"
+    "uikit": "^3.16.19^"
   },
   "pre-commit": "lint",
   "scripts": {
