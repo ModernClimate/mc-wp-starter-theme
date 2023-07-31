@@ -1,0 +1,32 @@
+.mcx-card {
+  --card-body-bg: pink;
+  --card-media-bg: #eee;
+
+  display: flex;
+  flex-direction: column;
+
+  .card__media {
+    background-color: var(--card-media-bg);
+  }
+
+  .card__body {
+    background-color: var(--card-body-bg);
+  }
+
+  .card__eyebrow {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .card__headline {
+    font-size: 32px;
+  }
+
+  &--c1 {
+    --card-media-height: 650px;
+
+    .card__media {
+      height: var(--card-media-height);
+    }
+  }
+}

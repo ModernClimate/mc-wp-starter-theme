@@ -51,3 +51,8 @@ $breakpoint-xsmall-max: ($breakpoint-small - 1);
 $breakpoint-small-max: ($breakpoint-medium - 1);
 $breakpoint-medium-max: ($breakpoint-large - 1);
 $breakpoint-large-max: ($breakpoint-xlarge - 1);
+
+:root {
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+}

@@ -119,13 +119,16 @@
     }
   }
 
+  code {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
   pre {
     background: #eee;
     display: block;
-    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
     margin: 15px 0;
     padding: 15px;
-    white-space: pre;
   }
 
   sub,
