@@ -1,6 +1,6 @@
 <?php
 
-use MC\App\Fields\Util;
+use MC\App\Components\El;
 
 /**
  * Component: Accordion
@@ -44,7 +44,7 @@ do_action('mc/components/styles', $id, $data);
                             <div class="accordion-title__icon">%2$s</div>
                         </button>',
                         $title,
-                        Util::getIconHTML('arrow-dropdown')
+                        El::icon('arrow-dropdown')
                     );
 
                     $accordion_content = sprintf(

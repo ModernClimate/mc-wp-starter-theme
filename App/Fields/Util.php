@@ -58,18 +58,17 @@ class Util
         return $self_closing ? '<' . $element . $atts_output . ' />' : '<' . $element . $atts_output . '>' . $data . '</' . $element . '>';
     }
 
-
     /**
      * Helper/wrapper function that makes dealing with ACF image objects easier.
      * Grabs the required data from the ACF image object renders values into proper image markup.
      *
-     * @param $attachment
+     * @param object $attachment
      * @param string $size
      * @param array $args
      *
      * @return string
      */
-    public static function getImageHTML($attachment, $size = 'medium', $args = [])
+    public static function getImageHTML(object $attachment, string $size = 'medium', array $args = [])
     {
         $src    = ACF::getField($size, $attachment->sizes, $attachment->url);
         $alt    = !empty($attachment->alt) ? esc_attr($attachment->alt) : esc_attr($attachment->title);
@@ -103,12 +102,17 @@ class Util
     /**
      * Check for background options in module data and output inline styles.
      *
-     * @param $data
-     * @param $size
+     * @param array $data
+     * @param number $data['background_image'] - id of attachment
+     * @param string $data['background_color']
+     * @param string $data['background_repeat']
+     * @param string $data['background_position']
+     * @param string $data['background_size']
+     * @param string $size
      *
      * @return string
      */
-    public static function getInlineBackgroundStyles($data, $size = 'full')
+    public static function getInlineBackgroundStyles(array $data, string $size = 'full')
     {
         if (empty($data) || !isset($data['background'])) {
             return '';
@@ -129,63 +133,5 @@ class Util
         );
 
         return $styles;
-    }
-
-    /**
-     * Returns standardized icon html by name
-     *
-     * @param string $icon_name
-     *
-     * @return string
-     */
-    public static function getIconHTML($icon_name)
-    {
-        if (empty($icon_name)) {
-            return '';
-        }
-
-        return sprintf(
-            '<svg class="icon icon-%1$s" aria-hidden="true">
-                <use xlink:href="#icon-%1$s"></use>
-            </svg>',
-            $icon_name
-        );
-    }
-
-    /**
-     * Wrapper function for parsing button data and outputting proper markup.
-     *
-     * @param $link_array
-     * @param array $args
-     *
-     * @return string
-     */
-    public static function getButtonHTML($link_array, $args = [])
-    {
-        $output = '';
-        if (!isset($link_array['title'])) {
-            return $output;
-        }
-
-        $defaults = [
-            'class' => 'btn btn-primary',
-            'icon-end' => '',
-            'icon-start' => ''
-        ];
-        $atts = wp_parse_args($args, $defaults);
-        $icon_start = self::getIconHTML($atts['icon-start']);
-        $icon_end = self::getIconHTML($atts['icon-end']);
-
-        $output = sprintf(
-            '<a href="%2$s" target="%3$s" class="%4$s">%5$s%1$s%6$s</a>',
-            esc_html($link_array['title']),
-            esc_url($link_array['url']),
-            esc_attr($link_array['target']),
-            $atts['class'],
-            $icon_start,
-            $icon_end,
-        );
-
-        return $output;
     }
 }
