@@ -46,7 +46,6 @@ class Accordion extends Component
             ]
         ];
 
-        // Add items
         return $data;
     }
 }

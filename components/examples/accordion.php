@@ -6,7 +6,13 @@ use MC\App\Components\Models\Accordion;
 <section>
     <div class="uk-container uk-container-large">
         <div class="uk-width-1-1">
-            <h2>Accordion</h2>
+            <h2><?php _e('Accordion', 'mc-starter'); ?></h2>
+            <p><a href="https://getuikit.com/docs/accordion" target="_blank">https://getuikit.com/docs/accordion</a></p>
+        </div>
+    </div>
+    <div class="uk-container uk-container-large">
+        <div class="uk-width-1-1">
+            <h3><?php _e('Basic Use', 'mc-starter'); ?></h3>
         </div>
     </div>
     <div class="example">
@@ -20,35 +26,28 @@ use MC\App\Components\Models\Accordion;
     </div>
 
     <div class="uk-container uk-container-small entry__content">
-        <h4>Class</h4>
+        <h4><?php _e('Class', 'mc-starter'); ?></h4>
         <?php
         printf(
-            '<p class="code">
-                <code>use MC\App\Components\Models\Accordion;</code><br>
-                <br>
-                <code>$component = new Accordion(%1$s, %2$s);</code><br>
-            </p>',
-            '<strong>string</strong> <em>$template_name</em>',
-            '<strong>array</strong> <em>$data</em>'
+            '<pre><code>use MC\App\Components\Models\Accordion;
+$component = new Accordion(string $template_name, array $data);</code></pre>'
         );
         ?>
 
-        <h4>Usage</h4>
+        <h4><?php _e('Usage', 'mc-starter'); ?></h4>
         <?php
         printf(
-            '<p class="code code--usage">
-                <code>$data = Accordion::getMockData(\'accordion\');</code><br>
-                <code>$accordion = new Accordion(\'accordion\', $data);</code><br>
-                <code>echo $accordion->render();</code>
-            </p>',
+            '<pre><code>$data = Accordion::getMockData(\'accordion\');
+$accordion = new Accordion(\'accordion\', $data);
+echo $accordion->render();</code></pre>',
         );
         ?>
 
-        <h4>Expected Data Shape</h4>
+        <h4><?php _e('Expected Data Shape', 'mc-starter'); ?></h4>
         <?php
-        echo '<pre>';
+        echo '<pre><code>';
         print_r($data_accordion);
-        echo '</pre>';
+        echo '</code></pre>';
         ?>
     </div>
 </section>

@@ -1,0 +1,14 @@
+.button {
+  --button-flex-gap: 8px;
+
+  align-items: center;
+  display: inline-flex;
+  gap: var(--button-flex-gap);
+  justify-content: space-between;
+
+  .icon {
+    fill: currentColor;
+    height: 0.75rem;
+    width: 0.75rem;
+  }
+}

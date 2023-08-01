@@ -1,16 +1,23 @@
 .mcx-card {
-  --card-body-bg: pink;
-  --card-media-bg: #eee;
+  --card-body-bg: #eee;
+  --card-media-bg: #ddd;
+  --card-media-height: 300px;
 
   display: flex;
   flex-direction: column;
 
   .card__media {
     background-color: var(--card-media-bg);
+    height: var(--card-media-height);
   }
 
   .card__body {
     background-color: var(--card-body-bg);
+    padding: 30px;
+
+    @media (min-width: var(--breakpoint-large)) {
+      padding: 60px;
+    }
   }
 
   .card__eyebrow {
@@ -24,9 +31,16 @@
 
   &--c1 {
     --card-media-height: 650px;
+  }
 
-    .card__media {
-      height: var(--card-media-height);
-    }
+  &--c2 {
+    --card-media-height: 412px;
+  }
+
+  &--c3 {
+    --card-media-height: 412px;
+  }
+
+  &--c4 {
   }
 }

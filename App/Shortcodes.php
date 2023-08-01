@@ -19,17 +19,18 @@ class Shortcodes implements WordPressHooks
     {
         add_shortcode('button', [$this, 'button']);
         add_shortcode('tooltip', [$this, 'tooltip']);
+        add_shortcode('component', [$this, 'component']);
     }
 
     /**
      * Generate button markup
      *
-     * @param $atts
+     * @param array $atts
      * @param null $content
      *
      * @return string
      */
-    public function button($atts, $content = null)
+    public function button(array $atts, $content = null)
     {
         $atts = shortcode_atts(
             [
@@ -52,12 +53,12 @@ class Shortcodes implements WordPressHooks
     /**
      * Bootstrap tooltip markup
      *
-     * @param $atts
+     * @param array $atts
      * @param null $content
      *
      * @return string
      */
-    public function tooltip($atts, $content = null)
+    public function tooltip(array $atts, $content = null)
     {
         $atts = shortcode_atts(
             [
@@ -69,5 +70,39 @@ class Shortcodes implements WordPressHooks
         );
 
         return "<span data-toggle=\"tooltip\" data-placement=\"{$atts['placement']}\" title=\"{$atts['text']}\">" . do_shortcode($content) . "</span>";
+    }
+
+    /**
+     * Outputs example component and info
+     *
+     * @param array $atts
+     * @param null $content
+     *
+     * @return string
+     */
+    public function component(array $atts, $content = null)
+    {
+        $atts = shortcode_atts(
+            [
+                'name' => __('NO NAME ENTERED', 'mc-starter'),
+            ],
+            $atts,
+            'component'
+        );
+
+        if (in_array($atts['name'], MC_COMPONENTS)) {
+            $example_template = locate_template("components/examples/{$atts['name']}.php");
+            if (file_exists($example_template)) {
+                ob_start();
+                echo '<div class="example-components">';
+                include $example_template;
+                echo '</div>';
+                return ob_get_clean();
+            } else {
+                throw new Exception(__('Template file not found.', 'mc-starter'));
+            }
+        }
+
+        return __('Template file not found.', 'mc-starter');
     }
 }

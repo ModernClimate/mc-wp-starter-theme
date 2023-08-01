@@ -1,0 +1,65 @@
+.example-components {
+  h1 {
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin: 4rem 0;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 2rem 0;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin: 1rem 0;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 1rem 0;
+  }
+
+  hr {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+  pre {
+    padding: 0;
+
+    // code {
+    //   &.hljs {
+    //     padding: 25px;
+    //   }
+    // }
+  }
+
+  section {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+  }
+
+  .code--usage {
+    background-color: lightblue;
+  }
+
+  .code strong {
+    opacity: 0.5;
+  }
+
+  .example {
+    margin: 2rem 0 4rem;
+
+    &__icons {
+      .icon {
+        fill: currentColor;
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+  }
+}

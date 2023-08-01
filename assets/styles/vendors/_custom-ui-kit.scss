@@ -5,18 +5,31 @@
 // Import component styles from UIkit here. Documentation can be found at [https://getuikit.com/docs/introduction].
 
 // Layout
+@import 'node_modules/uikit/src/scss/components/animation.scss';
+@import 'node_modules/uikit/src/scss/components/background.scss';
+@import 'node_modules/uikit/src/scss/components/column.scss';
 @import 'node_modules/uikit/src/scss/components/container.scss';
-@import 'node_modules/uikit/src/scss/components/dotnav.scss';
 @import 'node_modules/uikit/src/scss/components/flex.scss';
 @import 'node_modules/uikit/src/scss/components/grid.scss';
+@import 'node_modules/uikit/src/scss/components/height.scss';
 @import 'node_modules/uikit/src/scss/components/margin.scss';
 @import 'node_modules/uikit/src/scss/components/padding.scss';
 @import 'node_modules/uikit/src/scss/components/position.scss';
+@import 'node_modules/uikit/src/scss/components/utility.scss';
 @import 'node_modules/uikit/src/scss/components/visibility.scss';
 @import 'node_modules/uikit/src/scss/components/width.scss';
 
 // Components
-@import 'node_modules/uikit/src/scss/components/accordion.scss';
-@import 'node_modules/uikit/src/scss/components/slidenav.scss';
+@import 'node_modules/uikit/src/scss/components/button.scss';
+@import 'node_modules/uikit/src/scss/components/dotnav.scss';
+@import 'node_modules/uikit/src/scss/components/dropdown.scss';
+@import 'node_modules/uikit/src/scss/components/form.scss';
+@import 'node_modules/uikit/src/scss/components/modal.scss';
+@import 'node_modules/uikit/src/scss/components/navbar.scss';
+@import 'node_modules/uikit/src/scss/components/offcanvas.scss';
+@import 'node_modules/uikit/src/scss/components/search.scss';
 @import 'node_modules/uikit/src/scss/components/slider.scss';
+@import 'node_modules/uikit/src/scss/components/slidenav.scss';
 @import 'node_modules/uikit/src/scss/components/slideshow.scss';
+@import 'node_modules/uikit/src/scss/components/switcher.scss';
+@import 'node_modules/uikit/src/scss/components/tab.scss';

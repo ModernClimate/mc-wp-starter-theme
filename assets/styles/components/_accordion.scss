@@ -2,6 +2,8 @@
   --accordion-item-border-color: #000;
   --accordion-item-border-width: 1px;
   --accordion-item-border-style: solid;
+  --accordion-item-border-radius: 7px;
+  --accordion-item-margin-bottom: 24px;
 
   --accordion-title-bg: #fff;
   --accordion-title-color: #000;
@@ -16,6 +18,9 @@
     & > li {
       border: var(--accordion-item-border-width)
         var(--accordion-item-border-style) var(--accordion-item-border-color);
+      border-radius: var(--accordion-item-border-radius);
+      margin-bottom: var(--accordion-item-margin-bottom);
+      overflow: hidden;
       width: 100%;
     }
   }

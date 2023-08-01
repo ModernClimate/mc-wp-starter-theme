@@ -1,0 +1,11 @@
+.mcx-modal {
+  &__close {
+    background: transparent;
+    border: none;
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

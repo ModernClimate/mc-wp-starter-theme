@@ -7,71 +7,60 @@ use MC\App\Components\Models\Hero;
 <section>
     <div class="uk-container uk-container-large">
         <div class="uk-width-1-1">
-            <h2>Hero</h2>
+            <h2><?php _e('Hero', 'mc-starter'); ?></h2>
         </div>
     </div>
 
     <div class="uk-container uk-container-large">
         <div class="uk-width-1-1">
-            <h3>Hero A1</h3>
+            <h3><?php _e('Hero A1', 'mc-starter'); ?></h3>
         </div>
     </div>
     <div class="example">
         <?php
-        $hero_a1_data = Hero::getMockData('a1');
-        $hero_a1 = new Hero('hero-a1', $hero_a1_data);
+        $data_hero_a1 = Hero::getMockData('a1');
+        $hero_a1 = new Hero('hero-a1', $data_hero_a1);
         echo $hero_a1->render();
         ?>
     </div>
 
     <div class="uk-container uk-container-large">
         <div class="uk-width-1-1">
-            <h3>Hero A2</h3>
+            <h3><?php _e('Hero A2', 'mc-starter'); ?></h3>
         </div>
     </div>
     <div class="example">
         <?php
-        $hero_a2_data = Hero::getMockData('a2');
-        $hero_a2 = new Hero('hero-a2', $hero_a2_data);
+        $data_hero_a2 = Hero::getMockData('a2');
+        $hero_a2 = new Hero('hero-a2', $data_hero_a2);
         echo $hero_a2->render();
         ?>
     </div>
 
     <div class="uk-container uk-container-small entry__content">
         <div class="uk-width-1-1">
-            <h4>Class</h4>
+            <h4><?php _e('Class', 'mc-starter'); ?></h4>
             <?php
             printf(
-                '<p class="code">
-                    <code>%1$s</code><br>
-                    <br>
-                    <code>$component = new Hero(%2$s, %3$s);</code><br>
-                </p>',
-                'use MC\App\Components\Models\Hero;',
-                '<strong>string</strong> <em>$template_name</em>',
-                '<strong>array</strong> <em>$data</em>'
+                '<pre><code>use MC\App\Components\Models\Hero;
+$component = new Hero(string $template_name, array $data);</code></pre>'
             );
             ?>
 
-            <h4>Usage</h4>
+            <h4><?php _e('Usage', 'mc-starter'); ?></h4>
             <?php
             printf(
-                '<p class="code code--usage">
-                    <code>%1$s</code><br>
-                    <code>%2$s</code><br>
-                    <code>%3$s</code>
-                </p>',
-                '$hero_a1_data = Hero::getMockData(\'a1\');',
-                '$hero_a1 = new Hero(\'hero-a1\', $hero_a1_data);',
-                'echo $hero_a1->render();'
+                '<pre><code>$data_hero_a1 = Hero::getMockData(\'a1\');
+$hero_a1 = new Hero(\'hero-a1\', $data_hero_a1);
+echo $hero_a1->render();</code></pre>',
             );
             ?>
 
-            <h4>Expected Data Shape</h4>
+            <h4><?php _e('Expected Data Shape', 'mc-starter'); ?></h4>
             <?php
-            echo '<pre>';
-            print_r($hero_a1_data);
-            echo '</pre>';
+            echo '<pre><code>';
+            print_r($data_hero_a1);
+            echo '</code></pre>';
             ?>
         </div>
     </div>

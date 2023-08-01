@@ -48,7 +48,21 @@ class Card extends Component
         $data = [
             'eyebrow' => $eyebrow,
             'headline' => $headline,
-            'content' => $content
+            'content' => $content,
+            'cta' => [
+                'label' => __('Read more', 'mc-starter'),
+                'url' => '#',
+            ],
+            'media' => [
+                'mobile' => [
+                    'url' => 'https://via.placeholder.com/600x400',
+                    'alt' => 'Placeholder',
+                ],
+                'desktop' => [
+                    'url' => 'https://via.placeholder.com/600x400',
+                    'alt' => 'Placeholder',
+                ],
+            ],
         ];
 
         return $data;

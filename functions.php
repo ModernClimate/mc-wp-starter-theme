@@ -17,6 +17,8 @@ use MC\App\Fields\Options;
 use MC\App\Fields\FieldGroups\PageBuilderFieldGroup;
 use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
 
+use MC\App\Components\Documentation;
+
 // use MC\App\Blocks\RegisterBlocks;
 
 /**
@@ -24,10 +26,11 @@ use MC\App\Fields\FieldGroups\SiteOptionsFieldGroup;
  * Define Theme directories
  */
 define('THEME_VERSION', '3.1.9');
+define('MC_SITE_URL', get_site_url());
 define('MC_THEME_DIR', trailingslashit(get_template_directory()));
 define('MC_THEME_PATH_URL', trailingslashit(get_template_directory_uri()));
 
-require __DIR__ . '/constants.php';
+require __DIR__ . '/constants/constants.php';
 
 // Require Autoloader
 require_once MC_THEME_DIR . 'vendor/autoload.php';
@@ -47,6 +50,7 @@ add_action('after_setup_theme', function () {
         ->add(new Modules())
         ->add(new SiteOptionsFieldGroup())
         ->add(new PageBuilderFieldGroup())
+        ->add(new Documentation())
         // ->add(new RegisterBlocks())
         ->initialize();
 
