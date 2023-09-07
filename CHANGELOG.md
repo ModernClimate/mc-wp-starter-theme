@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.2.0] - 2023-09-07
+
+### Changed
+
+- Add postcss to meet other peer dependencies
+- Update Extended ACF to latest
+
 ## [3.1.9] - 2023-07-28
 
 ### Changed
