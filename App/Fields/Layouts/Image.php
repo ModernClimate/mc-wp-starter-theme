@@ -21,11 +21,11 @@ class Image extends Layouts
     {
         return apply_filters(
             'mc/layout/image',
-            Layout::make('Image')
+            Layout::make(__('Image', 'mc-starter'), 'image')
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
-                    WPImage::make('Image')
+                    WPImage::make(__('Image', 'mc-starter'), 'image')
                         ->returnFormat('array')
                 ])
         );

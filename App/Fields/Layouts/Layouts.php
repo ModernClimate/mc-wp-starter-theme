@@ -2,7 +2,6 @@
 
 namespace MC\App\Fields\Layouts;
 
-use MC\App\Fields\ACF;
 use Extended\ACF\Fields\Tab;
 
 /**

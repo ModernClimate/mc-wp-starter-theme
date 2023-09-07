@@ -2,8 +2,8 @@
 
 namespace MC\App\Fields\Options;
 
-use Extended\ACF\Fields\Tab;
-use Extended\ACF\Fields\Textarea;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Textarea;
 
 /**
  * Class Scripts

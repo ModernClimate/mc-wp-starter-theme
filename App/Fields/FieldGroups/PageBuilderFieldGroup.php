@@ -2,14 +2,13 @@
 
 namespace MC\App\Fields\FieldGroups;
 
+use Extended\ACF\Location;
+use Extended\ACF\Fields\FlexibleContent;
 use MC\App\Fields\Layouts\Carousel;
 use MC\App\Fields\Layouts\ContentArea;
 use MC\App\Fields\Layouts\Hero;
 use MC\App\Fields\Layouts\Image;
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
-
-use Extended\ACF\Location;
-use Extended\ACF\Fields\FlexibleContent;
 
 /**
  * Class PageBuilderFieldGroup
@@ -19,7 +18,7 @@ use Extended\ACF\Fields\FlexibleContent;
 class PageBuilderFieldGroup extends RegisterFieldGroups
 {
     /**
-     * Register Field Group via Wordplate
+     * Register Field Group via Extended ACF
      */
     public function registerFieldGroup()
     {

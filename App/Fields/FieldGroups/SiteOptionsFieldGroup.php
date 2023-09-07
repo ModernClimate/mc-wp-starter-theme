@@ -14,7 +14,7 @@ use MC\App\Fields\Options\Scripts;
 class SiteOptionsFieldGroup extends RegisterFieldGroups
 {
     /**
-     * Register Field Group via Wordplate
+     * Register Field Group via Extended ACF
      */
     public function registerFieldGroup()
     {

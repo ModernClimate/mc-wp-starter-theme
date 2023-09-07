@@ -22,13 +22,13 @@ class ContentArea extends Layouts
     {
         return apply_filters(
             'mc/layout/content-area',
-            Layout::make(__('Content Area', 'mc-starter'))
+            Layout::make(__('Content Area', 'mc-starter'), 'content-area')
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
-                    Textarea::make(__('Headline', 'mc-starter'))
+                    Textarea::make(__('Headline', 'mc-starter'), 'headline')
                         ->rows(2),
-                    WysiwygEditor::make(__('Content', 'mc-starter'))
+                    WysiwygEditor::make(__('Content', 'mc-starter'), 'content')
                         ->mediaUpload(false)
                 ])
         );
