@@ -41,7 +41,7 @@
     "lint": "yarn lint:format && yarn lint:fix ",
     "lint:fix": "eslint ./assets --ext .js,.ts, --quiet --fix --ignore-path ./.gitignore",
     "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,ts,css,scss,php,md,json}\" ",
-    "postinstall": "composer install && yarn run build",
+    "postinstall": "composer install --ignore-platform-reqs && yarn run build",
     "watch": "tsc && vite build --watch"
   }
 }
