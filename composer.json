@@ -13,7 +13,7 @@
     }
   },
   "require": {
-    "vinkla/extended-acf": "13.7.0"
+    "vinkla/extended-acf": "^13.7.1"
   },
   "require-dev": {
     "php-stubs/acf-pro-stubs": "*"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb60c76508aa6ac3236f6fc9bdaca5ce",
+    "content-hash": "f2f61fb2803ed97af96dde600eaed88b",
     "packages": [
         {
             "name": "vinkla/extended-acf",
