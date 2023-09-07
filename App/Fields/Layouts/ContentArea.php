@@ -2,9 +2,9 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Fields\Textarea;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Fields\Textarea;
 
 /**
  * Class ContentArea

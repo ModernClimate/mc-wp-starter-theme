@@ -2,8 +2,8 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Image as WPImage;
-use WordPlate\Acf\Fields\Layout;
+use Extended\ACF\Fields\Image as WPImage;
+use Extended\ACF\Fields\Layout;
 
 /**
  * Class Image

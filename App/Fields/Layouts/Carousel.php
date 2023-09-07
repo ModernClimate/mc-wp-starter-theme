@@ -2,11 +2,11 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\ButtonGroup;
-use WordPlate\Acf\Fields\Image as WPImage;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Select;
+use Extended\ACF\Fields\ButtonGroup;
+use Extended\ACF\Fields\Image as WPImage;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
 
 /**
  * Class Carousel

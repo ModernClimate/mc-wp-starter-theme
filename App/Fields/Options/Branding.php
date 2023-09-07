@@ -2,8 +2,8 @@
 
 namespace MC\App\Fields\Options;
 
-use WordPlate\Acf\Fields\Tab;
-use WordPlate\Acf\Fields\Image;
+use Extended\ACF\Fields\Tab;
+use Extended\ACF\Fields\Image;
 
 /**
  * Class Branding

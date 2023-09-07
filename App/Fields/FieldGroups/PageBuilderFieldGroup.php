@@ -8,8 +8,8 @@ use MC\App\Fields\Layouts\Hero;
 use MC\App\Fields\Layouts\Image;
 use MC\App\Fields\FieldGroups\RegisterFieldGroups;
 
-use WordPlate\Acf\Location;
-use WordPlate\Acf\Fields\FlexibleContent;
+use Extended\ACF\Location;
+use Extended\ACF\Fields\FlexibleContent;
 
 /**
  * Class PageBuilderFieldGroup
@@ -27,7 +27,7 @@ class PageBuilderFieldGroup extends RegisterFieldGroups
             'title'    => __('Page Builder', 'mc-starter'),
             'fields'   => $this->getFields(),
             'location' => [
-                Location::if('page_template', 'templates/page-builder.php')
+                Location::where('page_template', 'templates/page-builder.php')
             ],
             'style' => 'default'
         ]);

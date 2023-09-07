@@ -111,9 +111,11 @@ Select::make(__('Select', 'mc-starter'))
     ->choices([
         'choice-1' => __('Choice 1', 'mc-starter'),
         'choice-2' => __('Choice 2', 'mc-starter'),
+        'choice-3' => __('Choice 3', 'mc-starter'),
     ]),
 Text::make(__('Text', 'mc-starter'))
     ->conditionalLogic([
-        ConditionalLogic::if('select')->equals('choice-1')
+        ConditionalLogic::where('select', '==', 'choice-1')
+          ->or('select', '==', 'choice-2')
     ]);
 ```

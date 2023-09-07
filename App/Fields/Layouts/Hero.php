@@ -2,14 +2,14 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Link;
-use WordPlate\Acf\Fields\Group;
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Select;
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Fields\Textarea;
-use WordPlate\Acf\Fields\ColorPicker;
+use Extended\ACF\Fields\Link;
+use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Fields\Textarea;
+use Extended\ACF\Fields\ColorPicker;
 
 /**
  * Class Hero
