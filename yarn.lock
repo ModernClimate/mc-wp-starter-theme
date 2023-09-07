@@ -1862,6 +1862,15 @@ postcss@^8.4.21:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+postcss@^8.4.29:
+  version "8.4.29"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.29.tgz#33bc121cf3b3688d4ddef50be869b2a54185a1dd"
+  integrity sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==
+  dependencies:
+    nanoid "^3.3.6"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
 pre-commit@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/pre-commit/-/pre-commit-1.2.2.tgz#dbcee0ee9de7235e57f79c56d7ce94641a69eec6"
@@ -2401,10 +2410,10 @@ typescript@^4.6.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
 
-uikit@^3.16:
-  version "3.16.15"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.16.15.tgz#47599dc1851bd803bc2a760da3a946d55a6dc290"
-  integrity sha512-uw0vn+h+isInT4Eq/CPxwQx5X0CDS2I9FQwgnxHyDDXOBEnnMEpCxiQWEvVgwkelJlMh/Qv+2ePyXVcb9Wx93A==
+uikit@^3.16.0:
+  version "3.16.26"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.16.26.tgz#90c2cde94626546c42d0b7c8f1bedafeedb909b6"
+  integrity sha512-5NCaHqgYIzTVDMxix9tUb4pJn478GdIxEodWuWy/eMf3mi7EWZPyVQxPEos71H0hrr7xC6i0TK6tjOSfF7gkOA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
