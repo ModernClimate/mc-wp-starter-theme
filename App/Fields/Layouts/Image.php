@@ -2,8 +2,8 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Image as WPImage;
-use WordPlate\Acf\Fields\Layout;
+use Extended\ACF\Fields\Image as WPImage;
+use Extended\ACF\Fields\Layout;
 
 /**
  * Class Image
@@ -21,11 +21,11 @@ class Image extends Layouts
     {
         return apply_filters(
             'mc/layout/image',
-            Layout::make('Image')
+            Layout::make(__('Image', 'mc-starter'), 'image')
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
-                    WPImage::make('Image')
+                    WPImage::make(__('Image', 'mc-starter'), 'image')
                         ->returnFormat('array')
                 ])
         );

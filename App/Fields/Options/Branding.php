@@ -2,8 +2,8 @@
 
 namespace MC\App\Fields\Options;
 
-use WordPlate\Acf\Fields\Tab;
-use WordPlate\Acf\Fields\Image;
+use Extended\ACF\Fields\Tab;
+use Extended\ACF\Fields\Image;
 
 /**
  * Class Branding
@@ -22,9 +22,9 @@ class Branding
         return apply_filters(
             'mc/options/branding',
             [
-                Tab::make('Branding')
+                Tab::make(__('Branding', 'mc-starter'))
                     ->placement('left'),
-                Image::make('Site Logo')
+                Image::make(__('Site Logo', 'mc-starter'), 'site-logo')
                     ->returnFormat('array')
                     ->previewSize('thumbnail')
             ]

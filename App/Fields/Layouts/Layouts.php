@@ -2,8 +2,7 @@
 
 namespace MC\App\Fields\Layouts;
 
-use MC\App\Fields\ACF;
-use WordPlate\Acf\Fields\Tab;
+use Extended\ACF\Fields\Tab;
 
 /**
  * Class Layouts

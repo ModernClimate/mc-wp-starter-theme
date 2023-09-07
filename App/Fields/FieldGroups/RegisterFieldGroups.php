@@ -21,7 +21,7 @@ abstract class RegisterFieldGroups implements WordPressHooks
     }
 
     /**
-     * Register Field Group via WordPlate
+     * Register Field Group via Extended ACF
      */
     abstract public function registerFieldGroup();
 

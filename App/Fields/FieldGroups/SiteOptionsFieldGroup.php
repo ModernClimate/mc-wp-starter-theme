@@ -2,7 +2,7 @@
 
 namespace MC\App\Fields\FieldGroups;
 
-use WordPlate\Acf\Location;
+use Extended\ACF\Location;
 use MC\App\Fields\Options\Branding;
 use MC\App\Fields\Options\Scripts;
 
@@ -14,7 +14,7 @@ use MC\App\Fields\Options\Scripts;
 class SiteOptionsFieldGroup extends RegisterFieldGroups
 {
     /**
-     * Register Field Group via Wordplate
+     * Register Field Group via Extended ACF
      */
     public function registerFieldGroup()
     {
@@ -22,7 +22,7 @@ class SiteOptionsFieldGroup extends RegisterFieldGroups
             'title'    => __('Site Options', 'mc-starter'),
             'fields'   => $this->getFields(),
             'location' => [
-                Location::if('options_page', 'theme-general-options')
+                Location::where('options_page', 'theme-general-options')
             ],
             'style' => 'default'
         ]);

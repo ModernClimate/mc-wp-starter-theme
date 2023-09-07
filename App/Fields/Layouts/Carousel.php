@@ -2,11 +2,11 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\ButtonGroup;
-use WordPlate\Acf\Fields\Image as WPImage;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Select;
+use Extended\ACF\Fields\ButtonGroup;
+use Extended\ACF\Fields\Image as WPImage;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
 
 /**
  * Class Carousel
@@ -24,16 +24,16 @@ class Carousel extends Layouts
     {
         return apply_filters(
             'mc/layout/carousel',
-            Layout::make(__('Carousel'), 'carousel')
+            Layout::make(__('Carousel', 'mc-starter'), 'carousel')
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
-                    Repeater::make(__('Carousel Items'))
+                    Repeater::make(__('Carousel Items', 'mc-starter'), 'carousel-items')
                         ->layout('block')
                         ->min(1)
-                        ->buttonLabel(__('Add Item'))
+                        ->buttonLabel(__('Add Item', 'mc-starter'))
                         ->fields([
-                            WPImage::make('Image')
+                            WPImage::make(__('Image', 'mc-starter'), 'image')
                                 ->returnFormat('array'),
                         ]),
                     $this->optionsTab(),

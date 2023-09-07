@@ -2,14 +2,14 @@
 
 namespace MC\App\Fields\Layouts;
 
-use WordPlate\Acf\Fields\Link;
-use WordPlate\Acf\Fields\Group;
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Select;
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Fields\Textarea;
-use WordPlate\Acf\Fields\ColorPicker;
+use Extended\ACF\Fields\Link;
+use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Fields\Textarea;
+use Extended\ACF\Fields\ColorPicker;
 
 /**
  * Class Hero
@@ -31,20 +31,20 @@ class Hero extends Layouts
                 ->layout('block')
                 ->fields([
                     $this->contentTab(),
-                    Textarea::make(__('Headline', 'mc-starter'))
+                    Textarea::make(__('Headline', 'mc-starter'), 'headline')
                         ->rows(2),
-                    WysiwygEditor::make(__('Content', 'mc-starter'))
+                    WysiwygEditor::make(__('Content', 'mc-starter'), 'content')
                         ->mediaUpload(false),
-                    Link::make(__('Button', 'mc-starter'))
+                    Link::make(__('Button', 'mc-starter'), 'button')
                         ->returnFormat('array'),
                     $this->optionsTab(),
-                    Group::make(__('Background', 'mc-starter'))
+                    Group::make(__('Background', 'mc-starter'), 'background')
                         ->layout('block')
                         ->fields([
-                            Image::make(__('Image', 'mc-starter'))
+                            Image::make(__('Image', 'mc-starter'), 'image')
                                 ->previewSize('thumbnail'),
-                            ColorPicker::make(__('Color', 'mc-starter')),
-                            Select::make(__('Repeat', 'mc-starter'))
+                            ColorPicker::make(__('Color', 'mc-starter'), 'color'),
+                            Select::make(__('Repeat', 'mc-starter'), 'repeat')
                                 ->choices([
                                     'no-repeat' => __('No Repeat', 'mc-starter'),
                                     'repeat'    => __('Repeat', 'mc-starter'),
@@ -56,7 +56,7 @@ class Hero extends Layouts
                                 ->wrapper([
                                     'width' => '33.33'
                                 ]),
-                            Select::make(__('Position', 'mc-starter'))
+                            Select::make(__('Position', 'mc-starter'), 'position')
                                 ->choices([
                                     'left top'      => __('Left / Top', 'mc-starter'),
                                     'left center'   => __('Left / Center', 'mc-starter'),
@@ -73,7 +73,7 @@ class Hero extends Layouts
                                 ->wrapper([
                                     'width' => '33.33'
                                 ]),
-                            Select::make(__('Size', 'mc-starter'))
+                            Select::make(__('Size', 'mc-starter'), 'size')
                                 ->choices([
                                     'auto auto' => __('Auto', 'mc-starter'),
                                     'cover'     => __('Cover', 'mc-starter'),

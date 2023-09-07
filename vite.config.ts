@@ -14,7 +14,23 @@ export default defineConfig({
         entryFileNames: () => {
           return `scripts/[name].min.js`;
         },
-        assetFileNames: () => {
+        assetFileNames: (asset) => {
+          const fontExtensions = ['.ttf', '.woff', '.woff2', '.eot'];
+          const isFont = fontExtensions.some((ext) => {
+            return asset.name?.endsWith(ext);
+          });
+          if (isFont) {
+            return 'styles/fonts/[name].[ext]';
+          }
+
+          const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg'];
+          const isImage = imageExtensions.some((ext) => {
+            return asset.name?.endsWith(ext);
+          });
+          if (isImage) {
+            return 'styles/images/[name].[ext]';
+          }
+
           return `styles/[name].min.[ext]`;
         },
       },
@@ -27,4 +43,5 @@ export default defineConfig({
       'uikit-util': 'uikit/src/js/util',
     },
   },
+  base: '',
 });
