@@ -11,8 +11,8 @@ use MC\App\Fields\ACF;
 use MC\App\Fields\Util;
 
 $headline = ACF::getField('headline', $data);
-$content  = ACF::getField('content', $data);
-$button   = ACF::getField('button', $data);
+$content = ACF::getField('content', $data);
+$button = ACF::getField('button', $data);
 
 do_action('mc/modules/styles', $row_id, $data);
 ?>
