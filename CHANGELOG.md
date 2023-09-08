@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.2.1] - 2023-09-08
+
+### Changed
+
+- modified $new_key in getRowsLayout in ACF.php to support nested modules
+
 ## [3.2.0] - 2023-09-07
 
 ### Changed
