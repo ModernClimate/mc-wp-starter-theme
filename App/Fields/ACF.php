@@ -111,7 +111,7 @@ class ACF implements WordPressHooks
                 // check if our key matches the selector we need.
                 if (strpos($key, $prefix) === 0) {
                     // strip the current key of its prefixed selector to clean up our return array.
-                    $new_key = str_replace($prefix, '', $key);
+                    $new_key = substr_replace($key, '', 0, strlen($prefix));
 
                     // set our key and value.
                     $modules[$i][$new_key] = $value;
