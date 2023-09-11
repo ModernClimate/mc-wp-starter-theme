@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Versions
 
+## [3.2.2] - 2023-09-11
+
+### Changed
+
+- added a filter to ACF.php -> addHooks() to hide ACF menu item from all users
+
 ## [3.2.1] - 2023-09-08
 
 ### Changed
