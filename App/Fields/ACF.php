@@ -21,6 +21,8 @@ class ACF implements WordPressHooks
         add_filter('acf/settings/l10n_textdomain', function () {
             return 'mc-starter';
         });
+        // Hiding the ACF menu item from all users
+        add_filter('acf/settings/show_admin', '__return_false');
     }
 
     /**
